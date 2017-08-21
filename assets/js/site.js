@@ -39,6 +39,7 @@ $(document)
             })
         ;
         $('.ui.tabular.menu .item').tab();
+        $('.ui.tabbed.menu .item').tab();
         $('.ui.sortable.table').tablesort();
 
         $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
@@ -156,7 +157,7 @@ $('.visibility.toggle').click(function() {
 
         // Provide feedback through button
         $(this)
-            // Change button styling to indicate that target is visible now
+        // Change button styling to indicate that target is visible now
             .removeClass('disabled')
             // Inform user that the button will hide the target in this state
             .attr('data-content',$(this).data('content').replace(/Show|View|Display/,'Hide'))
@@ -258,6 +259,65 @@ var queries = [
                         .addClass('ui grid')
                         .slick('unslick')
                     ;
+                })
+            ;
+        }
+    },{
+        // Turn Tabs into an accordion on mobile
+        context: 'mobile',
+        match: function() {
+            $(document)
+                .ready(function() {
+                    // Move content below the heading
+                    $('.tab.segment')
+                        .each(function() {
+                            var target = $('.tabular.menu .item[data-tab="' + $(this).data('tab') + '"]');
+
+                            $(target).after(this);
+                        })
+                        .removeClass('active tab segment')
+                        .addClass('mobile content')
+                    ;
+
+                    // Remove tabular classes
+                    $('.tabular.menu .item')
+                        .removeClass('item')
+                        .addClass('mobile title')
+                    ;
+                    $('.tabular.menu')
+                        .removeClass('tabular menu')
+                        .addClass('mobile fluid styled accordion')
+                        .accordion()
+                    ;
+                })
+            ;
+        },
+        unmatch: function() {
+            // We're leaving mobile
+            $(document)
+                .ready(function() {
+
+                    // Revert all classes back to normal
+                    $('.mobile.accordion')
+                        .removeClass('ui mobile fluid styled accordion')
+                        .addClass('ui top attached tabular menu')
+                    ;
+                    $('.mobile.title')
+                        .removeClass('mobile title')
+                        .addClass('item')
+                    ;
+                    $('.mobile.content')
+                        .removeClass('mobile content')
+                        .addClass('ui bottom attached tab segment')
+
+                        // Move content back to original position
+                        .each(function() {
+                            $(this).closest('.top.attached.menu').after($(this));
+                        })
+                    ;
+
+                    // Attach JS again, just to be sure
+                    $('.ui.tabular.menu .item').tab();
                 })
             ;
         }

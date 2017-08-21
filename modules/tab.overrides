@@ -1,3 +1,21 @@
 /*******************************
          Tab Overrides
 *******************************/
+
+.ui.tabular.menu {
+    // Make sure cursor changes to pointer if element is not an <a>
+    > .item:hover {
+        cursor: pointer;
+    }
+}
+
+.ui.tab {
+    // Fix margin issues on mobile for tabs with nested stackable grids
+    @media only screen and (max-width: @largestMobileScreen) {
+        .ui.stackable.grid > .column,
+        .ui.stackable.grid > .row > .column {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+}
