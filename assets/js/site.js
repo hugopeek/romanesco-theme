@@ -269,24 +269,33 @@ var queries = [
             $(document)
                 .ready(function() {
                     // Move content below the heading
-                    $('.tab.segment')
+                    $('.reducible.tab.segment')
                         .each(function() {
-                            var target = $('.tabular.menu .item[data-tab="' + $(this).data('tab') + '"]');
+                            var target = $('.menu .item[data-tab="' + $(this).data('tab') + '"]');
 
                             $(target).after(this);
                         })
-                        .removeClass('active tab segment')
-                        .addClass('mobile content')
+                        .removeClass('tab segment')
+                        .addClass('reduced content')
+                    ;
+
+                    // If pointing segments are used, temporarily disable them
+                    $('.reducible.tabbed.menu > .pointing.segment')
+                        .removeClass('segment')
+                        .addClass('dormant-segment')
                     ;
 
                     // Remove tabular classes
-                    $('.tabular.menu .item')
+                    $('.reducible.tabular.menu > .item, .reducible.tabbed.menu > .item')
                         .removeClass('item')
-                        .addClass('mobile title')
+                        .addClass('reduced title')
+                        .tab({
+                            deactivate: 'all'
+                        })
                     ;
-                    $('.tabular.menu')
+                    $('.reducible.tabular.menu, .reducible.tabbed.menu')
                         .removeClass('tabular menu')
-                        .addClass('mobile fluid styled accordion')
+                        .addClass('fluid styled accordion')
                         .accordion()
                     ;
                 })
@@ -298,26 +307,44 @@ var queries = [
                 .ready(function() {
 
                     // Revert all classes back to normal
-                    $('.mobile.accordion')
-                        .removeClass('ui mobile fluid styled accordion')
-                        .addClass('ui top attached tabular menu')
+                    $('.reducible.accordion')
+                        .removeClass('fluid styled accordion')
+
+                        // Depending on their menu type, attach either tabbed or tabular
+                        .each(function() {
+                            if ($(this).hasClass('tabbed')) {
+                                $(this).addClass('menu');
+                            } else {
+                                $(this).addClass('tabular menu');
+                            }
+                        })
                     ;
-                    $('.mobile.title')
-                        .removeClass('mobile title')
+                    $('.reduced.title')
+                        .removeClass('reduced title')
                         .addClass('item')
                     ;
-                    $('.mobile.content')
-                        .removeClass('mobile content')
-                        .addClass('ui bottom attached tab segment')
+                    $('.dormant-segment')
+                        .removeClass('dormant-segment')
+                        .addClass('segment')
+                    ;
+                    $('.reduced.content')
+                        .removeClass('reduced content')
+                        .addClass('tab segment')
 
                         // Move content back to original position
                         .each(function() {
-                            $(this).closest('.top.attached.menu').after($(this));
+                            if (($(this).data('menu-position') === 'right') || ($(this).data('menu-position') === 'left')) {
+                                $(this).closest('.grid').find('.stretched.column').append($(this));
+                                $(this).closest('.grid').find('.menu').addClass('fluid');
+                            } else {
+                                $(this).closest('.menu').after($(this));
+                            }
                         })
                     ;
 
-                    // Attach JS again, just to be sure
-                    $('.ui.tabular.menu .item').tab();
+                    // Attach JS again
+                    $('.ui.reducible.tabular.menu .item').tab();
+                    $('.ui.reducible.tabbed.menu .item').tab();
                 })
             ;
         }
