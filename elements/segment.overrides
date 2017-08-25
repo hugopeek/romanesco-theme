@@ -154,6 +154,41 @@
         }
     }
 
+    // Right pointer
+    &.right {
+        &:after,
+        &:before {
+            left: 100%;
+            top: 50%;
+        }
+        &:after {
+            border-left-color: @secondaryBackground;
+            margin-top: -@triangleSize;
+        }
+        &:before {
+            border-left-color: @borderColor;
+            margin-top: -@triangleSize - 1px;
+        }
+    }
+
+    // Up pointer
+    &.up {
+        &:after,
+        &:before {
+            bottom: 100%;
+            left: 50%;
+        }
+        &:after {
+            border-bottom-color: @secondaryBackground;
+            border-width: @triangleSize;
+            margin-left: -@triangleSize;
+        }
+        &:before {
+            border-bottom-color: @borderColor;
+            margin-left: -@triangleSize - 1px;
+        }
+    }
+
     // Change background to white on colored segments
     .stripe.segment:not(.white) & {
         background: #fff;

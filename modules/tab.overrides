@@ -2,10 +2,35 @@
          Tab Overrides
 *******************************/
 
-.ui.tabular.menu {
-    // Make sure cursor changes to pointer if element is not an <a>
+.ui.tabular.menu,
+.ui.tabbed.menu {
+
+    // Restore margins in justified menus
+    &.item .item {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+        text-align: left; // Centered default was blocking other variation options
+    }
+
+    // Make sure cursor changes to pointer if element is not an <a> tag
     > .item:hover {
         cursor: pointer;
+    }
+
+    // Small adjustments for pointing segments used as menu buttons
+    > .pointing.segment {
+        &:not(.active) {
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+        &.down {
+            margin-bottom: 1em;
+        }
+        &.up {
+            margin-top: 1em;
+        }
     }
 }
 
