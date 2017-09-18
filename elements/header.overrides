@@ -45,29 +45,35 @@
     }
 }
 
-// Regulate font size and margins of main content headers
+// Increase font size and margins of main content headers
 .ui.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
-        font-size: 2.8rem;
+        @media only screen and (min-width: @tabletBreakpoint) {
+            font-size: @h1 * 1.3;
+        }
 
-        .sub.header {
+        > .sub.header {
             margin-top: 1rem;
-            margin-bottom: 4rem;
-            font-size: 1.6rem;
+            margin-bottom: 2rem;
 
-            // Make sure links are always readable on same color backgrounds
-            &.inverted a {
-                font-weight: bold;
-                color: @invertedTextColor;
-                &:hover {
-                    color: @invertedHoveredTextColor;
-                }
+            @media screen and (min-width: @tabletBreakpoint) {
+                margin-bottom: 4rem;
+                font-size: @fontSize * 1.3;
             }
+        }
+    }
 
-            // Different vertical rhythm for mobile and tablet
-            @media screen and (max-width: @tabletBreakpoint) {
-                margin-bottom: 2rem;
+    // A little love for headers that are not H1
+    > h2.header,
+    > .column > h2.header {
+        @media screen and (min-width: @tabletBreakpoint) {
+            font-size: @h2 * 1.3;
+
+            > .sub.header {
+                margin-top: .8rem;
+                margin-bottom: 3rem;
+                font-size: @fontSize * 1.2;
             }
         }
     }
