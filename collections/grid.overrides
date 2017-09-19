@@ -59,6 +59,14 @@
     }
 }
 
+// Extend stackable behaviour to tablet breakpoint if desired
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+    .ui.stackable[class*="on tablet"].grid > .column,
+    .ui.stackable[class*="on tablet"].grid > .row > .column {
+        width: 100% !important;
+    }
+}
+
 // Add a compact column to equal width grids
 // Compact columns only take up the width of their content
 .ui.equal.width.grid .compact.column {
