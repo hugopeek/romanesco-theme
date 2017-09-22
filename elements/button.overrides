@@ -17,9 +17,10 @@
         margin-top: 0.5em;
     }
 
-    // Menu buttons don't need any margins
-    .menu & {
-        margin: 0;
+    // Some buttons don't need any margins
+    .menu &,
+    .ui.buttons & {
+        margin: 0 !important;
     }
 
     // Buttons in multiple file uploader have some quirks
