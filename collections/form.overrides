@@ -12,8 +12,13 @@
     }
 
     // Styling tweaks for specific field types
-    .checkbox.field > label {
-        font-weight: normal !important;
+    .checkbox.field {
+        > label {
+            font-weight: normal !important;
+        }
+        + span.help {
+            display: block;
+        }
     }
     .file-upload.field {
         > label {
