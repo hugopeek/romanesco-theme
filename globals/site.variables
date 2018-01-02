@@ -25,10 +25,16 @@
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 14px;
+@emSize         : 14px;
+
+/* Custom addition
+   This variable is used for scaling other values proportionally
+*/
+@scaleRatio     : 1.25;
 
 /* The size of page text  */
-@fontSize : 1.2rem;
+@fontSize       : 1.25rem;
+@lineHeight     : 1.45;
 
 
 /*-------------------
@@ -59,13 +65,13 @@
 ---------------*/
 
 @headerFontWeight : bold;
-@headerLineHeight : 1.1em;
+@headerLineHeight : 1.2;
 
-@h1 : 2.3rem;
-@h2 : 1.8rem;
-@h3 : 1.5rem;
-@h4 : 1.3rem;
-@h5 : 1.2rem;
+@h1 : unit(@h2) * @scaleRatio * 1rem;
+@h2 : unit(@h3) * @scaleRatio * 1rem;
+@h3 : unit(@h4) * @scaleRatio * 1rem;
+@h4 : unit(@h5) * @scaleRatio * 1rem;
+@h5 : @fontSize;
 
 /*--------------
    Form Input
@@ -97,14 +103,13 @@
 @pageBackground      : #FFFFFF;
 @pageOverflowX       : hidden;
 
-@lineHeight          : 1.4285em;
 @textColor           : rgba(0, 0, 0, 0.87);
 
 /*-------------------
       Paragraph
 --------------------*/
 
-@paragraphMargin     : 0em 0em 1.2em;
+@paragraphMargin     : 0em 0em @scaleRatio * 1em;
 @paragraphLineHeight : @lineHeight;
 
 /*-------------------
@@ -375,7 +380,7 @@
 
 /* Header Spacing */
 @headerTopMargin    : ~"calc(2rem - "@headerLineHeightOffset~")";
-@headerBottomMargin : 1.2rem;
+@headerBottomMargin : 0.5em;
 @headerMargin       : @headerTopMargin 0em @headerBottomMargin;
 
 /* Minimum Mobile Width */

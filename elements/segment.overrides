@@ -7,7 +7,7 @@
 
 .ui.segments .segment,
 .ui.segment {
-    font-size: @fontSize;
+    font-size: inherit;
 }
 
 // Segment containing the header of the page

@@ -135,6 +135,13 @@ body:after {
         bottom: -0.5rem;
         right: -1%;
     }
+
+    p {
+        font-size: @relativeLarge;
+    }
+    footer {
+        color: @mutedTextColor;
+    }
 }
 
 blockquote:not(.quote),
@@ -146,8 +153,8 @@ blockquote:not(.quote),
 }
 
 .lead {
-    font-size: 1.6rem;
-    line-height: @lineHeight + 0.15rem;
+    font-size: @scaleRatio * 1em !important;
+    line-height: @lineHeight !important;
     color: @mutedTextColor;
 }
 
