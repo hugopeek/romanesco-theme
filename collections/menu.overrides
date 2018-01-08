@@ -58,7 +58,7 @@
         margin: 0 0 0 0.3em;
         font-weight: bold;
 
-        @media (max-width: @computerBreakpoint) {
+        @media (max-width: @largestTabletScreen) {
             display: none;
         }
     }
@@ -82,7 +82,7 @@
             margin: 0 0 0 1.5rem;
             padding: 0;
 
-            @media (max-width: @computerBreakpoint) {
+            @media (max-width: @largestTabletScreen) {
                 display: flex;
             }
         }

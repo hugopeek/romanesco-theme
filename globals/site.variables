@@ -7,10 +7,11 @@
 --------------------*/
 
 @fontName          : 'Source Sans Pro';
+@fontFallback      : 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @fontSmoothing     : antialiased;
 
-@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont        : @fontName, @fontFallback;
+@pageFont          : @fontName, @fontFallback;
 
 @googleFontName    : @fontName;
 @importGoogleFonts : true;
@@ -36,7 +37,6 @@
 @fontSize       : 1.25rem;
 @lineHeight     : 1.45;
 
-
 /*-------------------
     Border Radius
 --------------------*/
@@ -58,7 +58,18 @@
 
 @lightPrimaryColor   : #eaf3ec;
 @lightSecondaryColor : #edf1f8;
-@darkSecondaryColor  : #1e2307;
+
+/*--------------
+      Logo
+---------------*/
+
+@logoPath           : '/assets/img/logo.svg';
+@logoBadgePath      : '/assets/img/badge.svg';
+
+@logoWidth          : 866;
+@logoHeight         : 142;
+@logoScaleRatio     : 240 / @logoWidth; // first value is preferred logo width
+@logoAspectRatio    : @logoWidth / @logoHeight;
 
 /*--------------
   Page Heading
