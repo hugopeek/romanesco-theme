@@ -15,6 +15,19 @@
     padding: 3em 0;
 }
 
+// If there's no header present, create some room for sticky navigation in following segment
+.masthead.without.hero:not(.non-stick) {
+    + #toolbar {
+        padding-top: 8rem;
+    }
+    + #main > #content > .ui.stripe.segment:first-child {
+        padding-top: 11rem;
+    }
+    + #main > #sidebar {
+        margin-top: 11rem !important;
+    }
+}
+
 // Segment containing a layout added through CB
 .ui.stripe.segment {
     padding: 4em 0;
