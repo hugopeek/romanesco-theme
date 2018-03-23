@@ -101,42 +101,28 @@ $(function() {
 });
 
 // Smooth anchor scrolling
-//$(function() {
-//    // scroll handler
-//    var scrollToAnchor = function( id ) {
-//        // grab the element to scroll to based on the name
-//        var elem = $("a[name='"+ id +"']");
-//        // if that didn't work, look for an element with our ID
-//        if ( typeof( elem.offset() ) === "undefined" ) {
-//            elem = $("#"+id);
-//        }
-//        // if the destination element exists
-//        if ( typeof( elem.offset() ) !== "undefined" ) {
-//            // do the scroll
-//            $('html, body').animate({
-//                scrollTop: elem.offset().top
-//            }, 600 );
-//        }
-//    };
-//
-//    // bind to click event
-//    $("a.button").click(function( event ) {
-//        // only do this if it's an anchor link
-//        if ( $(this).attr("href").match(/^#/) ) {
-//            // prevent default propagation
-//            event.preventDefault();
-//            // scroll to the location
-//            var href = $(this).attr('href').replace('#', '');
-//            scrollToAnchor( href );
-//            // if we have pushState
-//            if ( history.pushState ) {
-//                history.pushState( null, null, '#'+href );
-//            }
-//            // fallback to prevent jitter
-//            return false;
-//        }
-//    });
-//});
+// https://css-tricks.com/smooth-scrolling-accessibility/
+$(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                target.focus(); // Setting focus
+                if (target.is(":focus")){ // Checking if the target was focused
+                    return false;
+                } else {
+                    target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                    target.focus(); // Setting focus
+                }
+                return false;
+            }
+        }
+    });
+});
 
 // Toggle function to show/hide divs with buttons
 $('.visibility.toggle').click(function() {

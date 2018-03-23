@@ -23,6 +23,11 @@
             display: block;
         }
     }
+    .vertical.field {
+        > .button {
+            margin-top: 0 !important;
+        }
+    }
     .grouped.fields {
         &.error > label {
             color: @errorTextColor;
