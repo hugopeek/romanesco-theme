@@ -18,7 +18,7 @@
     }
 }
 
-// Make sure text looks spot on in text containers
+// Adjust text for optimal readability in text containers
 .ui.text.container {
     p {
         font-size: @textSize;
@@ -30,4 +30,9 @@
     p + h4 {
         margin-top: 4rem;
     }
+}
+
+// Set width for custom tightened container
+.ui.tightened.container {
+    max-width: 933px !important;
 }
