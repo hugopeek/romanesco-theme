@@ -29,7 +29,11 @@
 
         // Give the underlying segment some top padding to accommodate the fixed menu
         + .ui.vertical.segment {
-            padding-top: 12rem;
+            padding-top: 9rem;
+
+            @media only screen and (min-width: @tabletBreakpoint) {
+                padding-top: 12rem;
+            }
         }
 
         // Don't stick on mobile, that takes up too much valuable screen space
