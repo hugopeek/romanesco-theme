@@ -20,10 +20,10 @@
     + #toolbar {
         padding-top: 8rem;
     }
-    + #main > #content > .ui.stripe.segment:first-child {
+    + #main #content > .ui.stripe.segment:first-child {
         padding-top: 11rem;
     }
-    + #main > #sidebar {
+    + #main #sidebar {
         margin-top: 11rem !important;
     }
 }
@@ -273,7 +273,7 @@
             display: none;
             position: absolute;
             left: -1.6em;
-            top: 0em;
+            top: 0;
         }
 
         // Show link when hovering over preview
