@@ -340,14 +340,18 @@ var queries = [
         context: ['mobile', 'tablet'],
         match: function () {
             $('body.detail #main > .ui.container')
-                .removeClass('grid')
                 .addClass('fluid')
+            ;
+            $('body.detail #main > .ui.grid.container')
+                .removeClass('grid')
             ;
         },
         unmatch: function () {
             // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
+            ;
+            $('body.detail #main > .ui.grid.container')
                 .addClass('grid')
             ;
         }
