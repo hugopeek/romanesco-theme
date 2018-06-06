@@ -1,3 +1,21 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+// Reset styles when comments are marked up as list
+ul.comments,
+ol.comments,
+.comments li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui.comments .comment {
+    margin: 1em 0;
+    padding: 0;
+
+    .comments {
+        margin-bottom: -2em !important;
+    }
+}
