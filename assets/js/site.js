@@ -172,6 +172,11 @@ $("#search-field i.link").click(function() {
     $("#search-field").submit();
 });
 
+// Submit login form
+$("#form-login .submit").click(function() {
+    $("#form-login").submit();
+});
+
 
 // Apply specific js through media queries
 // The media queries are matched with Semantic UI breakpoints by onMediaQuery.js

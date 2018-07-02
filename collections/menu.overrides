@@ -108,6 +108,9 @@
             margin: 0 !important;
             padding: 0 !important;
         }
+        &.first {
+            margin-top: 2em;
+        }
         &.toc {
             display: none;
             margin: 0;
@@ -182,6 +185,15 @@
     }
     > .special {
         padding: @relativeSmall @relativeLarge;
+    }
+}
+
+.menu#toolbar {
+    &.attached {
+        border-top: 0;
+    }
+    > .item:first-child:before {
+        display: none;
     }
 }
 

@@ -107,6 +107,24 @@
     }
 }
 
+// Specific content types
+.header-vertical .ui.segment#toolbar {
+    @media only screen and (min-width: @tabletBreakpoint) {
+        padding: 1em 3%;
+    }
+}
+
+.ui.ticket.segment {
+    &:hover {
+        background: @offWhite;
+    }
+    .content {
+        margin-bottom: .5em;
+        padding-bottom: 2em;
+        border-bottom: 1px solid @borderColor;
+    }
+}
+
 // Segment with a pointing arrow on one side, for indicating quoted content
 .ui.pointing.segment {
     @triangleSize: 13px;

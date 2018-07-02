@@ -84,7 +84,7 @@
             position: fixed;
             width: 15rem;
             min-height: 100%;
-            padding: 3em 1em;
+            padding: 2em 1em;
         }
         @media only screen and (min-width: @computerBreakpoint) {
             width: 20%;
