@@ -1,3 +1,9 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.dropdown {
+    .input + .input {
+        margin-top: 0;
+    }
+}
