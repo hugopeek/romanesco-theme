@@ -20,7 +20,8 @@
     margin-right: 0;
     width: 100% !important;
 }
-.ui.one.stackable.doubling.cards > .card {
+.ui.one.stackable.doubling.cards > .card,
+.ui.two.stackable.doubling.cards > .card {
     @media only screen and (max-width: @largestMobileScreen) {
         width: 100% !important;
     }
