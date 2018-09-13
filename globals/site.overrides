@@ -141,6 +141,10 @@ body:after {
     }
     footer {
         color: @mutedTextColor;
+
+        .inverted& {
+            color: @invertedMutedTextColor;
+        }
     }
 }
 
@@ -150,19 +154,27 @@ blockquote:not(.quote),
     margin: 1em 0 1.5em;
     padding-left: 2em;
     color: @mutedTextColor;
+
+    .inverted& {
+        color: @invertedMutedTextColor;
+    }
 }
 
 .lead {
     font-size: @scaleRatio * 1em !important;
     line-height: @lineHeight !important;
     color: @mutedTextColor;
+
+    .inverted& {
+        color: @invertedMutedTextColor;
+    }
 }
 
 .meta,
 .help {
     color: @lightTextColor;
 
-    .inverted & {
+    .inverted& {
         color: @invertedLightTextColor;
     }
 }

@@ -62,23 +62,74 @@ $(document)
         ;
 
         // Add inverted classes to elements inside inverted segments
-        $('.inverted.stripe.segment .button:not(.primary):not(.secondary)').addClass('inverted');
-        $('.inverted.stripe.segment.primary-color .button.primary').addClass('inverted');
-        $('.inverted.stripe.segment.secondary-color .button.secondary').addClass('inverted');
-        $('.inverted.stripe.segment .header').addClass('inverted');
-        $('.inverted.stripe.segment .lead').addClass('inverted');
+        // $('.inverted.stripe.segment .button:not(.primary):not(.secondary)').addClass('inverted');
+        // $('.inverted.stripe.segment.primary-color .button.primary').addClass('inverted');
+        // $('.inverted.stripe.segment.secondary-color .button.secondary').addClass('inverted');
+        // $('.inverted.stripe.segment .header').addClass('inverted');
+        // $('.inverted.stripe.segment .lead').addClass('inverted');
 
-        // Remove inverted classes again if needed
-        // @todo: this is so fugly..
-        $('.inverted.stripe.segment .cards .header').removeClass('inverted');
-        $('.inverted.stripe.segment .cards .button').removeClass('inverted');
-        $('.inverted.stripe.segment.primary-color .cards .button').removeClass('primary').addClass('secondary');
-        $('.inverted.stripe.segment .form .segment .header').removeClass('inverted');
+        $('.inverted.segment').each(function(){
 
-        // Add boxed class to elements inside inverted segments that need to retain their original styling
-        $('.inverted.stripe.segment .cards .header a').addClass('boxed');
-        $('.inverted.stripe.segment .form .segments a').addClass('boxed');
-        $('.inverted.stripe.segment .leaflet-container a').addClass('boxed');
+            // Isolate conditions that don't need inverted classes
+            // var resetCondition = '.inverted.segment .segment:not(.inverted) , .inverted.segment .tabular.menu ';
+            var avoidSegments = $(this).find('.segment:not(.inverted)');
+            var avoidCards = $(this).find('.card');
+            var avoidTabs = $(this).find('.tabbed.menu');
+
+            $(this).find('.header')
+                .not(avoidSegments.find('.header'))
+                .not(avoidCards.find('.header'))
+                .not(avoidTabs.find('.header'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.button:not(.primary):not(.secondary)')
+                .not(avoidSegments.find('.button'))
+                .not(avoidCards.find('.button'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.basic.form')
+                .not(avoidSegments.find('.basic.form'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.lead')
+                .not(avoidSegments.find('.lead'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.quote')
+                .not(avoidSegments.find('.quote'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.accordion:not(.styled)')
+                .not(avoidSegments.find('.accordion'))
+                .addClass('inverted')
+            ;
+
+            // Prevent elements from having the same color as their parent background
+            if ($(this).hasClass('primary-color')) {
+                $(this).find('.button.primary')
+                    .not(avoidSegments.find('.button'))
+                    .not(avoidCards.find('.button'))
+                    .addClass('inverted')
+                ;
+            }
+            if ($(this).hasClass('secondary-color')) {
+                $(this).find('.button.secondary')
+                    .not(avoidSegments.find('.button'))
+                    .not(avoidCards.find('.button'))
+                    .addClass('inverted')
+                ;
+            }
+
+            // Add boxed class to elements inside inverted segments that need to retain their original styling
+            $(this).find('.cards .header a').addClass('boxed');
+            $(this).find('.form .segments a').addClass('boxed');
+            $(this).find('.leaflet-container a').addClass('boxed');
+        });
 
         // Hide elements with class .hidden
         $('.hidden.element').hide();

@@ -62,7 +62,7 @@
     }
 
     // Improve styling of inverted forms
-    .inverted & .field {
+    &.inverted .field {
         label {
             color: #fff !important;
             &:after {

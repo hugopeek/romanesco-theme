@@ -17,6 +17,11 @@
         cursor: pointer;
     }
 
+    // Make sure active tab color is always correct
+    > .item.active > .inverted.header {
+        color: @textColor;
+    }
+
     // Small adjustments for pointing segments used as menu buttons
     > .pointing.segment {
         &:not(.active) {
