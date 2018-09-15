@@ -256,7 +256,8 @@
 // Segment containing an image that needs to be inflated beyond its containers' dimensions
 .ui.inflated.segment {
     @media only screen and (min-width: @tabletBreakpoint) {
-        > .container > .grid {
+        > .container > .grid,
+        > .container > .grid > .row {
             > .column > .image {
                 max-width: none;
                 width: 150%;
