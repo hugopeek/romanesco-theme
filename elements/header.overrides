@@ -23,6 +23,14 @@
         max-height: 2.2em !important;
     }
 
+    // Keep link color in grey tones
+    > .sub.header a {
+        color: @subHeaderColor;
+        &.inverted {
+            color: @invertedSubHeaderColor;
+        }
+    }
+
     // Hide link icon inside headers with an anchor link
     > .anchor {
         display: none;

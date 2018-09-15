@@ -107,8 +107,65 @@ body:after {
 }
 
 
+// Links
+// ---------------------------------------------------------------------
+
+
+#content {
+    .lead,
+    .content,
+    .header.inverted,
+    .header.sub,
+    p > {
+        a:not(.button):not(.image):not(.item) {
+            border-bottom: 1px dotted;
+            &:hover {
+                border-bottom: 1px solid;
+            }
+        }
+    }
+    .content .header a {
+        border-bottom: none !important;
+    }
+
+    // Link styling inside inverted segments (.inverted class is added with JS)
+    a.inverted:not(.button):not(.boxed) {
+        color: @white;
+        border-bottom-color: fade(@white, 60);
+        &:hover {
+            border-bottom-color: @white;
+        }
+    }
+}
+
+
 // Content elements
 // ---------------------------------------------------------------------
+
+.lead {
+    font-size: @scaleRatio * 1em !important;
+    line-height: @lineHeight !important;
+    color: @mutedTextColor;
+
+    .inverted& {
+        color: @invertedMutedTextColor;
+    }
+}
+
+.meta,
+.help {
+    color: @lightTextColor;
+
+    .inverted & {
+        color: @invertedLightTextColor;
+    }
+}
+.meta {
+    .publication & > span {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}
 
 .quote:not(.basic) {
     position: relative;
@@ -157,31 +214,6 @@ blockquote:not(.quote),
 
     .inverted& {
         color: @invertedMutedTextColor;
-    }
-}
-
-.lead {
-    font-size: @scaleRatio * 1em !important;
-    line-height: @lineHeight !important;
-    color: @mutedTextColor;
-
-    .inverted& {
-        color: @invertedMutedTextColor;
-    }
-}
-
-.meta,
-.help {
-    color: @lightTextColor;
-
-    .inverted& {
-        color: @invertedLightTextColor;
-    }
-}
-.meta {
-    .publication & > span {
-        display: inline-block;
-        margin-right: 1em;
     }
 }
 
