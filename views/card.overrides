@@ -28,6 +28,8 @@
 
 // Tweaks and improvements for all cards
 .card {
+    color: @textColor; // Protect against inverted parents
+
     .sub.header {
         margin-top: 1em !important;
     }
@@ -50,8 +52,8 @@
         // @todo: Not clean. This margin is used to match the right floated button, but size of button may vary
     }
 
-    // Styling for cards on non-white / non-light backgrounds
-    .ui.segment:not(.white):not(.secondary) & {
+    // Styling for cards on inverted backgrounds
+    .ui.inverted.segment & {
         box-shadow: none;
     }
 }

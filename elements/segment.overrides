@@ -32,14 +32,6 @@
 .ui.stripe.segment {
     padding: 4em 0;
 
-    // Regulate whitespace between main header and preceding containers
-    //.main.header + &.white {
-    //    padding-top: 2em;
-    //}
-    //.main.header + &:not(.white) {
-    //    margin-top: 3em;
-    //}
-
     // Regulate whitespace and remove border of segments in detail templates
     body.detail #main &.white {
         border-bottom: none !important;
@@ -82,15 +74,6 @@
         z-index: 0; // Fix in case container positioning is absolute
     }
 
-    // Link styling for inverted segments in content area
-    #content &.inverted a:not(.button):not(.boxed) {
-        color: @white;
-        border-bottom: 2px solid fade(@white, 60);
-        &:hover {
-            border-bottom: 2px solid @white;
-        }
-    }
-
     // Segments inside a HeaderVertical template require a few overrides
     .header-vertical & {
         padding: 2em 0;
@@ -105,6 +88,11 @@
             padding: 3em 5%;
         }
     }
+}
+
+// Styling for segments on inverted backgrounds
+.ui.inverted.segment .segment {
+    border: none;
 }
 
 // Specific content types

@@ -37,6 +37,11 @@
             margin-top: 1em;
         }
     }
+
+    // Styling for tabs on inverted backgrounds
+    .ui.inverted.segment & > .item {
+        border: none;
+    }
 }
 
 .ui.tab {
@@ -47,5 +52,10 @@
             padding-left: 0 !important;
             padding-right: 0 !important;
         }
+    }
+
+    // Styling for tabs on inverted backgrounds
+    .ui.inverted.segment & {
+        border: none;
     }
 }

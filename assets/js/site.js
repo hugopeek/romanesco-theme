@@ -62,24 +62,39 @@ $(document)
         ;
 
         // Add inverted classes to elements inside inverted segments
-        // $('.inverted.stripe.segment .button:not(.primary):not(.secondary)').addClass('inverted');
-        // $('.inverted.stripe.segment.primary-color .button.primary').addClass('inverted');
-        // $('.inverted.stripe.segment.secondary-color .button.secondary').addClass('inverted');
-        // $('.inverted.stripe.segment .header').addClass('inverted');
-        // $('.inverted.stripe.segment .lead').addClass('inverted');
-
         $('.inverted.segment').each(function(){
 
             // Isolate conditions that don't need inverted classes
-            // var resetCondition = '.inverted.segment .segment:not(.inverted) , .inverted.segment .tabular.menu ';
             var avoidSegments = $(this).find('.segment:not(.inverted)');
             var avoidCards = $(this).find('.card');
             var avoidTabs = $(this).find('.tabbed.menu');
+            var avoidAccordion = $(this).find('.accordion');
+            var avoidMessage = $(this).find('.message');
 
+            // Find elements one by one
+            // Individual conditions may apply
             $(this).find('.header')
                 .not(avoidSegments.find('.header'))
                 .not(avoidCards.find('.header'))
                 .not(avoidTabs.find('.header'))
+                .not(avoidMessage.find('.header'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('.grid')
+                .not(avoidSegments.find('.grid'))
+                .not(avoidCards.find('.grid'))
+                .not(avoidTabs.find('.grid'))
+                .addClass('inverted')
+            ;
+
+            $(this).find('a')
+                .not(avoidSegments.find('a'))
+                .not(avoidCards.find('a'))
+                .not(avoidTabs.find('a'))
+                .not(avoidAccordion.find('a'))
+                .not(avoidMessage.find('a'))
+                .not('.button')
                 .addClass('inverted')
             ;
 
@@ -104,6 +119,11 @@ $(document)
                 .addClass('inverted')
             ;
 
+            $(this).find('.divider')
+                .not(avoidSegments.find('.divider'))
+                .addClass('inverted')
+            ;
+
             $(this).find('.accordion:not(.styled)')
                 .not(avoidSegments.find('.accordion'))
                 .addClass('inverted')
@@ -114,6 +134,7 @@ $(document)
                 $(this).find('.button.primary')
                     .not(avoidSegments.find('.button'))
                     .not(avoidCards.find('.button'))
+                    .removeClass('basic')
                     .addClass('inverted')
                 ;
             }
@@ -121,13 +142,12 @@ $(document)
                 $(this).find('.button.secondary')
                     .not(avoidSegments.find('.button'))
                     .not(avoidCards.find('.button'))
+                    .removeClass('basic')
                     .addClass('inverted')
                 ;
             }
 
             // Add boxed class to elements inside inverted segments that need to retain their original styling
-            $(this).find('.cards .header a').addClass('boxed');
-            $(this).find('.form .segments a').addClass('boxed');
             $(this).find('.leaflet-container a').addClass('boxed');
         });
 
