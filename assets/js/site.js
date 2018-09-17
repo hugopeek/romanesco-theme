@@ -68,7 +68,7 @@ $(document)
             var avoidSegments = $(this).find('.segment:not(.inverted)');
             var avoidCards = $(this).find('.card');
             var avoidTabs = $(this).find('.tabbed.menu');
-            var avoidAccordion = $(this).find('.accordion');
+            var avoidAccordion = $(this).find('.accordion:not(.inverted)');
             var avoidMessage = $(this).find('.message');
 
             // Find elements one by one

@@ -83,6 +83,7 @@
 @h3 : unit(@h4) * @scaleRatio * 1rem;
 @h4 : unit(@h5) * @scaleRatio * 1rem;
 @h5 : @fontSize;
+@h6 : unit(@h5) / @scaleRatio * 1rem;
 
 /*--------------
    Form Input
