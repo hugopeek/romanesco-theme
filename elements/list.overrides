@@ -4,4 +4,8 @@
 
 .ui.list > .item > .avatar {
     padding-right: 0 !important; // Fix bug with image not being square
+
+    + .content {
+        width: auto; // 100% width causes title to squash the image
+    }
 }
