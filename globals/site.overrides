@@ -110,31 +110,30 @@ body:after {
 // Links
 // ---------------------------------------------------------------------
 
-#content {
-    p >,
-    li >,
-    .lead,
-    .content,
-    .header.inverted,
-    .header.sub {
-        a:not(.button):not(.image):not(.item) {
-            border-bottom: 1px dotted;
-            &:hover {
-                border-bottom: 1px solid;
-            }
-        }
-    }
-    .header a:not(.inverted) {
-        border-bottom: none !important;
-    }
-
-    // Link styling inside inverted segments (.inverted class is added with JS)
-    a.inverted:not(.button):not(.boxed) {
-        color: @white;
-        border-bottom-color: fade(@white, 60);
+p >,
+li >,
+.lead,
+.content,
+.header.inverted,
+.header.sub {
+    a:not(.button):not(.image):not(.item) {
+        border-bottom: 1px dotted;
         &:hover {
-            border-bottom-color: @white;
+            border-bottom: 1px solid;
         }
+    }
+}
+.header a:not(.inverted),
+a.header:not(.inverted) {
+    border-bottom: none !important;
+}
+
+// Link styling inside inverted segments
+a.inverted:not(.button):not(.boxed) {
+    color: @white;
+    border-bottom-color: fade(@white, 60);
+    &:hover {
+        border-bottom-color: @white;
     }
 }
 
@@ -218,51 +217,35 @@ blockquote:not(.quote) {
 // Quote size
 .quote {
     font-size: @h3;
-    footer {
-        font-size: @scaleRatio * @fontSize;
-    }
+    footer { font-size: @scaleRatio * @fontSize; }
 
     &.mini {
         font-size: @h6;
-        footer {
-            font-size: @scaleRatio * @mini;
-        }
+        footer { font-size: @scaleRatio * @mini; }
     }
     &.tiny {
         font-size: @h5;
-        footer {
-            font-size: @scaleRatio * @tiny;
-        }
+        footer { font-size: @scaleRatio * @tiny; }
     }
     &.small {
         font-size: @h4;
-        footer {
-            font-size: @scaleRatio * @small;
-        }
+        footer { font-size: @scaleRatio * @small; }
     }
     &.large {
         font-size: @h2;
-        footer {
-            font-size: @scaleRatio * @large;
-        }
+        footer { font-size: @scaleRatio * @large; }
     }
     &.big {
         font-size: @h1;
-        footer {
-            font-size: @scaleRatio * @big;
-        }
+        footer { font-size: @scaleRatio * @big; }
     }
     &.huge {
         font-size: @h1 * @scaleRatio;
-        footer {
-            font-size: @scaleRatio * @huge;
-        }
+        footer { font-size: @scaleRatio * @huge; }
     }
     &.massive {
         font-size: @h1 * @scaleRatio * @scaleRatio;
-        footer {
-            font-size: @scaleRatio * @massive;
-        }
+        footer { font-size: @scaleRatio * @massive; }
     }
 }
 
