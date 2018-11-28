@@ -46,6 +46,9 @@
             }
         }
     }
+    .g-recaptcha {
+        margin-bottom: 1em;
+    }
 
     // Styles for non-segmented forms
     .fieldset {
@@ -58,6 +61,10 @@
             margin-bottom: 1em;
             padding-bottom: .6em;
             border-bottom: @inputBorder;
+
+            + * {
+                clear: both;
+            }
         }
     }
 
