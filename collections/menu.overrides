@@ -197,6 +197,30 @@
     }
 }
 
+.ui.secondary.vertical.right.pointing.menu {
+    border-right: 0;
+    border-left-width: @secondaryPointingBorderWidth;
+    border-left-style: solid;
+    border-left-color: @secondaryPointingBorderColor;
+
+    .item {
+        border-right: 0;
+        border-left: @secondaryPointingBorderWidth solid transparent;
+        margin-left: -@secondaryPointingBorderWidth;
+
+        &.active {
+            border-color: @secondaryPointingActiveBorderColor;
+        }
+
+        &.h2,
+        &.h3,
+        &.h4,
+        &.h5 {
+            padding-left: 2em;
+        }
+    }
+}
+
 .pagination {
     #content > .container > .column > & {
         margin: 6em 0;
