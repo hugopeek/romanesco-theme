@@ -52,10 +52,7 @@ $(document)
         ;
 
         // Make first item in ToC active
-        $('#submenu.toc')
-            .next('.item').addClass('active')
-        ;
-
+        $('#submenu.toc :first-child').addClass('active');
 
         // Hide elements with class .hidden
         $('.hidden.element').hide();
