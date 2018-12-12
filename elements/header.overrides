@@ -77,6 +77,10 @@
                 margin-bottom: 4rem;
             }
         }
+
+        body.detail & {
+            margin-bottom: 2rem;
+        }
     }
 
     // A little love for headers that are not H1
@@ -89,6 +93,10 @@
                 margin-top: .8rem;
                 margin-bottom: 3rem;
             }
+        }
+
+        body.detail & {
+            margin-bottom: 2rem;
         }
     }
 }
