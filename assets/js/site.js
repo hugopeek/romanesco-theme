@@ -117,6 +117,9 @@ $(function() {
                 onTopPassedReverse: function() {
                     link.prev().addClass('active');
                     link.removeClass('active');
+                },
+                onBottomPassedReverse: function() {
+                    link.addClass('active');
                 }
             });
         })

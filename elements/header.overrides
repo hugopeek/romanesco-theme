@@ -32,21 +32,21 @@
     }
 
     // Hide link icon inside headers with an anchor link
-    > .anchor {
-        display: none;
-        position: absolute;
-        left: -0.7em;
-        top: 0.55em;
-        color: @disabledTextColor;
-
-        &:hover {
-            color: @textColor;
-        }
-    }
-    // Show link when hovering the header
-    &:hover > .anchor {
-        display: block;
-    }
+    //+ .anchor {
+    //    display: none;
+    //    position: absolute;
+    //    left: -0.7em;
+    //    top: 0.55em;
+    //    color: @disabledTextColor;
+    //
+    //    &:hover {
+    //        color: @textColor;
+    //    }
+    //}
+    //// Show link when hovering the header
+    //&:hover + .anchor {
+    //    display: block;
+    //}
 }
 
 .ui.icon.header {
