@@ -14,6 +14,22 @@ $(document)
             })
         ;
 
+        // $('#menu .browse')
+        //     .popup({
+        //         popup      : $(this).data('target'),
+        //         on         : 'click',
+        //         inline     : true,
+        //         hoverable  : true,
+        //         exclusive  : true,
+        //         position   : 'bottom right',
+        //         lastResort : 'bottom left',
+        //         delay: {
+        //             show: 300,
+        //             hide: 800
+        //         }
+        //     })
+        // ;
+
         // Create sidebar and attach to menu open
         $('#off-canvas')
             .sidebar('attach events', '.toc.item')
@@ -21,7 +37,7 @@ $(document)
 
         // Initiate Semantic UI components
         $('.ui.accordion').accordion();
-        $('.ui.dropdown').dropdown();
+        $('.ui.dropdown:not(.simple)').dropdown();
         $('.with.tooltip').popup();
         $('.with.tooltip.onclick')
             .popup({
@@ -117,14 +133,29 @@ $(function() {
                 onTopPassedReverse: function() {
                     link.prev().addClass('active');
                     link.removeClass('active');
-                },
-                onBottomPassedReverse: function() {
-                    link.addClass('active');
                 }
             });
         })
     ;
 });
+
+// $('#menu .browse').each(function() {
+//     var target = $(this).data('target');
+//
+//     $(this).popup({
+//         on         : 'click',
+//         inline     : true,
+//         hoverable  : true,
+//         exclusive  : true,
+//         position   : 'bottom center',
+//         lastResort : 'bottom left',
+//         target     : target,
+//         delay: {
+//             show: 300,
+//             hide: 800
+//         }
+//     });
+// });
 
 // Toggle function to show/hide divs with buttons
 $('.visibility.toggle').click(function() {
@@ -183,6 +214,7 @@ $("#form-login .submit").click(function() {
 // Apply specific js through media queries
 // The media queries are matched with Semantic UI breakpoints by onMediaQuery.js
 // Available breakpoints: mobile, tablet, computer, large, widescreen
+var nav = $('#menu-dropdowns');
 var queries = [
     {
         // Change position of segment pointer on mobile
@@ -352,17 +384,67 @@ var queries = [
             $('body.detail #main > .ui.grid.container')
                 .removeClass('grid')
             ;
+
+            // Gather off-canvas menu items
+            // var nav = $('#menu').find('.title,.content').clone();
+            //
+            // nav.each(function() {
+            //     $(this).addClass('inverted');
+            //
+            // });
+            // nav.appendTo('#off-canvas');
+
+            nav.find('.dropdown').removeClass('dropdown');
+
+            nav.removeClass('menu').addClass('ui accordion').accordion().appendTo('#off-canvas');
         },
         unmatch: function () {
             // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
-            ;
-            $('body.detail #main > .ui.grid.container')
                 .addClass('grid')
             ;
+
+            //nav.insertAfter('#menu .container .branding');
         }
     }
 ];
 // Go!
 MQ.init(queries);
+
+$(function() {
+    nav.find('.simple.dropdown').each(function () {
+        var $this = $(this);
+        var $target = $this.find('> .content');
+        var $items = $target.children();
+
+        // Dropdown is only intended for no-js situations
+        $this.removeClass('dropdown');
+
+        // Turn list into large popup menu
+        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui five column internally celled grid"></span></span>');
+        $target.find('.column.item').removeClass('item');
+        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+
+        // Split list in order to properly add required rows
+        for (var i=0; i < $items.length -5; i+=5) {
+            $items.slice(i, i+5).appendTo($('<ul class="row menu">').insertBefore($target));
+        }
+
+        // Attach SUI popup event
+        $this.find('> .title').popup({
+            on: 'hover',
+            inline: true,
+            hoverable: true,
+            exclusive: true,
+            position: 'bottom center',
+            lastResort: 'bottom right',
+            //boundary   : '#header',
+            //target     : '.ui.popup.patterns',
+            delay: {
+                show: 300,
+                hide: 800
+            }
+        });
+    });
+});
