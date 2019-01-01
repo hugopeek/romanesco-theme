@@ -14,22 +14,6 @@ $(document)
             })
         ;
 
-        // $('#menu .browse')
-        //     .popup({
-        //         popup      : $(this).data('target'),
-        //         on         : 'click',
-        //         inline     : true,
-        //         hoverable  : true,
-        //         exclusive  : true,
-        //         position   : 'bottom right',
-        //         lastResort : 'bottom left',
-        //         delay: {
-        //             show: 300,
-        //             hide: 800
-        //         }
-        //     })
-        // ;
-
         // Create sidebar and attach to menu open
         $('#off-canvas')
             .sidebar('attach events', '.toc.item')
@@ -77,15 +61,14 @@ $(document)
 
 // Sticky navbar behaviour
 $(function() {
-    //caches a jQuery object containing the header element
-    var header = $("#menu");
+    var $header = $("#menu");
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 50) {
-            header.addClass("tightened");
+            $header.addClass("tightened");
         } else {
-            header.removeClass("tightened");
+            $header.removeClass("tightened");
         }
     });
 });
@@ -138,24 +121,6 @@ $(function() {
         })
     ;
 });
-
-// $('#menu .browse').each(function() {
-//     var target = $(this).data('target');
-//
-//     $(this).popup({
-//         on         : 'click',
-//         inline     : true,
-//         hoverable  : true,
-//         exclusive  : true,
-//         position   : 'bottom center',
-//         lastResort : 'bottom left',
-//         target     : target,
-//         delay: {
-//             show: 300,
-//             hide: 800
-//         }
-//     });
-// });
 
 // Toggle function to show/hide divs with buttons
 $('.visibility.toggle').click(function() {
@@ -214,54 +179,14 @@ $("#form-login .submit").click(function() {
 // Apply specific js through media queries
 // The media queries are matched with Semantic UI breakpoints by onMediaQuery.js
 // Available breakpoints: mobile, tablet, computer, large, widescreen
-var nav = $('#menu-dropdowns');
+var $nav = $('#menu-dropdowns');
 var queries = [
     {
-        // Change position of segment pointer on mobile
-        context: 'mobile',
-        match: function() {
-            $('.testimonial .column > .left.pointing.segment')
-                .removeClass('left')
-                .addClass('down')
-            ;
-        },
-        unmatch: function() {
-            // We're leaving mobile
-            $('.testimonial .column > .down.pointing.segment')
-                .removeClass('down')
-                .addClass('left')
-            ;
-        }
-    },{
-        // Add content wrapper for attaching classes for full-screen backgrounds
-        context: ['computer','large','widescreen'],
-        match: function() {
-            $('#home .pusher')
-                .addClass('content-wrapper')
-            ;
-            $(document)
-                .ready(function() {
-                    $('#home')
-                        .removeClass('pushable')
-                    ;
-                })
-            ;
-        },
-        unmatch: function() {
-            // We're leaving computer
-            $('#home .pusher')
-                .removeClass('content-wrapper')
-            ;
-            $('#home')
-                .addClass('pushable')
-            ;
-        }
-    },{
-        // Turn Gallery grid into a slider on mobile
         context: 'mobile',
         match: function() {
             $(document)
                 .ready(function() {
+                    // Turn Gallery grid into a slider on mobile
                     $('.slider-combo')
                         .removeClass('ui grid')
                         .addClass('cards')
@@ -272,32 +197,13 @@ var queries = [
                             dots: true
                         })
                     ;
-                })
-            ;
-        },
-        unmatch: function() {
-            // We're leaving mobile
-            $(document)
-                .ready(function() {
-                    $('.slider-combo')
-                        .removeClass('cards')
-                        .addClass('ui grid')
-                        .slick('unslick')
-                    ;
-                })
-            ;
-        }
-    },{
-        // Turn Tabs into an accordion on mobile
-        context: 'mobile',
-        match: function() {
-            $(document)
-                .ready(function() {
-                    // Move content below the heading
+
+                    // Turn Tabs into an accordion on mobile
                     $('.reducible.tab.segment')
                         .each(function() {
                             var target = $('.menu .item[data-tab="' + $(this).data('tab') + '"]');
 
+                            // Move content below the heading
                             $(target).after(this);
                         })
                         .removeClass('tab segment')
@@ -325,13 +231,24 @@ var queries = [
                     ;
                 })
             ;
+
+            // Change position of segment pointer on mobile
+            $('.testimonial .column > .left.pointing.segment')
+                .removeClass('left')
+                .addClass('down')
+            ;
         },
         unmatch: function() {
             // We're leaving mobile
             $(document)
                 .ready(function() {
+                    $('.slider-combo')
+                        .removeClass('cards')
+                        .addClass('ui grid')
+                        .slick('unslick')
+                    ;
 
-                    // Revert all classes back to normal
+                    // Revert tabs back to normal
                     $('.reducible.accordion')
                         .removeClass('fluid styled accordion')
 
@@ -372,12 +289,18 @@ var queries = [
                     $('.ui.reducible.tabbed.menu .item').tab();
                 })
             ;
+
+            // Restore position of segment pointer
+            $('.testimonial .column > .down.pointing.segment')
+                .removeClass('down')
+                .addClass('left')
+            ;
         }
     },{
-        // On detail pages, make the first container fluid on smaller screens
-        // so the stripe segments will snap to the edges
         context: ['mobile', 'tablet'],
         match: function () {
+            // On detail pages, make the first container fluid on smaller screens
+            // so the stripe segments will snap to the edges
             $('body.detail #main > .ui.container')
                 .addClass('fluid')
             ;
@@ -385,18 +308,8 @@ var queries = [
                 .removeClass('grid')
             ;
 
-            // Gather off-canvas menu items
-            // var nav = $('#menu').find('.title,.content').clone();
-            //
-            // nav.each(function() {
-            //     $(this).addClass('inverted');
-            //
-            // });
-            // nav.appendTo('#off-canvas');
-
-            nav.find('.dropdown').removeClass('dropdown');
-
-            nav.removeClass('menu').addClass('ui accordion').accordion().appendTo('#off-canvas');
+            // Transform navigation into off-canvas accordion
+            $nav.removeClass('right menu').accordion().appendTo('#off-canvas');
         },
         unmatch: function () {
             // We're leaving mobile
@@ -404,47 +317,97 @@ var queries = [
                 .removeClass('fluid')
                 .addClass('grid')
             ;
+        }
+    },{
+        context: ['computer','large','widescreen'],
+        match: function() {
+            $(document)
+                .ready(function() {
+                    $('#home')
+                        .removeClass('pushable')
+                    ;
+                })
+            ;
 
-            //nav.insertAfter('#menu .container .branding');
+            // Add content wrapper for attaching classes for full-screen backgrounds
+            $('#home .pusher')
+                .addClass('content-wrapper')
+            ;
+        },
+        unmatch: function() {
+            // We're leaving computer
+            $('#home .pusher')
+                .removeClass('content-wrapper')
+            ;
+            $('#home')
+                .addClass('pushable')
+            ;
         }
     }
 ];
-// Go!
+// Fire in the hole!
 MQ.init(queries);
 
-$(function() {
-    nav.find('.simple.dropdown').each(function () {
-        var $this = $(this);
-        var $target = $this.find('> .content');
-        var $items = $target.children();
+// Dropdown navigation
+$nav.find('.simple.dropdown').each(function () {
+    var $this = $(this);
+    var $target = $this.find('> .content');
+    var $items = $target.children();
+    var groups = $items.length;
+    var maxColumns = 5;
 
-        // Dropdown is only intended for no-js situations
-        $this.removeClass('dropdown');
+    if (groups < maxColumns) {
+        var numbers = ['zero','one','two','three','four'];
+        var columns = numbers[groups];
+    } else {
+        var columns = 'five';
+    }
 
-        // Turn list into large popup menu
-        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui five column internally celled grid"></span></span>');
-        $target.find('.column.item').removeClass('item');
-        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+    // Dropdown is only intended for no-js situations
+    $this.removeClass('dropdown');
 
-        // Split list in order to properly add required rows
-        for (var i=0; i < $items.length -5; i+=5) {
-            $items.slice(i, i+5).appendTo($('<ul class="row menu">').insertBefore($target));
+    // Turn list into large popup menu
+    $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
+    $target.find('.column.item').removeClass('item');
+    $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+
+    // Split list in order to properly add required rows
+    for (var i=0; i < groups -maxColumns; i+=maxColumns) {
+        $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
+    }
+
+    // Attach SUI popup event
+    $this.find('> .title').popup({
+        on: 'hover',
+        inline: true,
+        hoverable: true,
+        exclusive: true,
+        position: 'bottom center',
+        lastResort: 'bottom right',
+        //boundary   : '#header',
+        //target     : '.ui.popup.patterns',
+        delay: {
+            show: 300,
+            hide: 800
         }
+    });
 
-        // Attach SUI popup event
-        $this.find('> .title').popup({
-            on: 'hover',
-            inline: true,
-            hoverable: true,
-            exclusive: true,
-            position: 'bottom center',
-            lastResort: 'bottom right',
-            //boundary   : '#header',
-            //target     : '.ui.popup.patterns',
-            delay: {
-                show: 300,
-                hide: 800
-            }
-        });
+    MQ.addQuery({
+        context: ['mobile','tablet'],
+        match: function() {
+            $(document)
+                .ready(function() {
+                    $nav.unbind('popup')
+                })
+            ;
+        },
+        unmatch: function() {
+            $(document)
+                .ready(function() {
+
+                })
+            ;
+            //$nav.accordion().appendTo('#off-canvas');
+        }
     });
 });
