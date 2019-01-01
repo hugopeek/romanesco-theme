@@ -179,7 +179,6 @@ $("#form-login .submit").click(function() {
 // Apply specific js through media queries
 // The media queries are matched with Semantic UI breakpoints by onMediaQuery.js
 // Available breakpoints: mobile, tablet, computer, large, widescreen
-var $nav = $('#menu-dropdowns');
 var queries = [
     {
         context: 'mobile',
@@ -307,9 +306,6 @@ var queries = [
             $('body.detail #main > .ui.grid.container')
                 .removeClass('grid')
             ;
-
-            // Transform navigation into off-canvas accordion
-            $nav.removeClass('right menu').accordion().appendTo('#off-canvas');
         },
         unmatch: function () {
             // We're leaving mobile
@@ -349,65 +345,86 @@ var queries = [
 MQ.init(queries);
 
 // Dropdown navigation
-$nav.find('.simple.dropdown').each(function () {
-    var $this = $(this);
-    var $target = $this.find('> .content');
-    var $items = $target.children();
-    var groups = $items.length;
-    var maxColumns = 5;
+$(function() {
+    var $nav = $('#menu-dropdowns');
+    var $navClone = $nav.clone(true);
 
-    if (groups < maxColumns) {
-        var numbers = ['zero','one','two','three','four'];
-        var columns = numbers[groups];
-    } else {
-        var columns = 'five';
-    }
+    function createPopup() {
+        var $this = $(this);
+        var $target = $this.find('> .content');
+        var $items = $target.children();
+        var groups = $items.length;
+        var maxColumns = 5;
 
-    // Dropdown is only intended for no-js situations
-    $this.removeClass('dropdown');
-
-    // Turn list into large popup menu
-    $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
-    $target.find('.column.item').removeClass('item');
-    $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
-
-    // Split list in order to properly add required rows
-    for (var i=0; i < groups -maxColumns; i+=maxColumns) {
-        $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
-    }
-
-    // Attach SUI popup event
-    $this.find('> .title').popup({
-        on: 'hover',
-        inline: true,
-        hoverable: true,
-        exclusive: true,
-        position: 'bottom center',
-        lastResort: 'bottom right',
-        //boundary   : '#header',
-        //target     : '.ui.popup.patterns',
-        delay: {
-            show: 300,
-            hide: 800
+        if (groups < maxColumns) {
+            var numbers = ['zero','one','two','three','four'];
+            var columns = numbers[groups];
+        } else {
+            var columns = 'five';
         }
-    });
 
+        // Dropdown is only intended for no-js situations
+        $this.removeClass('dropdown');
+
+        // Turn list into large popup menu
+        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
+        $target.find('.column.item').removeClass('item');
+        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+
+        // Split list in order to properly add required rows
+        for (var i=0; i < groups -maxColumns; i+=maxColumns) {
+            $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
+        }
+
+        // Attach SUI popup event
+        $this.find('> .title').popup({
+            on: 'hover',
+            inline: true,
+            hoverable: true,
+            exclusive: true,
+            position: 'bottom center',
+            lastResort: 'bottom right',
+            //boundary   : '#header',
+            //target     : '.ui.popup.patterns',
+            delay: {
+                show: 300,
+                hide: 800
+            }
+        });
+    }
+
+    // Apply popup to eligible items
+    $nav.find('.simple.dropdown').each(createPopup);
+
+    // Switch between off-canvas and dropdown on mobile / desktop
     MQ.addQuery({
         context: ['mobile','tablet'],
         match: function() {
-            $(document)
-                .ready(function() {
-                    $nav.unbind('popup')
-                })
+            $('#off-canvas')
+                .append(
+                    $navClone
+                        .clone()
+                        .removeClass('right menu')
+                        .find('> .item')
+                        .removeClass('dropdown')
+                )
+                .accordion()
             ;
+
+            // Empty desktop navigation to avoid double links in HTML
+            $('#menu-dropdowns').empty();
         },
         unmatch: function() {
-            $(document)
-                .ready(function() {
+            $nav = $navClone.clone();
 
-                })
-            ;
-            //$nav.accordion().appendTo('#off-canvas');
+            // Fill empty container with cloned navigation
+            $('#menu-dropdowns').replaceWith($nav);
+
+            // Reapply popup to eligible items (couldn't figure out cloning with events intact)
+            $nav.find('.simple.dropdown').each(createPopup);
+
+            // Axe mobile nav again
+            $('#off-canvas').empty();
         }
     });
 });
