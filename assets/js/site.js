@@ -1,63 +1,60 @@
-$(document)
-    .ready(function() {
+$(function() {
+    // Fix menu when passed
+    $('.masthead')
+        .visibility({
+            once: false,
+            onBottomPassed: function() {
+                $('.fixed.menu');
+            },
+            onBottomPassedReverse: function() {
+                $('.fixed.menu');
+            }
+        })
+    ;
 
-        // Fix menu when passed
-        $('.masthead')
-            .visibility({
-                once: false,
-                onBottomPassed: function() {
-                    $('.fixed.menu');
-                },
-                onBottomPassedReverse: function() {
-                    $('.fixed.menu');
-                }
-            })
-        ;
+    // Create sidebar and attach to menu open
+    $('#off-canvas')
+        .sidebar('attach events', '.toc.item')
+    ;
 
-        // Create sidebar and attach to menu open
-        $('#off-canvas')
-            .sidebar('attach events', '.toc.item')
-        ;
+    // Initiate Semantic UI components
+    $('.ui.accordion').accordion();
+    $('.ui.dropdown:not(.simple)').dropdown();
+    $('.with.tooltip').popup();
+    $('.with.tooltip.onclick')
+        .popup({
+            on: 'click'
+        })
+    ;
+    $('.ui.tabular.menu .item').tab();
+    $('.ui.tabbed.menu .item').tab();
+    $('.ui.sortable.table').tablesort();
 
-        // Initiate Semantic UI components
-        $('.ui.accordion').accordion();
-        $('.ui.dropdown:not(.simple)').dropdown();
-        $('.with.tooltip').popup();
-        $('.with.tooltip.onclick')
-            .popup({
-                on: 'click'
-            })
-        ;
-        $('.ui.tabular.menu .item').tab();
-        $('.ui.tabbed.menu .item').tab();
-        $('.ui.sortable.table').tablesort();
+    $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
+    $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
 
-        $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
-        $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
+    $('.ui.dimmable')
+        .dimmer({
+            on: 'hover'
+        })
+    ;
+    $('.ui.embed').embed();
+    $('.ui.rating').rating('disable');
 
-        $('.ui.dimmable')
-            .dimmer({
-                on: 'hover'
-            })
-        ;
-        $('.ui.embed').embed();
-        $('.ui.rating').rating('disable');
+    // Make submenu scroll down with content area
+    $('#submenu.sticky')
+        .sticky({
+            context: '#main',
+            offset: $("#menu.sticky").height()
+        })
+    ;
 
-        // Make submenu scroll down with content area
-        $('#submenu.sticky')
-            .sticky({
-                context: '#main',
-                offset: $("#menu.sticky").height()
-            })
-        ;
+    // Make first item in ToC active
+    $('#submenu.toc :first-child').addClass('active');
 
-        // Make first item in ToC active
-        $('#submenu.toc :first-child').addClass('active');
-
-        // Hide elements with class .hidden
-        $('.hidden.element').hide();
-    })
-;
+    // Hide elements with class .hidden
+    $('.hidden.element').hide();
+});
 
 // Sticky navbar behaviour
 $(function() {
@@ -69,6 +66,91 @@ $(function() {
             $header.addClass("tightened");
         } else {
             $header.removeClass("tightened");
+        }
+    });
+});
+
+// Dropdown navigation
+$(function() {
+    var $nav = $('#menu-dropdowns');
+    var $navClone = $nav.clone(true);
+
+    function createPopup() {
+        var $this = $(this);
+        var $target = $this.find('> .content');
+        var $items = $target.children();
+        var groups = $items.length;
+        var maxColumns = 5;
+
+        if (groups < maxColumns) {
+            var numbers = ['zero','one','two','three','four'];
+            var columns = numbers[groups];
+        } else {
+            var columns = 'five';
+        }
+
+        // Dropdown is only intended for no-js situations
+        $this.removeClass('dropdown');
+
+        // Turn list into large popup menu
+        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
+        $target.find('.column.item').removeClass('item');
+        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+
+        // Split list in order to properly add required rows
+        for (var i=0; i < groups -maxColumns; i+=maxColumns) {
+            $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
+        }
+
+        // Attach SUI popup event
+        $this.find('> .title').popup({
+            on: 'hover',
+            inline: true,
+            hoverable: true,
+            exclusive: true,
+            position: 'bottom center',
+            lastResort: 'bottom right',
+            //boundary   : '#header',
+            //target     : '.ui.popup.patterns',
+            delay: {
+                show: 300,
+                hide: 800
+            }
+        });
+    }
+
+    // Apply popup to eligible items
+    $nav.find('.simple.dropdown').each(createPopup);
+
+    // Switch between off-canvas and dropdown on mobile / desktop
+    MQ.addQuery({
+        context: ['mobile','tablet'],
+        match: function() {
+            $('#off-canvas')
+                .append(
+                    $navClone
+                        .clone()
+                        .removeClass('right menu')
+                        .find('> .item')
+                        .removeClass('dropdown')
+                )
+                .accordion()
+            ;
+
+            // Empty desktop navigation to avoid double links in HTML
+            $('#menu-dropdowns').empty();
+        },
+        unmatch: function() {
+            $nav = $navClone.clone();
+
+            // Fill empty container with cloned navigation
+            $('#menu-dropdowns').replaceWith($nav);
+
+            // Reapply popup to eligible items (couldn't figure out cloning with events intact)
+            $nav.find('.simple.dropdown').each(createPopup);
+
+            // Axe mobile nav again
+            $('#off-canvas').empty();
         }
     });
 });
@@ -343,88 +425,3 @@ var queries = [
 ];
 // Fire in the hole!
 MQ.init(queries);
-
-// Dropdown navigation
-$(function() {
-    var $nav = $('#menu-dropdowns');
-    var $navClone = $nav.clone(true);
-
-    function createPopup() {
-        var $this = $(this);
-        var $target = $this.find('> .content');
-        var $items = $target.children();
-        var groups = $items.length;
-        var maxColumns = 5;
-
-        if (groups < maxColumns) {
-            var numbers = ['zero','one','two','three','four'];
-            var columns = numbers[groups];
-        } else {
-            var columns = 'five';
-        }
-
-        // Dropdown is only intended for no-js situations
-        $this.removeClass('dropdown');
-
-        // Turn list into large popup menu
-        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
-        $target.find('.column.item').removeClass('item');
-        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
-
-        // Split list in order to properly add required rows
-        for (var i=0; i < groups -maxColumns; i+=maxColumns) {
-            $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
-        }
-
-        // Attach SUI popup event
-        $this.find('> .title').popup({
-            on: 'hover',
-            inline: true,
-            hoverable: true,
-            exclusive: true,
-            position: 'bottom center',
-            lastResort: 'bottom right',
-            //boundary   : '#header',
-            //target     : '.ui.popup.patterns',
-            delay: {
-                show: 300,
-                hide: 800
-            }
-        });
-    }
-
-    // Apply popup to eligible items
-    $nav.find('.simple.dropdown').each(createPopup);
-
-    // Switch between off-canvas and dropdown on mobile / desktop
-    MQ.addQuery({
-        context: ['mobile','tablet'],
-        match: function() {
-            $('#off-canvas')
-                .append(
-                    $navClone
-                        .clone()
-                        .removeClass('right menu')
-                        .find('> .item')
-                        .removeClass('dropdown')
-                )
-                .accordion()
-            ;
-
-            // Empty desktop navigation to avoid double links in HTML
-            $('#menu-dropdowns').empty();
-        },
-        unmatch: function() {
-            $nav = $navClone.clone();
-
-            // Fill empty container with cloned navigation
-            $('#menu-dropdowns').replaceWith($nav);
-
-            // Reapply popup to eligible items (couldn't figure out cloning with events intact)
-            $nav.find('.simple.dropdown').each(createPopup);
-
-            // Axe mobile nav again
-            $('#off-canvas').empty();
-        }
-    });
-});
