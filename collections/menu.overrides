@@ -152,7 +152,7 @@
     }
 }
 
-#menu-dropdowns {
+#menu-dropdown {
     // Override popup dimensions
     .ui.flowing.popup {
         max-width: 100%;
@@ -160,6 +160,37 @@
         left: 10vh !important;
         position: fixed;
         top: 5.9rem !important;
+    }
+
+    // Stretch links to fit parent item
+    .item {
+        padding: 0 !important;
+
+        > a {
+            display: flex;
+            align-self: stretch;
+            align-items: center;
+        }
+    }
+}
+
+#menu-accordion {
+    .title {
+        display: flex;
+        align-items: center;
+
+        > a {
+            flex: 1;
+        }
+        > i.dropdown {
+            flex: 0;
+            &:before {
+                content: '+';
+            }
+        }
+    }
+    .item {
+        padding: 0;
     }
 }
 

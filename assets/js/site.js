@@ -72,7 +72,7 @@ $(function() {
 
 // Dropdown navigation
 $(function() {
-    var $nav = $('#menu-dropdowns');
+    var $nav = $('#menu-dropdown');
     var $navClone = $nav.clone(true);
 
     function createPopup() {
@@ -93,8 +93,8 @@ $(function() {
         $this.removeClass('dropdown');
 
         // Turn list into large popup menu
-        $target.wrapAll('<span class="ui flowing basic popup"><span class="ui ' + columns + ' column internally celled grid"></span></span>');
-        $target.find('.column.item').removeClass('item');
+        $target.wrapAll('<div class="ui flowing basic popup"><div class="ui ' + columns + ' column internally celled grid"></div></div>');
+        $target.find('.column.item').removeClass('item').find('.title').addClass('ui tiny header');
         $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
 
         // Split list in order to properly add required rows
@@ -120,34 +120,66 @@ $(function() {
     }
 
     // Apply popup to eligible items
-    $nav.find('.simple.dropdown').each(createPopup);
+    $nav.find('.three.level.dropdown')
+        .each(createPopup)
+    ;
+    $nav.find('.two.level.dropdown')
+        .removeClass('simple')
+        .dropdown({
+            on: 'hover'
+        })
+    ;
 
     // Switch between off-canvas and dropdown on mobile / desktop
     MQ.addQuery({
         context: ['mobile','tablet'],
         match: function() {
             $('#off-canvas')
+                .accordion({
+                    selector: {
+                        trigger: '.title .icon'
+                    }
+                })
+                .append('<ul id="menu-accordion"></ul>')
+                .find('ul')
                 .append(
                     $navClone
                         .clone()
-                        .removeClass('right menu')
                         .find('> .item')
                         .removeClass('dropdown')
+
                 )
-                .accordion()
+                .find('.content')
+                .removeClass('menu')
+            ;
+            $('#off-canvas .title')
+                .wrap('<div class="title"></div>')
+                .removeClass('title')
+                .find('.icon')
+                .each(function(){
+                    $(this).insertAfter($(this).parent());
+                })
             ;
 
             // Empty desktop navigation to avoid double links in HTML
-            $('#menu-dropdowns').empty();
+            $('#menu-dropdown').empty();
         },
         unmatch: function() {
             $nav = $navClone.clone();
 
             // Fill empty container with cloned navigation
-            $('#menu-dropdowns').replaceWith($nav);
+            $('#menu-dropdown').replaceWith($nav);
 
-            // Reapply popup to eligible items (couldn't figure out cloning with events intact)
-            $nav.find('.simple.dropdown').each(createPopup);
+            // Reapply popup to eligible items (couldn't figure out how to clone with events intact)
+            $nav.find('.three.level.dropdown')
+                .each(createPopup)
+            ;
+            $nav.find('.two.level.dropdown')
+                .removeClass('simple')
+                .dropdown({
+                    on: 'hover'
+                })
+            ;
 
             // Axe mobile nav again
             $('#off-canvas').empty();
