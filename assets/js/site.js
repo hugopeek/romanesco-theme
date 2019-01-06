@@ -130,12 +130,26 @@ $(function() {
         })
     ;
 
-    // Switch between off-canvas and dropdown on mobile / desktop
+    // Switch between accordion and dropdown on mobile / desktop
     MQ.addQuery({
         context: ['mobile','tablet'],
         match: function() {
+            // Make sure the accordion group containing the active item is open by default
+            $navClone
+                .find('.active')
+                .each(function(){
+                    $(this).parent().prev().addClass('active'); // needed for line 180, below
+                    $(this).parents('.item').addClass('active');
+                    $(this).parents('.content').addClass('active');
+
+                })
+            ;
+
+            // Build up accordion menu
             $('#off-canvas')
                 .accordion({
+                    exclusive: true,
+                    closeNested : true,
                     selector: {
                         trigger: '.title .icon'
                     }
@@ -147,11 +161,12 @@ $(function() {
                         .clone()
                         .find('> .item')
                         .removeClass('dropdown')
-
                 )
                 .find('.content')
                 .removeClass('menu')
             ;
+
+            // Separate link and icon, so dropdown icon becomes clickable
             $('#off-canvas .title')
                 .wrap('<div class="title"></div>')
                 .removeClass('title')
@@ -159,6 +174,12 @@ $(function() {
                 .each(function(){
                     $(this).insertAfter($(this).parent());
                 })
+            ;
+
+            // Add active class to link parent, to ensure correct accordion behaviour
+            $('#off-canvas a.active')
+                .parent()
+                .addClass('active')
             ;
 
             // Empty desktop navigation to avoid double links in HTML
