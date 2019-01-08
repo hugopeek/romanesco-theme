@@ -155,21 +155,59 @@
 #menu-dropdown {
     // Override popup dimensions
     .ui.flowing.popup {
+        position: fixed;
         max-width: 100%;
         right: 10vh !important;
         left: 10vh !important;
-        position: fixed;
-        top: 5.9rem !important;
+        top: 5rem !important;
+
+        .list {
+            margin-left: 0;
+
+            .active {
+                background: none;
+            }
+        }
     }
 
     // Stretch links to fit parent item
-    .item {
+    li.item {
         padding: 0 !important;
+        margin: 0;
 
         > a {
             display: flex;
             align-self: stretch;
             align-items: center;
+        }
+    }
+
+    // Styling for level 1 only
+    > li.item {
+        &:hover {
+            background: @hoverItemBackground;
+            color: @hoverItemTextColor;
+        }
+
+        > a {
+            line-height: 1;
+            padding: @itemVerticalPadding @itemHorizontalPadding;
+            color: @itemTextColor;
+
+            > i.icon {
+                margin-right: -0.3rem;
+            }
+        }
+    }
+
+
+    // Styling for level 2 only
+    .dropdown .item {
+        border-radius: 0;
+
+        > a {
+            padding: @dropdownItemPadding;
+            color: @itemTextColor;
         }
     }
 }
@@ -189,7 +227,7 @@
             }
         }
     }
-    .item {
+    li.item {
         padding: 0;
     }
 }

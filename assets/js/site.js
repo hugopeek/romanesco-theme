@@ -83,7 +83,7 @@ $(function() {
         var maxColumns = 5;
 
         if (groups < maxColumns) {
-            var numbers = ['zero','one','two','three','four'];
+            var numbers = ['zero','one','two','three','four','five','six'];
             var columns = numbers[groups];
         } else {
             var columns = 'five';
@@ -94,8 +94,10 @@ $(function() {
 
         // Turn list into large popup menu
         $target.wrapAll('<div class="ui flowing basic popup"><div class="ui ' + columns + ' column internally celled grid"></div></div>');
-        $target.find('.column.item').removeClass('item').find('.title').addClass('ui tiny header');
-        $target.find('.menu').removeClass('menu').addClass('ui link list').css('margin-left', 0).find('.item').css('margin', 0);
+        $target.find('.column.item').removeClass('item');
+        $target.find('.title').addClass('ui tiny header');
+        $target.find('.dropdown.icon').remove();
+        $target.find('.menu').removeClass('menu').addClass('ui link list');
 
         // Split list in order to properly add required rows
         for (var i=0; i < groups -maxColumns; i+=maxColumns) {
@@ -110,8 +112,6 @@ $(function() {
             exclusive: true,
             position: 'bottom center',
             lastResort: 'bottom right',
-            //boundary   : '#header',
-            //target     : '.ui.popup.patterns',
             delay: {
                 show: 300,
                 hide: 800
@@ -128,6 +128,22 @@ $(function() {
         .dropdown({
             on: 'hover'
         })
+        .hover(
+            // Dropdown doesn't fire on active items
+            // @todo: only works on first hover action
+            function () {
+                $(this).removeClass('active')
+            },
+            function () {
+                $(this).addClass('active') // Doesn't work..
+            }
+        )
+    ;
+
+    // Set active class with JS, to avoid flash of dropdown menu on load
+    $nav.find('.active')
+        .parent()
+        .addClass('active')
     ;
 
     // Switch between accordion and dropdown on mobile / desktop
@@ -138,10 +154,9 @@ $(function() {
             $navClone
                 .find('.active')
                 .each(function(){
-                    $(this).parent().prev().addClass('active'); // needed for line 180, below
+                    //$(this).parent().prev().addClass('active'); // needed below (line 180)
                     $(this).parents('.item').addClass('active');
                     $(this).parents('.content').addClass('active');
-
                 })
             ;
 
