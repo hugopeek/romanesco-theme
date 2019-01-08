@@ -188,6 +188,7 @@ $(function() {
                 .find('.icon')
                 .each(function(){
                     $(this).insertAfter($(this).parent());
+                    $(this).wrap('<button class="ui tiny icon button"></button>')
                 })
             ;
 

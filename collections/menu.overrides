@@ -200,7 +200,6 @@
         }
     }
 
-
     // Styling for level 2 only
     .dropdown .item {
         border-radius: 0;
@@ -213,23 +212,79 @@
 }
 
 #menu-accordion {
+    margin: 0;
+    padding: 0;
+
+    li.item {
+        padding: 0;
+
+        &.active > a {
+            color: @invertedActiveColor;
+        }
+    }
+
     .title {
         display: flex;
-        align-items: center;
 
         > a {
+            display: flex;
             flex: 1;
+            align-self: stretch;
+            align-items: center;
+            min-height: 3rem;
+            text-indent: @itemHorizontalPadding;
+            color: @invertedTextColor;
         }
-        > i.dropdown {
-            flex: 0;
-            &:before {
-                content: '+';
+
+        > .button {
+            background: none;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+
+            border-left: 1px solid @invertedVerticalDividerBackground;
+            color: @invertedActiveColor;
+
+            i.dropdown {
+                font-size: 1.3em;
+                line-height: 0.7em;
+
+                &:before {
+                    content: '+';
+                }
+            }
+        }
+
+        &.active {
+            font-weight: @bold;
+            border-bottom: 1px solid @invertedVerticalDividerBackground;
+            color: @invertedActiveColor;
+
+            i.dropdown {
+                transform: rotate(45deg);
             }
         }
     }
-    li.item {
+
+    .content {
         padding: 0;
+
+        a {
+            display: flex;
+            padding: .5em 0;
+            text-indent: @itemHorizontalPadding * 2;
+            color: @invertedLightTextColor;
+
+            &:hover {
+                color: @invertedHoverColor;
+            }
+        }
+        .item .item a {
+            text-indent: @itemHorizontalPadding * 2.5;
+        }
     }
+
+    border-bottom: 1px solid @invertedVerticalDividerBackground;
 }
 
 #submenu {
@@ -259,6 +314,7 @@
 
 #off-canvas {
     > .item.home {
+        min-height: 4rem;
         .image {
             margin-right: 6px;
         }
