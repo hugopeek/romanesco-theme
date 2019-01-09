@@ -1,75 +1,225 @@
-$(document)
-    .ready(function() {
+$(function() {
+    // Fix menu when passed
+    $('.masthead')
+        .visibility({
+            once: false,
+            onBottomPassed: function() {
+                $('.fixed.menu');
+            },
+            onBottomPassedReverse: function() {
+                $('.fixed.menu');
+            }
+        })
+    ;
 
-        // Fix menu when passed
-        $('.masthead')
-            .visibility({
-                once: false,
-                onBottomPassed: function() {
-                    $('.fixed.menu');
-                },
-                onBottomPassedReverse: function() {
-                    $('.fixed.menu');
-                }
-            })
-        ;
+    // Create sidebar and attach to menu open
+    $('#off-canvas')
+        .sidebar('attach events', '.toc.item')
+    ;
 
-        // Create sidebar and attach to menu open
-        $('#off-canvas')
-            .sidebar('attach events', '.toc.item')
-        ;
+    // Initiate Semantic UI components
+    $('.ui.accordion').accordion();
+    $('.ui.dropdown:not(.simple)').dropdown();
+    $('.with.tooltip').popup();
+    $('.with.tooltip.onclick')
+        .popup({
+            on: 'click'
+        })
+    ;
+    $('.ui.tabular.menu .item').tab();
+    $('.ui.tabbed.menu .item').tab();
+    $('.ui.sortable.table').tablesort();
 
-        // Initiate Semantic UI components
-        $('.ui.accordion').accordion();
-        $('.ui.dropdown').dropdown();
-        $('.with.tooltip').popup();
-        $('.with.tooltip.onclick')
-            .popup({
-                on: 'click'
-            })
-        ;
-        $('.ui.tabular.menu .item').tab();
-        $('.ui.tabbed.menu .item').tab();
-        $('.ui.sortable.table').tablesort();
+    $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
+    $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
 
-        $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
-        $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
+    $('.ui.dimmable')
+        .dimmer({
+            on: 'hover'
+        })
+    ;
+    $('.ui.embed').embed();
+    $('.ui.rating').rating('disable');
 
-        $('.ui.dimmable')
-            .dimmer({
-                on: 'hover'
-            })
-        ;
-        $('.ui.embed').embed();
-        $('.ui.rating').rating('disable');
+    // Make submenu scroll down with content area
+    $('#submenu.sticky')
+        .sticky({
+            context: '#main',
+            offset: $("#menu.sticky").height()
+        })
+    ;
 
-        // Make submenu scroll down with content area
-        $('#submenu.sticky')
-            .sticky({
-                context: '#main',
-                offset: $("#menu.sticky").height()
-            })
-        ;
+    // Make first item in ToC active
+    $('#submenu.toc :first-child').addClass('active');
 
-        // Make first item in ToC active
-        $('#submenu.toc :first-child').addClass('active');
-
-        // Hide elements with class .hidden
-        $('.hidden.element').hide();
-    })
-;
+    // Hide elements with class .hidden
+    $('.hidden.element').hide();
+});
 
 // Sticky navbar behaviour
 $(function() {
-    //caches a jQuery object containing the header element
-    var header = $("#menu");
+    var $header = $("#menu");
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 50) {
-            header.addClass("tightened");
+            $header.addClass("tightened");
         } else {
-            header.removeClass("tightened");
+            $header.removeClass("tightened");
+        }
+    });
+});
+
+// Dropdown navigation
+$(function() {
+    var $nav = $('#menu-dropdown');
+    var $navClone = $nav.clone(true);
+
+    function createPopup() {
+        var $this = $(this);
+        var $target = $this.find('> .content');
+        var $items = $target.children();
+        var groups = $items.length;
+        var maxColumns = 5;
+
+        if (groups < maxColumns) {
+            var numbers = ['zero','one','two','three','four','five','six'];
+            var columns = numbers[groups];
+        } else {
+            var columns = 'five';
+        }
+
+        // Dropdown is only intended for no-js situations
+        $this.removeClass('dropdown');
+
+        // Turn list into large popup menu
+        $target.wrapAll('<div class="ui flowing basic popup"><div class="ui ' + columns + ' column internally celled grid"></div></div>');
+        $target.find('.column.item').removeClass('item');
+        $target.find('.title').addClass('ui tiny header');
+        $target.find('.dropdown.icon').remove();
+        $target.find('.menu').removeClass('menu').addClass('ui link list');
+
+        // Split list in order to properly add required rows
+        for (var i=0; i < groups -maxColumns; i+=maxColumns) {
+            $items.slice(i, i+maxColumns).appendTo($('<ul class="row menu">').insertBefore($target));
+        }
+
+        // Attach SUI popup event
+        $this.find('> .title').popup({
+            on: 'hover',
+            inline: true,
+            hoverable: true,
+            exclusive: true,
+            position: 'bottom center',
+            lastResort: 'bottom right',
+            delay: {
+                show: 300,
+                hide: 800
+            }
+        });
+    }
+
+    // Apply popup to eligible items
+    $nav.find('.three.level.dropdown')
+        .each(createPopup)
+    ;
+    $nav.find('.two.level.dropdown')
+        .removeClass('simple')
+        .dropdown({
+            on: 'hover'
+        })
+        .hover(
+            // Dropdown doesn't fire on active items
+            // @todo: only works on first hover action
+            function () {
+                $(this).removeClass('active')
+            },
+            function () {
+                $(this).addClass('active') // Doesn't work..
+            }
+        )
+    ;
+
+    // Set active class with JS, to avoid flash of dropdown menu on load
+    $nav.find('.active')
+        .parent()
+        .addClass('active')
+    ;
+
+    // Switch between accordion and dropdown on mobile / desktop
+    MQ.addQuery({
+        context: ['mobile','tablet'],
+        match: function() {
+            // Make sure the accordion group containing the active item is open by default
+            $navClone
+                .find('.active')
+                .each(function(){
+                    //$(this).parent().prev().addClass('active'); // needed below (line 180)
+                    $(this).parents('.item').addClass('active');
+                    $(this).parents('.content').addClass('active');
+                })
+            ;
+
+            // Build up accordion menu
+            $('#off-canvas')
+                .accordion({
+                    exclusive: true,
+                    closeNested : true,
+                    selector: {
+                        trigger: '.title .icon'
+                    }
+                })
+                .append('<ul id="menu-accordion"></ul>')
+                .find('ul')
+                .append(
+                    $navClone
+                        .clone()
+                        .find('> .item')
+                        .removeClass('dropdown')
+                )
+                .find('.content')
+                .removeClass('menu')
+            ;
+
+            // Separate link and icon, so dropdown icon becomes clickable
+            $('#off-canvas .title')
+                .wrap('<div class="title"></div>')
+                .removeClass('title')
+                .find('.icon')
+                .each(function(){
+                    $(this).insertAfter($(this).parent());
+                    $(this).wrap('<button class="ui tiny icon button"></button>')
+                })
+            ;
+
+            // Add active class to link parent, to ensure correct accordion behaviour
+            $('#off-canvas a.active')
+                .parent()
+                .addClass('active')
+            ;
+
+            // Empty desktop navigation to avoid double links in HTML
+            $('#menu-dropdown').empty();
+        },
+        unmatch: function() {
+            $nav = $navClone.clone();
+
+            // Fill empty container with cloned navigation
+            $('#menu-dropdown').replaceWith($nav);
+
+            // Reapply popup to eligible items (couldn't figure out how to clone with events intact)
+            $nav.find('.three.level.dropdown')
+                .each(createPopup)
+            ;
+            $nav.find('.two.level.dropdown')
+                .removeClass('simple')
+                .dropdown({
+                    on: 'hover'
+                })
+            ;
+
+            // Axe mobile nav again
+            $('#off-canvas').empty();
         }
     });
 });
@@ -117,9 +267,6 @@ $(function() {
                 onTopPassedReverse: function() {
                     link.prev().addClass('active');
                     link.removeClass('active');
-                },
-                onBottomPassedReverse: function() {
-                    link.addClass('active');
                 }
             });
         })
@@ -185,51 +332,11 @@ $("#form-login .submit").click(function() {
 // Available breakpoints: mobile, tablet, computer, large, widescreen
 var queries = [
     {
-        // Change position of segment pointer on mobile
-        context: 'mobile',
-        match: function() {
-            $('.testimonial .column > .left.pointing.segment')
-                .removeClass('left')
-                .addClass('down')
-            ;
-        },
-        unmatch: function() {
-            // We're leaving mobile
-            $('.testimonial .column > .down.pointing.segment')
-                .removeClass('down')
-                .addClass('left')
-            ;
-        }
-    },{
-        // Add content wrapper for attaching classes for full-screen backgrounds
-        context: ['computer','large','widescreen'],
-        match: function() {
-            $('#home .pusher')
-                .addClass('content-wrapper')
-            ;
-            $(document)
-                .ready(function() {
-                    $('#home')
-                        .removeClass('pushable')
-                    ;
-                })
-            ;
-        },
-        unmatch: function() {
-            // We're leaving computer
-            $('#home .pusher')
-                .removeClass('content-wrapper')
-            ;
-            $('#home')
-                .addClass('pushable')
-            ;
-        }
-    },{
-        // Turn Gallery grid into a slider on mobile
         context: 'mobile',
         match: function() {
             $(document)
                 .ready(function() {
+                    // Turn Gallery grid into a slider on mobile
                     $('.slider-combo')
                         .removeClass('ui grid')
                         .addClass('cards')
@@ -240,32 +347,13 @@ var queries = [
                             dots: true
                         })
                     ;
-                })
-            ;
-        },
-        unmatch: function() {
-            // We're leaving mobile
-            $(document)
-                .ready(function() {
-                    $('.slider-combo')
-                        .removeClass('cards')
-                        .addClass('ui grid')
-                        .slick('unslick')
-                    ;
-                })
-            ;
-        }
-    },{
-        // Turn Tabs into an accordion on mobile
-        context: 'mobile',
-        match: function() {
-            $(document)
-                .ready(function() {
-                    // Move content below the heading
+
+                    // Turn Tabs into an accordion on mobile
                     $('.reducible.tab.segment')
                         .each(function() {
                             var target = $('.menu .item[data-tab="' + $(this).data('tab') + '"]');
 
+                            // Move content below the heading
                             $(target).after(this);
                         })
                         .removeClass('tab segment')
@@ -293,13 +381,24 @@ var queries = [
                     ;
                 })
             ;
+
+            // Change position of segment pointer on mobile
+            $('.testimonial .column > .left.pointing.segment')
+                .removeClass('left')
+                .addClass('down')
+            ;
         },
         unmatch: function() {
             // We're leaving mobile
             $(document)
                 .ready(function() {
+                    $('.slider-combo')
+                        .removeClass('cards')
+                        .addClass('ui grid')
+                        .slick('unslick')
+                    ;
 
-                    // Revert all classes back to normal
+                    // Revert tabs back to normal
                     $('.reducible.accordion')
                         .removeClass('fluid styled accordion')
 
@@ -340,12 +439,18 @@ var queries = [
                     $('.ui.reducible.tabbed.menu .item').tab();
                 })
             ;
+
+            // Restore position of segment pointer
+            $('.testimonial .column > .down.pointing.segment')
+                .removeClass('down')
+                .addClass('left')
+            ;
         }
     },{
-        // On detail pages, make the first container fluid on smaller screens
-        // so the stripe segments will snap to the edges
         context: ['mobile', 'tablet'],
         match: function () {
+            // On detail pages, make the first container fluid on smaller screens
+            // so the stripe segments will snap to the edges
             $('body.detail #main > .ui.container')
                 .addClass('fluid')
             ;
@@ -357,12 +462,35 @@ var queries = [
             // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
-            ;
-            $('body.detail #main > .ui.grid.container')
                 .addClass('grid')
+            ;
+        }
+    },{
+        context: ['computer','large','widescreen'],
+        match: function() {
+            $(document)
+                .ready(function() {
+                    $('#home')
+                        .removeClass('pushable')
+                    ;
+                })
+            ;
+
+            // Add content wrapper for attaching classes for full-screen backgrounds
+            $('#home .pusher')
+                .addClass('content-wrapper')
+            ;
+        },
+        unmatch: function() {
+            // We're leaving computer
+            $('#home .pusher')
+                .removeClass('content-wrapper')
+            ;
+            $('#home')
+                .addClass('pushable')
             ;
         }
     }
 ];
-// Go!
+// Fire in the hole!
 MQ.init(queries);

@@ -58,7 +58,7 @@
     }
 
     // Plain menu buttons
-    .right .item {
+    .right > .item {
         margin: 0 0 0 0.3em;
         font-weight: bold;
 
@@ -152,6 +152,142 @@
     }
 }
 
+#menu-dropdown {
+    // Override popup dimensions
+    .ui.flowing.popup {
+        position: fixed;
+        max-width: 100%;
+        right: 10vh !important;
+        left: 10vh !important;
+        top: 5rem !important;
+        z-index: 10;
+
+        .list {
+            margin-left: 0;
+
+            .active {
+                background: none;
+            }
+        }
+    }
+
+    // Stretch links to fit parent item
+    li.item {
+        padding: 0 !important;
+        margin: 0;
+
+        > a {
+            display: flex;
+            align-self: stretch;
+            align-items: center;
+        }
+    }
+
+    // Styling for level 1 only
+    > li.item {
+        &:hover {
+            background: @hoverItemBackground;
+            color: @hoverItemTextColor;
+        }
+
+        > a {
+            line-height: 1;
+            padding: @itemVerticalPadding @itemHorizontalPadding;
+            color: @itemTextColor;
+
+            > i.icon {
+                margin-right: -0.3rem;
+            }
+        }
+    }
+
+    // Styling for level 2 only
+    .dropdown .item {
+        border-radius: 0;
+
+        > a {
+            padding: @dropdownItemPadding;
+            color: @itemTextColor;
+        }
+    }
+}
+
+#menu-accordion {
+    margin: 0;
+    padding: 0;
+
+    li.item {
+        padding: 0;
+
+        &.active > a {
+            color: @invertedActiveColor;
+        }
+    }
+
+    .title {
+        display: flex;
+
+        > a {
+            display: flex;
+            flex: 1;
+            align-self: stretch;
+            align-items: center;
+            min-height: 3rem;
+            text-indent: @itemHorizontalPadding;
+            color: @invertedTextColor;
+        }
+
+        > .button {
+            background: none;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+
+            border-left: 1px solid @invertedVerticalDividerBackground;
+            color: @invertedActiveColor;
+
+            i.dropdown {
+                font-size: 1.3em;
+                line-height: 0.7em;
+
+                &:before {
+                    content: '+';
+                }
+            }
+        }
+
+        &.active {
+            font-weight: @bold;
+            border-bottom: 1px solid @invertedVerticalDividerBackground;
+            color: @invertedActiveColor;
+
+            i.dropdown {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    .content {
+        padding: 0;
+
+        a {
+            display: flex;
+            padding: .5em 0;
+            text-indent: @itemHorizontalPadding * 2;
+            color: @invertedLightTextColor;
+
+            &:hover {
+                color: @invertedHoverColor;
+            }
+        }
+        .item .item a {
+            text-indent: @itemHorizontalPadding * 2.5;
+        }
+    }
+
+    border-bottom: 1px solid @invertedVerticalDividerBackground;
+}
+
 #submenu {
     // Styling tweaks for nested submenu
     &.vertical.tabular {
@@ -179,6 +315,7 @@
 
 #off-canvas {
     > .item.home {
+        min-height: 4rem;
         .image {
             margin-right: 6px;
         }
