@@ -58,7 +58,7 @@
     }
 
     // Plain menu buttons
-    .right .item {
+    .right > .item {
         margin: 0 0 0 0.3em;
         font-weight: bold;
 
@@ -149,6 +149,17 @@
             display: block;
             flex-grow: 0;
         }
+    }
+}
+
+#menu-dropdowns {
+    // Override popup dimensions
+    .ui.flowing.popup {
+        max-width: 100%;
+        right: 10vh !important;
+        left: 10vh !important;
+        position: fixed;
+        top: 5.9rem !important;
     }
 }
 

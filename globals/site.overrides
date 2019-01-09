@@ -124,7 +124,8 @@ li >,
     }
 }
 .header a:not(.inverted),
-a.header:not(.inverted) {
+a.header:not(.inverted),
+.menu a {
     border-bottom: none !important;
 }
 
