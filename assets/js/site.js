@@ -113,8 +113,7 @@ $(function() {
             position: 'bottom center',
             lastResort: 'bottom right',
             delay: {
-                show: 300,
-                hide: 800
+                hide: 300
             }
         });
     }

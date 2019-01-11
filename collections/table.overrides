@@ -24,8 +24,8 @@
         pointer-events: visible;
     }
 
-    // Add hidden value inside status indication fields to enable sorting
-    td.indicator .hidden {
+    // Add hidden values inside fields to enable sorting
+    .hidden {
         display: none;
     }
 
