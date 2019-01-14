@@ -1,3 +1,11 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.kanban.steps {
+    width: auto;
+
+    .step > .icon {
+        width: 3em;
+    }
+}

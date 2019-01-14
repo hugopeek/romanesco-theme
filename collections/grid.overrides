@@ -34,6 +34,17 @@
     }
 }
 
+// Additional styles for kanban grid
+.ui.kanban.grid {
+    margin-top: 0;
+
+    .priority.column {
+        background: @subtleTransparentBlack;
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
+}
+
 // Make sure column padding is correctly set on mobile
 // This is probably a bug in Semantic UI, see:
 // https://github.com/Semantic-Org/Semantic-UI/issues/5170
