@@ -28,7 +28,6 @@ $(function() {
     ;
     $('.ui.tabular.menu .item').tab();
     $('.ui.tabbed.menu .item').tab();
-    $('.ui.sortable.table').tablesort();
 
     $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
     $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
@@ -346,39 +345,38 @@ var queries = [
                             dots: true
                         })
                     ;
-
-                    // Turn Tabs into an accordion on mobile
-                    $('.reducible.tab.segment')
-                        .each(function() {
-                            var target = $('.menu .item[data-tab="' + $(this).data('tab') + '"]');
-
-                            // Move content below the heading
-                            $(target).after(this);
-                        })
-                        .removeClass('tab segment')
-                        .addClass('reduced content')
-                    ;
-
-                    // If pointing segments are used, temporarily disable them
-                    $('.reducible.tabbed.menu > .pointing.segment')
-                        .removeClass('segment')
-                        .addClass('dormant-segment')
-                    ;
-
-                    // Remove tabular classes
-                    $('.reducible.tabular.menu > .item, .reducible.tabbed.menu > .item')
-                        .removeClass('item')
-                        .addClass('reduced title')
-                        .tab({
-                            deactivate: 'all'
-                        })
-                    ;
-                    $('.reducible.tabular.menu, .reducible.tabbed.menu')
-                        .removeClass('tabular menu')
-                        .addClass('fluid styled accordion')
-                        .accordion()
-                    ;
                 })
+            ;
+
+            // Turn Tabs into an accordion on mobile
+            $('.reducible.tab.segment')
+                .each(function() {
+                    var target = $('.menu .item[data-tab="' + $(this).data('tab') + '"]');
+
+                    // Move content below the heading
+                    $(target).after(this);
+                })
+                .removeClass('tab segment')
+                .addClass('reduced content')
+            ;
+            // If pointing segments are used, temporarily disable them
+            $('.reducible.tabbed.menu > .pointing.segment')
+                .removeClass('segment')
+                .addClass('dormant-segment')
+            ;
+
+            // Remove tabular classes
+            $('.reducible.tabular.menu > .item, .reducible.tabbed.menu > .item')
+                .removeClass('item')
+                .addClass('reduced title')
+                .tab({
+                    deactivate: 'all'
+                })
+            ;
+            $('.reducible.tabular.menu, .reducible.tabbed.menu')
+                .removeClass('tabular menu')
+                .addClass('fluid styled accordion')
+                .accordion()
             ;
 
             // Change position of segment pointer on mobile
@@ -396,48 +394,48 @@ var queries = [
                         .addClass('ui grid')
                         .slick('unslick')
                     ;
-
-                    // Revert tabs back to normal
-                    $('.reducible.accordion')
-                        .removeClass('fluid styled accordion')
-
-                        // Depending on their menu type, attach either tabbed or tabular
-                        .each(function() {
-                            if ($(this).hasClass('tabbed')) {
-                                $(this).addClass('menu');
-                            } else {
-                                $(this).addClass('tabular menu');
-                            }
-                        })
-                    ;
-                    $('.reduced.title')
-                        .removeClass('reduced title')
-                        .addClass('item')
-                    ;
-                    $('.dormant-segment')
-                        .removeClass('dormant-segment')
-                        .addClass('segment')
-                    ;
-                    $('.reduced.content')
-                        .removeClass('reduced content')
-                        .addClass('tab segment')
-
-                        // Move content back to original position
-                        .each(function() {
-                            if (($(this).data('menu-position') === 'right') || ($(this).data('menu-position') === 'left')) {
-                                $(this).closest('.grid').find('.stretched.column').append($(this));
-                                $(this).closest('.grid').find('.menu').addClass('fluid');
-                            } else {
-                                $(this).closest('.menu').after($(this));
-                            }
-                        })
-                    ;
-
-                    // Attach JS again
-                    $('.ui.reducible.tabular.menu .item').tab();
-                    $('.ui.reducible.tabbed.menu .item').tab();
                 })
             ;
+
+            // Revert tabs back to normal
+            $('.reducible.accordion')
+                .removeClass('fluid styled accordion')
+
+                // Depending on their menu type, attach either tabbed or tabular
+                .each(function() {
+                    if ($(this).hasClass('tabbed')) {
+                        $(this).addClass('menu');
+                    } else {
+                        $(this).addClass('tabular menu');
+                    }
+                })
+            ;
+            $('.reduced.title')
+                .removeClass('reduced title')
+                .addClass('item')
+            ;
+            $('.dormant-segment')
+                .removeClass('dormant-segment')
+                .addClass('segment')
+            ;
+            $('.reduced.content')
+                .removeClass('reduced content')
+                .addClass('tab segment')
+
+                // Move content back to original position
+                .each(function() {
+                    if (($(this).data('menu-position') === 'right') || ($(this).data('menu-position') === 'left')) {
+                        $(this).closest('.grid').find('.stretched.column').append($(this));
+                        $(this).closest('.grid').find('.menu').addClass('fluid');
+                    } else {
+                        $(this).closest('.menu').after($(this));
+                    }
+                })
+            ;
+
+            // Attach JS again
+            $('.ui.reducible.tabular.menu .item').tab();
+            $('.ui.reducible.tabbed.menu .item').tab();
 
             // Restore position of segment pointer
             $('.testimonial .column > .down.pointing.segment')
