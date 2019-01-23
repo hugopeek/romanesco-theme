@@ -111,8 +111,10 @@ $(function() {
             exclusive: true,
             position: 'bottom center',
             lastResort: 'bottom right',
+            duration: 0,
             delay: {
-                hide: 300
+                show: 0,
+                hide: 500
             }
         });
     }
@@ -124,24 +126,19 @@ $(function() {
     $nav.find('.two.level.dropdown')
         .removeClass('simple')
         .dropdown({
-            on: 'hover'
-        })
-        .hover(
-            // Dropdown doesn't fire on active items
-            // @todo: only works on first hover action
-            function () {
-                $(this).removeClass('active')
-            },
-            function () {
-                $(this).addClass('active') // Doesn't work..
+            on: 'hover',
+            duration: 0,
+            delay: {
+                show: 0,
+                hide: 300
             }
-        )
+        })
     ;
 
     // Set active class with JS, to avoid flash of dropdown menu on load
     $nav.find('.active')
         .parent()
-        .addClass('active')
+        .addClass('current') // Use different classname, otherwise dropdown even won't fire
     ;
 
     // Switch between accordion and dropdown on mobile / desktop
@@ -212,7 +209,12 @@ $(function() {
             $nav.find('.two.level.dropdown')
                 .removeClass('simple')
                 .dropdown({
-                    on: 'hover'
+                    on: 'hover',
+                    duration: 0,
+                    delay: {
+                        show: 0,
+                        hide: 300
+                    }
                 })
             ;
 

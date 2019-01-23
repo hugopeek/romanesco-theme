@@ -159,7 +159,7 @@
         max-width: 100%;
         right: 10vh !important;
         left: 10vh !important;
-        top: 5rem !important;
+        top: 4.3rem !important;
         z-index: 10;
 
         .list {
@@ -185,7 +185,8 @@
 
     // Styling for level 1 only
     > li.item {
-        &:hover {
+        &:hover > a,
+        &.current {
             background: @hoverItemBackground;
             color: @hoverItemTextColor;
         }
@@ -202,6 +203,9 @@
     }
 
     // Styling for level 2 only
+    .menu {
+        margin-top: 0;
+    }
     .dropdown .item {
         border-radius: 0;
 
@@ -243,7 +247,11 @@
             border-radius: 0;
             box-shadow: none;
 
+            // Offset from right, to avoid conflicts with scrollbar
+            margin-right: 2em !important;
+
             border-left: 1px solid @invertedVerticalDividerBackground;
+            border-right: 1px solid @invertedVerticalDividerBackground;
             color: @invertedActiveColor;
 
             i.dropdown {
