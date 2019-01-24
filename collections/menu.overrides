@@ -185,7 +185,7 @@
 
     // Styling for level 1 only
     > li.item {
-        &:hover > a,
+        &:hover,
         &.current {
             background: @hoverItemBackground;
             color: @hoverItemTextColor;
