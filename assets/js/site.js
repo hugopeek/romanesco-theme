@@ -161,7 +161,7 @@ $(function() {
                     exclusive: true,
                     closeNested : true,
                     selector: {
-                        trigger: '.title .icon'
+                        trigger: '.title > .icon'
                     }
                 })
                 .append('<ul id="menu-accordion"></ul>')
