@@ -125,7 +125,7 @@ li >,
 }
 .header a:not(.inverted),
 a.header:not(.inverted),
-.menu a {
+.menu:not(.tabular) a {
     border-bottom: none !important;
 }
 
