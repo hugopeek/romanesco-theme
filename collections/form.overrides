@@ -7,11 +7,12 @@
         display: none !important;
     }
 
+    // Help fields
     .help {
         font-size: 1.1rem;
-        &.error {
-            color: @errorColor;
-        }
+    }
+    &:not(.inverted) .help.error {
+        color: @errorColor;
     }
 
     // Styling tweaks for specific field types
@@ -79,6 +80,10 @@
         input[type='field'],
         textarea {
             border: 1px solid #fff !important;
+        }
+        &.error input,
+        &.error textarea {
+            border-color: transparent !important;
         }
     }
 
