@@ -16,10 +16,19 @@
     content: '\e800'; /* '' */
 }
 
+.ui.one.steps,
+.ui.two.steps,
+.ui.three.steps,
+.ui.four.steps,
+.ui.five.steps,
+.ui.six.steps,
+.ui.seven.steps,
+.ui.eight.steps {
+    width: calc(100% + 2px);
+}
+
 // Kanban view
 .ui.kanban.steps {
-    width: auto;
-
     .step > .icon {
         width: 3em;
     }
