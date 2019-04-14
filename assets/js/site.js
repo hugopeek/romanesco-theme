@@ -37,7 +37,7 @@ $(function() {
             on: 'hover'
         })
     ;
-    //$('.ui.embed').embed();
+    $('.ui.embed').embed();
     $('.ui.rating').rating('disable');
 
     // Make submenu scroll down with content area
