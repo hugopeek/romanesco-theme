@@ -142,6 +142,13 @@ a.inverted:not(.button):not(.boxed) {
 // Content elements
 // ---------------------------------------------------------------------
 
+.image {
+    // Isolate content images and offset from element below
+    &.content + * {
+        margin-top: 1.3em;
+    }
+}
+
 .lead {
     font-size: @scaleRatio * 1em !important;
     line-height: @lineHeight !important;
