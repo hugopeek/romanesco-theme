@@ -71,6 +71,11 @@ $(function() {
 
 // Dropdown navigation
 $(function() {
+    // Don't do anything if it's a regular menu
+    if ($('#menu').length) {
+        return;
+    }
+
     var $nav = $('#menu-dropdown');
     var $navClone = $nav.clone(true);
 
