@@ -71,8 +71,8 @@ $(function() {
 
 // Dropdown navigation
 $(function() {
-    // Don't do anything if it's a regular menu
-    if ($('#menu').length) {
+    // Don't do anything if there's no dropdown menu
+    if (!$('#menu-dropdown').length) {
         return;
     }
 
