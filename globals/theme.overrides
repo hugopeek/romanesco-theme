@@ -32,4 +32,10 @@
         width: 36px;
         text-indent: -9999rem;
     }
+
+    // Logo in vertical menus
+    #menu-vertical &.logo {
+        display: block;
+        width: 100%;
+    }
 }
