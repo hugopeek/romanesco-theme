@@ -24,6 +24,10 @@
         min-width: @logoWidth * @logoScaleRatio * 0.05rem; // Don't you disappear on us
         max-width: @logoWidth * @logoScaleRatio * 0.07rem;
         height: @logoHeight * @logoScaleRatio * 0.07rem;
+
+        &.inverted {
+            background-image: url("@{logoInvertedPath}") !important;
+        }
     }
     &.badge when not (@logoBadgePath = '/') {
         background: url("@{logoBadgePath}") no-repeat center center !important;
@@ -31,6 +35,10 @@
         height: 36px;
         width: 36px;
         text-indent: -9999rem;
+
+        &.inverted {
+            background-image: url("@{logoBadgeInvertedPath}") !important;
+        }
     }
 
     // Logo in vertical menus
