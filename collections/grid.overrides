@@ -12,6 +12,10 @@
     #content * + & {
         margin-top: 2rem;
     }
+    // Remove top margin for celled grids
+    &.celled {
+        margin-top: 0;
+    }
 
     // Separate articles more clearly in Publication overview
     > .column.publication {
@@ -63,10 +67,16 @@
     }
 
     // Celled grids are also having issues
-    .ui.container .ui.stackable.celled.grid > .column,
-    .ui.container .ui.stackable.celled.grid > .row > .column {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    .ui.container .ui.stackable.celled.grid,
+    .ui.container .ui.stackable.celled.grid {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        > .column,
+        > .row > .column {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
     }
 }
 
