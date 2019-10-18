@@ -160,7 +160,8 @@ a.inverted:not(.button):not(.boxed) {
 }
 
 .meta,
-.help {
+.help,
+.muted {
     color: @lightTextColor;
 
     .inverted & {
