@@ -21,7 +21,7 @@
 // Adjust text for optimal readability in text containers
 .ui.text.container {
     p {
-        font-size: @textSize;
+        //font-size: @textSize;
         line-height: @textLineHeight;
     }
 
