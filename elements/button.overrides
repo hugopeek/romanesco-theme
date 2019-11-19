@@ -4,7 +4,7 @@
 
 .ui.button {
     // Buttons in center aligned containers don't align properly with the default margins
-    .center.aligned & {
+    .center.aligned &:not(.attached) {
         margin-left: @horizontalMargin;
     }
     // Reset this behaviour for nested left aligned containers

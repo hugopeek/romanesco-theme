@@ -63,8 +63,10 @@
       Logo
 ---------------*/
 
-@logoPath           : '/assets/img/logo.svg';
-@logoBadgePath      : '/assets/img/badge.svg';
+@logoPath               : '/assets/img/logo.svg';
+@logoInvertedPath       : '/assets/img/logo-inverted.svg';
+@logoBadgePath          : '/assets/img/badge.svg';
+@logoBadgeInvertedPath  : '/assets/img/badge-inverted.svg';
 
 @logoWidth          : 866;
 @logoHeight         : 142;
