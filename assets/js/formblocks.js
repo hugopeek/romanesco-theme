@@ -138,7 +138,7 @@ $('.ui.calendar.month.year').calendar({
     type: 'month'
 });
 
-$('.two.date.range.fields').each(function() {
+$('.date.range.fields').each(function() {
     $(this).find('.ui.calendar.date.range.start').calendar({
         type: 'date',
         selectAdjacentDays: true,

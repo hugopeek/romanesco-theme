@@ -103,5 +103,12 @@
                 vertical-align: middle;
             }
         }
+        .stacked.fields {
+            flex-direction: column;
+
+            .field {
+                margin: @fieldMargin;
+            }
+        }
     }
 }
