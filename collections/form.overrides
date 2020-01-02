@@ -29,6 +29,9 @@
             margin-top: 0 !important;
         }
     }
+    .compact.field {
+        flex: 0 !important;
+    }
     .grouped.fields {
         &.error > label {
             color: @errorTextColor;
@@ -101,6 +104,13 @@
             > input,
             > select {
                 vertical-align: middle;
+            }
+        }
+        .stacked.fields {
+            flex-direction: column;
+
+            .field {
+                margin: @fieldMargin;
             }
         }
     }
