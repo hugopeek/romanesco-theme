@@ -335,7 +335,7 @@ $("#form-login .submit").click(function() {
 
 
 // Lazy load images
-const lazyLoadInstance = new LazyLoad({
+var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy"
     // ... more custom settings?
 });
