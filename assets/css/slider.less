@@ -189,3 +189,13 @@
 body.presentation {
     overflow: hidden;
 }
+
+// Stretch full screen slider to viewport already, before JS is loaded
+[class*="slider-"].fullscreen,
+[class*="slider-"].fullscreen > .ui.vertical.stripe.segment {
+    height: 100vh;
+}
+[class*="slider-"].fullscreen > .ui.vertical.stripe.segment {
+    display: flex;
+    align-items: center;
+}
