@@ -57,9 +57,8 @@ $(document).ready(function(){
     // @todo: needs more dynamic controls for number of slides
     $('.slider-overview')
         .find('.overview')
-        .removeClass('cards')
         .slick({
-            adaptiveHeight: true,
+            adaptiveHeight: false,
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -71,19 +70,20 @@ $(document).ready(function(){
                     breakpoint: 1300,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 3
+                        slidesToScroll: 1
                     }
                 },{
                     breakpoint: 992,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 1
                     }
                 },{
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        arrows: false
                     }
                 }
             ]
@@ -110,24 +110,17 @@ $(document).ready(function(){
     // Use Slick to create full-screen presentations
     var fwh = $(window).height();
     var fww = $(window).width();
-    var slider = $('.slider-fullscreen');
+    var slider = $('.slider.fullscreen');
 
-    slider.find('.vertical.stripe.segment').attr('height',fwh);
-    slider.find('.vertical.stripe.segment').attr('width',fww);
+    slider.find('.slick-slide').attr('height',fwh);
+    slider.find('.slick-slide').attr('width',fww);
     slider.find('.slick-list').attr('height',fwh);
-    slider.slick({
-        adaptiveHeight: false,
-        variableWidth: true,
-        arrows: true,
-        dots: true,
-        centerMode: true
-    });
 });
 
 // Adjust dimensions of fullscreen slider on resize
 $(window).resize(function(){
-    var slider = $('.slider-fullscreen');
-    var i = slider.find('.vertical.stripe.segment');
+    var slider = $('.slider.fullscreen');
+    var i = slider.find('.slick-slide');
     var s = slider.find('.slick-list');
 
     i.attr('width',$(window).width());

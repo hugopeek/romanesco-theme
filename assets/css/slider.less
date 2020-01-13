@@ -34,7 +34,7 @@
 
     // Position dots
     .slick-dots {
-        bottom: -3rem;
+        bottom: -2.6rem;
     }
 
     // Display prev/next arrows
@@ -77,22 +77,65 @@
         }
     }
 
-    // Sometimes slides are marked up as cards, meaning they need a little offset for their box shadow
-    &.cards {
-        .slick-slide {
-            padding: .15rem .2rem;
+    // Specific display types
+    &.cards:not(.overview) {
+        // Cards need a little offset for their box shadow
+        .column {
+            margin: .1em 1em;
         }
 
-        .slick-arrow.slick-prev {
-            clip-path: inset(0.15rem 0 0.15rem 0.15rem);
+        // Compensate card margins to keep edges of container aligned
+        .slick-list {
+            margin: 0 -1em;
         }
+
+        .slick-arrow.slick-prev,
         .slick-arrow.slick-next {
-            clip-path: inset(0.15rem 0.15rem 0.15rem 0);
+            clip-path: inset(0.15rem 0);
+        }
+    }
+
+    &.overview {
+        position: initial;
+
+        // Default margins derail the slider calculations
+        .cards,
+        &.cards {
+            margin: 0 !important;
+        }
+        .cards > .card {
+            height: auto;
+        }
+
+        // Compensate card margins to keep edges of container aligned
+        .slick-list {
+            margin: 0 -.4em;
+        }
+
+        // Relative position is expanded to containing layout segment
+        .slick-dots {
+            position: initial;
+        }
+    }
+
+    &.fullscreen {
+        margin-bottom: 0;
+
+        .slick-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slick-dots {
+            bottom: 2rem;
         }
     }
 }
 
-// The slider uses an additional lightbox plugin to enlarge slider images
+// The slider uses an additional lightbox plugin to enlarge slider images:
+// https://github.com/mreq/slick-lightbox
 .slick-lightbox {
     .slick-lightbox-slick-caption {
         float: left;
@@ -142,21 +185,7 @@
     }
 }
 
-// Presentation slider
+// Presentation template
 body.presentation {
     overflow: hidden;
-}
-
-// Full screen slider
-.slider-fullscreen {
-    .slick-slide {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .slick-dots {
-        bottom: 2rem;
-    }
 }

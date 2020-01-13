@@ -889,7 +889,7 @@
 }
 
 .slick-slider .slick-dots {
-  bottom: -3rem;
+  bottom: -2.6rem;
 }
 
 .slick-slider .slick-arrow {
@@ -939,18 +939,61 @@
   content: '\f105';
 }
 
-.slick-slider.cards .slick-slide {
-  padding: 0.15rem 0.2rem;
+.slick-slider.cards:not(.overview) .column {
+  margin: 0.1em 1em;
 }
 
-.slick-slider.cards .slick-arrow.slick-prev {
-  -webkit-clip-path: inset(0.15rem 0 0.15rem 0.15rem);
-  clip-path: inset(0.15rem 0 0.15rem 0.15rem);
+.slick-slider.cards:not(.overview) .slick-list {
+  margin: 0 -1em;
 }
 
-.slick-slider.cards .slick-arrow.slick-next {
-  -webkit-clip-path: inset(0.15rem 0.15rem 0.15rem 0);
-  clip-path: inset(0.15rem 0.15rem 0.15rem 0);
+.slick-slider.cards:not(.overview) .slick-arrow.slick-prev,
+.slick-slider.cards:not(.overview) .slick-arrow.slick-next {
+  -webkit-clip-path: inset(0.15rem 0);
+  clip-path: inset(0.15rem 0);
+}
+
+.slick-slider.overview {
+  position: initial;
+}
+
+.slick-slider.overview .cards,
+.slick-slider.overview.cards {
+  margin: 0 !important;
+}
+
+.slick-slider.overview .cards > .card {
+  height: auto;
+}
+
+.slick-slider.overview .slick-list {
+  margin: 0 -0.4em;
+}
+
+.slick-slider.overview .slick-dots {
+  position: initial;
+}
+
+.slick-slider.fullscreen {
+  margin-bottom: 0;
+}
+
+.slick-slider.fullscreen .slick-slide {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.slick-slider.fullscreen .slick-dots {
+  bottom: 2rem;
 }
 
 .slick-lightbox .slick-lightbox-slick-caption {
@@ -1002,22 +1045,4 @@
 
 body.presentation {
   overflow: hidden;
-}
-
-.slider-fullscreen .slick-slide {
-  width: 100vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.slider-fullscreen .slick-dots {
-  bottom: 2rem;
 }
