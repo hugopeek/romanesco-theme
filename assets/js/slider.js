@@ -2,9 +2,9 @@ $(document).ready(function(){
     // COLLISION ALERT!!
     // There's a checkbox type that also uses the slider class, see issue #77 on Github.
     // And in addition: there's also a Fomantic UI component now named Slider.
-    $('.slider-basic')
 
-        // Initiate default slider
+    // Default slider
+    $('.slider-basic')
         .slick({
             //adaptiveHeight: true,
             infinite: true,
@@ -23,18 +23,18 @@ $(document).ready(function(){
         //    $(this).addClass('orange')
         //})
     ;
-    $('.slider-minimal')
 
-        // Initiate slider with minimal controls
+    // Slider with minimal controls
+    $('.slider-minimal')
         .slick({
             adaptiveHeight: true,
             arrows: false,
             dots: true
         })
     ;
-    $('.slider-synced')
 
-        // Initiate slider that functions as preview window for the synced navigation slider
+    // Slider that functions as preview window for the synced navigation slider
+    $('.slider-synced')
         .slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -43,9 +43,9 @@ $(document).ready(function(){
             asNavFor: '.slider-synced-nav'
         })
     ;
-    $('.slider-synced-nav')
 
-        // Initiate slider that functions as navigation for the synced preview window
+    // Slider that functions as navigation for the synced preview window
+    $('.slider-synced-nav')
         .slick({
             slidesToScroll: 1,
             asNavFor: '.slider-synced',
@@ -53,17 +53,55 @@ $(document).ready(function(){
         })
     ;
 
+    // Slider that turns Overview items into slides
+    // @todo: needs more dynamic controls for number of slides
+    $('.slider-overview')
+        .find('.overview')
+        .removeClass('cards')
+        .slick({
+            adaptiveHeight: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: true,
+
+            responsive: [
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },{
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        })
+        .find('.slick-track')
+        .addClass('ui cards')
+    ;
+
     // Initiate lightbox with integrated Slick slider.
     // This functionality relies on this script: https://github.com/mreq/slick-lightbox
-    $('.with.lightbox:not(.with.caption)')
 
-        // Initiate default lightbox
+    // Default lightbox
+    $('.with.lightbox:not(.with.caption)')
         .slickLightbox()
     ;
 
+    // Show caption in lightbox too for items that have one
     $('.with.lightbox.with.caption')
-
-        // Show caption in lightbox too for items that have one
         .slickLightbox({
             caption: 'caption'
         })
@@ -78,7 +116,7 @@ $(document).ready(function(){
     slider.find('.vertical.stripe.segment').attr('width',fww);
     slider.find('.slick-list').attr('height',fwh);
     slider.slick({
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         variableWidth: true,
         arrows: true,
         dots: true,
