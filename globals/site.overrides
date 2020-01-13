@@ -139,7 +139,7 @@ a.inverted:not(.button):not(.boxed) {
 }
 
 
-// Images
+// Images & SVGs
 // ---------------------------------------------------------------------
 
 .image {

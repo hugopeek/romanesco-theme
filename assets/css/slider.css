@@ -999,3 +999,25 @@
     font-size: 20px;
   }
 }
+
+body.presentation {
+  overflow: hidden;
+}
+
+.slider-fullscreen .slick-slide {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.slider-fullscreen .slick-dots {
+  bottom: 2rem;
+}
