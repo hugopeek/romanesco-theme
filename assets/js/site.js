@@ -363,6 +363,18 @@ var queries = [
                                 dots: true
                             })
                         ;
+                        $('.slider-overview-combo')
+                            .find('.overview')
+                            .removeClass('ui grid')
+                            .slick({
+                                infinite: true,
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                dots: true
+                            })
+                            .find('.slick-track')
+                            .addClass('ui cards')
+                        ;
                     }
                 })
             ;
