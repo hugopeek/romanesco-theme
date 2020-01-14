@@ -92,10 +92,14 @@ $(document).ready(function(){
         .addClass('ui cards')
     ;
 
+    // Nested slider layouts
+    $('.nested.slider-wrapper')
+        .find('.image.content')
+        .removeClass('content rounded')
+    ;
+
     // Initiate lightbox with integrated Slick slider.
     // This functionality relies on this script: https://github.com/mreq/slick-lightbox
-
-    // Default lightbox
     $('.with.lightbox:not(.with.caption)')
         .slickLightbox()
     ;

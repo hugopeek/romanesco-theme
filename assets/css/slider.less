@@ -5,6 +5,7 @@
 // Import variables
 @import "./../../../default/globals/site.variables";
 @import "./../../globals/site.variables";
+@import "./../../elements/image.variables";
 @import "./../../../../site/globals/site.variables";
 
 // Import default CSS
@@ -20,6 +21,22 @@
     @media screen and (min-width: @computerBreakpoint) {
         .masthead & {
             border-bottom: 80px solid @darkWhite !important;
+        }
+    }
+
+    // Apply platform border radius to sliders inside grid columns
+    &.column,
+    &.nested {
+        .slick-list {
+            border-radius: @roundedBorderRadius;
+        }
+        .slick-prev {
+            border-top-left-radius: @roundedBorderRadius;
+            border-bottom-left-radius: @roundedBorderRadius;
+        }
+        .slick-next {
+            border-top-right-radius: @roundedBorderRadius;
+            border-bottom-right-radius: @roundedBorderRadius;
         }
     }
 }

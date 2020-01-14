@@ -455,6 +455,10 @@
 /* Positive / Negative Dupes */
 
 /*******************************
+            Image
+*******************************/
+
+/*******************************
      User Global Variables
 *******************************/
 
@@ -877,6 +881,23 @@
   .masthead .slider-wrapper {
     border-bottom: 80px solid #F3F4F5 !important;
   }
+}
+
+.slider-wrapper.column .slick-list,
+.slider-wrapper.nested .slick-list {
+  border-radius: 0.34671429rem;
+}
+
+.slider-wrapper.column .slick-prev,
+.slider-wrapper.nested .slick-prev {
+  border-top-left-radius: 0.34671429rem;
+  border-bottom-left-radius: 0.34671429rem;
+}
+
+.slider-wrapper.column .slick-next,
+.slider-wrapper.nested .slick-next {
+  border-top-right-radius: 0.34671429rem;
+  border-bottom-right-radius: 0.34671429rem;
 }
 
 .slick-slider {
