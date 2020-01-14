@@ -112,26 +112,4 @@ $(document).ready(function(){
             caption: 'caption'
         })
     ;
-
-    // Use Slick to create full-screen presentations
-    var fwh = $(window).height();
-    var fww = $(window).width();
-    var slider = $('.slider.fullscreen');
-
-    slider.find('.slick-slide').attr('height',fwh);
-    slider.find('.slick-slide').attr('width',fww);
-    slider.find('.slick-list').attr('height',fwh);
-});
-
-// Adjust dimensions of fullscreen slider on resize
-$(window).resize(function(){
-    var slider = $('.slider.fullscreen');
-    var i = slider.find('.slick-slide');
-    var s = slider.find('.slick-list');
-
-    i.attr('width',$(window).width());
-    if(i.height() != $(window).height()){
-        i.attr('height',$(window).height());
-    }
-    s.height($(window).height());
 });
