@@ -5,7 +5,10 @@ $(document).ready(function(){
 
     // Default slider
     $('.slider-basic')
-        .slick()
+        .slick({
+            arrows: true,
+            dots: true
+        })
 
         // Add class to parent of slider
         .parent().addClass('slider-wrapper')
@@ -56,6 +59,8 @@ $(document).ready(function(){
             .removeClass('grid')
             .attr('data-slick', data)
             .slick({
+                arrows: true,
+                dots: false,
                 slidesToShow: 4,
                 slidesToScroll: 1,
 
