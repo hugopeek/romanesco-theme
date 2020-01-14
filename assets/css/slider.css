@@ -900,6 +900,10 @@
   border-bottom-right-radius: 0.34671429rem;
 }
 
+.slider-wrapper > [class*="slider-"] > .vertical.segment.white {
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+
 .slick-slider {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
