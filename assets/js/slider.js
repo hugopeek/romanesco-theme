@@ -5,14 +5,7 @@ $(document).ready(function(){
 
     // Default slider
     $('.slider-basic')
-        .slick({
-            //adaptiveHeight: true,
-            infinite: true,
-            //slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            dots: true
-        })
+        .slick()
 
         // Add class to parent of slider
         .parent().addClass('slider-wrapper')
@@ -25,6 +18,7 @@ $(document).ready(function(){
     ;
 
     // Slider with minimal controls
+    // @todo Is this used anywhere still?
     $('.slider-minimal')
         .slick({
             adaptiveHeight: true,
@@ -54,43 +48,51 @@ $(document).ready(function(){
     ;
 
     // Slider that turns Overview items into slides
-    // @todo: needs more dynamic controls for number of slides
-    $('.slider-overview')
-        .find('.overview')
-        .slick({
-            adaptiveHeight: false,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            arrows: true,
-            dots: true,
+    $('.slider-overview').each(function() {
+        var data = $(this).attr('data-slick');
 
-            responsive: [
-                {
-                    breakpoint: 1300,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
+        $(this)
+            .find('.overview')
+            .removeClass('grid')
+            .attr('data-slick', data)
+            .slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+
+                responsive: [
+                    {
+                        breakpoint: 1300,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },{
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },{
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false
+                        }
                     }
-                },{
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },{
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false
-                    }
-                }
-            ]
-        })
-        .find('.slick-track')
-        .addClass('ui cards')
-    ;
+                ]
+            })
+            .find('.slick-track')
+            .addClass('ui cards')
+            .find('.slick-slide.column').each(function() {
+                $(this)
+                    .removeClass('column')
+                    .addClass('card')
+                    .wrapInner('<div class="content">')
+                ;
+            })
+        ;
+    });
 
     // Nested slider layouts
     $('.nested.slider-wrapper')
