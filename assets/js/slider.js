@@ -82,7 +82,11 @@ $(document).ready(function(){
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1,
-                            arrows: false
+                            swipeToSlide: true,
+                            touchThreshold: 13,
+                            speed: 200,
+                            arrows: false,
+                            dots: true
                         }
                     }
                 ]
