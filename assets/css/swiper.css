@@ -1107,10 +1107,16 @@ button.swiper-pagination-bullet {
   background: none;
 }
 
-.swiper-wrapper.ui.cards {
+.swiper-wrapper.ui.cards,
+.swiper-wrapper.ui.grid {
   -ms-flex-wrap: initial;
   flex-wrap: initial;
   margin: 0;
+}
+
+.swiper-wrapper.ui.cards.nested,
+.swiper-wrapper.ui.grid.nested {
+  margin-bottom: 0 !important;
 }
 
 .swiper-wrapper.ui.cards .swiper-slide {
@@ -1124,12 +1130,9 @@ button.swiper-pagination-bullet {
   margin: 0.1em;
 }
 
-.swiper-wrapper.ui.cards.nested {
-  margin-bottom: 0 !important;
-}
-
-.swiper-wrapper > .vertical.stripe.segment.white {
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+.swiper-wrapper.ui.grid > .column {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body.presentation {

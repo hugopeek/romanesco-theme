@@ -39,10 +39,16 @@
 
 // The wrapper contains the slides
 .swiper-wrapper {
-    &.ui.cards {
+    &.ui.cards,
+    &.ui.grid {
         flex-wrap: initial;
         margin: 0;
 
+        &.nested {
+            margin-bottom: 0 !important;
+        }
+    }
+    &.ui.cards {
         .swiper-slide {
             display: flex;
             height: auto;
@@ -50,8 +56,11 @@
         .card {
             margin: .1em; // give box-shadow some space
         }
-        &.nested {
-            margin-bottom: 0 !important;
+    }
+    &.ui.grid {
+        > .column {
+            margin: 0 !important;
+            padding: 0 !important;
         }
     }
 }
