@@ -1102,6 +1102,10 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
 }
 
+:root {
+  --swiper-theme-color: rgba(0, 0, 0, 0.4);
+}
+
 .swiper-container button[class*="swiper-button"] {
   border: none;
   background: none;
@@ -1152,4 +1156,10 @@ body.presentation {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.swiper-container-mobile:not(.swiper-container-initialized) .swiper-button-prev,
+.swiper-container-mobile:not(.swiper-container-initialized) .swiper-button-next,
+.swiper-container-mobile:not(.swiper-container-initialized) .swiper-pagination {
+  visibility: hidden;
 }

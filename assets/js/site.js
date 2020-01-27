@@ -348,33 +348,6 @@ var queries = [
     {
         context: 'mobile',
         match: function() {
-            $(document)
-                .ready(function() {
-                    // Turn Gallery grid into a slider on mobile
-                    if (typeof $('html').slick === "function") {
-                        // safe to use the function
-                        $('.slider-combo')
-                            .removeClass('ui grid')
-                            .addClass('cards')
-                            .slick({
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            })
-                        ;
-                        $('.slider-overview-combo')
-                            .find('.overview')
-                            .removeClass('ui grid')
-                            .slick({
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            })
-                            .find('.slick-track')
-                            .addClass('ui cards')
-                        ;
-                    }
-                })
-            ;
-
             // Turn Tabs into an accordion on mobile
             $('.reducible.tab.segment')
                 .each(function() {
@@ -413,26 +386,6 @@ var queries = [
             ;
         },
         unmatch: function() {
-            // We're leaving mobile
-            $(document)
-                .ready(function() {
-                    if (typeof $('html').slick === "function") {
-                        // safe to use the function
-                        $('.slider-combo')
-                            .removeClass('cards')
-                            .addClass('ui grid')
-                            .slick('unslick')
-                        ;
-                        $('.slider-overview-combo')
-                            .removeClass('cards')
-                            .find('.slick-slider')
-                            .addClass('ui grid')
-                            .slick('unslick')
-                        ;
-                    }
-                })
-            ;
-
             // Revert tabs back to normal
             $('.reducible.accordion')
                 .removeClass('fluid styled accordion')

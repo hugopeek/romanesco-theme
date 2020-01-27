@@ -1,3 +1,5 @@
+// DEPRECATED. Slick is no longer used to power te slider.
+
 $(document).ready(function(){
     // COLLISION ALERT!!
     // There's a checkbox type that also uses the slider class, see issue #77 on Github.
