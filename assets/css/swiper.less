@@ -84,3 +84,14 @@ body.presentation {
     display: flex;
     align-items: center;
 }
+
+// Mobile only slider
+.swiper-container-mobile {
+    &:not(.swiper-container-initialized) {
+        .swiper-button-prev,
+        .swiper-button-next,
+        .swiper-pagination {
+            visibility: hidden;
+        }
+    }
+}
