@@ -71,14 +71,18 @@ $(function() {
 
 // Dropdown navigation
 $(function() {
+    var $navDropdown = $('#menu-dropdown');
+
     // Don't do anything if there's no dropdown menu
-    if (!$('#menu-dropdown').length) {
+    if (!$navDropdown.length) {
         return;
     }
 
-    var $nav = $('#menu-dropdown');
-    var $navClone = $nav.clone(true);
+    // Clone navigation
+    var $navAccordion = document.querySelector('#menu-dropdown').cloneNode( true );
+    $navAccordion.setAttribute( 'id', 'menu-accordion' );
 
+    // Create 3-level mega dropdown
     function createPopup() {
         var $this = $(this);
         var $target = $this.find('> .content');
@@ -93,7 +97,7 @@ $(function() {
             var columns = 'five';
         }
 
-        // Dropdown is only intended for no-js situations
+        // Dropdown class is only intended for no-js situations
         $this.removeClass('dropdown');
 
         // Turn list into large popup menu
@@ -124,107 +128,109 @@ $(function() {
         });
     }
 
-    // Apply popup to eligible items
-    $nav.find('.three.level.dropdown')
-        .each(createPopup)
-    ;
-    $nav.find('.two.level.dropdown')
-        .removeClass('simple')
-        .dropdown({
-            on: 'hover',
-            duration: 0,
-            delay: {
-                show: 0,
-                hide: 300
-            }
-        })
-    ;
+    // Create desktop menu
+    function createDropdown(navContainer) {
 
-    // Set active class with JS, to avoid flash of dropdown menu on load
-    $nav.find('.active')
-        .parent()
-        .addClass('current') // Use different classname, otherwise dropdown even won't fire
-    ;
+        // 3-level submenu
+        navContainer
+            .find('.three.level.item')
+            .each(createPopup)
+        ;
+        // 2-level submenu
+        navContainer
+            .find('.two.level.item')
+            .removeClass('simple')
+            .dropdown({
+                on: 'hover',
+                duration: 0,
+                delay: {
+                    show: 0,
+                    hide: 300
+                }
+            })
+        ;
+
+        // Set active class with JS, to avoid flash of dropdown menu on load
+        navContainer
+            .find('.active')
+            .parent()
+            .addClass('current') // Use different classname, otherwise dropdown event won't fire
+        ;
+    }
+
+    // Create mobile accordion
+    function createAccordion(navContainer) {
+
+        // Make sure the accordion group containing the active item is open by default
+        navContainer
+            .find('.active')
+            .each(function(){
+                $(this).parents('.item').addClass('active');
+                $(this).parents('.content').addClass('active');
+            })
+        ;
+
+        // Build up accordion menu
+        $('#off-canvas')
+            .accordion({
+                exclusive: true,
+                closeNested : true,
+                selector: {
+                    trigger: '.title > .icon'
+                }
+            })
+            .find('ul .content')
+            .removeClass('menu')
+        ;
+
+        // Separate link and icon, so dropdown icon becomes clickable
+        $('#off-canvas .title')
+            .wrap('<div class="title"></div>')
+            .removeClass('title')
+            .find('.icon')
+            .each(function(){
+                $(this).insertAfter($(this).parent());
+                $(this).wrap('<button class="ui tiny icon button"></button>')
+            })
+        ;
+
+        // Add active class to link parent, to ensure correct accordion behaviour
+        $('#off-canvas a.active')
+            .parent()
+            .addClass('active')
+        ;
+    }
+
+    // By default, create desktop menu
+    createDropdown($navDropdown);
+
 
     // Switch between accordion and dropdown on mobile / desktop
     MQ.addQuery({
         context: ['mobile','tablet'],
         match: function() {
-            // Make sure the accordion group containing the active item is open by default
-            $navClone
-                .find('.active')
-                .each(function(){
-                    //$(this).parent().prev().addClass('active'); // needed below (line 180)
-                    $(this).parents('.item').addClass('active');
-                    $(this).parents('.content').addClass('active');
-                })
-            ;
+            var $sidebar = $('#off-canvas');
 
-            // Build up accordion menu
-            $('#off-canvas')
-                .accordion({
-                    exclusive: true,
-                    closeNested : true,
-                    selector: {
-                        trigger: '.title > .icon'
-                    }
-                })
-                .append('<ul id="menu-accordion"></ul>')
-                .find('ul')
-                .append(
-                    $navClone
-                        .clone()
-                        .find('> .item')
-                        .removeClass('dropdown')
-                )
-                .find('.content')
-                .removeClass('menu')
-            ;
+            // Place accordion inside off-canvas sidebar
+            $sidebar.append($navAccordion);
 
-            // Separate link and icon, so dropdown icon becomes clickable
-            $('#off-canvas .title')
-                .wrap('<div class="title"></div>')
-                .removeClass('title')
-                .find('.icon')
-                .each(function(){
-                    $(this).insertAfter($(this).parent());
-                    $(this).wrap('<button class="ui tiny icon button"></button>')
-                })
-            ;
-
-            // Add active class to link parent, to ensure correct accordion behaviour
-            $('#off-canvas a.active')
-                .parent()
-                .addClass('active')
-            ;
+            // Initialize
+            createAccordion($sidebar);
 
             // Empty desktop navigation to avoid double links in HTML
-            $('#menu-dropdown').empty();
+            $('#menu-dropdown').detach();
+
         },
         unmatch: function() {
-            $nav = $navClone.clone();
 
-            // Fill empty container with cloned navigation
-            $('#menu-dropdown').replaceWith($nav);
+            // Refill empty container
+            $navDropdown.appendTo('#menu > .container');
 
-            // Reapply popup to eligible items (couldn't figure out how to clone with events intact)
-            $nav.find('.three.level.dropdown')
-                .each(createPopup)
-            ;
-            $nav.find('.two.level.dropdown')
-                .removeClass('simple')
-                .dropdown({
-                    on: 'hover',
-                    duration: 0,
-                    delay: {
-                        show: 0,
-                        hide: 300
-                    }
-                })
-            ;
+            // Initialize again to make sure 3-level dropdown is working
+            createDropdown($navDropdown);
 
-            // Axe mobile nav again
-            $('#off-canvas').empty();
+            // Axe mobile nav
+            $('#menu-accordion').detach();
         }
     });
 });
