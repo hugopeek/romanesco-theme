@@ -268,7 +268,6 @@
             //margin-right: 2em !important;
 
             border-left: 1px solid @invertedVerticalDividerBackground;
-            //border-right: 1px solid @invertedVerticalDividerBackground;
             color: @invertedActiveColor;
 
             i.dropdown {
@@ -341,8 +340,16 @@
 #off-canvas {
     > .item.home {
         min-height: 4rem;
-        .image {
-            margin-right: 6px;
+        display: flex;
+
+        > .badge {
+            flex: 1;
+            height: auto;
+            margin-right: 1em;
+        }
+        > .close {
+            box-shadow: none;
+            padding: 0.3em;
         }
     }
     > .special {

@@ -15,7 +15,7 @@
         line-height: 1 !important;
     }
     &.logo when not (@logoPath = '/') {
-        background: url("@{logoPath}") no-repeat center center !important;
+        background: url("@{logoPath}") no-repeat left center !important;
         background-size: contain !important;
         text-indent: -9999rem;
 
@@ -30,7 +30,7 @@
         }
     }
     &.badge when not (@logoBadgePath = '/') {
-        background: url("@{logoBadgePath}") no-repeat center center !important;
+        background: url("@{logoBadgePath}") no-repeat left center !important;
         background-size: contain !important;
         height: 36px;
         width: 36px;
