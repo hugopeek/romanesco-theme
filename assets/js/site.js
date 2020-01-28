@@ -184,7 +184,7 @@ $(function() {
         ;
 
         // Separate link and icon, so dropdown icon becomes clickable
-        $('#off-canvas .title')
+        $('#off-canvas a.title')
             .wrap('<div class="title"></div>')
             .removeClass('title')
             .find('.icon')
