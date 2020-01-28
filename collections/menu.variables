@@ -1,3 +1,9 @@
 /*******************************
              Menu
 *******************************/
+
+@invertedHoverBackground: @subtleTransparentWhite;
+@invertedActiveBackground: @transparentWhite;
+
+@itemHorizontalPadding: @relativeLarge;
+@subMenuIndent: 0.5;
