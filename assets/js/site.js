@@ -80,7 +80,7 @@ $(function() {
 
     // Clone navigation
     var $navAccordion = document.querySelector('#menu-dropdown').cloneNode( true );
-    $navAccordion.setAttribute( 'id', 'menu-accordion' );
+        $navAccordion.setAttribute( 'id', 'menu-accordion' );
 
     // Create 3-level mega dropdown
     function createPopup() {
@@ -167,10 +167,15 @@ $(function() {
             .each(function(){
                 $(this).parents('.item').addClass('active');
                 $(this).parents('.content').addClass('active');
+                $(this).siblings('.content')
+                    .addClass('active')
+                    .find('> .item')
+                    .addClass('transition visible')
+                ;
             })
         ;
 
-        // Build up accordion menu
+        // Apply accordion menu
         $('#off-canvas')
             .accordion({
                 exclusive: true,
@@ -179,9 +184,11 @@ $(function() {
                     trigger: '.title > .icon'
                 }
             })
-            .find('ul .content')
-            .removeClass('menu')
         ;
+
+        // Remove menu classes interfering with styling
+        navContainer.find("#menu-accordion").removeClass('right menu');
+        navContainer.find('ul .content').removeClass('menu');
 
         // Separate link and icon, so dropdown icon becomes clickable
         $('#off-canvas a.title')
