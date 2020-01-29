@@ -53,17 +53,21 @@
 // This is probably a bug in Semantic UI, see:
 // https://github.com/Semantic-Org/Semantic-UI/issues/5170
 @media only screen and (max-width: @largestMobileScreen) {
-    .ui.grid.container > .column,
-    .ui.grid.container > .row > .column {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    .ui.grid.container {
+        > .column,
+        > .row > .column {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
     }
 
     // Stackable columns are having issues inside nested containers
-    .ui.container:not(.fluid) .container > .ui.stackable.grid > .column,
-    .ui.container:not(.fluid) .container > .ui.stackable.grid > .row > .column {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    .ui.container:not(.fluid) .container {
+        > .ui.stackable.grid > .column,
+        > .ui.stackable.grid > .row > .column {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
     }
 
     // Celled grids are also having issues
@@ -76,6 +80,15 @@
         > .row > .column {
             padding-left: 1rem !important;
             padding-right: 1rem !important;
+        }
+    }
+
+    // And pagination wrappers...
+    .ui.container > .pagination-wrapper .ui.stackable.grid {
+        > .column,
+        > .row > .column {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
     }
 }
