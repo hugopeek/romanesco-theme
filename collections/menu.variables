@@ -7,3 +7,7 @@
 
 @itemHorizontalPadding: @relativeLarge;
 @subMenuIndent: 0.5;
+
+// Mobile accordion expand icon
+@accordionIconContent: '\f053';
+@rotateDegrees: -90deg;

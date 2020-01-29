@@ -267,26 +267,26 @@
             // Offset from right, to avoid conflicts with scrollbar
             //margin-right: 2em !important;
 
+            padding: 1em 1.1em;
             border-left: 1px solid @invertedVerticalDividerBackground;
-            color: @invertedActiveColor;
+            color: @invertedLightTextColor;
 
-            i.dropdown {
-                font-size: 1.3em;
-                line-height: 0.7em;
-
-                &:before {
-                    content: '+';
-                }
+            i.dropdown:before {
+                font-family: 'Icons';
+                content: @accordionIconContent;
             }
         }
 
         &.active {
             font-weight: @bold;
             border-bottom: 1px solid @invertedVerticalDividerBackground;
-            color: @invertedActiveColor;
+
+            > .button {
+                color: @invertedActiveColor;
+            }
 
             i.dropdown {
-                transform: rotate(45deg);
+                transform: rotate(@rotateDegrees);
             }
         }
     }
