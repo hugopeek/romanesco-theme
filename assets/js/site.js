@@ -100,6 +100,11 @@ $(function() {
         // Dropdown class is only intended for no-js situations
         $this.removeClass('dropdown');
 
+        // Close any open dropdowns, to prevent overlap during delay
+        $this.hover(function() {
+            $('.two.level.item').dropdown('hide');
+        });
+
         // Turn list into large popup menu
         $target.wrapAll('<div class="ui flowing basic popup"><div class="ui ' + columns + ' column internally celled grid"></div></div>');
         $target.find('.column.item').removeClass('item');
@@ -140,6 +145,9 @@ $(function() {
         navContainer
             .find('.two.level.item')
             .removeClass('simple')
+            .hover(function() {
+                $(this).popup('hide all');
+            })
             .dropdown({
                 on: 'hover',
                 duration: 0,
