@@ -42,7 +42,9 @@
     }
 
     // Make boxes out of non-white segments in detail templates
-    body.detail #main .ui.container:not(.fluid) &:not(.white) {
+    // Also include white segments on non-white backgrounds
+    body.detail #main .ui.container:not(.fluid) &:not(.white),
+    body.detail.non-white #main .ui.container:not(.fluid) &.white {
         margin-bottom: 4em;
         padding: 0;
         border-radius: @defaultBorderRadius;
@@ -51,7 +53,7 @@
             padding-top: 0;
         }
 
-        > .container {
+        &:not(.transparent) > .container {
             padding: 2em;
         }
     }
