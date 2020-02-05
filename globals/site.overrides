@@ -92,9 +92,14 @@ body:after {
 // Main content area
 // ---------------------------------------------------------------------
 
-// Set top margin on specific elements, to prevent gaps when starting with a segment
-#main #sidebar {
-    margin-top: 4rem !important;
+// Detail page on desktop
+@media only screen and (min-width: @computerBreakpoint) {
+    body.detail {
+        #content,
+        #sidebar {
+            margin-top: 4rem;
+        }
+    }
 }
 
 // Main content header
