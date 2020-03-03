@@ -13,6 +13,10 @@ a.circular.image > img {
 //    opacity: 0.6;
 //}
 
+.ui.lightbox.image {
+    cursor: pointer;
+}
+
 .testimonial {
     &.column:not(.logo) .image {
         @media only screen and (max-width: @tabletBreakpoint) {
