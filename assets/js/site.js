@@ -363,7 +363,9 @@ var lazyLoadInstance = new LazyLoad({
 });
 
 // Responsive tables
-function tableToCard(id = '') {
+function tableToCard(id) {
+    id = id || '';
+
     $(id + '.ui.overview.table').addClass('dormant');
 
     // Show table headings inline
