@@ -99,6 +99,13 @@ body:after {
         #sidebar {
             margin-top: 4rem;
         }
+
+        // Reduce padding of the first segment, if it's white
+        &:not(.non-white) #content > .white.segment:first-child,
+        &:not(.non-white) #sidebar > .white.segment:first-child {
+            padding-top: 0;
+        }
+
     }
 }
 
