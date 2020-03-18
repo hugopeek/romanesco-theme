@@ -12,6 +12,13 @@
         margin-left: 0;
     }
 
+    // Buttons themselves can be center aligned too
+    &.center.aligned {
+        margin: 0 auto;
+        display: block;
+        width: max-content;
+    }
+
     // Content buttons are too close to top content
     #content * + & {
         margin-top: 0.5em;
