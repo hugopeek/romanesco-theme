@@ -16,6 +16,11 @@
 //@activeItemBackground: @secondaryInvertedActiveBackground;
 //@activeItemTextColor: @secondaryInvertedActiveColor;
 
+// 3rd level flowing dropdowns
+@popupTextColor: @mutedTextColor;
+@popupHoverTextColor: @selectedTextColor;
+@popupActiveTextColor: @textColor;
+
 // Border is applied to bottom of sticky menu
 @border: @borderWidth solid @borderColor;
 

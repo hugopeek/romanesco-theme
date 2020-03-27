@@ -165,11 +165,15 @@
         .list {
             margin-left: 0;
 
-            // Apply color again to ensure correct behaviour in inverted menus
-            a { color: @itemTextColor; }
+            // Apply text colors again to ensure correct appearance
+            a {
+                color: @popupTextColor;
+                &:hover { color: @popupHoverTextColor; }
+            }
 
             .active {
                 background: none;
+                a { color: @popupActiveTextColor; }
             }
         }
     }
