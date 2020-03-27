@@ -2,11 +2,14 @@
              Menu
 *******************************/
 
+@background: rgba(255,255,255,0.95);
 @invertedHoverBackground: @subtleTransparentWhite;
 @invertedActiveBackground: @transparentWhite;
 
 @itemHorizontalPadding: @relativeLarge;
 @subMenuIndent: 0.5;
+
+@border: @borderWidth solid @borderColor;
 
 // Mobile accordion expand icon
 @accordionIconContent: '\f053';
