@@ -9,6 +9,14 @@
 @itemHorizontalPadding: @relativeLarge;
 @subMenuIndent: 0.5;
 
+// Additional adjustments if menu is inverted
+//@hoverItemBackground: @secondaryInvertedHoverBackground;
+//@hoverItemTextColor: @secondaryInvertedHoverColor;
+//
+//@activeItemBackground: @secondaryInvertedActiveBackground;
+//@activeItemTextColor: @secondaryInvertedActiveColor;
+
+// Border is applied to bottom of sticky menu
 @border: @borderWidth solid @borderColor;
 
 // Mobile accordion expand icon
