@@ -1,0 +1,10 @@
+/***********************************************************
+  Central element variation compilation enablers
+***********************************************************/
+
+/* Button */
+@variationButtonAnimated: false;
+@variationButtonOr: false;
+
+/* Dimmer */
+@variationDimmerBlurring: false;
