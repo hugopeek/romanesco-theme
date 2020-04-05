@@ -114,4 +114,30 @@
             }
         }
     }
+
+    // Tweaks for submit buttons
+    .ui.icon.input {
+        > .button {
+            padding-right: 3.6em !important;
+
+            &:focus {
+                border-color: transparent;
+            }
+            &.primary,
+            &.secondary {
+                + .icon {
+                    background: @strongTransparentBlack;
+                    color: @white;
+                }
+            }
+        }
+        > .icon {
+            background: @transparentBlack;
+            opacity: 1;
+        }
+    }
+
+    .right.aligned > .button {
+        margin-right: 0;
+    }
 }
