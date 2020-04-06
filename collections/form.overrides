@@ -70,6 +70,11 @@
                 clear: both;
             }
         }
+
+        // Clear floated submit buttons
+        &.submit {
+            overflow: auto;
+        }
     }
 
     // Improve styling of inverted forms
