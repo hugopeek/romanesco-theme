@@ -129,7 +129,7 @@
     }
 
     // Tweaks for submit buttons
-    .ui.icon.input {
+    .ui.icon.input.submit {
         > .button {
             padding-right: 3.6em !important;
 
