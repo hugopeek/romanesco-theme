@@ -109,7 +109,8 @@
                 width: 30%;
             }
             > input,
-            > select {
+            > select,
+            > .multiple.dropdown {
                 vertical-align: middle;
             }
         }
