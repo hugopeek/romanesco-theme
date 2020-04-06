@@ -134,6 +134,7 @@
         > .icon {
             background: @transparentBlack;
             opacity: 1;
+            font-size: 80%;
         }
     }
 
