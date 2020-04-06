@@ -25,6 +25,7 @@
 
 // Border is applied to bottom of sticky menu
 @border: @borderWidth solid @borderColor;
+@boxShadow: 0 1px 0 @borderColor;
 
 // Mobile accordion expand icon
 @accordionIconContent: '\f053';

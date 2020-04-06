@@ -44,7 +44,7 @@
     // Custom state for sticky menu after scrolling down. Class is set with JS.
     &.tightened {
         height: 5rem;
-        border-bottom: @border;
+        box-shadow: @boxShadow;
     }
 
     // Make sure width is set to 100% on mobile
