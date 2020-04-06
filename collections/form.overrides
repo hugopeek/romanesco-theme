@@ -90,6 +90,13 @@
         }
     }
 
+    // Reduce padding on mobile
+    @media screen and (max-width: @largestMobileScreen) {
+        .padded.segment {
+            padding: 5%;
+        }
+    }
+
     // Improve layout of labels positioned next to fields
     @media screen and (min-width: @tabletBreakpoint) {
         .horizontal.field,
