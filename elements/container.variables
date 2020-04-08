@@ -2,7 +2,8 @@
             Container
 *******************************/
 
-@textWidth: 700px;
+@textWidth: 20rem * (@fontSize + @scaleRatio);
 @textFontFamily: @pageFont;
-@textLineHeight: 1.6;
-@textSize: @fontSize * 1.2;
+@textLineHeight: 1.618;
+@textSize: @fontSize * @scaleRatio;
+@textSizeMobile: @fontSize * @mobileScaleRatio;
