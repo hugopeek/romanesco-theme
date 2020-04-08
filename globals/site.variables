@@ -33,7 +33,8 @@
 /* Custom addition
    This variable is used for scaling other values proportionally
 */
-@scaleRatio     : 1.25;
+@scaleRatio         : 1.25;
+@mobileScaleRatio   : @scaleRatio * 0.8;
 
 /* The size of page text  */
 @fontSize       : 1.25rem;
@@ -82,12 +83,12 @@
 @headerFontWeight : bold;
 @headerLineHeight : 1.2;
 
-@h1 : unit(@h2) * @scaleRatio * 1rem;
-@h2 : unit(@h3) * @scaleRatio * 1rem;
-@h3 : unit(@h4) * @scaleRatio * 1rem;
-@h4 : unit(@h5) * @scaleRatio * 1rem;
+@h1 : unit(@h2) * @scaleRatio * .89rem;
+@h2 : unit(@h3) * @scaleRatio * .89rem;
+@h3 : unit(@h4) * @scaleRatio * .89rem;
+@h4 : unit(@h5) * @scaleRatio * .89rem;
 @h5 : @fontSize;
-@h6 : unit(@h5) / @scaleRatio * 1rem;
+@h6 : unit(@h5) / @scaleRatio * .89rem;
 
 /*--------------
    Form Input
