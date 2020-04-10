@@ -5,11 +5,11 @@
 @subHeaderMargin: .5em 0 0;
 
 // Set subtitles to a relative value that always results in the same font size
-@h1SubHeaderFontSize: unit(@h2SubHeaderFontSize) / @scaleRatio * 1em;
-@h2SubHeaderFontSize: unit(@h3SubHeaderFontSize) / @scaleRatio * 1em;
-@h3SubHeaderFontSize: unit(@h4SubHeaderFontSize) / @scaleRatio * 1em;
-@h4SubHeaderFontSize: unit(@h5SubHeaderFontSize) / @scaleRatio * 1em;
-@h5SubHeaderFontSize: 1.1em;
+//@h1SubHeaderFontSize: unit(@h2SubHeaderFontSize) / @scaleRatio * 1em;
+//@h2SubHeaderFontSize: unit(@h3SubHeaderFontSize) / @scaleRatio * 1em;
+//@h3SubHeaderFontSize: unit(@h4SubHeaderFontSize) / @scaleRatio * 1em;
+//@h4SubHeaderFontSize: unit(@h5SubHeaderFontSize) / @scaleRatio * 1em;
+//@h5SubHeaderFontSize: 1.1em;
 
 //@h1SubHeaderFontSize: @fontSize;
 //@h2SubHeaderFontSize: @fontSize;

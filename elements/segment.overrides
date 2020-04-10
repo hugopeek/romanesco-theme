@@ -67,11 +67,8 @@
 
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
+        padding: @verticalRhythm8 0 @verticalRhythm5;
         border-bottom: none;
-
-        @media only screen and (min-width: @tabletBreakpoint) {
-            padding: @verticalRhythm8 0 @verticalRhythm5;
-        }
 
         // Remove padding of the first container below the introduction
         body.non-white & + .ui.stripe.segment.transparent,
@@ -123,7 +120,7 @@
 
 // Segment with a pointing arrow on one side, for indicating quoted content
 .ui.pointing.segment {
-    @triangleSize: 1em * @scaleRatio;
+    @triangleSize: 13px;
     position: relative;
 
     // All pointers

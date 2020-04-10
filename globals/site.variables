@@ -30,8 +30,7 @@
 /* This is the single variable that controls them all */
 @emSize         : 14px;
 
-/* 
-   Custom addition
+/* Custom addition
    Scale ratio is used for scaling other values proportionally 
 */
 @scaleRatio         : 1.25;
@@ -81,13 +80,31 @@
 
 @headerFontWeight : bold;
 @headerLineHeight : 1.2;
+@headerScaleRatio : @scaleRatio * 0.89;
 
-@h1 : unit(@h2) * @scaleRatio * .89rem;
-@h2 : unit(@h3) * @scaleRatio * .89rem;
-@h3 : unit(@h4) * @scaleRatio * .89rem;
-@h4 : unit(@h5) * @scaleRatio * .89rem;
+/* Custom addition
+   Calculate heading sizes based on font size and scale ratio.
+   It checks if the ratio used to enlarge each header is positive, to prevent
+     header size from dropping below the font size.
+*/
+
+@ratioIsPositive: boolean(@fontSize * @headerScaleRatio > @h5);
+
+@h1 : if(@ratioIsPositive, @h2 * @headerScaleRatio, @h2 * @scaleRatio);
+@h2 : if(@ratioIsPositive, @h3 * @headerScaleRatio, @h3 * @scaleRatio);
+@h3 : if(@ratioIsPositive, @h4 * @headerScaleRatio, @h4 * @scaleRatio);
+@h4 : if(@ratioIsPositive, @h5 * @headerScaleRatio, @h5 * @scaleRatio);
 @h5 : @fontSize;
-@h6 : unit(@h5) / @scaleRatio * .89rem;
+@h6 : if(@ratioIsPositive, @h5 / @headerScaleRatio, @h5 / @scaleRatio);
+
+@ratioIsPositive: boolean(@fontSize * @mobileScaleRatio > @mobileH5);
+
+@mobileH1 : if(@ratioIsPositive, @h2 * @mobileScaleRatio, @h2 * @scaleRatio);
+@mobileH2 : if(@ratioIsPositive, @h3 * @mobileScaleRatio, @h3 * @scaleRatio);
+@mobileH3 : if(@ratioIsPositive, @h4 * @mobileScaleRatio, @h4 * @scaleRatio);
+@mobileH4 : if(@ratioIsPositive, @h5 * @mobileScaleRatio, @h5 * @scaleRatio);
+@mobileH5 : @fontSize;
+@mobileH6 : if(@ratioIsPositive, @h5 * @mobileScaleRatio, @h5 * @scaleRatio);
 
 /*--------------
    Form Input
@@ -169,7 +186,6 @@
    Control vertical margins based on Fibonacci ratios
 */
 
-// Root value for CSS properties
 @verticalRhythmBaseline: 1 * @scaleRatio * @scaleRatio;
 
 @verticalRhythm1    : calc(var(--baseline) * 1rem);
@@ -178,13 +194,6 @@
 @verticalRhythm5    : calc(var(--baseline) * 5rem);
 @verticalRhythm8    : calc(var(--baseline) * 8rem);
 @verticalRhythm13   : calc(var(--baseline) * 13rem);
-
-//@verticalRhythmMobile1    : (@mobileScaleRatio * 1rem) / 2;
-//@verticalRhythmMobile2    : (@mobileScaleRatio * 2rem) / 2;
-//@verticalRhythmMobile3    : (@mobileScaleRatio * 3rem) / 2;
-//@verticalRhythmMobile5    : (@mobileScaleRatio * 5rem) / 2;
-//@verticalRhythmMobile8    : (@mobileScaleRatio * 8rem) / 2;
-//@verticalRhythmMobile13   : (@mobileScaleRatio * 13rem) / 2;
 
 /*-------------------
      Breakpoints

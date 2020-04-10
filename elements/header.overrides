@@ -53,6 +53,19 @@
         display: block;
         margin: 0.5em 0.9em 1em 0.9em;
     }
+
+    // Make sure headers don't grow too big on smaller screens
+    @media only screen and (max-width: @largestMobileScreen) {
+        h1& { font-size: @mobileH1; }
+        h2& { font-size: @mobileH2; }
+        h3& { font-size: @mobileH3; }
+        h4& { font-size: @mobileH4; }
+        h5& { font-size: @mobileH5; }
+
+        & > .sub.header {
+            font-size: @fontSize;
+        }
+    }
 }
 
 .ui.icon.header {
@@ -104,18 +117,5 @@
         body.detail & {
             margin-bottom: 2rem;
         }
-    }
-}
-
-// Make sure headers don't grow too big on smaller screens
-@media only screen and (max-width: @largestMobileScreen) {
-    h1 { font-size: @h1 * @mobileScaleRatio !important; }
-    h2 { font-size: @h2 * @mobileScaleRatio !important; }
-    h3 { font-size: @h3 * @mobileScaleRatio !important; }
-    h4 { font-size: @h4 * @mobileScaleRatio !important; }
-    h5 { font-size: @h5 * @mobileScaleRatio !important; }
-
-    .ui.header > .sub.header {
-        font-size: @fontSize !important;
     }
 }
