@@ -18,7 +18,7 @@
     }
 }
 
-// Adjust text for optimal readability in text containers
+// Adjust text for optimal readability in text containers and templates
 .ui.text.container {
     p {
         //font-size: @textSize;
@@ -28,7 +28,7 @@
     p + h2,
     p + h3,
     p + h4 {
-        margin-top: 4rem;
+        margin-top: @verticalRhythm5;
     }
 
     // Match exact container width on tablet, since that will be very close anyway

@@ -5,8 +5,11 @@
 // Global settings
 //
 // Use font size to set the base percentage for all em and rem units.
-// The font-family and content values are used my onMediaQuery.js
-// to target Semantic UI breakpoints with JS
+// The font-family and content values are used my onMediaQuery.js to target
+//   Semantic UI breakpoints with JS.
+//
+// Added in 2020 are the root CSS variables. These are used to calculate
+//   vertical rhythm values per breakpoint.
 // ---------------------------------------------------------------------
 
 html {
@@ -18,6 +21,10 @@ body:after {
     display: none;
 }
 
+:root {
+    --baseline: @verticalRhythmBaseline * 0.2;
+}
+
 @media screen and (min-width: @mobileBreakpoint) {
     html {
         font-size: 87.5%;
@@ -25,6 +32,10 @@ body:after {
     }
     body:after {
         content: "mobile";
+    }
+
+    :root {
+        --baseline: @verticalRhythmBaseline * 0.25;
     }
 }
 
@@ -36,6 +47,10 @@ body:after {
     body:after {
         content: "tablet";
     }
+
+    :root {
+        --baseline: @verticalRhythmBaseline * 0.4;
+    }
 }
 @media screen and (min-width: @computerBreakpoint) {
     html {
@@ -44,6 +59,10 @@ body:after {
     }
     body:after {
         content: "computer";
+    }
+
+    :root {
+        --baseline: @verticalRhythmBaseline * 0.35;
     }
 }
 @media screen and (min-width: @largeMonitorBreakpoint) {
@@ -54,6 +73,10 @@ body:after {
     body:after {
         content: "large";
     }
+
+    :root {
+        --baseline: @verticalRhythmBaseline * 0.4;
+    }
 }
 @media screen and (min-width: @widescreenMonitorBreakpoint) {
     html {
@@ -62,6 +85,10 @@ body:after {
     }
     body:after {
         content: "widescreen";
+    }
+
+    :root {
+        --baseline: (@verticalRhythmBaseline * 0.5);
     }
 }
 
@@ -97,6 +124,7 @@ body:after {
     display: none;
 }
 
+
 // Main content area
 // ---------------------------------------------------------------------
 
@@ -114,15 +142,6 @@ body:after {
             padding-top: 0;
         }
 
-    }
-}
-
-// Main content header
-#content > .introduction {
-
-    // Reduce padding of the first container below the header, if it's white
-    + .ui.stripe.segment.white {
-        padding-top: 2em;
     }
 }
 

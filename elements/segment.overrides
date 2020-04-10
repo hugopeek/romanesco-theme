@@ -10,11 +10,6 @@
     font-size: inherit;
 }
 
-// Segment containing the header of the page
-.masthead .segment {
-    padding: 3em 0;
-}
-
 // If there's no header present, create some room for sticky navigation in following segment
 .masthead.without.hero:not(.non-stick) {
     + #toolbar {
@@ -29,8 +24,8 @@
 }
 
 // Segment containing a layout added through CB
-.ui.stripe.segment {
-    padding: 4em 0;
+.ui.vertical.stripe.segment {
+    padding: @verticalRhythm8 0;
 
     // Regulate whitespace and remove border of segments in detail templates
     body.detail #main &.white {
@@ -54,31 +49,42 @@
         }
 
         &:not(.transparent) > .container {
-            padding: 2em;
+            padding: @verticalRhythm2 2em;
         }
-    }
-
-    // Different vertical rhythm for mobile and tablet
-    @media screen and (max-width: @tabletBreakpoint) {
-        padding: 2em 0;
     }
 
     // Set background on white segments
     &.white {
         background-color: @white;
-        z-index: 0; // Fix in case container positioning is absolute
     }
 
-    // Add extra colored segments
-    // Additional color settings are defined in site.overrides
+    /// Fix in case container positioning is absolute
+    &.white,
     &.primary-color,
     &.secondary-color {
-        z-index: 0; // Fix in case container positioning is absolute
+        z-index: 0;
+    }
+
+    // Introduction segment is used in articles and contains a separate header
+    &.introduction {
+        border-bottom: none;
+
+        @media only screen and (min-width: @tabletBreakpoint) {
+            padding: @verticalRhythm8 0 @verticalRhythm5;
+        }
+
+        // Remove padding of the first container below the introduction
+        body.non-white & + .ui.stripe.segment.transparent,
+        body:not(.non-white) & + .ui.stripe.segment.white,
+        body:not(.non-white) & + .ui.stripe.segment.transparent {
+            padding-top: 0;
+            border-top: none;
+        }
     }
 
     // Segments inside a HeaderVertical template require a few overrides
     .header-vertical & {
-        padding: 2em 0;
+        padding: @verticalRhythm2 0;
 
         @media only screen and (max-width: @largestMobileScreen) {
             > .container > .grid {
@@ -87,7 +93,7 @@
             }
         }
         @media only screen and (min-width: @tabletBreakpoint) {
-            padding: 3em 5%;
+            padding: @verticalRhythm3 5%;
         }
     }
 }
@@ -100,7 +106,7 @@
 // Specific content types
 .header-vertical .ui.segment#toolbar {
     @media only screen and (min-width: @tabletBreakpoint) {
-        padding: 1em 3%;
+        padding: @verticalRhythm1 3%;
     }
 }
 
@@ -117,7 +123,7 @@
 
 // Segment with a pointing arrow on one side, for indicating quoted content
 .ui.pointing.segment {
-    @triangleSize: 13px;
+    @triangleSize: 1em * @scaleRatio;
     position: relative;
 
     // All pointers

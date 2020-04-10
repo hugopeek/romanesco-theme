@@ -30,8 +30,9 @@
 /* This is the single variable that controls them all */
 @emSize         : 14px;
 
-/* Custom addition
-   This variable is used for scaling other values proportionally
+/* 
+   Custom addition
+   Scale ratio is used for scaling other values proportionally 
 */
 @scaleRatio         : 1.25;
 @mobileScaleRatio   : @scaleRatio * 0.8;
@@ -44,9 +45,7 @@
     Border Radius
 --------------------*/
 
-/* See Power-user section below
-   for explanation of @px variables
-*/
+/* See Power-user section below for explanation of @px variables */
 @relativeBorderRadius: @relative4px;
 @absoluteBorderRadius: @4px;
 
@@ -160,6 +159,32 @@
 
 @defaultDuration : 0.1s;
 @defaultEasing   : ease;
+
+/*-------------------
+   Vertical rhythm
+--------------------*/
+
+/* 
+   Custom addition
+   Control vertical margins based on Fibonacci ratios
+*/
+
+// Root value for CSS properties
+@verticalRhythmBaseline: 1 * @scaleRatio * @scaleRatio;
+
+@verticalRhythm1    : calc(var(--baseline) * 1rem);
+@verticalRhythm2    : calc(var(--baseline) * 2rem);
+@verticalRhythm3    : calc(var(--baseline) * 3rem);
+@verticalRhythm5    : calc(var(--baseline) * 5rem);
+@verticalRhythm8    : calc(var(--baseline) * 8rem);
+@verticalRhythm13   : calc(var(--baseline) * 13rem);
+
+//@verticalRhythmMobile1    : (@mobileScaleRatio * 1rem) / 2;
+//@verticalRhythmMobile2    : (@mobileScaleRatio * 2rem) / 2;
+//@verticalRhythmMobile3    : (@mobileScaleRatio * 3rem) / 2;
+//@verticalRhythmMobile5    : (@mobileScaleRatio * 5rem) / 2;
+//@verticalRhythmMobile8    : (@mobileScaleRatio * 8rem) / 2;
+//@verticalRhythmMobile13   : (@mobileScaleRatio * 13rem) / 2;
 
 /*-------------------
      Breakpoints
