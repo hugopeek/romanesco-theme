@@ -326,10 +326,16 @@ blockquote:not(.quote) {
 .ui.stackable.center.when.stacked {
     @media only screen and (max-width: @largestMobileScreen) {
         text-align: center;
+        .column {
+            text-align: center;
+        }
     }
     &.on.tablet {
         @media only screen and (max-width: @largestTabletScreen) {
             text-align: center;
+            .column {
+                text-align: center;
+            }
         }
     }
 }
