@@ -27,12 +27,20 @@
 .ui.vertical.stripe.segment {
     padding: @verticalRhythm8 0;
 
-    // Regulate whitespace and remove border of segments in detail templates
-    body.detail #main &.white {
-        border-bottom: none !important;
-
-        + .white {
-            padding-top: 0;
+    // Stick similar segments together and remove border
+    body.detail &,
+    body.publication & {
+        &.white {
+            border-bottom: none;
+            + .white {
+                padding-top: 0;
+            }
+        }
+        &.transparent {
+            border-bottom: none;
+            + .transparent {
+                padding-top: 0;
+            }
         }
     }
 
@@ -40,13 +48,9 @@
     // Also include white segments on non-white backgrounds
     body.detail #main .ui.container:not(.fluid) &:not(.white),
     body.detail.non-white #main .ui.container:not(.fluid) &.white {
-        margin-bottom: 4em;
+        margin-bottom: @verticalRhythm8;
         padding: 0;
         border-radius: @defaultBorderRadius;
-
-        + .white {
-            padding-top: 0;
-        }
 
         &:not(.transparent) > .container {
             padding: @verticalRhythm2 2em;
@@ -67,16 +71,7 @@
 
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
-        padding: @verticalRhythm8 0 @verticalRhythm5;
-        border-bottom: none;
-
-        // Remove padding of the first container below the introduction
-        body.non-white & + .ui.stripe.segment.transparent,
-        body:not(.non-white) & + .ui.stripe.segment.white,
-        body:not(.non-white) & + .ui.stripe.segment.transparent {
-            padding-top: 0;
-            border-top: none;
-        }
+        padding-bottom: @verticalRhythm5;
     }
 
     // Segments inside a HeaderVertical template require a few overrides
@@ -101,9 +96,11 @@
 }
 
 // Specific content types
-.header-vertical .ui.segment#toolbar {
-    @media only screen and (min-width: @tabletBreakpoint) {
-        padding: @verticalRhythm1 3%;
+.ui.segment#toolbar {
+    .header-vertical {
+        @media only screen and (min-width: @tabletBreakpoint) {
+            padding: @verticalRhythm1 3%;
+        }
     }
 }
 
