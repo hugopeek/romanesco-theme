@@ -429,10 +429,14 @@
     Derived Values
 --------------------*/
 
+/* Used to match floats with text */
+@lineHeightOffset       : ((@lineHeight - 1em) / 2);
+@headerLineHeightOffset : (@headerLineHeight - 1em) / 2;
+
 /* Header Spacing */
-@headerTopMargin    : ~"calc(2rem - "@headerLineHeightOffset~")";
-@headerBottomMargin : 0.5em;
-@headerMargin       : @headerTopMargin 0em @headerBottomMargin;
+@headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
+@headerBottomMargin : 1rem;
+@headerMargin       : @headerTopMargin 0 @headerBottomMargin;
 
 /* Minimum Mobile Width */
 @pageMinWidth       : 320px;
