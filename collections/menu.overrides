@@ -323,6 +323,46 @@
     border-bottom: 1px solid @invertedVerticalDividerBackground;
 }
 
+#menu-neighbors {
+    border-radius: 0;
+    box-shadow: none;
+    border-left: 0;
+    border-right: 0;
+    margin: 0 0 -1px 0;
+
+    .item {
+        padding: @verticalRhythm5 1em !important;
+
+        &:not(:hover) {
+            color: @lightTextColor;
+        }
+
+        @media only screen and (min-width: @tabletBreakpoint) {
+            font-size: @h4;
+        }
+        @media only screen and (min-width: @computerBreakpoint) {
+            font-size: @h3;
+        }
+
+        &.left {
+            text-align: left;
+            justify-content: left;
+
+            > .icon {
+                margin: 0.1em .8em 0 0;
+            }
+        }
+        &.right {
+            text-align: right;
+            justify-content: right;
+
+            > .icon {
+                margin: 0.1em 0 0 .8em;
+            }
+        }
+    }
+}
+
 #submenu {
     // Styling tweaks for nested submenu
     &.vertical.tabular {
