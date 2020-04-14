@@ -81,7 +81,7 @@
 }
 
 // Increase font size and margins of main content headers
-.ui.stripe.segment > .container {
+body.overview .ui.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
         @media only screen and (min-width: @tabletBreakpoint) {
