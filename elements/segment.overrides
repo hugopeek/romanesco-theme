@@ -25,7 +25,7 @@
 
 // Segment containing a layout added through CB
 .ui.vertical.stripe.segment {
-    padding: @verticalRhythm8 0;
+    padding: @verticalRhythm5 0;
 
     // Stick similar segments together and remove border
     body.detail &,
@@ -44,13 +44,13 @@
     // Also include white segments on non-white backgrounds
     body.detail #main .ui.container:not(.fluid) &:not(.white),
     body.detail.non-white #main .ui.container:not(.fluid) &.white {
-        margin-bottom: @verticalRhythm8;
+        margin-bottom: @verticalRhythm5;
         padding: 0;
         border-top: none;
         border-radius: @defaultBorderRadius;
 
         &:not(.transparent) {
-            padding: @verticalRhythm5 2em;
+            padding: @verticalRhythm3 2em;
         }
     }
 

@@ -22,7 +22,7 @@ body:after {
 }
 
 :root {
-    --baseline: @verticalRhythmBaseline * 0.2;
+    --baseline: @verticalRhythmBaseline * 0.3;
 }
 
 @media screen and (min-width: @mobileBreakpoint) {
@@ -35,7 +35,7 @@ body:after {
     }
 
     :root {
-        --baseline: @verticalRhythmBaseline * 0.23;
+        --baseline: @verticalRhythmBaseline * 0.35;
     }
 }
 
@@ -49,7 +49,7 @@ body:after {
     }
 
     :root {
-        --baseline: @verticalRhythmBaseline * 0.33;
+        --baseline: @verticalRhythmBaseline * 0.55;
     }
 }
 @media screen and (min-width: @computerBreakpoint) {
@@ -62,7 +62,7 @@ body:after {
     }
 
     :root {
-        --baseline: @verticalRhythmBaseline * 0.35;
+        --baseline: @verticalRhythmBaseline * 0.6;
     }
 }
 @media screen and (min-width: @largeMonitorBreakpoint) {
@@ -75,7 +75,7 @@ body:after {
     }
 
     :root {
-        --baseline: @verticalRhythmBaseline * 0.4;
+        --baseline: @verticalRhythmBaseline * 0.7;
     }
 }
 @media screen and (min-width: @widescreenMonitorBreakpoint) {
@@ -88,7 +88,7 @@ body:after {
     }
 
     :root {
-        --baseline: (@verticalRhythmBaseline * 0.5);
+        --baseline: (@verticalRhythmBaseline * .9);
     }
 }
 

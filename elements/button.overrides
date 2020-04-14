@@ -38,6 +38,6 @@
     // As do AJAX pagination load more buttons
     .pagination-wrapper &.more {
         z-index: 99;
-        margin-top: @verticalRhythm5;
+        margin-top: @verticalRhythm3;
     }
 }
