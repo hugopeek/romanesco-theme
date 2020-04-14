@@ -34,4 +34,10 @@
     .file-uploader-buttons & {
         margin: 0 0.75em 0 0 !important;
     }
+
+    // As do AJAX pagination load more buttons
+    .pagination-wrapper &.more {
+        z-index: 99;
+        margin-top: @verticalRhythm5;
+    }
 }
