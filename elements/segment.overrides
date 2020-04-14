@@ -68,7 +68,7 @@
 
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
-        padding-bottom: @verticalRhythm5;
+        padding-bottom: @verticalRhythm3;
     }
 
     // Segments inside a HeaderVertical template require a few overrides
