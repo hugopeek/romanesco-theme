@@ -37,6 +37,7 @@
 
     // As do AJAX pagination load more buttons
     .pagination-wrapper &.more {
+        position: relative;
         z-index: 99;
         margin-top: @verticalRhythm3;
     }
