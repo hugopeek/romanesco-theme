@@ -80,42 +80,40 @@
     }
 }
 
-// Increase font size and margins of main content headers
+// Increase font size and margins of center aligned section headers
 .ui.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
-        @media only screen and (min-width: @tabletBreakpoint) {
-            font-size: @h1 * @scaleRatio;
-        }
-
-        > .sub.header {
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-
-            @media screen and (min-width: @tabletBreakpoint) {
-                margin-bottom: 4rem;
+        &.center.aligned:first-child {
+            @media only screen and (min-width: @tabletBreakpoint) {
+                font-size: @h1 * @scaleRatio;
             }
-        }
+            > .sub.header {
+                margin-top: @verticalRhythm1;
+                margin-bottom: @verticalRhythm2;
 
-        body.detail & {
-            margin-bottom: 2rem;
+                @media screen and (min-width: @tabletBreakpoint) {
+                    margin-bottom: @verticalRhythm5;
+                }
+            }
         }
     }
 
-    // A little love for headers that are not H1
+    // A little love for H2 headers too
     > h2.header,
     > .column > h2.header {
-        @media screen and (min-width: @tabletBreakpoint) {
-            font-size: @h2 * @scaleRatio;
-
-            > .sub.header {
-                margin-top: .8rem;
-                margin-bottom: 3rem;
+        &.center.aligned:first-child {
+            @media only screen and (min-width: @tabletBreakpoint) {
+                font-size: @h2 * @scaleRatio;
             }
-        }
+            > .sub.header {
+                margin-top: @verticalRhythm1;
+                margin-bottom: @verticalRhythm2;
 
-        body.detail & {
-            margin-bottom: 2rem;
+                @media screen and (min-width: @tabletBreakpoint) {
+                    margin-bottom: @verticalRhythm3;
+                }
+            }
         }
     }
 }

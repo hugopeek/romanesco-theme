@@ -29,7 +29,7 @@ body.readability #content .ui.container,
     p + h2,
     p + h3,
     p + h4 {
-        margin-top: @verticalRhythm5;
+        margin-top: @verticalRhythm3;
     }
 }
 
