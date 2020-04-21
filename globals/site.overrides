@@ -170,7 +170,7 @@ a.header:not(.inverted),
 
 // Link styling inside inverted segments
 a.inverted:not(.button):not(.boxed) {
-    color: @white;
+    color: @invertedTextColor;
     border-bottom-color: fade(@white, 60);
     &:hover {
         border-bottom-color: @white;
