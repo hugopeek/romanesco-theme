@@ -80,11 +80,12 @@
     }
 }
 
-// Increase font size and margins of center aligned section headers
+// Amplify font size and margins of section headers
 .ui.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
-        &.center.aligned:first-child {
+        &.center.aligned:first-child,
+        body.overview &:first-child {
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h1 * @scaleRatio;
             }
@@ -102,7 +103,8 @@
     // A little love for H2 headers too
     > h2.header,
     > .column > h2.header {
-        &.center.aligned:first-child {
+        &.center.aligned:first-child,
+        body.overview &:first-child {
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h2 * @scaleRatio;
             }
