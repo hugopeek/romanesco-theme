@@ -34,7 +34,7 @@
    Scale ratio is used for scaling other values proportionally.
 */
 @scaleRatio         : 1.25;
-@mobileScaleRatio   : @scaleRatio * 0.8;
+@mobileScaleRatio   : @scaleRatio * 0.618;
 
 /* The size of page text  */
 @fontSize       : 1.25rem;
@@ -100,12 +100,14 @@
 @h5 : (@shadowFontSize * @scaleRatio);
 @h6 : @fontSize;
 
-@mobileH1 : (@h2 * @mobileScaleRatio);
-@mobileH2 : (@h3 * @mobileScaleRatio);
-@mobileH3 : (@h4 * @mobileScaleRatio);
-@mobileH4 : (@h5 * @mobileScaleRatio);
+@ratioIsPositive: boolean(@fontSize * @mobileScaleRatio > @shadowFontSize);
+
+@mobileH1 : if(@ratioIsPositive, (@h2 * @mobileScaleRatio), @h2);
+@mobileH2 : if(@ratioIsPositive, (@h3 * @mobileScaleRatio), @h3);
+@mobileH3 : if(@ratioIsPositive, (@h4 * @mobileScaleRatio), @h4);
+@mobileH4 : if(@ratioIsPositive, (@h5 * @mobileScaleRatio), @h5);
 @mobileH5 : @fontSize;
-@mobileH6 : (@h5 / @mobileScaleRatio);
+@mobileH6 : if(@ratioIsPositive, (@h5 / @mobileScaleRatio), @h5);
 
 /*--------------
    Form Input

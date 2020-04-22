@@ -88,6 +88,10 @@
         body.overview &:first-child {
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h1 * @scaleRatio;
+
+                > .sub.header {
+                    font-size: @h1SubHeaderFontSize * 1.125;
+                }
             }
             > .sub.header {
                 margin-top: @verticalRhythm1;
@@ -107,6 +111,10 @@
         body.overview &:first-child {
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h2 * @scaleRatio;
+
+                > .sub.header {
+                    font-size: @h2SubHeaderFontSize * 1.125;
+                }
             }
             > .sub.header {
                 margin-top: @verticalRhythm1;

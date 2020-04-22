@@ -5,9 +5,11 @@
 @subHeaderMargin: .5em 0 0;
 
 // Set subtitle size with font size as minimum, to prevent subtitles becoming too small
-@h1SubHeaderFontSize: if(@h2 / @scaleRatio > @fontSize, @h2 / @scaleRatio, @fontSize);
-@h2SubHeaderFontSize: if(@h3 / @scaleRatio > @fontSize, @h3 / @scaleRatio, @fontSize);
-@h3SubHeaderFontSize: if(@h4 / @scaleRatio > @fontSize, @h4 / @scaleRatio, @fontSize);
-@h4SubHeaderFontSize: if(@h5 / @scaleRatio > @fontSize, @h5 / @scaleRatio, @fontSize);
-@h5SubHeaderFontSize: if(@h6 / @scaleRatio > @fontSize, @h6 / @scaleRatio, @fontSize);
-@h6SubHeaderFontSize: if(@h6 / @scaleRatio > @fontSize, @h6 / @scaleRatio, @fontSize);
+@subHeaderScaleRatio: (@scaleRatio - 1) / 5 + 1;
+
+@h1SubHeaderFontSize: (@h2SubHeaderFontSize * @subHeaderScaleRatio);
+@h2SubHeaderFontSize: (@h3SubHeaderFontSize * @subHeaderScaleRatio);
+@h3SubHeaderFontSize: (@h4SubHeaderFontSize * @subHeaderScaleRatio);
+@h4SubHeaderFontSize: (@h5SubHeaderFontSize * @subHeaderScaleRatio);
+@h5SubHeaderFontSize: (@h6SubHeaderFontSize * @subHeaderScaleRatio);
+@h6SubHeaderFontSize: @shadowFontSize;
