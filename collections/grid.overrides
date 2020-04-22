@@ -9,7 +9,7 @@
         margin-bottom: 2rem;
     }
     // Add top margin for all nested grids that follow another element
-    #content * + & {
+    #content *:not(h1) + & {
         margin-top: 2rem;
     }
     // Remove top margin for celled grids
