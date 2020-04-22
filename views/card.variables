@@ -1,3 +1,15 @@
 /*******************************
              Card
 *******************************/
+
+// Prevent last card in row from wrapping to the next row
+// @todo: create test case and PR for FUI repo
+@twoCard: e(%("calc(%d - %d)", @twoColumn, @twoCardSpacing * 2 + 0.0001px));
+@threeCard: e(%("calc(%d - %d)", @threeColumn, @threeCardSpacing * 2 + 0.0001px));
+@fourCard: e(%("calc(%d - %d)", @fourColumn, @fourCardSpacing * 2 + 0.0001px));
+@fiveCard: e(%("calc(%d - %d)", @fiveColumn, @fiveCardSpacing * 2 + 0.0001px));
+@sixCard: e(%("calc(%d - %d)", @sixColumn, @sixCardSpacing * 2 + 0.0001px));
+@sevenCard: e(%("calc(%d - %d)", @sevenColumn, @sevenCardSpacing * 2 + 0.0001px));
+@eightCard: e(%("calc(%d - %d)", @eightColumn, @sevenCardSpacing * 2 + 0.0001px));
+@nineCard: e(%("calc(%d - %d)", @nineColumn, @nineCardSpacing * 2 + 0.0001px));
+@tenCard: e(%("calc(%d - %d)", @tenColumn, @tenCardSpacing * 2 + 0.0001px));
