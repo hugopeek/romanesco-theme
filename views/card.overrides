@@ -6,11 +6,11 @@
 .ui.nested.cards {
     // Only in the Content sections
     #content &:not(:last-child) {
-        margin-bottom: 2rem;
+        margin-bottom: @verticalRhythm2;
     }
     // Add top margin for all nested grids that follow another element
-    #content *:not(h1) + & {
-        margin-top: 2rem;
+    #content * + & {
+        margin-top: @verticalRhythm2;
     }
 }
 

@@ -133,7 +133,7 @@ body:after {
     body.detail {
         #content,
         #sidebar {
-            margin-top: 4rem;
+            margin-top: @verticalRhythm5;
         }
 
         // Reduce padding of the first segment, if it's white
