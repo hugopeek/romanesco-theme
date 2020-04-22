@@ -52,6 +52,11 @@
         &:not(.transparent) {
             padding: @verticalRhythm3 2em;
         }
+
+        + .white {
+            border-top: none;
+            padding-top: 0;
+        }
     }
 
     // Set background on white segments

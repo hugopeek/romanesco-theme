@@ -133,7 +133,7 @@ body:after {
     body.detail {
         #content,
         #sidebar {
-            margin-top: 4rem;
+            margin-top: @verticalRhythm5;
         }
 
         // Reduce padding of the first segment, if it's white
@@ -170,7 +170,7 @@ a.header:not(.inverted),
 
 // Link styling inside inverted segments
 a.inverted:not(.button):not(.boxed) {
-    color: @white;
+    color: @invertedTextColor;
     border-bottom-color: fade(@white, 60);
     &:hover {
         border-bottom-color: @white;

@@ -1,3 +1,6 @@
 /*******************************
              List
 *******************************/
+
+// Fix hover color not being inverted
+@invertedItemLinkHoverColor: @invertedLinkListItemHoverColor;
