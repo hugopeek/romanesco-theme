@@ -51,7 +51,7 @@
     // Match submenu styling in sidebar
     #sidebar > &.tiny {
         display: block;
-        margin: 0.4rem 0.9em 1em 0.9em;
+        margin: @verticalRhythm1 0.9em 1em 0.9em;
     }
 
     // Make sure headers don't grow too big on smaller screens
