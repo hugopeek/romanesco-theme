@@ -289,35 +289,35 @@ blockquote:not(.quote) {
 
 // Quote size
 .quote {
-    font-size: @h3;
+    p, & { font-size: @h3 !important; }
     footer { font-size: @scaleRatio * @fontSize; }
 
     &.mini {
-        font-size: @h6;
+        p, & { font-size: @h6 !important; }
         footer { font-size: @scaleRatio * @mini; }
     }
     &.tiny {
-        font-size: @h5;
+        p, & { font-size: @h5 !important; }
         footer { font-size: @scaleRatio * @tiny; }
     }
     &.small {
-        font-size: @h4;
+        p, & { font-size: @h4 !important; }
         footer { font-size: @scaleRatio * @small; }
     }
     &.large {
-        font-size: @h2;
+        p, & { font-size: @h2 !important; }
         footer { font-size: @scaleRatio * @large; }
     }
     &.big {
-        font-size: @h1;
+        p, & { font-size: @h1 !important; }
         footer { font-size: @scaleRatio * @big; }
     }
     &.huge {
-        font-size: @h1 * @scaleRatio;
+        p, & { font-size: @h1 *  @scaleRatio !important; }
         footer { font-size: @scaleRatio * @huge; }
     }
     &.massive {
-        font-size: @h1 * @scaleRatio * @scaleRatio;
+        p, & { font-size: @h1 *  @scaleRatio * @scaleRatio !important; }
         footer { font-size: @scaleRatio * @massive; }
     }
 }
