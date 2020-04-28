@@ -368,10 +368,9 @@ function tableToCard(id) {
     // Show table headings inline
     $(id + '.ui.overview.table thead').hide();
     $(id + '.ui.overview.table td:not(.inline)').each(function() {
+        $(this).wrapInner('<span class="data"></span>');
         $(this).prepend('<span class="title">' + $(this).attr('data-title') + '</span>');
-        $(this).removeClass('center');
-        $(this).find('br').hide();
-        $(this).addClass('inline')
+        $(this).addClass('inline');
     });
 
     // Display table rows as cards
@@ -497,13 +496,12 @@ var queries = [
 
             // Restore responsive tables
             $('table.ui.overview.table thead').show();
-            $('table.ui.overview.table td br').show();
+            $('table.ui.overview.table td span.data span').unwrap();
             $('table.ui.overview.table td')
                 .removeClass('inline')
                 .find('span.title')
                 .remove()
             ;
-            $('table.ui.overview.table td.aligned').addClass('center');
             $('table.ui.overview.table tbody > tr').removeClass('ui card');
             $('table.ui.overview.dormant.table').removeClass('dormant');
 
