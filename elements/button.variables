@@ -7,3 +7,6 @@
 
 // Create a small 3D effect
 //@shadowDistance: 0.1em;
+
+// Tertiary buttons
+@tertiaryLineHeight: 0.15em;
