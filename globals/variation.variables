@@ -6,5 +6,9 @@
 @variationButtonAnimated: false;
 @variationButtonOr: false;
 
+/* Segment */
+@variationSegmentPiled: false;
+@variationSegmentStacked: false;
+
 /* Dimmer */
 @variationDimmerBlurring: false;
