@@ -340,6 +340,14 @@ blockquote:not(.quote) {
     }
 }
 
+// Disable outline on focus
+.ui.header,
+.ui.segment {
+    &:focus {
+        outline: none;
+    }
+}
+
 
 // Footer
 // ---------------------------------------------------------------------
