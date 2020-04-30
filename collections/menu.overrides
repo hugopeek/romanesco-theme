@@ -446,3 +446,8 @@
         margin: 6em 0;
     }
 }
+
+// Wrapper interferes with top margin
+#content * + .pagination-wrapper {
+    padding-top: @verticalRhythm2;
+}
