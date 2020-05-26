@@ -215,11 +215,16 @@ svg.hidden {
 
 .lead {
     font-size: @scaleRatio * 1em !important;
-    line-height: @lineHeight !important;
+    line-height: (@lineHeight + 0.1) !important;
     color: @mutedTextColor;
 
     .inverted& {
         color: @invertedMutedTextColor;
+    }
+
+    // Reduce font size on mobile
+    @media only screen and (max-width: @largestMobileScreen) {
+        font-size: @scaleRatio * .8em !important;
     }
 }
 
