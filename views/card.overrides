@@ -74,3 +74,22 @@
         color: @invertedTextColor;
     }
 }
+
+.ui.horizontal.cards .card,
+.ui.card.horizontal {
+    > .content {
+        border-top: none;
+    }
+    > .image {
+        border-radius: @defaultBorderRadius 0 0 @defaultBorderRadius !important;
+    }
+
+}
+.ui.stackable.horizontal.cards .card {
+    @media only screen and (max-width: @largestMobileScreen) {
+        > .image {
+            border-radius: @defaultBorderRadius @defaultBorderRadius 0 0 !important;
+            width: auto;
+        }
+    }
+}

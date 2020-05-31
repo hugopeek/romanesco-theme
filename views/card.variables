@@ -2,6 +2,9 @@
              Card
 *******************************/
 
+// Width of image column in horizontal cards
+@horizontalImageWidth: 13rem;
+
 // Prevent last card in row from wrapping to the next row
 // @todo: create test case and PR for FUI repo
 @twoCard: e(%("calc(%d - %d)", @twoColumn, @twoCardSpacing * 2 + 0.0001px));
