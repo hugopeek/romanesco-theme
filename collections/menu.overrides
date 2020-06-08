@@ -442,12 +442,12 @@
 }
 
 .pagination {
-    #content > .container > .column > & {
+    #main > .container > .column > & {
         margin: 6em 0;
     }
 }
 
 // Wrapper interferes with top margin
-#content * + .pagination-wrapper {
+#main * + .pagination-wrapper {
     padding-top: @verticalRhythm2;
 }
