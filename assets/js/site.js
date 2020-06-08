@@ -529,6 +529,7 @@ var queries = [
                 .addClass('fluid')
             ;
             $('body.detail #main > .ui.grid.container')
+                .addClass('dormant-grid')
                 .removeClass('grid')
             ;
         },
@@ -536,7 +537,10 @@ var queries = [
             // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
+            ;
+            $('body.detail #main > .ui.dormant-grid.container')
                 .addClass('grid')
+                .removeClass('dormant-grid')
             ;
         }
     }
