@@ -16,7 +16,7 @@
         position: fixed;
         top: 0;
         width: 100%;
-        transition: height 0.2s;
+        transition: height 0.2s, top 0.2s;
 
         background: @background;
         z-index: 9999;
@@ -35,9 +35,14 @@
             }
         }
 
-        // Don't stick on mobile, that takes up too much valuable screen space
+        // Don't stick on mobile when scrolling down, that takes up too much
+        //  valuable screen space. When user is intentionally scrolling up
+        //  however, menu becomes visible again for better usability.
+        // Depends on the scrolldir NPM package.
         @media only screen and (max-width: @largestMobileScreen) {
-            position: absolute;
+            [data-scrolldir="down"] & {
+                top: -5rem;
+            }
         }
     }
 
