@@ -5,11 +5,11 @@
 // Give nested grids some vertical space
 .ui.nested.grid {
     // Only in the Content sections
-    #content &:not(:last-child) {
+    #main &:not(:last-child) {
         margin-bottom: @verticalRhythm2;
     }
     // Add top margin for all nested grids that follow another element
-    #content * + & {
+    #main * + & {
         margin-top: @verticalRhythm2;
     }
     // Remove top margin for celled grids
