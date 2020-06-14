@@ -303,37 +303,45 @@ $(function() {
 $('.visibility.toggle').click(function() {
 
     // Get data attributes from input
-    var target = '#' + $(this).data('target');
-    //var visibility = $(this).data('targetState');
-
-    // Add hidden or visible class to target element
-    //$(target).addClass(visibility);
+    var target = $(this).data('target');
+    var popupContent = $(this).data('content');
 
     // Show target if it's hidden, otherwise hide it again
     if($(target).hasClass('hidden')) {
         $(target)
             .removeClass('hidden')
-            .show(100)
         ;
 
         // Provide feedback through button
         $(this)
-        // Change button styling to indicate that target is visible now
             .removeClass('muted')
-            // Inform user that the button will hide the target in this state
-            .attr('data-content',$(this).data('content').replace(/Show|View|Display/,'Hide'))
+            .find('.icon')
+            .addClass('minus')
+            .removeClass('plus')
         ;
-    } else {
+
+        // Provide feedback through tooltip
+        if (popupContent) {
+            popupContent.replace(/Show|View|Display/,'Hide');
+        }
+    }
+    else {
         $(target)
             .addClass('hidden')
-            .hide(100)
         ;
 
         // Reset button styling and text
         $(this)
             .addClass('muted')
-            .attr('data-content',$(this).data('content').replace('Hide','Show'))
+            .find('.icon')
+            .removeClass('minus')
+            .addClass('plus')
         ;
+
+        // Reset tooltip content
+        if (popupContent) {
+            popupContent.replace('Hide','Show');
+        }
     }
 });
 
@@ -368,10 +376,9 @@ function tableToCard(id) {
     // Show table headings inline
     $(id + '.ui.overview.table thead').hide();
     $(id + '.ui.overview.table td:not(.inline)').each(function() {
+        $(this).wrapInner('<span class="data"></span>');
         $(this).prepend('<span class="title">' + $(this).attr('data-title') + '</span>');
-        $(this).removeClass('center');
-        $(this).find('br').hide();
-        $(this).addClass('inline')
+        $(this).addClass('inline');
     });
 
     // Display table rows as cards
@@ -497,13 +504,12 @@ var queries = [
 
             // Restore responsive tables
             $('table.ui.overview.table thead').show();
-            $('table.ui.overview.table td br').show();
+            $('table.ui.overview.table td span.data span').unwrap();
             $('table.ui.overview.table td')
                 .removeClass('inline')
                 .find('span.title')
                 .remove()
             ;
-            $('table.ui.overview.table td.aligned').addClass('center');
             $('table.ui.overview.table tbody > tr').removeClass('ui card');
             $('table.ui.overview.dormant.table').removeClass('dormant');
 
@@ -523,6 +529,7 @@ var queries = [
                 .addClass('fluid')
             ;
             $('body.detail #main > .ui.grid.container')
+                .addClass('dormant-grid')
                 .removeClass('grid')
             ;
         },
@@ -530,7 +537,10 @@ var queries = [
             // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
+            ;
+            $('body.detail #main > .ui.dormant-grid.container')
                 .addClass('grid')
+                .removeClass('dormant-grid')
             ;
         }
     }

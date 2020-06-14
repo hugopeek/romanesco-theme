@@ -26,3 +26,8 @@ legend {
 body:not(:-moz-handler-blocked) fieldset {
     display: table-cell;
 }
+
+// Disable outline on focus
+.ui:focus {
+    outline: none;
+}
