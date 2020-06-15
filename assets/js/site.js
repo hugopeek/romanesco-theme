@@ -452,8 +452,14 @@ var queries = [
             tabToAccordion();
             tableToCard();
 
+            // Stack floated images
+            $('.ui.stackable.floated.image')
+                .removeClass('floated')
+                .addClass('centered dormant-floated')
+            ;
+
             // Make some buttons more compact
-            $('.publication .back.button .icon').addClass('fitted')
+            $('.publication .back.button .icon').addClass('fitted');
         },
         unmatch: function() {
             // Revert tabs back to normal
@@ -516,8 +522,14 @@ var queries = [
             // Restore overview segments
             $('.ui.overview.dormant-segments').addClass('segments').removeClass('dormant-segments');
 
+            // Restore images
+            $('.ui.stackable.dormant-floated.image')
+                .removeClass('centered dormant-floated')
+                .addClass('floated')
+            ;
+
             // Restore buttons
-            $('.publication .back.button .fitted.icon').removeClass('fitted')
+            $('.publication .back.button .fitted.icon').removeClass('fitted');
         }
     },
     {

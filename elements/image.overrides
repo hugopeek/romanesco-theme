@@ -8,6 +8,7 @@
     }
     &.centered {
         display: block;
+        overflow: auto;
     }
 
     .credits {
@@ -24,7 +25,7 @@ a.circular.image > img {
 
 .testimonial {
     &.column:not(.logo) .image {
-        @media only screen and (max-width: @tabletBreakpoint) {
+        @media only screen and (max-width: @largestMobileScreen) {
             max-width: 40%;
         }
     }
