@@ -16,7 +16,7 @@
         position: fixed;
         top: 0;
         width: 100%;
-        transition: height 0.2s;
+        transition: height 0.2s, top 0.2s;
 
         background: @background;
         z-index: 9999;
@@ -34,17 +34,22 @@
                 padding-top: 12rem;
             }
         }
-
-        // Don't stick on mobile, that takes up too much valuable screen space
-        @media only screen and (max-width: @largestMobileScreen) {
-            position: absolute;
-        }
     }
 
     // Custom state for sticky menu after scrolling down. Class is set with JS.
     &.tightened {
         height: 5rem;
         box-shadow: @boxShadow;
+
+        // Don't stick on mobile when scrolling down, that takes up too much
+        //  valuable screen space. When user is intentionally scrolling up
+        //  however, menu becomes visible again for better usability.
+        // Depends on the scrolldir NPM package.
+        @media only screen and (max-width: @largestMobileScreen) {
+            [data-scrolldir="down"] & {
+                top: -5rem;
+            }
+        }
     }
 
     // Make sure width is set to 100% on mobile
@@ -442,7 +447,12 @@
 }
 
 .pagination {
-    #content > .container > .column > & {
+    #main > .container > .column > & {
         margin: 6em 0;
     }
+}
+
+// Wrapper interferes with top margin
+#main * + .pagination-wrapper {
+    padding-top: @verticalRhythm2;
 }

@@ -2,19 +2,24 @@
          Theme Overrides
 *******************************/
 
+.ui.image {
+    &.lightbox {
+        cursor: pointer;
+    }
+    &.centered {
+        display: block;
+    }
+
+    .credits {
+        float: right;
+    }
+}
+
 a.circular.image > img {
     border: 6px solid @darkWhite;
     &:hover {
         border-color: @primaryColor;
     }
-}
-
-//.ui.faded.image > img {
-//    opacity: 0.6;
-//}
-
-.ui.lightbox.image {
-    cursor: pointer;
 }
 
 .testimonial {
