@@ -113,6 +113,9 @@
     #header {
         margin: 0;
 
+        @media only screen and (max-width: @largestMobileScreen) {
+            padding: .5em 1em;
+        }
         @media only screen and (min-width: @tabletBreakpoint) {
             position: fixed;
             width: 15rem;

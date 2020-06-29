@@ -100,7 +100,7 @@
 
 #menu-vertical {
     width: auto;
-    margin: 2em 1em;
+    margin: 0;
     padding: 0;
 
     // Plain menu buttons
@@ -146,6 +146,11 @@
             display: block;
             flex-grow: 0;
         }
+    }
+
+    // Allow margin to be set by
+    @media (min-width: @tabletBreakpoint) {
+        margin: @verticalMenuMargin;
     }
 }
 
