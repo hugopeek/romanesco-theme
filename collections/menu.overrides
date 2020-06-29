@@ -100,42 +100,34 @@
 
 #menu-vertical {
     width: auto;
-    margin: 0;
+    margin: 2em 1em;
     padding: 0;
 
     // Plain menu buttons
     .item {
-        margin: 0 0 0.3em 0;
-        font-weight: bold;
+        margin: 0;
+
+        &.level-1 {
+            margin-bottom: 0.3em;
+        }
+        &:not(.level-1) {
+            border-radius: 0;
+        }
+        &.level-3 {
+            .title > a {
+                min-height: 2.5rem;
+            }
+        }
 
         // Specific items
         &.branding {
             margin: 0 !important;
             padding: 0 !important;
         }
-        &.first {
-            margin-top: 2em;
-        }
         &.toc {
             display: none;
             margin: 0;
             padding: 0;
-        }
-
-        // Nested items
-        .item {
-            border-bottom: 0;
-            border-top: @borderWidth solid @whiteBorderColor;
-            padding: 0.6em 0;
-            margin: 0;
-
-            &:hover,
-            &.active {
-                background: none;
-            }
-        }
-        .content {
-            padding-top: 1em;
         }
     }
 
@@ -284,8 +276,11 @@
             //margin-right: 2em !important;
 
             padding: 1em 1.1em;
-            border-left: 1px solid @invertedVerticalDividerBackground;
             color: @invertedLightTextColor;
+
+            #off-canvas & {
+                border-left: 1px solid @invertedVerticalDividerBackground;
+            }
 
             i.dropdown:before {
                 font-family: 'Icons';
@@ -303,6 +298,13 @@
 
             i.dropdown {
                 transform: rotate(@rotateDegrees);
+            }
+        }
+
+        #menu-vertical & {
+            &:hover > .button,
+            &.active > .button {
+                border-left: 1px solid @invertedVerticalDividerBackground;
             }
         }
     }
@@ -325,7 +327,10 @@
         }
     }
 
-    border-bottom: 1px solid @invertedVerticalDividerBackground;
+    #off-canvas & {
+        border-bottom: 1px solid @invertedVerticalDividerBackground;
+    }
+
 }
 
 #menu-neighbors {
