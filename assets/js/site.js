@@ -51,6 +51,24 @@ $(function() {
 
     // Make first item in ToC active
     $('#submenu.toc :first-child').addClass('active');
+
+    // Activate accordion in vertical menu
+    $('#menu-vertical')
+        .accordion({
+            exclusive: true,
+            closeNested : true,
+            selector: {
+                trigger: '.title > .icon'
+            },
+            onOpening: function() {
+                $(this).parent().addClass('active');
+                $(this).parent().siblings().removeClass('active');
+            },
+            onClose: function() {
+                $(this).parent().removeClass('active');
+            }
+        })
+    ;
 });
 
 // Sticky navbar behaviour
