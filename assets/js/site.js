@@ -51,24 +51,6 @@ $(function() {
 
     // Make first item in ToC active
     $('#submenu.toc :first-child').addClass('active');
-
-    // Activate accordion in vertical menu
-    $('#menu-vertical')
-        .accordion({
-            exclusive: true,
-            closeNested : true,
-            selector: {
-                trigger: '.title > .icon'
-            },
-            onOpening: function() {
-                $(this).parent().addClass('active');
-                $(this).parent().siblings().removeClass('active');
-            },
-            onClose: function() {
-                $(this).parent().removeClass('active');
-            }
-        })
-    ;
 });
 
 // Sticky navbar behaviour
@@ -265,6 +247,46 @@ $(function() {
         }
     });
 });
+
+// Vertical navigation
+$(function() {
+    var $navAccordion = $('#menu-vertical #menu-accordion');
+
+    // Don't do anything if there's no dropdown menu
+    if (!$navAccordion.length) {
+        return;
+    }
+
+    // Activate accordion in vertical menu
+    $('#menu-vertical')
+        .accordion({
+            exclusive: true,
+            closeNested : true,
+            selector: {
+                trigger: '.title > .icon'
+            },
+            onOpening: function() {
+                $(this).parent().addClass('active');
+                $(this).parent().siblings().removeClass('active');
+            },
+            onClose: function() {
+                $(this).parent().removeClass('active');
+            }
+        })
+    ;
+
+    // Send accordion to off-canvas on mobile
+    MQ.addQuery({
+        context: ['mobile'],
+        match: function() {
+            $navAccordion.insertAfter('#off-canvas .home');
+        },
+        unmatch: function() {
+            $navAccordion.insertAfter('#menu-vertical .branding');
+        }
+    });
+});
+
 
 // Smooth anchor scrolling
 // https://css-tricks.com/smooth-scrolling-accessibility/
