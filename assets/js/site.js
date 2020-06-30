@@ -225,7 +225,7 @@ $(function() {
             var $sidebar = $('#off-canvas');
 
             // Place accordion inside off-canvas sidebar
-            $sidebar.append($navAccordion);
+            $('#off-canvas .home').after($navAccordion);
 
             // Initialize
             createAccordion($sidebar);
@@ -237,7 +237,7 @@ $(function() {
         unmatch: function() {
 
             // Refill empty container
-            $navDropdown.appendTo('#menu > .container');
+            $('#menu .branding').after($navDropdown);
 
             // Initialize again to make sure 3-level dropdown is working
             createDropdown($navDropdown);
