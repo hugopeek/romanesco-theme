@@ -30,3 +30,6 @@
 // Mobile accordion expand icon
 @accordionIconContent: '\f053';
 @rotateDegrees: -90deg;
+
+// Vertical accordion menu
+@verticalMenuMargin: @verticalRhythm2 1em;

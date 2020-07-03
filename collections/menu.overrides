@@ -77,6 +77,7 @@
         &.branding {
             margin: 0 !important;
             padding: 0 !important;
+            flex: 1;
         }
         &.highlight {
             margin: 0 0 0 2rem;
@@ -105,37 +106,24 @@
 
     // Plain menu buttons
     .item {
-        margin: 0 0 0.3em 0;
-        font-weight: bold;
+        margin: 0;
+
+        &.level-1 {
+            margin-bottom: 0.3em;
+        }
+        &:not(.level-1) {
+            border-radius: 0;
+        }
 
         // Specific items
         &.branding {
             margin: 0 !important;
             padding: 0 !important;
         }
-        &.first {
-            margin-top: 2em;
-        }
         &.toc {
             display: none;
             margin: 0;
             padding: 0;
-        }
-
-        // Nested items
-        .item {
-            border-bottom: 0;
-            border-top: @borderWidth solid @whiteBorderColor;
-            padding: 0.6em 0;
-            margin: 0;
-
-            &:hover,
-            &.active {
-                background: none;
-            }
-        }
-        .content {
-            padding-top: 1em;
         }
     }
 
@@ -155,9 +143,17 @@
             flex-grow: 0;
         }
     }
+
+    // Allow margin to be set by a variable
+    @media (min-width: @tabletBreakpoint) {
+        margin: @verticalMenuMargin;
+    }
 }
 
 #menu-dropdown {
+    margin: 0;
+    padding: 0;
+
     // Override popup dimensions
     .ui.flowing.popup {
         position: fixed;
@@ -255,6 +251,11 @@
             font-weight: @bold;
         }
     }
+    .level-3 {
+        .title > a {
+            min-height: 2.5rem;
+        }
+    }
 
     // Category items have an independent 'open' icon button on the right
     .title {
@@ -284,8 +285,11 @@
             //margin-right: 2em !important;
 
             padding: 1em 1.1em;
-            border-left: 1px solid @invertedVerticalDividerBackground;
             color: @invertedLightTextColor;
+
+            #off-canvas & {
+                border-left: 1px solid @invertedVerticalDividerBackground;
+            }
 
             i.dropdown:before {
                 font-family: 'Icons';
@@ -303,6 +307,13 @@
 
             i.dropdown {
                 transform: rotate(@rotateDegrees);
+            }
+        }
+
+        #menu-vertical & {
+            &:hover > .button,
+            &.active > .button {
+                border-left: 1px solid @invertedVerticalDividerBackground;
             }
         }
     }
@@ -325,7 +336,10 @@
         }
     }
 
-    border-bottom: 1px solid @invertedVerticalDividerBackground;
+    #off-canvas & {
+        border-bottom: 1px solid @invertedVerticalDividerBackground;
+    }
+
 }
 
 #menu-neighbors {
