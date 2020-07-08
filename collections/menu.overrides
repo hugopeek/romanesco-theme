@@ -466,7 +466,12 @@
     }
 }
 
-// Wrapper interferes with top margin
-#main * + .pagination-wrapper {
-    padding-top: @verticalRhythm2;
+// Wrapper interferes with margins
+.pagination-wrapper {
+    #main * + & {
+        padding-top: @verticalRhythm2;
+    }
+    + * {
+        margin-top: @verticalRhythm3;
+    }
 }
