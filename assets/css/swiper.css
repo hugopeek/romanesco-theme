@@ -1409,8 +1409,33 @@ body.dimmed.scrolling > .dimmer {
 
 .modal.overlay .inside.close.icon {
   z-index: 999 !important;
-  top: 1.5rem;
-  right: 2rem;
+  top: 0 !important;
+  right: 0 !important;
+  width: 8vw;
+  height: 8vw;
+  min-width: 3rem;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767.98px) {
+  .modal.overlay .inside.close.icon {
+    min-width: 5rem;
+    min-height: 5rem;
+  }
+}
+
+.modal.overlay .inside.close.icon:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .modal.overlay .inside.close.icon:before,
