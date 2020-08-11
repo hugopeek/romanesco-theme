@@ -23,6 +23,10 @@ body:after {
 
 :root {
     --baseline: calc(@verticalRhythmBaseline * 0.3);
+    --primary-color: @primaryColor;
+    --primary-color-light: @lightPrimaryColor;
+    --secondary-color: @secondaryColor;
+    --secondary-color-light: @lightSecondaryColor;
 }
 
 @media screen and (min-width: @mobileBreakpoint) {
