@@ -27,8 +27,8 @@ $(function() {
             on: 'click'
         })
     ;
-    $('.ui.tabular.menu .item').tab();
-    $('.ui.tabbed.menu .item').tab();
+    $('.ui.tabular.menu:not(#submenu) .item').tab();
+    $('.ui.tabbed.menu:not(#submenu) .item').tab();
 
     $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
     $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
