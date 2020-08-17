@@ -237,7 +237,11 @@ $(function() {
         unmatch: function() {
 
             // Refill empty container
-            $('#menu .branding').after($navDropdown);
+            if ($('#menu .main.menu').length) {
+                $('#menu .main.menu').prepend($navDropdown);
+            } else {
+                $('#menu .branding').after($navDropdown);
+            }
 
             // Initialize again to make sure 3-level dropdown is working
             createDropdown($navDropdown);
