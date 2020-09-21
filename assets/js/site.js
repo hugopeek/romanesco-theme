@@ -55,7 +55,7 @@ $(function() {
 
 // Sticky navbar behaviour
 $(function() {
-    var $header = $("#menu");
+    var $header = $("#menu.sticky");
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
