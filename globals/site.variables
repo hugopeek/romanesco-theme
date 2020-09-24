@@ -21,7 +21,7 @@
 @googleSubset      : 'latin';
 
 @googleProtocol    : 'https://';
-@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&display=swap&subset=@{googleSubset}';
 
 /*-------------------
       Base Sizes
