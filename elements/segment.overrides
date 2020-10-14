@@ -78,7 +78,7 @@
 
     // Segments inside a HeaderVertical template require a few overrides
     .header-vertical & {
-        padding: @verticalRhythm2 0;
+        padding: @verticalRhythm5 0;
 
         @media only screen and (max-width: @largestMobileScreen) {
             > .container > .grid {
@@ -87,7 +87,7 @@
             }
         }
         @media only screen and (min-width: @tabletBreakpoint) {
-            padding: @verticalRhythm3 5%;
+            padding: @verticalRhythm5 5%;
         }
     }
 }
