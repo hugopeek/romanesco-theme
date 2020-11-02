@@ -145,7 +145,12 @@ body:after {
         &:not(.non-white) #sidebar > .white.segment:first-child {
             padding-top: 0;
         }
+    }
 
+    body.note.toc {
+        #sidebar {
+            margin-top: @verticalRhythm3;
+        }
     }
 }
 
