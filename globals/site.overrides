@@ -358,8 +358,13 @@ blockquote:not(.quote) {
         font-size: 1rem;
     }
 
-    .ui.horizontal.list {
-        display: block;
+    .ui.list {
+        &.horizontal {
+            display: block;
+        }
+        &.inverted .item {
+            width: max-content;
+        }
     }
 }
 
