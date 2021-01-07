@@ -125,7 +125,7 @@ body:after {
 
 // Make 100% sure the element displays properly on request before applying
 .hidden.element {
-    display: none;
+    display: none !important;
 }
 
 
