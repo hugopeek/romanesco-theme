@@ -81,7 +81,7 @@
 }
 
 // Amplify font size and margins of section headers
-.ui.stripe.segment > .container {
+.ui.vertical.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
         &:first-child {
