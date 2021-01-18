@@ -367,9 +367,6 @@ blockquote:not(.quote) {
         &.horizontal {
             display: block;
         }
-        &.inverted .item {
-            width: max-content;
-        }
     }
 }
 
