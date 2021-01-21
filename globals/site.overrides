@@ -275,10 +275,33 @@ p {
     }
 }
 
-.quote:not(.basic) {
-    position: relative;
-    padding: 0 3% 0 5%;
-    font-style: italic;
+.quote {
+    width: max-content;
+    max-width: 100%;
+
+    // Basic variant and regular blockquotes
+    &.basic,
+    blockquote:not(&) {
+        border-left: 5px solid;
+        border-color: @borderColor;
+        padding-left: 1em;
+        color: @mutedTextColor;
+
+        .inverted& {
+            color: @invertedMutedTextColor;
+            border-color: @whiteBorderColor;
+        }
+    }
+
+    blockquote:not(&) {
+        margin-bottom: @verticalRhythm1;
+    }
+
+    // With quotation marks before and after
+    &:not(.basic) {
+        position: relative;
+        padding: 0 3% 0 5%;
+        font-style: italic;
 
         &:before,
         &:after {
@@ -301,30 +324,21 @@ p {
             right: -1%;
         }
 
-    footer {
-        color: @mutedTextColor;
-        .inverted& {
-            color: @invertedMutedTextColor;
+        footer {
+            color: @mutedTextColor;
+            .inverted& {
+                color: @invertedMutedTextColor;
+            }
         }
     }
-}
 
-.basic.quote,
-blockquote:not(.quote) {
-    border-left: 5px solid;
-    border-color: @borderColor;
-    margin: 0 0 3rem;
-    padding-left: 1em;
-    color: @mutedTextColor;
-
-    .inverted& {
-        color: @invertedMutedTextColor;
-        border-color: @whiteBorderColor;
+    // Fit in with surrounding elements
+    * + &,
+    + * {
+        margin-top: @verticalRhythm3 !important;
     }
-}
 
-// Quote size
-.quote {
+    // Sizing options
     p, & { font-size: @h3 !important; }
     footer { font-size: @scaleRatio * @fontSize; }
 
