@@ -21,21 +21,25 @@
 // Adjust text for optimal readability in text containers and templates
 body.readability #content .ui.container,
 .ui.text.container {
-    p:not(.meta) {
-        margin-top: @verticalRhythm3;
+    p {
+        &:not(.meta):not(:first-child) {
+            margin-top: @verticalRhythm3;
+        }
 
         @media only screen and (min-width: @tabletBreakpoint) {
             font-size: @textSize;
             line-height: @textLineHeight;
         }
+
+        + h2,
+        + h3,
+        + h4 {
+            margin-top: @verticalRhythm5;
+            margin-bottom: @verticalRhythm3;
+        }
     }
 
-    p + h2,
-    p + h3,
-    p + h4 {
-        margin-top: @verticalRhythm5;
-        margin-bottom: @verticalRhythm3;
-    }
+
 }
 
 // Responsive tweaks
