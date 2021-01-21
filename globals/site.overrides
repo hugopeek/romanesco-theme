@@ -211,7 +211,7 @@ a.inverted:not(.button):not(.boxed) {
 .image {
     // Isolate content images and offset from element below
     &.content + * {
-        margin-top: 1.3em;
+        margin-top: @verticalRhythm3;
     }
 }
 
@@ -239,6 +239,10 @@ svg.hidden {
 
 // Content elements
 // ---------------------------------------------------------------------
+
+p {
+    margin: 0 0 @verticalRhythm2;
+}
 
 .lead {
     font-size: @scaleRatio * 1em !important;
@@ -276,26 +280,26 @@ svg.hidden {
     padding: 0 3% 0 5%;
     font-style: italic;
 
-    &:before,
-    &:after {
-        position: absolute;
-        z-index: 0;
-        font-size: 4rem;
-        font-weight: 600;
-        line-height: 0;
-        opacity: 0.2;
-    }
-    &:before {
-        content: "\201C";
-        top: 1rem;
-        left: -1%;
+        &:before,
+        &:after {
+            position: absolute;
+            z-index: 0;
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 0;
+            opacity: 0.2;
+        }
+        &:before {
+            content: "\201C";
+            top: 1rem;
+            left: -1%;
 
-    }
-    &:after {
-        content: "\201D";
-        bottom: -0.5rem;
-        right: -1%;
-    }
+        }
+        &:after {
+            content: "\201D";
+            bottom: -0.5rem;
+            right: -1%;
+        }
 
     footer {
         color: @mutedTextColor;
