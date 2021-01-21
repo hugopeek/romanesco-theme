@@ -132,6 +132,24 @@ body:after {
 // Main content area
 // ---------------------------------------------------------------------
 
+// If there's no header present, create some room for sticky navigation.
+// Make sure to use padding on overview pages and margin on detail, to avoid
+//  improper positioning of boxed segments and segment backgrounds.
+.masthead.without.hero:not(.non-stick) {
+    + #toolbar {
+        padding-top: 8rem;
+    }
+    body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
+        padding-top: 11rem;
+    }
+    body.detail & {
+        + #main #content,
+        + #main #sidebar {
+            margin-top: 11rem !important;
+        }
+    }
+}
+
 // Detail page on desktop
 @media only screen and (min-width: @computerBreakpoint) {
     body.detail {
