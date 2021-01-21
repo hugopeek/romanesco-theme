@@ -141,11 +141,19 @@ body:after {
     }
     body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
         padding-top: 11rem;
+
+        @media only screen and (max-width: @largestTabletScreen) {
+            padding-top: 9rem;
+        }
     }
     body.detail & {
         + #main #content,
         + #main #sidebar {
-            margin-top: 11rem !important;
+            margin-top: 11rem;
+
+            @media only screen and (max-width: @largestTabletScreen) {
+                margin-top: 7rem;
+            }
         }
     }
 }
