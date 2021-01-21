@@ -229,7 +229,7 @@
 // Segment containing an image that needs to be snapped to one of the edges
 .ui.snapped.segment {
     @media only screen and (min-width: @computerBreakpoint) {
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
         overflow: hidden;
 
         // Give the first grid inside some negative margin, to cut off the bottom of the image
