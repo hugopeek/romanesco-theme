@@ -16,9 +16,9 @@
     }
 
     // Styling tweaks for specific field types
-    .checkbox.field {
-        > label {
-            font-weight: normal !important;
+    .grouped.fields {
+        &.error > label {
+            color: @errorTextColor;
         }
     }
     //.checkbox.field,
@@ -39,17 +39,23 @@
     .compact.field {
         flex: 0 !important;
     }
-    .grouped.fields {
-        &.error > label {
-            color: @errorTextColor;
-        }
-    }
     .file-upload.field {
         > label {
             margin-bottom: 1em;
             vertical-align: top;
         }
-        .ui.items {
+
+        // Dropzone (hides after first drop, but reappears on hover)
+        .qq-upload-drop-area {
+            border: 3px dashed @borderColor;
+
+            &-active {
+                border-color: @focusedFormMutedBorderColor;
+            }
+        }
+
+        // List of uploaded items (only appears in DOM after adding items)
+        .file-uploader-items {
             margin: 0;
 
             .item:last-child {
