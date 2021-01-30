@@ -20,11 +20,18 @@
         > label {
             font-weight: normal !important;
         }
-        + span.help {
-            display: block;
-        }
     }
-    .vertical.field {
+    //.checkbox.field,
+    //.field > .checkbox {
+    //    > label {
+    //        font-weight: normal !important;
+    //    }
+    //    + span.help {
+    //        display: block;
+    //    }
+    //}
+    .vertical.field,
+    .field > .vertical {
         > .button {
             margin-top: 0 !important;
         }
