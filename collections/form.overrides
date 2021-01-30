@@ -63,6 +63,13 @@
             }
         }
     }
+
+    // Dropdowns lose some styling when form.css is loaded separately
+    .ui.dropdown:not(.labeled) > .dropdown.icon {
+        font-size: @relative12px;
+    }
+
+    // Recaptcha v2
     .g-recaptcha {
         margin-bottom: 1em;
     }
