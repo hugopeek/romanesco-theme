@@ -10,19 +10,6 @@
     font-size: inherit;
 }
 
-// If there's no header present, create some room for sticky navigation in following segment
-.masthead.without.hero:not(.non-stick) {
-    + #toolbar {
-        padding-top: 8rem;
-    }
-    + #main #content > .ui.stripe.segment:first-child {
-        padding-top: 11rem;
-    }
-    + #main #sidebar {
-        margin-top: 11rem !important;
-    }
-}
-
 // Segment containing a layout added through CB
 .ui.vertical.stripe.segment {
     padding: @verticalRhythm5 0;
@@ -242,7 +229,7 @@
 // Segment containing an image that needs to be snapped to one of the edges
 .ui.snapped.segment {
     @media only screen and (min-width: @computerBreakpoint) {
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
         overflow: hidden;
 
         // Give the first grid inside some negative margin, to cut off the bottom of the image

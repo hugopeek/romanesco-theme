@@ -81,23 +81,21 @@
 }
 
 // Amplify font size and margins of section headers
-.ui.stripe.segment > .container {
+.ui.vertical.stripe.segment > .container {
     > h1.header,
     > .column > h1.header {
         &:first-child {
+            margin-bottom: @verticalRhythm2;
+
+            > .sub.header {
+                margin-top: @verticalRhythm1;
+            }
+
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h1 * @scaleRatio;
 
                 > .sub.header {
                     font-size: @h1SubHeaderFontSize * 1.125;
-                }
-            }
-            > .sub.header {
-                margin-top: @verticalRhythm1;
-                margin-bottom: @verticalRhythm2;
-
-                @media screen and (min-width: @tabletBreakpoint) {
-                    margin-bottom: @verticalRhythm3;
                 }
             }
         }
@@ -107,19 +105,17 @@
     > h2.header,
     > .column > h2.header {
         &:first-child {
+            margin-bottom: @verticalRhythm2;
+
+            > .sub.header {
+                margin-top: @verticalRhythm1;
+            }
+
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h2 * @scaleRatio;
 
                 > .sub.header {
                     font-size: @h2SubHeaderFontSize * 1.125;
-                }
-            }
-            > .sub.header {
-                margin-top: @verticalRhythm1;
-                margin-bottom: @verticalRhythm2;
-
-                @media screen and (min-width: @tabletBreakpoint) {
-                    margin-bottom: @verticalRhythm3;
                 }
             }
         }
