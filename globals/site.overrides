@@ -418,6 +418,23 @@ p {
     }
 }
 
+#qredits {
+    a.image {
+        width: 2rem;
+        cursor: pointer;
+    }
+    .ui.popup {
+        width: 200px;
+
+        p {
+            margin-bottom: 1em;
+        }
+        a.button + a.button {
+            margin-top: .5em;
+        }
+    }
+}
+
 
 // Overviews
 // ---------------------------------------------------------------------
