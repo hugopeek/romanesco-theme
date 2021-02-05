@@ -17,6 +17,7 @@
         margin: 0 auto;
         display: block;
         width: max-content;
+        max-width: 100%; // Prevent overflowing the container
     }
 
     // Content buttons are too close to top content
