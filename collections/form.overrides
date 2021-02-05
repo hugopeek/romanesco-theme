@@ -47,7 +47,7 @@
 
         // Dropzone (hides after first drop, but reappears on hover)
         .qq-upload-drop-area {
-            border: 3px dashed @borderColor;
+            border: 5px dashed @borderColor;
 
             &-active {
                 border-color: @focusedFormMutedBorderColor;
