@@ -93,6 +93,15 @@
     }
 }
 
+.ui.segment#footer {
+    padding: 0;
+
+    > .container:last-child {
+        padding: @verticalRhythm2 0;
+        border-top: 1px solid @borderColorFooter;
+    }
+}
+
 .ui.ticket.segment {
     &:hover {
         background: @offWhite;
