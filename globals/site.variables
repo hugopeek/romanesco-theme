@@ -438,7 +438,7 @@
 
 /* Header Spacing */
 @headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
-@headerBottomMargin : 1rem;
+@headerBottomMargin : 1.2rem;
 @headerMargin       : @headerTopMargin 0 @headerBottomMargin;
 
 /* Minimum Mobile Width */

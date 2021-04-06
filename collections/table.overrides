@@ -2,6 +2,12 @@
          Theme Overrides
 *******************************/
 
+.ui.very.basic.table.inverted {
+    > thead > tr > th {
+        background-color: transparent;
+    }
+}
+
 .ui.status.table {
     // Indicate resource level in status grid table
     a {

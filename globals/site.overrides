@@ -125,12 +125,38 @@ body:after {
 
 // Make 100% sure the element displays properly on request before applying
 .hidden.element {
-    display: none;
+    display: none !important;
 }
 
 
 // Main content area
 // ---------------------------------------------------------------------
+
+// If there's no header present, create some room for sticky navigation.
+// Make sure to use padding on overview pages and margin on detail, to avoid
+//  improper positioning of boxed segments and segment backgrounds.
+.masthead.without.hero:not(.non-stick) {
+    + #toolbar {
+        padding-top: 8rem;
+    }
+    body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
+        padding-top: 11rem;
+
+        @media only screen and (max-width: @largestTabletScreen) {
+            padding-top: 9rem;
+        }
+    }
+    body.detail & {
+        + #main #content,
+        + #main #sidebar {
+            margin-top: 11rem;
+
+            @media only screen and (max-width: @largestTabletScreen) {
+                margin-top: 7rem;
+            }
+        }
+    }
+}
 
 // Detail page on desktop
 @media only screen and (min-width: @computerBreakpoint) {
@@ -193,7 +219,7 @@ a.inverted:not(.button):not(.boxed) {
 .image {
     // Isolate content images and offset from element below
     &.content + * {
-        margin-top: 1.3em;
+        margin-top: @verticalRhythm3;
     }
 }
 
@@ -221,6 +247,10 @@ svg.hidden {
 
 // Content elements
 // ---------------------------------------------------------------------
+
+p {
+    margin: 0 0 @verticalRhythm2;
+}
 
 .lead {
     font-size: @scaleRatio * 1em !important;
@@ -253,56 +283,70 @@ svg.hidden {
     }
 }
 
-.quote:not(.basic) {
-    position: relative;
-    padding: 0 3% 0 5%;
-    font-style: italic;
+.quote {
+    width: max-content;
+    max-width: 100%;
 
-    &:before,
-    &:after {
-        position: absolute;
-        z-index: 0;
-        font-size: 4rem;
-        font-weight: 600;
-        line-height: 0;
-        opacity: 0.2;
-    }
-    &:before {
-        content: "\201C";
-        top: 1rem;
-        left: -1%;
-
-    }
-    &:after {
-        content: "\201D";
-        bottom: -0.5rem;
-        right: -1%;
-    }
-
-    footer {
+    // Basic variant and regular blockquotes
+    &.basic,
+    blockquote:not(&) {
+        border-left: 5px solid;
+        border-color: @borderColor;
+        padding-left: 1em;
         color: @mutedTextColor;
+
         .inverted& {
             color: @invertedMutedTextColor;
+            border-color: @whiteBorderColor;
         }
     }
-}
 
-.basic.quote,
-blockquote:not(.quote) {
-    border-left: 5px solid;
-    border-color: @borderColor;
-    margin: 0 0 3rem;
-    padding-left: 1em;
-    color: @mutedTextColor;
-
-    .inverted& {
-        color: @invertedMutedTextColor;
-        border-color: @whiteBorderColor;
+    blockquote:not(&) {
+        margin-bottom: @verticalRhythm1;
     }
-}
 
-// Quote size
-.quote {
+    // With quotation marks before and after
+    &:not(.basic) {
+        position: relative;
+        padding: 0 3% 0 5%;
+        font-style: italic;
+
+        &:before,
+        &:after {
+            position: absolute;
+            z-index: 0;
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 0;
+            opacity: 0.2;
+        }
+        &:before {
+            content: "\201C";
+            top: 1rem;
+            left: -1%;
+
+        }
+        &:after {
+            content: "\201D";
+            bottom: -0.5rem;
+            right: -1%;
+        }
+
+        footer {
+            color: @mutedTextColor;
+            .inverted& {
+                color: @invertedMutedTextColor;
+            }
+        }
+    }
+
+    // Fit in with surrounding elements
+    * + &,
+    + * {
+        margin-top: @verticalRhythm3 !important;
+    }
+
+    // Sizing options
     p, & { font-size: @h3 !important; }
     footer { font-size: @scaleRatio * @fontSize; }
 
@@ -367,8 +411,26 @@ blockquote:not(.quote) {
         &.horizontal {
             display: block;
         }
-        &.inverted .item {
+        &:not(.horizontal) .item {
             width: max-content;
+            max-width: 100%;
+        }
+    }
+}
+
+#qredits {
+    a.image {
+        width: 2rem;
+        cursor: pointer;
+    }
+    .ui.popup {
+        width: 200px;
+
+        p {
+            margin-bottom: 1em;
+        }
+        a.button + a.button {
+            margin-top: .5em;
         }
     }
 }

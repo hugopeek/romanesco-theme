@@ -4,11 +4,11 @@
 
 .ui.button {
     // Buttons in center aligned containers don't align properly with the default margins
-    .center.aligned &:not(.attached):not(.center.aligned) {
+    .ui[class*="center aligned"] &:not(.attached):not(.center.aligned) {
         margin-left: @horizontalMargin;
     }
     // Reset this behaviour for nested left aligned containers
-    .center.aligned .left.aligned & {
+    .ui[class*="center aligned"] .left.aligned & {
         margin-left: 0;
     }
 
@@ -17,6 +17,7 @@
         margin: 0 auto;
         display: block;
         width: max-content;
+        max-width: 100%; // Prevent overflowing the container
     }
 
     // Content buttons are too close to top content
@@ -28,6 +29,9 @@
     .menu &,
     .ui.buttons & {
         margin: 0 !important;
+    }
+    &:last-child {
+        margin-right: 0;
     }
 
     // Buttons in multiple file uploader have some quirks

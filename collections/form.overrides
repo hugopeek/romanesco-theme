@@ -16,15 +16,22 @@
     }
 
     // Styling tweaks for specific field types
-    .checkbox.field {
-        > label {
-            font-weight: normal !important;
-        }
-        + span.help {
-            display: block;
+    .grouped.fields {
+        &.error > label {
+            color: @errorTextColor;
         }
     }
-    .vertical.field {
+    //.checkbox.field,
+    //.field > .checkbox {
+    //    > label {
+    //        font-weight: normal !important;
+    //    }
+    //    + span.help {
+    //        display: block;
+    //    }
+    //}
+    .vertical.field,
+    .field > .vertical {
         > .button {
             margin-top: 0 !important;
         }
@@ -32,17 +39,23 @@
     .compact.field {
         flex: 0 !important;
     }
-    .grouped.fields {
-        &.error > label {
-            color: @errorTextColor;
-        }
-    }
     .file-upload.field {
         > label {
             margin-bottom: 1em;
             vertical-align: top;
         }
-        .ui.items {
+
+        // Dropzone (hides after first drop, but reappears on hover)
+        .qq-upload-drop-area {
+            border: 5px dashed @borderColor;
+
+            &-active {
+                border-color: @focusedFormMutedBorderColor;
+            }
+        }
+
+        // List of uploaded items (only appears in DOM after adding items)
+        .file-uploader-items {
             margin: 0;
 
             .item:last-child {
@@ -50,6 +63,13 @@
             }
         }
     }
+
+    // Dropdowns lose some styling when form.css is loaded separately
+    .ui.dropdown:not(.labeled) > .dropdown.icon {
+        font-size: @relative12px;
+    }
+
+    // Recaptcha v2
     .g-recaptcha {
         margin-bottom: 1em;
     }

@@ -22,15 +22,24 @@
 body.readability #content .ui.container,
 .ui.text.container {
     p {
-        font-size: @textSize;
-        line-height: @textLineHeight;
+        &:not(.meta):not(:first-child) {
+            margin-top: @verticalRhythm3;
+        }
+
+        @media only screen and (min-width: @tabletBreakpoint) {
+            font-size: @textSize;
+            line-height: @textLineHeight;
+        }
+
+        + h2,
+        + h3,
+        + h4 {
+            margin-top: @verticalRhythm5;
+            margin-bottom: @verticalRhythm3;
+        }
     }
 
-    p + h2,
-    p + h3,
-    p + h4 {
-        margin-top: @verticalRhythm3;
-    }
+
 }
 
 // Responsive tweaks
@@ -42,7 +51,7 @@ body.readability #content .ui.container,
 
     // Reduce font size on mobile
     @media only screen and (max-width: @largestMobileScreen) {
-        font-size: @textSizeMobile;
+        font-size: inherit;
     }
 }
 
