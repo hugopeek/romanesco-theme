@@ -172,10 +172,17 @@ body:after {
             padding-top: 0;
         }
     }
+}
 
+// Notes on tablet and desktop
+@media only screen and (min-width: @tabletBreakpoint) {
     body.note.toc {
+        #content,
         #sidebar {
             margin-top: @verticalRhythm3;
+        }
+        #content > .stripe.segment:first-child {
+            padding-top: 0;
         }
     }
 }
