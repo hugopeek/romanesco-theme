@@ -3,8 +3,8 @@
 *******************************/
 
 .ui.header {
-    // Bug with content falling below a left positioned header image
-    // when containing a long sub header.
+    // Bug with content falling below a left positioned header image when
+    //  containing a long sub header.
     &:not(.icon):not(.aligned) {
         > .image {
             float: left;
@@ -23,12 +23,38 @@
         max-height: 2.2em !important;
     }
 
-    // Keep link color in grey tones
+    // Avoid colored links in sub headers
     > .sub.header a {
         color: @subHeaderColor;
         &.inverted {
             color: @invertedSubHeaderColor;
         }
+    }
+
+    // Sub headers and subtitles are the same visually, but sub headers are
+    //  placed inside the header tag, whereas subtitles are placed outside (as
+    //  direct sibling of the header tag).
+    h1& + .subtitle { font-size: @h1SubHeaderFontSize; }
+    h2& + .subtitle { font-size: @h2SubHeaderFontSize; }
+    h3& + .subtitle { font-size: @h3SubHeaderFontSize; }
+    h4& + .subtitle { font-size: @h4SubHeaderFontSize; }
+    h5& + .subtitle { font-size: @h5SubHeaderFontSize; }
+    h6& + .subtitle { font-size: @h6SubHeaderFontSize; }
+
+    // Subtitles need to inherit alignment from their sibling heading
+    &.left.aligned + .subtitle {
+        text-align: left;
+    }
+    &.center.aligned + .subtitle {
+        text-align: center;
+    }
+    &.right.aligned + .subtitle {
+        text-align: right;
+    }
+
+    // Swim up a little into the bottom margin from headings
+    + .subtitle {
+        margin-top: -1rem;
     }
 
     // Hide link icon inside headers with an anchor link
@@ -62,7 +88,8 @@
         h4& { font-size: @mobileH4; }
         h5& { font-size: @mobileH5; }
 
-        & > .sub.header {
+        & > .sub.header,
+        & + .subtitle {
             font-size: @fontSize;
         }
     }
@@ -87,14 +114,15 @@
         &:first-child {
             margin-bottom: @verticalRhythm2;
 
-            > .sub.header {
-                margin-top: @verticalRhythm1;
+            + .subtitle {
+                margin-top: calc(var(--baseline) * -1rem);
+                margin-bottom: @verticalRhythm3;
             }
 
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h1 * @scaleRatio;
 
-                > .sub.header {
+                + .subtitle {
                     font-size: @h1SubHeaderFontSize * 1.125;
                 }
             }
@@ -107,14 +135,15 @@
         &:first-child {
             margin-bottom: @verticalRhythm2;
 
-            > .sub.header {
-                margin-top: @verticalRhythm1;
+            + .subtitle {
+                margin-top: calc(var(--baseline) * -1.5rem);
+                margin-bottom: @verticalRhythm3;
             }
 
             @media only screen and (min-width: @tabletBreakpoint) {
                 font-size: @h2 * @scaleRatio;
 
-                > .sub.header {
+                + .subtitle {
                     font-size: @h2SubHeaderFontSize * 1.125;
                 }
             }
