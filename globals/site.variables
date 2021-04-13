@@ -157,6 +157,12 @@
 @linkHoverColor      : darken(saturate(@linkColor, 20), 15, relative);
 @linkHoverUnderline  : @linkUnderline;
 
+/* CUSTOM */
+@linkBorderWidth          : 1px;
+@linkBorderStyle          : dotted;
+@linkBorderHoverWidth     : @linkBorderWidth;
+@linkBorderHoverStyle     : solid;
+
 /*-------------------
   Highlighted Text
 --------------------*/

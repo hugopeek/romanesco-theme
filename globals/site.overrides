@@ -191,9 +191,9 @@ li >,
 .header.inverted,
 .header.sub {
     a:not(.button):not(.image):not(.item) {
-        border-bottom: 1px dotted;
+        border-bottom: @linkBorderWidth @linkBorderStyle;
         &:hover {
-            border-bottom: 1px solid;
+            border-bottom: @linkBorderHoverWidth @linkBorderHoverStyle;
         }
     }
 }
