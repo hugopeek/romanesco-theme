@@ -100,6 +100,7 @@
         padding-bottom: 1em;
     }
     > .content {
+        display: block !important;
         padding-left: 0 !important;
     }
     + p > .button {
