@@ -132,10 +132,10 @@ body:after {
 // Main content area
 // ---------------------------------------------------------------------
 
-// If there's no header present, create some room for sticky navigation.
+// If there's no hero unit present, create some room for sticky navigation.
 // Make sure to use padding on overview pages and margin on detail, to avoid
 //  improper positioning of boxed segments and segment backgrounds.
-.masthead.without.hero:not(.non-stick) {
+#header.without.hero:not(.non-stick) {
     + #toolbar {
         padding-top: 8rem;
     }
