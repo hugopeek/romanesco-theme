@@ -4,7 +4,7 @@
 
 .ui.header {
     // Custom variation with font or SVG icon
-    &.horizontal {
+    &.horizontal:not(.divider) {
         display: flex;
 
         > .icon,
