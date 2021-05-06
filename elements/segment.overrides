@@ -51,7 +51,7 @@
         background-color: @white;
     }
 
-    /// Fix in case container positioning is absolute
+    // Fix in case container positioning is absolute
     &.white,
     &.primary-color,
     &.secondary-color {
@@ -85,31 +85,23 @@
 }
 
 // Specific content types
-.ui.segment#toolbar {
-    .header-vertical {
-        @media only screen and (min-width: @tabletBreakpoint) {
-            padding: @verticalRhythm1 3%;
+.ui.segment {
+    #hero& {
+        border-top: none;
+    }
+    #toolbar& {
+        .header-vertical {
+            @media only screen and (min-width: @tabletBreakpoint) {
+                padding: @verticalRhythm1 3%;
+            }
         }
     }
-}
-
-.ui.segment#footer {
-    padding: 0;
-
-    > .container:last-child {
-        padding: @verticalRhythm2 0;
-        border-top: 1px solid @borderColorFooter;
-    }
-}
-
-.ui.ticket.segment {
-    &:hover {
-        background: @offWhite;
-    }
-    .content {
-        margin-bottom: .5em;
-        padding-bottom: 2em;
-        border-bottom: 1px solid @borderColor;
+    #footer& {
+        padding: 0;
+        > .container:last-child {
+            padding: @verticalRhythm2 0;
+            border-top: 1px solid @borderColorFooter;
+        }
     }
 }
 
