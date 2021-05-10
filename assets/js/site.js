@@ -20,7 +20,12 @@ $(function() {
 
     // Initiate Semantic UI components
     $('.ui.accordion').accordion();
-    $('.ui.dropdown:not(.simple)').dropdown();
+    $('.ui.dropdown:not(.simple):not(.search)').dropdown();
+    $('.ui.search.dropdown')
+        .dropdown({
+            fullTextSearch: true
+        })
+    ;
     $('.with.tooltip').popup();
     $('.with.tooltip.onclick')
         .popup({
