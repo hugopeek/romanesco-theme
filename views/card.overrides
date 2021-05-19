@@ -93,3 +93,10 @@
         }
     }
 }
+
+// Extend stackable behaviour to tablet breakpoint if desired
+.ui.stackable[class*="on tablet"].cards > .card {
+    @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+        width: 100% !important;
+    }
+}
