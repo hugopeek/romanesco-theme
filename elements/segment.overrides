@@ -52,11 +52,11 @@
     }
 
     // Fix in case container positioning is absolute
-    &.white,
-    &.primary-color,
-    &.secondary-color {
-        z-index: 0;
-    }
+    //&.white,
+    //&.primary-color,
+    //&.secondary-color {
+    //    z-index: 0;
+    //}
 
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
