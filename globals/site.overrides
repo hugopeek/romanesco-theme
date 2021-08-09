@@ -174,9 +174,9 @@ body:after {
     }
 }
 
-// Notes on tablet and desktop
+// Pages with vertical header on tablet and desktop
 @media only screen and (min-width: @tabletBreakpoint) {
-    body.note.toc {
+    body.header-vertical.toc {
         #content,
         #sidebar {
             margin-top: @verticalRhythm3;
