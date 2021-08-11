@@ -404,8 +404,8 @@ $('#off-canvas .close.button').click(function() {
 });
 
 // Submit search form
-$("#search-field i.link").click(function() {
-    $("#search-field").submit();
+$("#form-search i.link").click(function() {
+    $("#form-search").submit();
 });
 
 // Submit login form
