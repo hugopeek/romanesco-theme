@@ -430,6 +430,21 @@
 .menu#toolbar {
     &.attached {
         border-top: 0;
+
+        // Stretch search field out on mobile
+        @media (max-width: @largestMobileScreen) {
+            .right.menu {
+                width: 100%;
+
+                .search.item,
+                #form-search {
+                    flex: 1;
+                }
+                #form-search > .input {
+                    display: flex;
+                }
+            }
+        }
     }
     > .item:first-child:before {
         display: none;

@@ -176,7 +176,7 @@ body:after {
 
 // Pages with vertical header on tablet and desktop
 @media only screen and (min-width: @tabletBreakpoint) {
-    body.header-vertical.toc {
+    body.vertical.toc {
         #content,
         #sidebar {
             margin-top: @verticalRhythm3;

@@ -108,8 +108,8 @@
     width: auto; // This overrides the percentage it gets by default
 }
 
-// The HeaderVertical template requires a few overrides
-.header-vertical {
+// The BasicVertical template requires a few overrides
+body.vertical {
     #header {
         margin: 0;
 
@@ -137,6 +137,8 @@
         }
         #footer {
             flex: 0;
+            padding-left: 1em;
+            padding-right: 1em;
         }
 
         @media only screen and (min-width: @tabletBreakpoint) {

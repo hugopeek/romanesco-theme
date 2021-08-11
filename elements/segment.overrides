@@ -63,8 +63,8 @@
         padding-bottom: @verticalRhythm3;
     }
 
-    // Segments inside a HeaderVertical template require a few overrides
-    .header-vertical & {
+    // Segments inside a BasicVertical template require a few overrides
+    body.vertical & {
         padding: @verticalRhythm5 0;
 
         @media only screen and (max-width: @largestMobileScreen) {
@@ -90,7 +90,7 @@
         border-top: none;
     }
     #toolbar& {
-        .header-vertical {
+        body.vertical & {
             @media only screen and (min-width: @tabletBreakpoint) {
                 padding: @verticalRhythm1 3%;
             }
@@ -310,8 +310,8 @@
         margin-bottom: -0.4rem !important;
     }
 
-    // Segments inside a HeaderVertical template require a few overrides
-    .header-vertical & {
+    // Segments inside a BasicVertical template require a few overrides
+    body.vertical & {
         @media only screen and (min-width: @tabletBreakpoint) {
             padding: 1em 5%;
         }
