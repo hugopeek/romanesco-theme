@@ -95,13 +95,12 @@ $(function() {
         var groups = $items.length;
         var maxColumns = 5;
 
+        var numbers = ['zero','one','two','three','four','five','six'];
+        var columns = 'five';
+        var divider = 'internally celled';
         if (groups <= maxColumns) {
-            var numbers = ['zero','one','two','three','four','five','six'];
-            var columns = numbers[groups];
-            var divider = 'divided';
-        } else {
-            var columns = 'five';
-            var divider = 'internally celled';
+            columns = numbers[groups];
+            divider = 'divided';
         }
 
         // Dropdown class is only intended for no-js situations
@@ -500,7 +499,7 @@ $(document).on('pdopage_load', function(e, config, response) {
 // Available breakpoints: mobile, tablet, computer, large, widescreen
 var queries = [
     {
-        context: 'mobile',
+        context: ['mobile'],
         match: function() {
             tabToAccordion();
             tableToCard();
