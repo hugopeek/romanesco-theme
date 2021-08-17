@@ -227,6 +227,14 @@
     }
 }
 
+// Segments in accordion / tab combos
+.ui.reducible.tab.segment {
+    margin: 0;
+    &.basic {
+        padding: 0;
+    }
+}
+
 // Segment containing an image that needs to be snapped to one of the edges
 .ui.snapped.segment {
     @media only screen and (min-width: @computerBreakpoint) {
