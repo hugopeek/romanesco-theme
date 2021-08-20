@@ -440,7 +440,7 @@
 
 /* Used to match floats with text */
 @lineHeightOffset       : ((@lineHeight - 1em) / 2);
-@headerLineHeightOffset : (@headerLineHeight - 1em) / 2;
+@headerLineHeightOffset : ((@headerLineHeight - 1em) / 2);
 
 /* Header Spacing */
 @headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));

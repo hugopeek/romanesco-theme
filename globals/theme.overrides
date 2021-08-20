@@ -25,10 +25,10 @@
         text-indent: -9999rem;
 
         // Scale logo based on viewport with, until max-width is reached
-        width: @logoAspectRatio * 7vw;
-        min-width: @logoWidth * @logoScaleRatio * 0.05rem; // Don't you disappear on us
-        max-width: @logoWidth * @logoScaleRatio * 0.07rem;
-        height: @logoHeight * @logoScaleRatio * 0.07rem;
+        width: (@logoAspectRatio * 7vw);
+        min-width: (@logoWidth * @logoScaleRatio * 0.05rem); // Don't you disappear on us
+        max-width: (@logoWidth * @logoScaleRatio * 0.07rem);
+        height: (@logoHeight * @logoScaleRatio * 0.07rem);
 
         &.inverted {
             background-image: url("@{logoInvertedPath}") !important;
