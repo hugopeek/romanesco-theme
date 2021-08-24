@@ -361,30 +361,30 @@
      Alpha Colors
 --------------------*/
 
-@subtleTransparentBlack     : rgba(0, 0, 0, 0.03);
-@transparentBlack           : rgba(0, 0, 0, 0.05);
-@strongTransparentBlack     : rgba(0, 0, 0, 0.10);
-@veryStrongTransparentBlack : rgba(0, 0, 0, 0.15);
-
-@subtleTransparentWhite     : rgba(255, 255, 255, 0.02);
-@transparentWhite           : rgba(255, 255, 255, 0.08);
-@strongTransparentWhite     : rgba(255, 255, 255, 0.15);
+//@subtleTransparentBlack     : rgba(0, 0, 0, 0.03);
+//@transparentBlack           : rgba(0, 0, 0, 0.05);
+//@strongTransparentBlack     : rgba(0, 0, 0, 0.10);
+//@veryStrongTransparentBlack : rgba(0, 0, 0, 0.15);
+//
+//@subtleTransparentWhite     : rgba(255, 255, 255, 0.02);
+//@transparentWhite           : rgba(255, 255, 255, 0.08);
+//@strongTransparentWhite     : rgba(255, 255, 255, 0.15);
 
 /*-------------------
        Accents
 --------------------*/
 
 /* Differentiating Neutrals */
-@subtleGradient: linear-gradient(transparent, @transparentBlack);
+//@subtleGradient: linear-gradient(transparent, @transparentBlack);
 
 /* Differentiating Layers */
-@subtleShadow:
-        0 1px 2px 0 @borderColor
-;
-@floatingShadow:
-        0 2px 4px 0 rgba(34, 36, 38, 0.12),
-        0 2px 10px 0 rgba(34, 36, 38, 0.15)
-;
+//@subtleShadow:
+//        0 1px 2px 0 @borderColor
+//;
+//@floatingShadow:
+//        0 2px 4px 0 rgba(34, 36, 38, 0.12),
+//        0 2px 10px 0 rgba(34, 36, 38, 0.15)
+//;
 
 /*******************************
            Power-User
@@ -424,92 +424,67 @@
 @warningTextColor        : #573A08;
 
 /*-------------------
-        Paths
---------------------*/
-
-/* For source only. Modified in gulp for dist */
-@imagePath : '../../themes/default/assets/images';
-@fontPath  : '../../themes/default/assets/fonts';
-
-/*-------------------
-       Icons
---------------------*/
-
-/* Maximum Glyph Width of Icon */
-@iconWidth : 1.18em;
-
-/*-------------------
      Neutral Text
 --------------------*/
 
-@darkTextColor               : rgba(0, 0, 0, 0.85);
-@mutedTextColor              : rgba(0, 0, 0, 0.6);
-@lightTextColor              : rgba(0, 0, 0, 0.4);
-
-@unselectedTextColor         : rgba(0, 0, 0, 0.4);
-@hoveredTextColor            : rgba(0, 0, 0, 0.8);
-@pressedTextColor            : rgba(0, 0, 0, 0.9);
-@selectedTextColor           : rgba(0, 0, 0, 0.95);
-
-@invertedTextColor           : rgba(255, 255, 255, 0.9);
-@invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
-@invertedLightTextColor      : rgba(255, 255, 255, 0.7);
-@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
-@invertedHoveredTextColor    : rgba(255, 255, 255, 1);
-@invertedPressedTextColor    : rgba(255, 255, 255, 1);
-@invertedSelectedTextColor   : rgba(255, 255, 255, 1);
+//@darkTextColor               : rgba(0, 0, 0, 0.85);
+//@mutedTextColor              : rgba(0, 0, 0, 0.6);
+//@lightTextColor              : rgba(0, 0, 0, 0.4);
+//
+//@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+//@hoveredTextColor            : rgba(0, 0, 0, 0.8);
+//@pressedTextColor            : rgba(0, 0, 0, 0.9);
+//@selectedTextColor           : rgba(0, 0, 0, 0.95);
+//
+//@invertedTextColor           : rgba(255, 255, 255, 0.9);
+//@invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
+//@invertedLightTextColor      : rgba(255, 255, 255, 0.7);
+//@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+//@invertedHoveredTextColor    : rgba(255, 255, 255, 1);
+//@invertedPressedTextColor    : rgba(255, 255, 255, 1);
+//@invertedSelectedTextColor   : rgba(255, 255, 255, 1);
 
 /*-------------------
      Brand Colors
 --------------------*/
 
-@facebookColor   : #3B5998;
-@twitterColor    : #1DA1F2;
-@googlePlusColor : #DD4B39;
-@linkedInColor   : #0077B5;
-@youtubeColor    : #FF0000;
-@pinterestColor  : #BD081C;
-@vkColor         : #45668E;
-@instagramColor  : #49769C;
-@telegramColor   : #0088CC;
-@whatsAppColor   : #25D366;
+//@facebookColor   : #3B5998;
+//@twitterColor    : #1DA1F2;
+//@googlePlusColor : #DD4B39;
+//@linkedInColor   : #0077B5;
+//@youtubeColor    : #FF0000;
+//@pinterestColor  : #BD081C;
+//@vkColor         : #45668E;
+//@instagramColor  : #49769C;
+//@telegramColor   : #0088CC;
+//@whatsAppColor   : #25D366;
 
 /*-------------------
       Borders
 --------------------*/
 
-@circularRadius                : 500rem;
-
-@borderColor                   : rgba(34, 36, 38, 0.15);
-@strongBorderColor             : rgba(34, 36, 38, 0.22);
-@internalBorderColor           : rgba(34, 36, 38, 0.1);
-@selectedBorderColor           : rgba(34, 36, 38, 0.35);
-@strongSelectedBorderColor     : rgba(34, 36, 38, 0.5);
-@disabledBorderColor           : rgba(34, 36, 38, 0.5);
-
-@solidInternalBorderColor      : #FAFAFA;
-@solidBorderColor              : #D4D4D5;
-@solidSelectedBorderColor      : #BCBDBD;
-
-@whiteBorderColor              : rgba(255, 255, 255, 0.1);
-@selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
-
-@solidWhiteBorderColor         : #555555;
-@selectedSolidWhiteBorderColor : #999999;
+//@circularRadius                : 500rem;
+//
+//@borderColor                   : rgba(34, 36, 38, 0.15);
+//@strongBorderColor             : rgba(34, 36, 38, 0.22);
+//@internalBorderColor           : rgba(34, 36, 38, 0.1);
+//@selectedBorderColor           : rgba(34, 36, 38, 0.35);
+//@strongSelectedBorderColor     : rgba(34, 36, 38, 0.5);
+//@disabledBorderColor           : rgba(34, 36, 38, 0.5);
+//
+//@solidInternalBorderColor      : #FAFAFA;
+//@solidBorderColor              : #D4D4D5;
+//@solidSelectedBorderColor      : #BCBDBD;
+//
+//@whiteBorderColor              : rgba(255, 255, 255, 0.1);
+//@selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
+//
+//@solidWhiteBorderColor         : #555555;
+//@selectedSolidWhiteBorderColor : #999999;
 
 /*-------------------
     Derived Values
 --------------------*/
-
-/* Loaders Position Offset */
-@loaderOffset : -(@loaderSize / 2);
-@loaderMargin : @loaderOffset 0 0 @loaderOffset;
-
-/* Rendered Scrollbar Width */
-@scrollbarWidth: 17px;
-
-/* Maximum Single Character Glyph Width, aka Capital "W" */
-@glyphWidth: 1.1em;
 
 /* Used to match floats with text */
 @lineHeightOffset       : ((@lineHeight - 1em) / 2);
