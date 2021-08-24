@@ -10,35 +10,38 @@
 
 @fontName          : 'Source Sans Pro';
 @fontFallback      : 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@fontSmoothing     : antialiased;
 
 @headerFont        : @fontName, @fontFallback;
 @pageFont          : @fontName, @fontFallback;
 
 @googleFontName    : @fontName;
 @importGoogleFonts : true;
-@googleFontSizes   : '400,700,400italic,700italic';
+@googleFontSizes   : 'ital,wght@0,400%3B0,700%3B1,400%3B1,700';
 @googleSubset      : 'latin';
+@googleFontDisplay : 'swap';
 
 @googleProtocol    : 'https://';
-@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&display=swap&subset=@{googleSubset}';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}&display=@{googleFontDisplay}';
+
+
+@bold              : bold;
+@normal            : normal;
 
 /*-------------------
       Base Sizes
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize         : 14px;
+@emSize            : 14px;
 
 /* CUSTOM
    Scale ratio is used for scaling other values proportionally.
 */
-@scaleRatio         : 1.25;
-@mobileScaleRatio   : @scaleRatio * 0.618;
+@scaleRatio        : 1.25;
+@mobileScaleRatio  : @scaleRatio * 0.618;
 
 /* The size of page text  */
-@fontSize       : 1.25rem;
-@lineHeight     : 1.45;
+@fontSize          : 1.25rem;
 
 /* CUSTOM
    Shadow font size serves as an alternative base value for calculating sizes.
@@ -50,21 +53,28 @@
     Border Radius
 --------------------*/
 
-/* See Power-user section below for explanation of @px variables */
-@relativeBorderRadius: @relative4px;
-@absoluteBorderRadius: @4px;
+/* See Power-user section below
+   for explanation of @px variables
+*/
+@relativeBorderRadius   : @relative4px;
+@absoluteBorderRadius   : @4px;
 
-@defaultBorderRadius: @absoluteBorderRadius;
+@defaultBorderRadius    : @absoluteBorderRadius;
 
 /*-------------------
     Brand Colors
 --------------------*/
 
-@primaryColor        : #698f73;
-@secondaryColor      : #5f7ebe;
+@primaryColor           : #698f73;
+@secondaryColor         : #5f7ebe;
 
-@lightPrimaryColor   : #eaf3ec;
-@lightSecondaryColor : #edf1f8;
+@lightPrimaryColor      : #eaf3ec;
+@lightSecondaryColor    : #edf1f8;
+
+/* Whenever a color needs to get calculated
+   (screen()/multiply()) out of a base color
+*/
+@blendingBaseColor      : #cccccc;
 
 /*--------------
       Logo
@@ -75,17 +85,17 @@
 @logoBadgePath          : '/assets/img/badge.svg';
 @logoBadgeInvertedPath  : '/assets/img/badge-inverted.svg';
 
-@logoWidth          : 866;
-@logoHeight         : 142;
-@logoScaleRatio     : 240 / @logoWidth; // first value is preferred logo width
-@logoAspectRatio    : @logoWidth / @logoHeight;
+@logoWidth         : 866;
+@logoHeight        : 142;
+@logoScaleRatio    : 240 / @logoWidth; // first value is preferred logo width
+@logoAspectRatio   : @logoWidth / @logoHeight;
 
 /*--------------
   Page Heading
 ---------------*/
 
-@headerFontWeight : bold;
-@headerLineHeight : 1.2;
+@headerFontWeight  : @bold;
+@headerLineHeight  : 1.2;
 
 /* CUSTOM
    Calculate heading sizes based on font size and scale ratio.
@@ -119,8 +129,13 @@
 @inputHorizontalPadding : @relative14px;
 @inputPadding           : @inputVerticalPadding @inputHorizontalPadding;
 
-/* Line Height Default For Inputs in Browser */
-@inputLineHeight: 1.2142em;
+/* Input Text Color */
+@inputColor: @textColor;
+@inputPlaceholderColor: lighten(@inputColor, 75);
+@inputPlaceholderFocusColor: lighten(@inputColor, 45);
+
+/* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
+@inputLineHeight: unit((17 / 14), em);
 
 /*-------------------
     Focused Input
@@ -133,12 +148,31 @@
 @focusedFormMutedBorderColor: #96C8DA;
 
 /*-------------------
+        Sizes
+--------------------*/
+
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+
+@miniSize        : (11 / 14);
+@tinySize        : (12 / 14);
+@smallSize       : (13 / 14);
+@mediumSize      : (14 / 14);
+@largeSize       : (16 / 14);
+@bigSize         : (18 / 14);
+@hugeSize        : (20 / 14);
+@massiveSize     : (24 / 14);
+
+/*-------------------
         Page
 --------------------*/
 
 @pageBackground      : #FFFFFF;
 @pageOverflowX       : hidden;
 
+@lineHeight          : 1.4285em;
 @textColor           : rgba(0, 0, 0, 0.87);
 
 /*-------------------
@@ -256,43 +290,72 @@
 @white            : #FFFFFF;
 
 /*--- Colored Backgrounds ---*/
-@redBackground    : #FFE8E6;
-@orangeBackground : #FFEDDE;
-@yellowBackground : #FFF8DB;
-@oliveBackground  : #FBFDEF;
-@greenBackground  : #E5F9E7;
-@tealBackground   : #E1F7F7;
-@blueBackground   : #DFF0FF;
-@violetBackground : #EAE7FF;
-@purpleBackground : #F6E7FF;
-@pinkBackground   : #FFE3FB;
-@brownBackground  : #F1E2D3;
+@primaryBackground       : @lightPrimaryColor;
+@secondaryBackground     : @lightSecondaryColor;
+@redBackground           : #FFE8E6;
+@orangeBackground        : #FFEDDE;
+@yellowBackground        : #FFF8DB;
+@oliveBackground         : #FBFDEF;
+@greenBackground         : #E5F9E7;
+@tealBackground          : #E1F7F7;
+@blueBackground          : #DFF0FF;
+@violetBackground        : #EAE7FF;
+@purpleBackground        : #F6E7FF;
+@pinkBackground          : #FFE3FB;
+@brownBackground         : #F1E2D3;
+@greyBackground          : #F4F4F4;
+@blackBackground         : #F4F4F4;
 
 /*--- Colored Headers ---*/
-@redHeaderColor    : darken(@redTextColor, 5);
-@oliveHeaderColor  : darken(@oliveTextColor, 5);
-@greenHeaderColor  : darken(@greenTextColor, 5);
-@yellowHeaderColor : darken(@yellowTextColor, 5);
-@blueHeaderColor   : darken(@blueTextColor, 5);
-@tealHeaderColor   : darken(@tealTextColor, 5);
-@pinkHeaderColor   : darken(@pinkTextColor, 5);
-@violetHeaderColor : darken(@violetTextColor, 5);
-@purpleHeaderColor : darken(@purpleTextColor, 5);
-@orangeHeaderColor : darken(@orangeTextColor, 5);
-@brownHeaderColor  : darken(@brownTextColor, 5);
+@primaryHeaderColor      : darken(@primaryTextColor, 5);
+@secondaryHeaderColor    : darken(@secondaryTextColor, 5);
+@redHeaderColor          : darken(@redTextColor, 5);
+@oliveHeaderColor        : darken(@oliveTextColor, 5);
+@greenHeaderColor        : darken(@greenTextColor, 5);
+@yellowHeaderColor       : darken(@yellowTextColor, 5);
+@blueHeaderColor         : darken(@blueTextColor, 5);
+@tealHeaderColor         : darken(@tealTextColor, 5);
+@pinkHeaderColor         : darken(@pinkTextColor, 5);
+@violetHeaderColor       : darken(@violetTextColor, 5);
+@purpleHeaderColor       : darken(@purpleTextColor, 5);
+@orangeHeaderColor       : darken(@orangeTextColor, 5);
+@brownHeaderColor        : darken(@brownTextColor, 5);
+@greyHeaderColor         : darken(@greyTextColor, 5);
+@blackHeaderColor        : darken(@blackTextColor, 5);
 
 /*--- Colored Text ---*/
-@redTextColor    : @red;
-@orangeTextColor : @orange;
-@yellowTextColor : #B58105; // Yellow text is difficult to read
-@oliveTextColor  : #8ABC1E; // Olive is difficult to read
-@greenTextColor  : #1EBC30; // Green is difficult to read
-@tealTextColor   : #10A3A3; // Teal text is difficult to read
-@blueTextColor   : @blue;
-@violetTextColor : @violet;
-@purpleTextColor : @purple;
-@pinkTextColor   : @pink;
-@brownTextColor  : @brown;
+@primaryTextColor        : darken(@primaryColor, 5);
+@secondaryTextColor      : darken(@secondaryColor, 5);
+@redTextColor            : @red;
+@orangeTextColor         : @orange;
+@yellowTextColor         : #B58105; // Yellow text is difficult to read
+@oliveTextColor          : #8ABC1E; // Olive is difficult to read
+@greenTextColor          : #1EBC30; // Green is difficult to read
+@tealTextColor           : #10A3A3; // Teal text is difficult to read
+@blueTextColor           : @blue;
+@violetTextColor         : @violet;
+@purpleTextColor         : @purple;
+@pinkTextColor           : @pink;
+@brownTextColor          : @brown;
+@greyTextColor           : @grey;
+@blackTextColor          : @black;
+
+/*--- Light Colored Text ---*/
+@lightPrimaryTextColor   : darken(@lightPrimaryColor, 30);
+@lightSecondaryTextColor : darken(@lightSecondaryColor, 30);
+@lightRedTextColor       : @lightRed;
+@lightOrangeTextColor    : @lightOrange;
+@lightYellowTextColor    : #B58105; // Yellow text is difficult to read
+@lightOliveTextColor     : #8ABC1E; // Olive is difficult to read
+@lightGreenTextColor     : #1EBC30; // Green is difficult to read
+@lightTealTextColor      : #10A3A3; // Teal text is difficult to read
+@lightBlueTextColor      : @lightBlue;
+@lightVioletTextColor    : @lightViolet;
+@lightPurpleTextColor    : @lightPurple;
+@lightPinkTextColor      : @lightPink;
+@lightBrownTextColor     : @lightBrown;
+@lightGreyTextColor      : @lightGrey;
+@lightBlackTextColor     : @lightBlack;
 
 /*-------------------
      Alpha Colors
@@ -316,11 +379,11 @@
 
 /* Differentiating Layers */
 @subtleShadow:
-0px 1px 2px 0 @borderColor
+        0 1px 2px 0 @borderColor
 ;
 @floatingShadow:
-0px 2px 4px 0px rgba(34, 36, 38, 0.12),
-0px 2px 10px 0px rgba(34, 36, 38, 0.08)
+        0 2px 4px 0 rgba(34, 36, 38, 0.12),
+        0 2px 10px 0 rgba(34, 36, 38, 0.15)
 ;
 
 /*******************************
@@ -347,18 +410,18 @@
 @negativeTextColor       : #9F3A38;
 
 /* Info */
-@infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FFFF;
-@infoBorderColor        : #A9D5DE;
-@infoHeaderColor        : #0E566C;
-@infoTextColor          : #276F86;
+@infoColor               : #31CCEC;
+@infoBackgroundColor     : #F8FFFF;
+@infoBorderColor         : #A9D5DE;
+@infoHeaderColor         : #0E566C;
+@infoTextColor           : #276F86;
 
 /* Warning */
-@warningColor           : #F2C037;
-@warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFAF3;
-@warningHeaderColor     : #794B02;
-@warningTextColor       : #573A08;
+@warningColor            : #F2C037;
+@warningBorderColor      : #C9BA9B;
+@warningBackgroundColor  : #FFFAF3;
+@warningHeaderColor      : #794B02;
+@warningTextColor        : #573A08;
 
 /*-------------------
         Paths
@@ -387,7 +450,6 @@
 @hoveredTextColor            : rgba(0, 0, 0, 0.8);
 @pressedTextColor            : rgba(0, 0, 0, 0.9);
 @selectedTextColor           : rgba(0, 0, 0, 0.95);
-@disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
 @invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
@@ -396,20 +458,21 @@
 @invertedHoveredTextColor    : rgba(255, 255, 255, 1);
 @invertedPressedTextColor    : rgba(255, 255, 255, 1);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
-@invertedDisabledTextColor   : rgba(255, 255, 255, 0.2);
 
 /*-------------------
      Brand Colors
 --------------------*/
 
 @facebookColor   : #3B5998;
-@twitterColor    : #0084B4;
-@googlePlusColor : #DC4A38;
-@linkedInColor   : #1F88BE;
-@youtubeColor    : #CC181E;
+@twitterColor    : #1DA1F2;
+@googlePlusColor : #DD4B39;
+@linkedInColor   : #0077B5;
+@youtubeColor    : #FF0000;
+@pinterestColor  : #BD081C;
+@vkColor         : #45668E;
 @instagramColor  : #49769C;
-@pinterestColor  : #00ACED;
-@vkColor         : #4D7198;
+@telegramColor   : #0088CC;
+@whatsAppColor   : #25D366;
 
 /*-------------------
       Borders
@@ -417,16 +480,16 @@
 
 @circularRadius                : 500rem;
 
-@borderColor               : rgba(34, 36, 38, 0.15);
-@strongBorderColor         : rgba(34, 36, 38, 0.22);
-@internalBorderColor       : rgba(34, 36, 38, 0.1);
-@selectedBorderColor       : rgba(34, 36, 38, 0.35);
-@strongSelectedBorderColor : rgba(34, 36, 38, 0.5);
-@disabledBorderColor       : rgba(34, 36, 38, 0.5);
+@borderColor                   : rgba(34, 36, 38, 0.15);
+@strongBorderColor             : rgba(34, 36, 38, 0.22);
+@internalBorderColor           : rgba(34, 36, 38, 0.1);
+@selectedBorderColor           : rgba(34, 36, 38, 0.35);
+@strongSelectedBorderColor     : rgba(34, 36, 38, 0.5);
+@disabledBorderColor           : rgba(34, 36, 38, 0.5);
 
-@solidInternalBorderColor  : #FAFAFA;
-@solidBorderColor          : #D4D4D5;
-@solidSelectedBorderColor  : #BCBDBD;
+@solidInternalBorderColor      : #FAFAFA;
+@solidBorderColor              : #D4D4D5;
+@solidSelectedBorderColor      : #BCBDBD;
 
 @whiteBorderColor              : rgba(255, 255, 255, 0.1);
 @selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
@@ -438,27 +501,24 @@
     Derived Values
 --------------------*/
 
+/* Loaders Position Offset */
+@loaderOffset : -(@loaderSize / 2);
+@loaderMargin : @loaderOffset 0 0 @loaderOffset;
+
+/* Rendered Scrollbar Width */
+@scrollbarWidth: 17px;
+
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+@glyphWidth: 1.1em;
+
 /* Used to match floats with text */
 @lineHeightOffset       : ((@lineHeight - 1em) / 2);
 @headerLineHeightOffset : ((@headerLineHeight - 1em) / 2);
 
 /* Header Spacing */
 @headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
-@headerBottomMargin : 1.2rem;
+@headerBottomMargin : 1.2rem; // CUSTOM
 @headerMargin       : @headerTopMargin 0 @headerBottomMargin;
 
 /* Minimum Mobile Width */
 @pageMinWidth       : 320px;
-
-/* Positive / Negative Dupes */
-@successBackgroundColor : @positiveBackgroundColor;
-@successColor           : @positiveColor;
-@successBorderColor     : @positiveBorderColor;
-@successHeaderColor     : @positiveHeaderColor;
-@successTextColor       : @positiveTextColor;
-
-@errorBackgroundColor   : @negativeBackgroundColor;
-@errorColor             : @negativeColor;
-@errorBorderColor       : @negativeBorderColor;
-@errorHeaderColor       : @negativeHeaderColor;
-@errorTextColor         : @negativeTextColor;
