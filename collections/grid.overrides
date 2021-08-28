@@ -108,6 +108,12 @@
     width: auto; // This overrides the percentage it gets by default
 }
 
+// Remove vertical padding from empty columns
+#content .ui.grid .empty.column {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 // The BasicVertical template requires a few overrides
 body.vertical {
     #header {
