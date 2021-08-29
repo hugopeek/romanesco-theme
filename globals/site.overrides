@@ -257,6 +257,7 @@ svg.hidden {
 
 p {
     margin: 0 0 @verticalRhythm2;
+    font-weight: @normal;
 }
 
 .lead {
