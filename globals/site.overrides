@@ -15,6 +15,7 @@
 html {
     font-size: 80%;
     font-family: "mobile";
+    scroll-padding-top: 7rem;
 }
 body:after {
     content: "mobile";
