@@ -446,6 +446,8 @@
        Fonts
 --------------------*/
 
+/* Google fonts are loaded via direct link in HEAD */
+
 /*-------------------
       Base Sizes
 --------------------*/
@@ -466,11 +468,17 @@
     Border Radius
 --------------------*/
 
-/* See Power-user section below for explanation of @px variables */
+/* See Power-user section below
+   for explanation of @px variables
+*/
 
 /*-------------------
     Brand Colors
 --------------------*/
+
+/* Whenever a color needs to get calculated
+   (screen()/multiply()) out of a base color
+*/
 
 /*--------------
       Logo
@@ -492,7 +500,9 @@
 
 /* This adjusts the default form input across all elements */
 
-/* Line Height Default For Inputs in Browser */
+/* Input Text Color */
+
+/* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
 
 /*-------------------
     Focused Input
@@ -501,6 +511,15 @@
 /* Used on inputs, textarea etc */
 
 /* Used on dropdowns, other larger blocks */
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
 
 /*-------------------
         Page
@@ -557,6 +576,8 @@
 
 /*--- Colored Text ---*/
 
+/*--- Light Colored Text ---*/
+
 /*-------------------
      Alpha Colors
 --------------------*/
@@ -586,18 +607,6 @@
 /* Warning */
 
 /*-------------------
-        Paths
---------------------*/
-
-/* For source only. Modified in gulp for dist */
-
-/*-------------------
-       Icons
---------------------*/
-
-/* Maximum Glyph Width of Icon */
-
-/*-------------------
      Neutral Text
 --------------------*/
 
@@ -618,8 +627,6 @@
 /* Header Spacing */
 
 /* Minimum Mobile Width */
-
-/* Positive / Negative Dupes */
 
 /*******************************
             Image
