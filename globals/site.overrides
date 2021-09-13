@@ -420,9 +420,6 @@ p {
     }
 
     .ui.list {
-        &.horizontal {
-            display: block;
-        }
         &:not(.horizontal) .item {
             width: max-content;
             max-width: 100%;
