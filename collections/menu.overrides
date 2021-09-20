@@ -405,6 +405,52 @@
             border-top: 0;
         }
     }
+
+    // General styling tweaks for vertical pointing menu are further down
+    &.toc {
+        .item {
+            position: relative;
+            padding-right: 0 !important;
+
+            .meta:before {
+                position: absolute;
+            }
+
+            &.h1:not(.active) {
+                color: @mutedTextColor;
+                font-weight: bold;
+            }
+            &.h2 {
+                padding: (@secondaryPointingItemVerticalPadding * 0.8) @secondaryPointingItemHorizontalPadding;
+            }
+            &.h3 {
+                padding: (@secondaryPointingItemVerticalPadding * 0.5) (@secondaryPointingItemHorizontalPadding * 1.5);
+                + .h2 {
+                    margin-top: .1em;
+                }
+            }
+            &.h4 {
+                padding: (@secondaryPointingItemVerticalPadding * 0.3) (@secondaryPointingItemHorizontalPadding * 2);
+                .meta:before {
+                    content: '•';
+                    margin-left: -.5em;
+                }
+                + .h2 {
+                    margin-top: .2em;
+                }
+                + .h3 {
+                    margin-top: .1em;
+                }
+            }
+            &.h5 {
+                padding: (@secondaryPointingItemVerticalPadding * 0.3) (@secondaryPointingItemHorizontalPadding * 2.3);
+                .meta:before {
+                    content: '••';
+                    margin-left: -.8em;
+                }
+            }
+        }
+    }
 }
 
 #off-canvas {
@@ -427,7 +473,7 @@
     }
 }
 
-.menu#toolbar {
+#toolbar.menu {
     &.attached {
         border-top: 0;
 
@@ -451,6 +497,7 @@
     }
 }
 
+// Move border to the left for right pointing menus (like ToC)
 .ui.secondary.vertical.right.pointing.menu {
     border-right: 0;
     border-left-width: @secondaryPointingBorderWidth;
@@ -464,13 +511,6 @@
 
         &.active {
             border-color: @secondaryPointingActiveBorderColor;
-        }
-
-        &.h2,
-        &.h3,
-        &.h4,
-        &.h5 {
-            padding-left: 2em;
         }
     }
 }
