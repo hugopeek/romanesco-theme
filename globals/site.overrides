@@ -392,6 +392,12 @@ p {
     }
 }
 
+// Prism code blocks
+#content code[class*="language-"],
+#content pre[class*="language-"] {
+    font-size: 1rem;
+}
+
 // Center content on request
 .ui.stackable.center.when.stacked {
     @media only screen and (max-width: @largestMobileScreen) {
