@@ -10,7 +10,7 @@
 // Logo variants
 // ---------------------------------------------------------------------
 .brand {
-    &.logo when (@logoPath = '/') {
+    &.logo when (@logoPath = '') {
         max-width: 50vw;
 
         // Apply some basic styling to text if no image is specified
@@ -19,7 +19,7 @@
         font-weight: bold;
         line-height: 1 !important;
     }
-    &.logo when not (@logoPath = '/') {
+    &.logo when not (@logoPath = '') {
         background: url("@{logoPath}") no-repeat left center !important;
         background-size: contain !important;
         text-indent: -9999rem;
@@ -30,18 +30,23 @@
         max-width: (@logoWidth * @logoScaleRatio * 0.07rem);
         height: (@logoHeight * @logoScaleRatio * 0.07rem);
 
-        &.inverted {
+        &.inverted when not (@logoInvertedPath = '') {
             background-image: url("@{logoInvertedPath}") !important;
         }
+
+        #menu.tightened & {
+            max-width: (@logoWidth * @logoScaleRatio * 0.05rem);
+            height: (@logoHeight * @logoScaleRatio * 0.05rem);
+        }
     }
-    &.badge when not (@logoBadgePath = '/') {
+    &.badge when not (@logoBadgePath = '') {
         background: url("@{logoBadgePath}") no-repeat left center !important;
         background-size: contain !important;
         height: 36px;
         width: 36px;
         text-indent: -9999rem;
 
-        &.inverted {
+        &.inverted when not (@logoBadgeInvertedPath = '') {
             background-image: url("@{logoBadgeInvertedPath}") !important;
         }
     }
