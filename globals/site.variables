@@ -92,6 +92,14 @@
 @logoAspectRatio   : @logoWidth / @logoHeight;
 
 /*--------------
+    Main Menu
+---------------*/
+
+/* CUSTOM */
+@mainMenuHeight             : 8rem;
+@mainMenuTightenedHeight    : 5rem;
+
+/*--------------
   Page Heading
 ---------------*/
 
@@ -101,7 +109,7 @@
 /* CUSTOM
    Calculate heading sizes based on font size and scale ratio.
    Shadow font size is used for calculating odd headings, to prevent the
-    difference between font sizes from becoming too large.
+   difference between font sizes from becoming too large.
 */
 
 @h1 : (@h3 * @scaleRatio);

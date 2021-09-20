@@ -4,7 +4,7 @@
 
 #menu {
     margin: 0;
-    height: 7rem;
+    height: @mainMenuHeight;
 
     // Specific styles for secondary menu variant
     &.secondary {
@@ -23,22 +23,22 @@
 
         // Make sure logo always scales smoothly with navbar
         .logo {
-            transition: height 0.2s, min-width 0.2s;
+            transition: height 0.2s, max-width 0.2s;
         }
 
-        // Give the underlying segment some top padding to accommodate the fixed menu
+        // Give next segment (hero/cta) some top padding to accommodate the fixed menu
         + .ui.vertical.segment {
-            padding-top: 9rem;
+            padding-top: (@mainMenuHeight + 2);
 
             @media only screen and (min-width: @tabletBreakpoint) {
-                padding-top: 12rem;
+                padding-top: (@mainMenuHeight + 5);
             }
         }
     }
 
     // Custom state for sticky menu after scrolling down. Class is set with JS.
     &.tightened {
-        height: 5rem;
+        height: @mainMenuTightenedHeight;
         box-shadow: @boxShadow;
 
         // Don't stick on mobile when scrolling down, that takes up too much
@@ -47,7 +47,7 @@
         // Depends on the scrolldir NPM package.
         @media only screen and (max-width: @largestMobileScreen) {
             [data-scrolldir="down"] & {
-                top: -5rem;
+                top: -@mainMenuTightenedHeight;
             }
         }
     }

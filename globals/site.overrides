@@ -15,7 +15,7 @@
 html {
     font-size: 80%;
     font-family: "mobile";
-    scroll-padding-top: 7rem;
+    scroll-padding-top: @mainMenuHeight;
 }
 body:after {
     content: "mobile";
@@ -138,22 +138,22 @@ body:after {
 //  improper positioning of boxed segments and segment backgrounds.
 #header.without.hero:not(.non-stick) {
     + #toolbar {
-        padding-top: 8rem;
+        padding-top: (@mainMenuHeight + 1);
     }
     body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
-        padding-top: 11rem;
+        padding-top: (@mainMenuHeight + 4);
 
         @media only screen and (max-width: @largestTabletScreen) {
-            padding-top: 9rem;
+            padding-top: (@mainMenuHeight + 2);
         }
     }
     body.detail & {
         + #main #content,
         + #main #sidebar {
-            margin-top: 11rem;
+            margin-top: (@mainMenuHeight + 4);
 
             @media only screen and (max-width: @largestTabletScreen) {
-                margin-top: 7rem;
+                margin-top: @mainMenuHeight;
             }
         }
     }
