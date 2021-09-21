@@ -1,18 +1,5 @@
 // Semantic UI behaviour
 $(function() {
-    // Fix menu when passed
-    $('#header')
-        .visibility({
-            once: false,
-            onBottomPassed: function() {
-                $('.fixed.menu');
-            },
-            onBottomPassedReverse: function() {
-                $('.fixed.menu');
-            }
-        })
-    ;
-
     // Create sidebar and attach to menu open
     $('#off-canvas')
         .sidebar('attach events', '.toc.item')
@@ -45,22 +32,22 @@ $(function() {
     ;
     $('.ui.video.embed').embed();
     $('.ui.rating').rating('disable');
-
-    // Make first item in ToC active
-    $('#submenu.toc :first-child').addClass('active');
 });
 
 // Sticky navbar behaviour
 $(function() {
     var $menu = $("#menu.sticky");
+    var $header = $("#header.sticky");
     var mastheadHeight = $("#masthead").height() || 0;
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
         if (scroll >= mastheadHeight + 50) {
             $menu.addClass("tightened");
+            $header.addClass("beam-me-up");
         } else {
             $menu.removeClass("tightened");
+            $header.removeClass("beam-me-up");
         }
     });
 });
@@ -319,27 +306,6 @@ $(function() {
             }
         })
     ;
-
-    // Highlight anchors in ToC menu
-    $('#submenu a[href*="#"]')
-        .each(function() {
-            var target = $(this.hash);
-            var link = $(this);
-
-            target.visibility({
-                once: false,
-                offset: offset + 10,
-                onPassing: function() {
-                    link.siblings().removeClass('active');
-                    link.addClass('active');
-                },
-                onTopPassedReverse: function() {
-                    link.prev().addClass('active');
-                    link.removeClass('active');
-                }
-            });
-        })
-    ;
 });
 
 // Toggle function to show/hide divs with buttons
@@ -508,6 +474,13 @@ var queries = [
 
             // Make some buttons more compact
             $('.publication .back.button .icon').addClass('fitted');
+
+            // Sticky header in vertical templates
+            $('#header.sticky')
+                .sticky({
+                    context: '.pusher'
+                })
+            ;
         },
         unmatch: function() {
             // Revert tabs back to normal
@@ -621,6 +594,31 @@ var queries = [
                     silent: true
                 })
             ;
+
+            // Highlight anchors in ToC menu
+            $('#submenu a[href*="#"]')
+                .each(function() {
+                    var offset = $("#menu.sticky").height() || 27;
+                    var target = $(this.hash);
+                    var link = $(this);
+
+                    target.visibility({
+                        once: false,
+                        offset: offset + 10,
+                        onPassing: function() {
+                            link.siblings().removeClass('active');
+                            link.addClass('active');
+                        },
+                        onTopPassedReverse: function() {
+                            link.prev().addClass('active');
+                            link.removeClass('active');
+                        }
+                    });
+                })
+            ;
+
+            // Make first item in ToC active
+            $('#submenu.toc :first-child').addClass('active');
         }
     }
 ];

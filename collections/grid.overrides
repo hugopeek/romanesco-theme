@@ -120,7 +120,25 @@ body.vertical {
         margin: 0;
 
         @media only screen and (max-width: @largestMobileScreen) {
-            padding: .5em 1em;
+            display: flex;
+            height: @mainMenuTightenedHeight;
+            padding: 0 (@gutterWidth / 2);
+            transition: height 0.2s, top 0.2s;
+
+            // Top offset when header starts sticking
+            &.fixed + main {
+                margin-top: @mainMenuTightenedHeight;
+            }
+
+            // Use flexbox to center the menu
+            #menu-vertical {
+                flex: 1;
+            }
+
+            // Don't stick on mobile when scrolling down
+            [data-scrolldir="down"] &.beam-me-up {
+                top: -@mainMenuTightenedHeight;
+            }
         }
         @media only screen and (min-width: @tabletBreakpoint) {
             position: fixed;
