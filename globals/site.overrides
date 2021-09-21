@@ -161,6 +161,11 @@ body:after {
 
 // Detail page
 body.detail {
+    @media only screen and (max-width: @largestTabletScreen) {
+        &.toc #content > .stripe.segment:first-child {
+            padding-top: 0;
+        }
+    }
     @media only screen and (min-width: @computerBreakpoint) {
         #content,
         #sidebar {

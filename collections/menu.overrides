@@ -475,13 +475,9 @@
     }
 }
 
-#toolbar.menu {
-    &.attached {
+#toolbar {
+    &.attached.menu {
         border-top: 0;
-
-        + .grid {
-            margin-top: 0;
-        }
 
         // Stretch search field out on mobile
         @media (max-width: @largestMobileScreen) {
@@ -497,9 +493,15 @@
                 }
             }
         }
+
+        > .item:first-child:before {
+            display: none;
+        }
     }
-    > .item:first-child:before {
-        display: none;
+
+    // If next element is a grid, it will overlap the toolbar
+    + .grid {
+        margin-top: 0;
     }
 }
 
