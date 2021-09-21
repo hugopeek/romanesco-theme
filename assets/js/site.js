@@ -46,15 +46,6 @@ $(function() {
     $('.ui.video.embed').embed();
     $('.ui.rating').rating('disable');
 
-    // Make submenu scroll down with content area
-    $('#submenu.sticky')
-        .sticky({
-            context: '#main',
-            offset: $("#menu.sticky").height() || 36,
-            silent: true
-        })
-    ;
-
     // Make first item in ToC active
     $('#submenu.toc :first-child').addClass('active');
 });
@@ -493,10 +484,15 @@ $(document).on('pdopage_load', function(e, config, response) {
     }
 });
 
-
-// Apply specific js through media queries
-// The media queries are matched with Semantic UI breakpoints by onMediaQuery.js
-// Available breakpoints: mobile, tablet, computer, large, widescreen
+/**
+ * Apply specific js through media queries. The media queries are matched with
+ * Semantic UI breakpoints by onMediaQuery.js.
+ *
+ * Available breakpoints: mobile, tablet, computer, large, widescreen.
+ *
+ * Keep in mind that match queries are executed on page load, unmatch queries
+ * are not.
+ */
 var queries = [
     {
         context: ['mobile'],
@@ -596,15 +592,34 @@ var queries = [
                 .addClass('dormant-grid')
                 .removeClass('grid')
             ;
+
+            // Move ToC items to dropdown
+            $('#submenu.toc .item').appendTo('#submenu-dropdown .menu');
+            $('#submenu-dropdown').removeClass('hidden');
         },
         unmatch: function () {
-            // We're leaving mobile
             $('body.detail #main > .ui.container')
                 .removeClass('fluid')
             ;
             $('body.detail #main > .ui.dormant-grid.container')
                 .addClass('grid')
                 .removeClass('dormant-grid')
+            ;
+
+            // Return ToC items to sidebar
+            $('#submenu-dropdown .menu .item').appendTo('#submenu.toc');
+            $('#submenu-dropdown').addClass('hidden');
+        }
+    },
+    {
+        context: ['computer','large','widescreen'],
+        match: function () {
+            $('#submenu.sticky')
+                .sticky({
+                    context: '#main',
+                    offset: $("#menu.sticky").height() || 36,
+                    silent: true
+                })
             ;
         }
     }

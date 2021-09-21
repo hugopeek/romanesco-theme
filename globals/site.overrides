@@ -143,7 +143,7 @@ body:after {
     body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
         padding-top: (@mainMenuHeight + 4);
 
-        @media only screen and (max-width: @largestTabletScreen) {
+        @media only screen and (max-width: @largestMobileScreen) {
             padding-top: (@mainMenuHeight + 2);
         }
     }
@@ -159,9 +159,9 @@ body:after {
     }
 }
 
-// Detail page on desktop
-@media only screen and (min-width: @computerBreakpoint) {
-    body.detail {
+// Detail page
+body.detail {
+    @media only screen and (min-width: @computerBreakpoint) {
         #content,
         #sidebar {
             margin-top: @verticalRhythm5;
@@ -175,15 +175,16 @@ body:after {
     }
 }
 
-// Pages with vertical header on tablet and desktop
-@media only screen and (min-width: @tabletBreakpoint) {
-    body.vertical.toc {
+// Pages with vertical header
+body.vertical.toc {
+    #content > .stripe.segment:first-child {
+        padding-top: 0;
+    }
+
+    @media only screen and (min-width: @tabletBreakpoint) {
         #content,
         #sidebar {
-            margin-top: @verticalRhythm3;
-        }
-        #content > .stripe.segment:first-child {
-            padding-top: 0;
+            margin-top: @verticalRhythm2;
         }
     }
 }

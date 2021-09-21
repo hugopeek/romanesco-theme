@@ -76,6 +76,14 @@
         @media only screen and (min-width: @tabletBreakpoint) {
             padding: @verticalRhythm5 5%;
         }
+
+        &#submenu-dropdown {
+            padding: @verticalRhythm2 0;
+
+            @media only screen and (min-width: @tabletBreakpoint) {
+                padding: 0 5%;
+            }
+        }
     }
 }
 

@@ -406,15 +406,10 @@
         }
     }
 
-    // General styling tweaks for vertical pointing menu are further down
     &.toc {
         .item {
-            position: relative;
+            // Don't waste any space in sidebar ToC
             padding-right: 0 !important;
-
-            .meta:before {
-                position: absolute;
-            }
 
             &.h1:not(.active) {
                 color: @mutedTextColor;
@@ -424,30 +419,37 @@
                 padding: (@secondaryPointingItemVerticalPadding * 0.8) @secondaryPointingItemHorizontalPadding;
             }
             &.h3 {
-                padding: (@secondaryPointingItemVerticalPadding * 0.5) (@secondaryPointingItemHorizontalPadding * 1.5);
-                + .h2 {
-                    margin-top: .1em;
-                }
-            }
-            &.h4 {
-                padding: (@secondaryPointingItemVerticalPadding * 0.3) (@secondaryPointingItemHorizontalPadding * 2);
-                .meta:before {
-                    content: '•';
-                    margin-left: -.5em;
-                }
+                padding: (@secondaryPointingItemVerticalPadding * 0.5) @secondaryPointingItemHorizontalPadding;
                 + .h2 {
                     margin-top: .2em;
                 }
+            }
+            &.h4 {
+                padding: (@secondaryPointingItemVerticalPadding * 0.3) @secondaryPointingItemHorizontalPadding;
+                + .h2 {
+                    margin-top: .3em;
+                }
                 + .h3 {
-                    margin-top: .1em;
+                    margin-top: .2em;
                 }
             }
             &.h5 {
-                padding: (@secondaryPointingItemVerticalPadding * 0.3) (@secondaryPointingItemHorizontalPadding * 2.3);
-                .meta:before {
-                    content: '••';
-                    margin-left: -.8em;
-                }
+                padding: (@secondaryPointingItemVerticalPadding * 0.3) @secondaryPointingItemHorizontalPadding;
+            }
+        }
+    }
+}
+
+// ToC is inside a dropdown on mobile
+#submenu-dropdown {
+    .toc {
+        .item {
+            &.h1:first-child {
+                display: none !important;
+            }
+            .level:before {
+                margin-right: .3em;
+                letter-spacing: .3em;
             }
         }
     }
@@ -477,6 +479,10 @@
     &.attached {
         border-top: 0;
 
+        + .grid {
+            margin-top: 0;
+        }
+
         // Stretch search field out on mobile
         @media (max-width: @largestMobileScreen) {
             .right.menu {
@@ -494,6 +500,30 @@
     }
     > .item:first-child:before {
         display: none;
+    }
+}
+
+// Shared styling for indicating the level of each item.
+// General styling tweaks for vertical pointing menu are further down.
+.menu.toc {
+    .item {
+        display: flex !important;
+
+        .level:before {
+            margin-right: .2em;
+            letter-spacing: .2em;
+            color: @borderColor;
+        }
+
+        &.h3 .level:before {
+            content: '•';
+        }
+        &.h4 .level:before {
+            content: '••';
+        }
+        &.h5 .level:before {
+            content: '•••';
+        }
     }
 }
 
