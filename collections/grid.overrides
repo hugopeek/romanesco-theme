@@ -121,9 +121,10 @@ body.vertical {
 
         @media only screen and (max-width: @largestMobileScreen) {
             display: flex;
+            width: 100%;
             height: @mainMenuTightenedHeight;
             padding: 0 (@gutterWidth / 2);
-            transition: height 0.2s, top 0.2s;
+            transition: top 0.2s;
 
             // Top offset when header starts sticking
             &.fixed + main {

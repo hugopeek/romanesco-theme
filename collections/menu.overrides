@@ -267,7 +267,7 @@
             align-self: stretch;
             align-items: center;
             min-height: 3rem;
-            text-indent: @itemHorizontalPadding;
+            padding-left: @itemHorizontalPadding;
             color: @invertedTextColor;
 
             &.current {
@@ -323,8 +323,7 @@
 
         a {
             display: flex;
-            padding: .5em 0;
-            text-indent: @subMenuHorizontalPadding;
+            padding: .5em @subMenuHorizontalPadding;
             color: @invertedLightTextColor;
 
             &:hover {
@@ -332,7 +331,7 @@
             }
         }
         .item .item a {
-            text-indent: @subMenuHorizontalPadding * @scaleRatio;
+            padding-left: @subMenuHorizontalPadding * @scaleRatio;
         }
     }
 

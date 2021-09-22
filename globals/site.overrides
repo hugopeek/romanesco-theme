@@ -320,7 +320,7 @@ p {
     }
 
     blockquote:not(&) {
-        margin-bottom: @verticalRhythm1;
+        margin-bottom: @verticalRhythm2;
     }
 
     // With quotation marks before and after
@@ -402,6 +402,9 @@ p {
 #content code[class*="language-"],
 #content pre[class*="language-"] {
     font-size: 1rem;
+}
+#content .code-toolbar {
+    margin-bottom: @verticalRhythm2;
 }
 
 // Center content on request

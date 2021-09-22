@@ -2,6 +2,14 @@
          Theme Overrides
 *******************************/
 
+.ui.list {
+    // Only apply to first level
+    &:not(ul ul),
+    &:not(ol ol) {
+        margin-bottom: @verticalRhythm2;
+    }
+}
+
 .ui.list > .item > .avatar {
     padding-right: 0 !important; // Fix bug with image not being square
 
