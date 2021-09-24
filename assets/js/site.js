@@ -25,11 +25,6 @@ $(function() {
     $('.ui.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
     $('.ui.radio.checkbox:not(.other):not(.collapsible):not(.slave)').checkbox();
 
-    $('.ui.dimmable')
-        .dimmer({
-            on: 'hover'
-        })
-    ;
     $('.ui.video.embed').embed();
     $('.ui.rating').rating('disable');
 });
