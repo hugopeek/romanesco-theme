@@ -6,9 +6,34 @@
 @variationButtonAnimated: false;
 @variationButtonOr: false;
 
+/* Label */
+@variationLabelImage: false;
+@variationLabelTag: false;
+@variationLabelCorner: false;
+@variationLabelRibbon: false;
+@variationLabelPointing: false;
+
 /* Segment */
 @variationSegmentPiled: false;
 @variationSegmentStacked: false;
+@variationSegmentLoading: false;
 
 /* Dimmer */
 @variationDimmerBlurring: false;
+
+/* Tab */
+@variationTabLoading: false;
+
+/* Transition */
+@variationTransitionBrowse: false;
+@variationTransitionDrop: false;
+@variationTransitionFlip: false;
+@variationTransitionFly: false;
+@variationTransitionSwing: false;
+@variationTransitionFlash: false;
+@variationTransitionShake: false;
+@variationTransitionBounce: false;
+@variationTransitionTada: false;
+@variationTransitionPulse: false;
+@variationTransitionJiggle: false;
+@variationTransitionGlow: false;
