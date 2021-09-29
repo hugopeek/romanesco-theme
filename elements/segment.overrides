@@ -77,7 +77,7 @@
             padding: @verticalRhythm5 5%;
         }
 
-        &#submenu-dropdown {
+        &#dropdown-toc {
             padding: @verticalRhythm2 0;
 
             @media only screen and (min-width: @tabletBreakpoint) {

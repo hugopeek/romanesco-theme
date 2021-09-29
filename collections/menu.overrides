@@ -440,8 +440,8 @@
 }
 
 // ToC is inside a dropdown on mobile
-#submenu-dropdown {
-    .toc {
+#dropdown-toc {
+    .menu {
         .item {
             &.h1:first-child {
                 display: none !important;
@@ -514,6 +514,10 @@
             margin-right: .2em;
             letter-spacing: .2em;
             color: @borderColor;
+
+            .inverted& {
+                color: @invertedDisabledTextColor;
+            }
         }
 
         &.h3 .level:before {
@@ -524,6 +528,10 @@
         }
         &.h5 .level:before {
             content: '•••';
+        }
+
+        .vertical.text& {
+            margin: .15em 0;
         }
     }
 }
