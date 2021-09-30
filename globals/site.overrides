@@ -402,6 +402,7 @@ p {
 #content code[class*="language-"],
 #content pre[class*="language-"] {
     font-size: 1rem;
+    border-radius: @roundedBorderRadius;
 }
 #content .code-toolbar {
     margin-bottom: @verticalRhythm2;
