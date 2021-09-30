@@ -1,3 +1,24 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+#form-search .ui.input > input {
+    @inputColor: @textColor;
+    @placeholderColor: lighten(@inputColor, 50);
+    @placeholderFocusColor: lighten(@inputColor, 30);
+    @borderColor: @downBorderColor;
+
+    &:not(:focus) {
+        border-color: @borderColor;
+        color: @inputColor;
+
+        &::-webkit-input-placeholder { color: @placeholderColor; }
+        &::-moz-placeholder { color: @placeholderColor; }
+        &:-ms-input-placeholder { color: @placeholderColor; }
+    }
+    &:focus {
+        &::-webkit-input-placeholder { color: @placeholderFocusColor; }
+        &::-moz-placeholder { color: @placeholderFocusColor; }
+        &:-ms-input-placeholder { color: @placeholderFocusColor; }
+    }
+}
