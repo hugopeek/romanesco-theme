@@ -476,6 +476,10 @@ var queries = [
                     context: '.pusher'
                 })
             ;
+
+            // Move ToC items to dropdown
+            $('[id*="menu"].toc .item').appendTo('#dropdown-toc .menu');
+            $('#dropdown-toc').removeClass('hidden');
         },
         unmatch: function() {
             // Revert tabs back to normal
@@ -562,8 +566,8 @@ var queries = [
             ;
 
             // Move ToC items to dropdown
-            $('#submenu.toc .item').appendTo('#submenu-dropdown .menu');
-            $('#submenu-dropdown').removeClass('hidden');
+            $('.ui[class*="stackable on tablet"].grid [id*="menu"].toc .item').appendTo('#dropdown-toc .menu');
+            $('.ui[class*="stackable on tablet"].grid #dropdown-toc').removeClass('hidden');
         },
         unmatch: function () {
             $('body.detail #main > .ui.container')
@@ -574,9 +578,9 @@ var queries = [
                 .removeClass('dormant-grid')
             ;
 
-            // Return ToC items to sidebar
-            $('#submenu-dropdown .menu .item').appendTo('#submenu.toc');
-            $('#submenu-dropdown').addClass('hidden');
+            // Return ToC items to original container
+            $('#dropdown-toc .menu .item').appendTo('[id*="menu"].toc');
+            $('#dropdown-toc').addClass('hidden');
         }
     },
     {
