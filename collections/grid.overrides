@@ -99,6 +99,9 @@
     .ui.stackable[class*="on tablet"].grid > .row > .column {
         width: 100% !important;
     }
+    .ui.stackable[class*="on tablet"].mobile.reversed.grid {
+        flex-direction: column-reverse;
+    }
 }
 
 // Add a compact column to equal width grids
