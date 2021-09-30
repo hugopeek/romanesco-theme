@@ -2,4 +2,3 @@
             Image
 *******************************/
 
-@roundedBorderRadius: @defaultBorderRadius * 1.618;

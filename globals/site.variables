@@ -61,6 +61,7 @@
 @absoluteBorderRadius   : @4px;
 
 @defaultBorderRadius    : @absoluteBorderRadius;
+@roundedBorderRadius    : @defaultBorderRadius * 1.618;
 
 /*-------------------
     Brand Colors
