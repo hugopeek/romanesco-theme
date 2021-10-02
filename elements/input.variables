@@ -1,3 +1,7 @@
 /*******************************
             Input
 *******************************/
+
+@inputColor: @textColor;
+@inputPlaceholderColor: lighten(@inputColor, 60);
+@inputPlaceholderFocusColor: lighten(@inputColor, 40);
