@@ -39,6 +39,11 @@
     .compact.field {
         flex: 0 !important;
     }
+    [id*="accept-terms"].field {
+        > .checkbox > label {
+            font-weight: normal;
+        }
+    }
     .file-upload.field {
         > label {
             margin-bottom: 1em;
