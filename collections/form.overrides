@@ -45,7 +45,12 @@
     }
     [id*="accept-terms"].field {
         > .checkbox > label {
+            border-top: .5em solid transparent;
+            border-bottom: .5em solid transparent;
             font-weight: normal;
+        }
+        &.required > .checkbox:after {
+            top: .5em;
         }
     }
     .file-upload.field {
