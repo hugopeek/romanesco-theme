@@ -3,7 +3,8 @@
 *******************************/
 
 .ui.form {
-    .hidden:not(.divider) {
+    .hidden:not(.divider),
+    .sweetened.field {
         display: none !important;
     }
 
@@ -19,6 +20,9 @@
     .grouped.fields {
         &.error > label {
             color: @errorTextColor;
+        }
+        > .field {
+            margin: @groupedFieldMargin !important;
         }
     }
     //.checkbox.field,
@@ -147,7 +151,7 @@
         .stacked.fields {
             flex-direction: column;
 
-            .field {
+            .field:not(:last-child) {
                 margin: @fieldMargin;
             }
         }
