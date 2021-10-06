@@ -55,7 +55,7 @@
     }
     .file-upload.field {
         > label {
-            margin-bottom: 1em;
+            margin-bottom: @verticalRhythm1;
             vertical-align: top;
         }
 
@@ -73,7 +73,7 @@
             margin: 0;
 
             .item:last-child {
-                margin-bottom: 2em !important;
+                margin-bottom: @verticalRhythm2 !important;
             }
         }
     }
@@ -83,20 +83,26 @@
         font-size: @relative12px;
     }
 
-    // Recaptcha v2
-    .g-recaptcha {
-        margin-bottom: 1em;
+    // Recaptcha v2 checkbox & v3 legal notice
+    .g-recaptcha,
+    .recaptcha.notice {
+        margin-bottom: @verticalRhythm1;
+        color: @mutedTextColor;
     }
 
     // Styles for non-segmented forms
     .fieldset {
-        margin-bottom: 3em;
+        margin-bottom: @verticalRhythm1;
+
+        + .segment {
+            margin-top: @verticalRhythm3;
+        }
     }
 
     // Styles for segmented forms
     .segment {
         legend {
-            margin-bottom: 1em;
+            margin-bottom: @verticalRhythm1;
             padding-bottom: .6em;
             border-bottom: @inputBorder;
 
