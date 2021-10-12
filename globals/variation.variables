@@ -4,6 +4,7 @@
 
 /* Button */
 @variationButtonAnimated: false;
+@variationButtonLoading: false;
 @variationButtonOr: false;
 
 /* Label */
