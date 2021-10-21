@@ -45,4 +45,15 @@
     &.styled .content {
         color: @textColor;
     }
+
+    // Adjust padding when reduced from Tab
+    &.reducible .reduced.content .grid {
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+
+        // Images inherit incorrect padding by accident
+        .content.image {
+            padding: 0;
+        }
+    }
 }
