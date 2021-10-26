@@ -85,9 +85,8 @@
 
     // Recaptcha v2 checkbox & v3 legal notice
     .g-recaptcha,
-    .recaptcha.notice {
+    .recaptcha.help {
         margin-bottom: @verticalRhythm1;
-        color: @mutedTextColor;
     }
 
     // Styles for non-segmented forms
