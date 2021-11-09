@@ -83,8 +83,9 @@
         }
     }
 
-    // And pagination wrappers...
-    .ui.container > .pagination-wrapper .ui.stackable.grid {
+    // And pagination wrappers, nested stackable grids...
+    .ui.container > .pagination-wrapper .ui.stackable.grid,
+    .ui.container > .ui.stackable.grid .ui.stackable.grid {
         > .column,
         > .row > .column {
             padding-left: 0 !important;
