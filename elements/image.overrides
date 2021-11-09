@@ -6,10 +6,6 @@
     &.lightbox {
         cursor: pointer;
     }
-    &.centered {
-        display: block;
-        overflow: auto;
-    }
 
     figcaption,
     + figcaption {
