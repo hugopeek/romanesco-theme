@@ -83,7 +83,7 @@
         }
     }
 
-    // And pagination wrappers, nested stackable grids...
+    // And pagination wrappers, and nested stackable grids...
     .ui.container > .pagination-wrapper .ui.stackable.grid,
     .ui.container > .ui.stackable.grid .ui.stackable.grid {
         > .column,
@@ -99,6 +99,8 @@
     .ui.stackable[class*="on tablet"].grid > .column,
     .ui.stackable[class*="on tablet"].grid > .row > .column {
         width: 100% !important;
+        padding-top: @consecutiveGridDistance;
+        padding-bottom: @consecutiveGridDistance;
     }
     .ui.stackable[class*="on tablet"].mobile.reversed.grid {
         flex-direction: column-reverse;
