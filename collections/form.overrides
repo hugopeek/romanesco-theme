@@ -199,6 +199,9 @@
         a {
             color: @formErrorColor;
         }
+        &.black {
+            box-shadow: none;
+        }
     }
 }
 
