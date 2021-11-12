@@ -138,19 +138,23 @@ body:after {
 //  improper positioning of boxed segments and segment backgrounds.
 #header.without.hero:not(.non-stick) {
     + #toolbar {
-        padding-top: (@mainMenuHeight + 1);
-    }
-    body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
-        padding-top: (@mainMenuHeight + 4);
+        padding-top: (@mainMenuHeight * 1.125);
 
         @media only screen and (max-width: @largestMobileScreen) {
-            padding-top: (@mainMenuHeight + 2);
+            padding-top: @mainMenuHeight;
+        }
+    }
+    body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
+        padding-top: (@mainMenuHeight * 1.618);
+
+        @media only screen and (max-width: @largestMobileScreen) {
+            padding-top: (@mainMenuHeight * 1.25);
         }
     }
     body.detail & {
         + #main #content,
         + #main #sidebar {
-            margin-top: (@mainMenuHeight + 4);
+            margin-top: (@mainMenuHeight * 1.618);
 
             @media only screen and (max-width: @largestTabletScreen) {
                 margin-top: @mainMenuHeight;
