@@ -144,6 +144,8 @@ body:after {
             padding-top: @mainMenuHeight;
         }
     }
+
+    // The following affects the adjacent main area only (so without toolbar in between)
     body:not(.detail) & + #main #content > .ui.stripe.segment:first-child {
         padding-top: (@mainMenuHeight * 1.618);
 
@@ -166,8 +168,12 @@ body:after {
 // Detail page
 body.detail {
     @media only screen and (max-width: @largestTabletScreen) {
-        &.toc #content > .stripe.segment:first-child {
-            padding-top: 0;
+        &.toc #content {
+            margin-top: 0 !important;
+
+            > .stripe.segment:first-child {
+                padding-top: 0;
+            }
         }
     }
     @media only screen and (min-width: @computerBreakpoint) {
