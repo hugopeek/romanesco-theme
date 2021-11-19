@@ -2,3 +2,5 @@
             Image
 *******************************/
 
+/* Raised */
+@raisedBoxShadow: @floatingShadow;

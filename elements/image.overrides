@@ -3,6 +3,9 @@
 *******************************/
 
 .ui.image {
+    &.raised {
+        box-shadow: @raisedBoxShadow;
+    }
     &.lightbox {
         cursor: pointer;
     }
