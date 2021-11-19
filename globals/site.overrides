@@ -236,6 +236,14 @@ a.inverted:not(.button):not(.boxed) {
     }
 }
 
+// Links to external content
+#content a.external {
+    &.label {
+        position: relative;
+        top: -.5rem;
+    }
+}
+
 
 // Images & SVGs
 // ---------------------------------------------------------------------
