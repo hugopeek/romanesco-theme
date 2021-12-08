@@ -2,9 +2,71 @@
          Theme Overrides
 *******************************/
 
-.ui.very.basic.table.inverted {
-    > thead > tr > th {
-        background-color: transparent;
+.ui.overview.table {
+    // Rows inside a dormant table are displayed as cards on mobile, because the
+    // default SUI responsive table layout is not really that great.
+    &.ui.dormant {
+        background: transparent;
+        border: none;
+
+        // Make table rows look like cards on mobile
+        tbody > tr {
+            background: linear-gradient(to right, @headerBackground, @headerBackground 30vw, #fff 30vw);
+            box-shadow: @shadowBoxShadow, @borderShadow !important;
+        }
+
+        // Table headings are placed left of content
+        td {
+            display: flex !important;
+            text-align: left;
+        }
+        td > .title {
+            width: 30vw;
+        }
+        td > .images {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+
+            > img {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            > .button {
+                margin-top: 0 !important;
+            }
+        }
+
+        // No bottom border on table footers
+        tfoot > tr {
+            box-shadow: none !important;
+        }
+
+        // Prevent display none from being overwritten by core !important rules
+        thead[style*="display: none;"],
+        tfoot[style*="display: none;"] {
+            display: none !important;
+        }
+    }
+}
+
+.ui.very.basic.table {
+    &:not(.unstackable) {
+        @media screen and (max-width: @largestMobileScreen) {
+            > tbody > tr {
+                border: none;
+
+                > td + td {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+    }
+
+    &.inverted {
+        > thead > tr > th {
+            background-color: transparent;
+        }
     }
 }
 

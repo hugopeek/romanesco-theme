@@ -1,3 +1,7 @@
 /*******************************
              Table
 *******************************/
+
+@shadowDistance: 1px;
+@shadowBoxShadow: 0 @shadowDistance 3px 0 @solidBorderColor;
+@borderShadow: 0 0 0 @borderWidth @solidBorderColor;
