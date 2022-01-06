@@ -331,7 +331,7 @@ p {
         padding-left: 1em;
         color: @mutedTextColor;
 
-        .inverted& {
+        .inverted & {
             color: @invertedMutedTextColor;
             border-color: @whiteBorderColor;
         }
@@ -413,6 +413,12 @@ p {
     &.massive {
         p, & { font-size: @h1 *  @scaleRatio * @scaleRatio !important; }
         footer { font-size: @scaleRatio * @massive; }
+    }
+
+    // Reduce font size on mobile
+    @media only screen and (max-width: @largestMobileScreen) {
+        &.quote p, .quote& { font-size: @scaleRatio * @fontSize !important; }
+        &.quote footer { font-size: @fontSize; }
     }
 }
 
