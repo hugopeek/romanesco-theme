@@ -115,10 +115,10 @@
 }
 
 // Amplify font size and margins of section headers
-.ui.vertical.stripe.segment > .container {
-    > h1.header,
-    > .column > h1.header {
-        &:first-child {
+.ui.container {
+    &.main,
+    .main.column {
+        > h1.header:first-child {
             margin-bottom: @verticalRhythm2;
 
             + .subtitle {
@@ -134,12 +134,7 @@
                 }
             }
         }
-    }
-
-    // A little love for H2 headers too
-    > h2.header,
-    > .column > h2.header {
-        &:first-child {
+        > h2.header:first-child {
             margin-bottom: @verticalRhythm2;
 
             + .subtitle {
@@ -152,6 +147,22 @@
 
                 + .subtitle {
                     font-size: @h2SubHeaderFontSize * 1.125;
+                }
+            }
+        }
+        > h3.header:first-child {
+            margin-bottom: @verticalRhythm2;
+
+            + .subtitle {
+                margin-top: calc(var(--baseline) * -1.5rem);
+                margin-bottom: @verticalRhythm2;
+            }
+
+            @media only screen and (min-width: @tabletBreakpoint) {
+                font-size: @h3 * @scaleRatio;
+
+                + .subtitle {
+                    font-size: @h3SubHeaderFontSize * 1.125;
                 }
             }
         }
