@@ -114,10 +114,11 @@
     }
 }
 
-// Amplify font size and margins of section headers
+// Inflate font size and margins of section headers
 .ui.container {
-    &.main,
-    .main.column {
+    &.main:not(.conventional),
+    .main.column:not(.conventional),
+    .cta:not(.conventional) {
         > h1.header:first-child {
             margin-bottom: @verticalRhythm2;
 
