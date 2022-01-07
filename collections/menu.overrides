@@ -6,6 +6,10 @@
     margin: 0;
     height: @mainMenuHeight;
 
+    @media only screen and (max-width: @largestMobileScreen) {
+        height: (@mainMenuHeight * 0.8);
+    }
+
     // Specific styles for secondary menu variant
     &.secondary {
 
@@ -28,10 +32,10 @@
 
         // Give next segment (hero/cta) some top padding to accommodate the fixed menu
         + .ui.vertical.segment {
-            padding-top: (@mainMenuHeight + 2);
+            padding-top: (@mainMenuHeight * 1.25);
 
             @media only screen and (min-width: @tabletBreakpoint) {
-                padding-top: (@mainMenuHeight + 5);
+                padding-top: (@mainMenuHeight * 1.618);
             }
         }
     }

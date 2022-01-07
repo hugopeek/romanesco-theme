@@ -18,9 +18,9 @@
     }
 }
 
-// Adjust text for optimal readability in text containers and templates
+// Inflate text for optimal readability in text containers and templates
 body.readability #content .ui.container,
-.ui.text.container {
+.ui.text.container:not(.conventional) {
     p {
         &:not(.meta):not(:first-child) {
             margin-top: @verticalRhythm3;
@@ -38,8 +38,6 @@ body.readability #content .ui.container,
             margin-bottom: @verticalRhythm3;
         }
     }
-
-
 }
 
 // Responsive tweaks

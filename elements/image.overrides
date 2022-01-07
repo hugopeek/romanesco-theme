@@ -3,14 +3,14 @@
 *******************************/
 
 .ui.image {
+    &.raised {
+        box-shadow: @raisedBoxShadow;
+    }
     &.lightbox {
         cursor: pointer;
     }
-    &.centered {
-        display: block;
-        overflow: auto;
-    }
 
+    .caption,
     figcaption,
     + figcaption {
         margin-top: @verticalRhythm1;
