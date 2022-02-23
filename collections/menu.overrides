@@ -447,9 +447,6 @@
 #dropdown-toc {
     .menu {
         .item {
-            &.h1:first-child {
-                display: none !important;
-            }
             .level:before {
                 margin-right: .3em;
                 letter-spacing: .3em;
