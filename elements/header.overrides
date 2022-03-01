@@ -3,6 +3,11 @@
 *******************************/
 
 .ui.header {
+    // Editors can choose to display headings without hierarchy
+    span& {
+        display: inline-block;
+    }
+
     // Custom variation with font or SVG icon
     &.horizontal:not(.divider) {
         display: flex;
