@@ -2,4 +2,6 @@
             Segment
 *******************************/
 
-@borderColorFooter : @whiteBorderColor;
+@basicBorderRadius: @defaultBorderRadius;
+
+@borderColorFooter: @whiteBorderColor;
