@@ -51,13 +51,6 @@
         background-color: @white;
     }
 
-    // Fix in case container positioning is absolute
-    //&.white,
-    //&.primary-color,
-    //&.secondary-color {
-    //    z-index: 0;
-    //}
-
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
         padding-bottom: @verticalRhythm3;
@@ -90,6 +83,11 @@
 // Styling for segments on inverted backgrounds
 .ui.inverted.segment .segment {
     border: none;
+}
+
+// Ensure correct layering with stacked backgrounds
+.ui.background.segment {
+    z-index: 0;
 }
 
 // Specific content types
