@@ -194,6 +194,12 @@
         margin-right: 0;
     }
 
+    .back.button > span {
+        @media screen and (max-width: 400px) {
+            display: none;
+        }
+    }
+
     // Error messages
     .ui.error.message {
         a {
