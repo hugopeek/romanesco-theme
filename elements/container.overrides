@@ -57,3 +57,13 @@ body.readability #content .ui.container,
 .ui.tightened.container {
     max-width: @computerWidth;
 }
+
+// Make sure the max-width settings don't stretch the container beyond 100%
+.ui.text.container,
+.ui.tightened.container {
+    body.vertical & {
+        @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestSmallMonitor) {
+            width: 100% !important;
+        }
+    }
+}
