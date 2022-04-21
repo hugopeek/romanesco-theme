@@ -2,5 +2,8 @@
             Image
 *******************************/
 
-/* Raised */
+/* Use same value as in site.variables */
+@roundedBorderRadius: @defaultBorderRadius * 1.618;
+
+/* Custom raised variant */
 @raisedBoxShadow: @floatingShadow;
