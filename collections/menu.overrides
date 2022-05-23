@@ -386,29 +386,63 @@
 }
 
 #submenu {
-    // Styling tweaks for nested submenu
-    &.vertical.tabular {
-        .item {
-            .header a.active {
-                margin-bottom: 0.75em;
-                padding: 0;
-                border: none;
+    &.secondary {
+        margin-left: 0;
+        margin-right: 0;
+
+        .item:not(.active) {
+            color: @subMenuTextColor;
+            &:hover {
+                color: @secondaryHoverItemColor;
             }
-            .menu a.active {
-                border: none;
+        }
+        .item.active {
+            font-weight: bold;
+            .item {
+                color: @invertedTextColor;
+                &:hover {
+                    color: @invertedHoveredTextColor;
+                }
+            }
+        }
+        .header > .item.active {
+            background: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        // Make sure border radius persists
+        &:not(.toc).fixed .item {
+            border-radius: @borderRadius !important;
+        }
+    }
+
+    &.tabular {
+        // Styling tweaks for nested submenu
+        &.vertical {
+            .item {
+                .header a.active {
+                    margin-bottom: 0.75em;
+                    padding: 0;
+                    border: none;
+                }
+                .menu a.active {
+                    border: none;
+                }
+            }
+        }
+
+        // Fix small styling / positioning glitches when submenu is sticky
+        &.sticky {
+            margin-bottom: 1em;
+
+            &.bottom {
+                border-top: 0;
             }
         }
     }
 
-    // Fix small styling / positioning glitches when submenu is sticky
-    &.sticky.tabular {
-        margin-bottom: 1em;
-
-        &.bottom {
-            border-top: 0;
-        }
-    }
-
+    // Table of contents
     &.toc {
         .item {
             // Don't waste any space in sidebar ToC
@@ -440,6 +474,11 @@
                 padding: (@secondaryPointingItemVerticalPadding * 0.3) @secondaryPointingItemHorizontalPadding;
             }
         }
+    }
+
+    // Some distance from preceding header
+    #submenu-header + & {
+        margin-top: @verticalRhythm2;
     }
 }
 

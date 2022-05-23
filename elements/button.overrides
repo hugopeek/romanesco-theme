@@ -34,6 +34,16 @@
         margin-right: 0;
     }
 
+    // Some buttons don't need a border
+    &.very.basic {
+        box-shadow: none;
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
     // Buttons in multiple file uploader have some quirks
     .file-uploader-buttons & {
         margin: 0 0.75em 0 0 !important;
