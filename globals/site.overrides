@@ -175,6 +175,12 @@ body.detail {
                 padding-top: 0;
             }
         }
+
+        // Sidebar is placed under the content
+        #sidebar {
+            background: @darkWhite;
+            padding: @verticalRhythm5 0;
+        }
     }
     @media only screen and (min-width: @computerBreakpoint) {
         #content,
