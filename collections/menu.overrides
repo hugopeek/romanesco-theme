@@ -387,7 +387,7 @@
 
 #submenu {
     &.secondary {
-        margin: 0;
+        margin: 0 0 @verticalRhythm2;
 
         .item:not(.active) {
             color: @subMenuTextColor;
@@ -432,12 +432,8 @@
         }
 
         // Fix small styling / positioning glitches when submenu is sticky
-        &.sticky {
-            margin-bottom: 1em;
-
-            &.bottom {
-                border-top: 0;
-            }
+        &.sticky.bottom {
+            border-top: 0;
         }
     }
 

@@ -583,7 +583,7 @@ var queries = [
     {
         context: ['computer','large','widescreen'],
         match: function () {
-            $('#submenu.sticky')
+            $('#submenu.sticky, #sidebar-cta.sticky')
                 .sticky({
                     context: '#main',
                     offset: $("#menu.sticky").height() || 36,
