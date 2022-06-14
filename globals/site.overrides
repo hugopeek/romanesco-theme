@@ -177,7 +177,7 @@ body.detail {
         }
 
         // Sidebar is placed under the content
-        #sidebar {
+        #sidebar:not(:first-child) {
             background: @darkWhite;
             padding: @verticalRhythm5 0;
         }
