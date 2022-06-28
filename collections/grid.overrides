@@ -19,8 +19,11 @@
         overflow: hidden;
     }
 
-    // Separate articles more clearly in Publication overview
-    > .column.publication {
+    // Separate rows more clearly in relaxed overviews
+    &.relaxed.overview .column {
+        margin-bottom: @verticalRhythm1;
+    }
+    &[class*="very relaxed"].overview .column {
         margin-bottom: @verticalRhythm3;
     }
 }
