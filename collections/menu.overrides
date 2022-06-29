@@ -386,6 +386,9 @@
 }
 
 #submenu {
+    // No top margin to avoid jumpy sticky behaviour
+    margin-top: 0;
+
     &.secondary {
         margin: 0 0 @verticalRhythm2;
 
@@ -411,7 +414,7 @@
         }
 
         // Make sure border radius persists
-        &:not(.toc).fixed .item {
+        &:not(.toc):not(.pointing).fixed .item {
             border-radius: @borderRadius !important;
         }
     }
@@ -470,11 +473,26 @@
             }
         }
     }
+
+    &.text .item:first-child {
+        margin-top: 0;
+    }
 }
 
 // Some distance from preceding header
 #submenu-header {
     margin-bottom: @verticalRhythm1;
+
+    a& {
+        display: block;
+        margin-top: @verticalRhythm1;
+        margin-bottom: @verticalRhythm2;
+
+        // Match specific styling in sidebar
+        &.for.submenu-secondary:not(.pointing) {
+            margin-left: 0.5em;
+        }
+    }
 }
 
 // ToC is inside a dropdown on mobile

@@ -85,18 +85,6 @@
     //    display: block;
     //}
 
-    // Match submenu styling in sidebar
-    //&.for.submenu- {
-    //    display: block;
-    //
-    //    &secondary {
-    //        margin: @verticalRhythm1 0.5em 1em 0.5em;
-    //    }
-    //    &tabular {
-    //        margin: @verticalRhythm1 0.9em 1em 0.9em;
-    //    }
-    //}
-
     // Make sure headers don't grow too big on smaller screens
     @media only screen and (max-width: @largestMobileScreen) {
         h1& { font-size: @mobileH1; }
