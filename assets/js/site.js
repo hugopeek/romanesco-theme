@@ -6,7 +6,9 @@ $(function() {
     ;
 
     // Initiate Semantic UI components
-    $('.ui.accordion').accordion();
+    $('.ui.accordion').accordion({
+        animateChildren: false
+    });
     $('.ui.dropdown:not(.simple):not(.search)').dropdown();
     $('.ui.search.dropdown')
         .dropdown({
@@ -268,11 +270,6 @@ $(function() {
         context: ['mobile'],
         match: function() {
             $navAccordion.insertAfter('#off-canvas .home');
-
-            // Re-initialize to avoid disappearing children
-            $('#off-canvas.accordion').accordion({
-                animateChildren: false
-            });
         },
         unmatch: function() {
             $navAccordion.insertAfter('#menu-vertical .branding');
@@ -427,7 +424,9 @@ function tabToAccordion() {
     $('.reducible.tabular.menu, .reducible.tabbed.menu')
         .removeClass('tabular menu')
         .addClass('fluid styled accordion')
-        .accordion()
+        .accordion({
+            animateChildren: false
+        })
     ;
 
     // Change position of segment pointer on mobile
