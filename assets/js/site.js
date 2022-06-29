@@ -167,6 +167,7 @@ $(function() {
             .accordion({
                 exclusive: true,
                 closeNested : true,
+                animateChildren: false,
                 selector: {
                     trigger: '.title > .icon'
                 }
@@ -176,6 +177,7 @@ $(function() {
         // Remove menu classes interfering with styling
         navContainer.find("#menu-accordion").removeClass('right menu');
         navContainer.find('ul .content').removeClass('menu');
+        navContainer.find('.dropdown.item').removeClass('dropdown');
 
         // Separate link and icon, so dropdown icon becomes clickable
         $('#off-canvas a.title')
@@ -247,6 +249,7 @@ $(function() {
         .accordion({
             exclusive: true,
             closeNested : true,
+            animateChildren: false,
             selector: {
                 trigger: '.title > .icon'
             },
@@ -265,6 +268,11 @@ $(function() {
         context: ['mobile'],
         match: function() {
             $navAccordion.insertAfter('#off-canvas .home');
+
+            // Re-initialize to avoid disappearing children
+            $('#off-canvas.accordion').accordion({
+                animateChildren: false
+            });
         },
         unmatch: function() {
             $navAccordion.insertAfter('#menu-vertical .branding');
