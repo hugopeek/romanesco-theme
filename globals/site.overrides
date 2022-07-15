@@ -494,9 +494,10 @@ p {
 // Overviews
 // ---------------------------------------------------------------------
 
+// @todo: This is too hacky and should be tied to a component
 .overview {
     .description + p {
-        margin-top: 2rem;
+        margin-top: @verticalRhythm2;
     }
 }
 

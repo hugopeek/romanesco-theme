@@ -22,7 +22,7 @@
 
     // Content buttons are too close to top content
     #main * + & {
-        margin-top: 0.5em;
+        margin-top: @verticalRhythm1;
     }
 
     // Some buttons don't need any margins
