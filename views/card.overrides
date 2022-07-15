@@ -2,31 +2,6 @@
          Theme Overrides
 *******************************/
 
-// Give nested cards some vertical space
-.ui.nested.cards {
-    // Only in the Content sections
-    #main &:not(:last-child) {
-        margin-bottom: @verticalRhythm2;
-    }
-    // Add top margin for all nested grids that follow another element
-    #main * + & {
-        margin-top: @verticalRhythm2;
-    }
-}
-
-// Fix margins for single cards and stackable cards in single column mode
-.ui.one.cards > .card {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100% !important;
-}
-.ui.one.stackable.doubling.cards > .card,
-.ui.two.stackable.doubling.cards > .card {
-    @media only screen and (max-width: @largestMobileScreen) {
-        width: 100% !important;
-    }
-}
-
 // Tweaks and improvements for all cards
 .card {
     color: @textColor; // Protect against inverted parents
@@ -53,9 +28,40 @@
         // @todo: Not clean. This margin is used to match the right floated button, but size of button may vary
     }
 
+    // Layout fixes for buttons
+    > .bottom.attached.button:not(.primary):not(.secondary) {
+        margin: @verticalRhythm1 0 0 !important;
+        width: auto;
+    }
+
     // Styling for cards on inverted backgrounds
     .ui.inverted.segment & {
         box-shadow: none;
+    }
+}
+
+// Give nested cards some vertical space
+.ui.nested.cards {
+    // Only in the Content sections
+    #main &:not(:last-child) {
+        margin-bottom: @verticalRhythm2;
+    }
+    // Add top margin for all nested grids that follow another element
+    #main * + & {
+        margin-top: @verticalRhythm2;
+    }
+}
+
+// Fix margins for single cards and stackable cards in single column mode
+.ui.one.cards > .card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100% !important;
+}
+.ui.one.stackable.doubling.cards > .card,
+.ui.two.stackable.doubling.cards > .card {
+    @media only screen and (max-width: @largestMobileScreen) {
+        width: 100% !important;
     }
 }
 
