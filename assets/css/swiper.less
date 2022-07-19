@@ -17,7 +17,7 @@
 }
 
 // Navigation elements and slide wrapper are inside the container
-.swiper-container {
+.swiper {
 
     // Apply platform border radius to nested sliders
     .nested.slider & {
@@ -113,15 +113,15 @@ button[class*="swiper-button"] {
             width: 8vw;
         }
     }
-    .fullscreen.swiper-container & {
+    .fullscreen.swiper & {
         width: 8vw;
     }
 
     &:hover {
         background: @subtleTransparentBlack;
     }
-    .inverted.swiper-container &:hover,
-    .inverted.swiper-container + &:hover {
+    .inverted.swiper &:hover,
+    .inverted.swiper + &:hover {
         background: @transparentWhite;
     }
     &.swiper-button-prev {
@@ -139,19 +139,19 @@ body.dimmed.scrolling > .dimmer {
 }
 
 // Stretch full screen slider to viewport already, before JS is loaded
-.swiper-container.fullscreen > .swiper-wrapper,
-.swiper-container.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
+.swiper.fullscreen > .swiper-wrapper,
+.swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
     height: 100vh;
     padding: 0;
 }
-.swiper-container.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
+.swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
     display: flex;
     align-items: center;
 }
 
 // Mobile only slider
-.swiper-container-mobile {
-    &:not(.swiper-container-initialized) {
+.swiper-mobile {
+    &:not(.swiper-initialized) {
         .swiper-button-prev,
         .swiper-button-next,
         .swiper-pagination,
@@ -206,7 +206,7 @@ body.dimmed.scrolling > .dimmer {
         }
     }
 
-    .swiper-container {
+    .swiper {
         border-radius: 0 !important;
     }
     .swiper-slide {

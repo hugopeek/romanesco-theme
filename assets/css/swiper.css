@@ -22,6 +22,8 @@
 
 /* Icon */
 
+/* Font Awesome Pro only */
+
 /* Image */
 
 /* Input */
@@ -192,6 +194,8 @@
 --------------------*/
 
 /* Inverted */
+
+/* IE needs hex values */
 
 /*-------------------
   Highlighted Text
@@ -658,15 +662,15 @@
 *******************************/
 
 /**
- * Swiper 7.4.1
+ * Swiper 8.3.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
- * Copyright 2014-2021 Vladimir Kharlampidi
+ * Copyright 2014-2022 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: December 24, 2021
+ * Released on: July 13, 2022
  */
 
 @font-face {
@@ -740,6 +744,12 @@
 .swiper-autoheight .swiper-wrapper {
   align-items: flex-start;
   transition-property: transform, height;
+}
+
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* 3D Effects */
@@ -850,6 +860,11 @@
   scroll-snap-align: center center;
 }
 
+.swiper-virtual .swiper-slide {
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 .swiper-virtual.swiper-css-mode .swiper-wrapper::after {
   content: '';
   position: absolute;
@@ -897,13 +912,24 @@
   pointer-events: none;
 }
 
+.swiper-button-prev.swiper-button-hidden,
+.swiper-button-next.swiper-button-hidden {
+  opacity: 0;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.swiper-navigation-disabled .swiper-button-prev,
+.swiper-navigation-disabled .swiper-button-next {
+  display: none !important;
+}
+
 .swiper-button-prev:after,
 .swiper-button-next:after {
   font-family: swiper-icons;
   font-size: var(--swiper-navigation-size);
   text-transform: none !important;
   letter-spacing: 0;
-  text-transform: none;
   font-variant: initial;
   line-height: 1;
 }
@@ -958,6 +984,11 @@
 
 .swiper-pagination.swiper-pagination-hidden {
   opacity: 0;
+}
+
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+  display: none !important;
 }
 
 /* Common Styles */
@@ -1140,7 +1171,13 @@ button.swiper-pagination-bullet {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.swiper-horizontal > .swiper-scrollbar {
+.swiper-scrollbar-disabled > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-disabled {
+  display: none !important;
+}
+
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
   position: absolute;
   left: 1%;
   bottom: 3px;
@@ -1149,7 +1186,8 @@ button.swiper-pagination-bullet {
   width: 98%;
 }
 
-.swiper-vertical > .swiper-scrollbar {
+.swiper-vertical > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-vertical {
   position: absolute;
   right: 3px;
   top: 1%;
@@ -1215,11 +1253,15 @@ button.swiper-pagination-bullet {
   margin-top: -21px;
   z-index: 10;
   transform-origin: 50%;
-  animation: swiper-preloader-spin 1s infinite linear;
   box-sizing: border-box;
   border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
   border-radius: 50%;
   border-top-color: transparent;
+}
+
+.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,
+.swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader {
+  animation: swiper-preloader-spin 1s infinite linear;
 }
 
 .swiper-lazy-preloader-white {
@@ -1231,6 +1273,10 @@ button.swiper-pagination-bullet {
 }
 
 @keyframes swiper-preloader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1397,22 +1443,22 @@ button.swiper-pagination-bullet {
   --swiper-pagination-color: var(--swiper-theme-color);
 }
 
-.nested.slider .swiper-container {
+.nested.slider .swiper {
   border-radius: 0.46228571rem;
 }
 
-.nested.slider .swiper-container .swiper-button-prev {
+.nested.slider .swiper .swiper-button-prev {
   border-top-left-radius: 0.46228571rem;
   border-bottom-left-radius: 0.46228571rem;
 }
 
-.nested.slider .swiper-container .swiper-button-next {
+.nested.slider .swiper .swiper-button-next {
   border-top-right-radius: 0.46228571rem;
   border-bottom-right-radius: 0.46228571rem;
 }
 
-.swiper-container.inverted,
-.swiper-container.inverted ~ [class*="swiper-"] {
+.swiper.inverted,
+.swiper.inverted ~ [class*="swiper-"] {
   --swiper-theme-color: rgba(255, 255, 255, 0.9);
   --swiper-pagination-color: #fff;
 }
@@ -1489,7 +1535,7 @@ button[class*="swiper-button"] {
   }
 }
 
-.fullscreen.swiper-container button[class*="swiper-button"] {
+.fullscreen.swiper button[class*="swiper-button"] {
   width: 8vw;
 }
 
@@ -1497,8 +1543,8 @@ button[class*="swiper-button"]:hover {
   background: rgba(0, 0, 0, 0.03);
 }
 
-.inverted.swiper-container button[class*="swiper-button"]:hover,
-.inverted.swiper-container + button[class*="swiper-button"]:hover {
+.inverted.swiper button[class*="swiper-button"]:hover,
+.inverted.swiper + button[class*="swiper-button"]:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -1515,13 +1561,13 @@ body.dimmed.scrolling > .dimmer {
   overflow: hidden !important;
 }
 
-.swiper-container.fullscreen > .swiper-wrapper,
-.swiper-container.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
+.swiper.fullscreen > .swiper-wrapper,
+.swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
   height: 100vh;
   padding: 0;
 }
 
-.swiper-container.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
+.swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1530,12 +1576,12 @@ body.dimmed.scrolling > .dimmer {
   align-items: center;
 }
 
-.swiper-container-mobile:not(.swiper-container-initialized) .swiper-button-prev,
-.swiper-container-mobile:not(.swiper-container-initialized) .swiper-button-next,
-.swiper-container-mobile:not(.swiper-container-initialized) .swiper-pagination,
-.swiper-container-mobile:not(.swiper-container-initialized) ~ .swiper-button-prev,
-.swiper-container-mobile:not(.swiper-container-initialized) ~ .swiper-button-next,
-.swiper-container-mobile:not(.swiper-container-initialized) ~ .swiper-pagination {
+.swiper-mobile:not(.swiper-initialized) .swiper-button-prev,
+.swiper-mobile:not(.swiper-initialized) .swiper-button-next,
+.swiper-mobile:not(.swiper-initialized) .swiper-pagination,
+.swiper-mobile:not(.swiper-initialized) ~ .swiper-button-prev,
+.swiper-mobile:not(.swiper-initialized) ~ .swiper-button-next,
+.swiper-mobile:not(.swiper-initialized) ~ .swiper-pagination {
   visibility: hidden;
 }
 
@@ -1587,7 +1633,7 @@ body.dimmed.scrolling > .dimmer {
   margin-left: -2.1px;
 }
 
-.modal.overlay .swiper-container {
+.modal.overlay .swiper {
   border-radius: 0 !important;
 }
 

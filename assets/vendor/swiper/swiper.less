@@ -1,3 +1,15 @@
+/**
+ * Swiper 8.3.1
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * https://swiperjs.com
+ *
+ * Copyright 2014-2022 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: July 13, 2022
+ */
+
 @themeColor: #007aff;
 
 @font-face {
@@ -62,7 +74,10 @@
   align-items: flex-start;
   transition-property: transform, height;
 }
-
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 /* 3D Effects */
 .swiper-3d {
   &,
