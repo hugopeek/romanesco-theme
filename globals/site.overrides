@@ -291,10 +291,6 @@ p {
     font-weight: @normal;
 }
 
-ul, ol {
-    margin: 0 0 @verticalRhythm2;
-}
-
 .lead {
     margin-bottom: @verticalRhythm2;
     font-size: @scaleRatio * 1em !important;
@@ -430,6 +426,14 @@ ul, ol {
     @media only screen and (max-width: @largestMobileScreen) {
         &.quote p, .quote& { font-size: @scaleRatio * @fontSize !important; }
         &.quote footer { font-size: @fontSize; }
+    }
+}
+
+// Unstyled lists
+#content {
+    ul:not(:last-child):not(.ui.list),
+    ol:not(:last-child):not(.ui.list) {
+        margin: 0 0 @verticalRhythm2;
     }
 }
 
