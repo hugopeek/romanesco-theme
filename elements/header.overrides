@@ -63,9 +63,11 @@
         text-align: right;
     }
 
-    // Swim up a little into the bottom margin from headings
-    + .subtitle {
-        margin-top: -1rem;
+    // Swim up into the bottom margin of the above heading a little
+    + .subtitle,
+    .card & + .description,
+    .ui.header + & {
+        margin-top: -1rem !important;
     }
 
     // Hide link icon inside headers with an anchor link

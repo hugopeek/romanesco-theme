@@ -6,9 +6,9 @@
 .card {
     color: @textColor; // Protect against inverted parents
 
-    .sub.header {
-        margin-top: 1em !important;
-    }
+    //.sub.header {
+    //    margin-top: 1em !important;
+    //}
 
     .icon > .image {
         padding: 0.5em 0 1em;
