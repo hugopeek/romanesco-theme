@@ -287,11 +287,16 @@ svg.hidden {
 // ---------------------------------------------------------------------
 
 p {
-    margin: 0 0 @verticalRhythm2;
+    margin: 0 0 @verticalRhythm1p5;
     font-weight: @normal;
 }
 
+ul, ol {
+    margin: 0 0 @verticalRhythm2;
+}
+
 .lead {
+    margin-bottom: @verticalRhythm2;
     font-size: @scaleRatio * 1em !important;
     line-height: (@lineHeight + 0.1) !important;
 

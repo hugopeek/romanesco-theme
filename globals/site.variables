@@ -247,6 +247,7 @@
 @verticalRhythmBaseline: 1 * @scaleRatio * @scaleRatio;
 
 @verticalRhythm1    : calc(var(--baseline) * 1rem);
+@verticalRhythm1p5  : calc(var(--baseline) * 1.5rem);
 @verticalRhythm2    : calc(var(--baseline) * 2rem);
 @verticalRhythm3    : calc(var(--baseline) * 3rem);
 @verticalRhythm5    : calc(var(--baseline) * 5rem);
@@ -506,8 +507,10 @@
 @headerLineHeightOffset : ((@headerLineHeight - 1em) / 2);
 
 /* Header Spacing */
-@headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
-@headerBottomMargin : 1.2rem; // CUSTOM
+//@headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
+//@headerBottomMargin : 1.2rem; // CUSTOM
+@headerTopMargin    : @verticalRhythm3;
+@headerBottomMargin : @verticalRhythm2;
 @headerMargin       : @headerTopMargin 0 @headerBottomMargin;
 
 /* Minimum Mobile Width */
