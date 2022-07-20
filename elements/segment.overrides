@@ -51,6 +51,11 @@
         background-color: @white;
     }
 
+    // Don't mute text color in secondary stripe segments
+    &.secondary:not(.inverted) {
+        color: @textColor;
+    }
+
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
         padding-bottom: @verticalRhythm3;
