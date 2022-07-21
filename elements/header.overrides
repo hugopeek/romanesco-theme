@@ -64,10 +64,10 @@
     }
 
     // Swim up into the bottom margin of the above heading a little
-    + .subtitle {
+    #content & + .subtitle {
         margin-top: -1em;
     }
-    #content .card & + .description {
+    #content & + .description {
         margin-top: -.5em;
     }
     .ui.header + & {
