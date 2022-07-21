@@ -509,8 +509,8 @@
 /* Header Spacing */
 //@headerTopMargin    : e(%("calc(2rem - %d)", @headerLineHeightOffset));
 //@headerBottomMargin : 1.2rem; // CUSTOM
-@headerTopMargin    : @verticalRhythm3;
-@headerBottomMargin : @verticalRhythm2;
+@headerTopMargin    : @scaleRatio * 1em;
+@headerBottomMargin : 1em;
 @headerMargin       : @headerTopMargin 0 @headerBottomMargin;
 
 /* Minimum Mobile Width */

@@ -64,10 +64,14 @@
     }
 
     // Swim up into the bottom margin of the above heading a little
-    + .subtitle,
-    .card & + .description,
+    + .subtitle {
+        margin-top: -1em;
+    }
+    #content .card & + .description {
+        margin-top: -.5em;
+    }
     .ui.header + & {
-        margin-top: -1rem !important;
+        margin-top: -.1em;
     }
 
     // Hide link icon inside headers with an anchor link
@@ -124,7 +128,7 @@
             margin-bottom: @verticalRhythm2;
 
             + .subtitle {
-                margin-top: calc(var(--baseline) * -1rem);
+                margin-top: calc(var(--baseline) * -1rem) !important;
                 margin-bottom: @verticalRhythm3;
             }
 
@@ -140,7 +144,7 @@
             margin-bottom: @verticalRhythm2;
 
             + .subtitle {
-                margin-top: calc(var(--baseline) * -1.5rem);
+                margin-top: calc(var(--baseline) * -1.5rem) !important;
                 margin-bottom: @verticalRhythm3;
             }
 
@@ -156,7 +160,7 @@
             margin-bottom: @verticalRhythm2;
 
             + .subtitle {
-                margin-top: calc(var(--baseline) * -1.5rem);
+                margin-top: calc(var(--baseline) * -1.5rem) !important;
                 margin-bottom: @verticalRhythm2;
             }
 
