@@ -63,6 +63,6 @@
     flex-wrap: wrap;
 
     > .ui.button {
-        margin-top: .5em;
+        margin-top: @verticalRhythm1;
     }
 }
