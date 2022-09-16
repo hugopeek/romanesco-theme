@@ -209,6 +209,11 @@
             box-shadow: none;
         }
     }
+
+    // Gentle offset for anything below
+    + * {
+        margin-top: @verticalRhythm1;
+    }
 }
 
 // Hide Recaptcha badge
