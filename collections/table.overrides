@@ -108,14 +108,16 @@
         position: relative;
 
         a.floating.label {
-            top: 0.5em;
+            float: right;
+            top: .5em;
+            right: .8em;
 
             &:not(:hover) {
                 opacity: 0.6;
             }
 
             + a.label {
-                left: 95%;
+                right: 2.1em;
             }
         }
     }
