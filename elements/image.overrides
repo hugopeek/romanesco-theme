@@ -14,10 +14,6 @@
     figcaption,
     + figcaption {
         margin-top: @verticalRhythm1;
-        font-size: .8em;
-        line-height: 1.3em;
-        font-style: italic;
-        opacity: .8;
     }
 
     .credits {
