@@ -326,7 +326,7 @@ p {
     }
 }
 
-.caption,
+.caption:not(.with),
 figcaption {
     font-size: .8em;
     line-height: 1.3em;
