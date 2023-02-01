@@ -24,6 +24,8 @@
 
 /* Font Awesome Pro only */
 
+/* Font Awesome Pro only */
+
 /* Image */
 
 /* Input */
@@ -122,39 +124,39 @@
 
 /* Emojis */
 
-/*-------------------
+/* -------------------
        Fonts
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
       Base Sizes
---------------------*/
+-------------------- */
 
 /* This is the single variable that controls them all */
 
-/* The size of page text  */
+/* The size of page text */
 
-/*-------------------
+/* -------------------
     Border Radius
---------------------*/
+-------------------- */
 
 /* See Power-user section below
    for explanation of @px variables
 */
 
-/*-------------------
+/* -------------------
     Brand Colors
---------------------*/
+-------------------- */
 
 /* Whenever a color needs to get calculated (screen()/multiply()) out of a base color */
 
-/*--------------
+/* --------------
   Page Heading
----------------*/
+--------------- */
 
-/*--------------
+/* --------------
    Form Input
----------------*/
+--------------- */
 
 /* This adjusts the default form input across all elements */
 
@@ -162,98 +164,100 @@
 
 /* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
 
-/*-------------------
+/* -------------------
     Focused Input
---------------------*/
+-------------------- */
 
 /* Used on inputs, textarea etc */
 
 /* Used on dropdowns, other larger blocks */
 
-/*-------------------
+/* -------------------
         Sizes
---------------------*/
+-------------------- */
 
 /*
   Sizes are all expressed in terms of 14px/em (default em)
   This ensures these "ratios" remain constant despite changes in EM
 */
 
-/*-------------------
+/* -------------------
         Page
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
       Paragraph
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
        Links
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
     Scroll Bars
---------------------*/
+-------------------- */
 
 /* Inverted */
 
 /* IE needs hex values */
 
-/*-------------------
+/* Scrolling */
+
+/* -------------------
   Highlighted Text
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
        Loader
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
         Grid
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
      Transitions
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
      Breakpoints
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
       Site Colors
---------------------*/
+-------------------- */
 
-/*---  Colors  ---*/
+/* ---  Colors  --- */
 
-/*---  Light Colors  ---*/
+/* ---  Light Colors  --- */
 
-/*---   Neutrals  ---*/
+/* ---   Neutrals  --- */
 
-/*--- Colored Backgrounds ---*/
+/* --- Colored Backgrounds --- */
 
-/*--- Colored Headers ---*/
+/* --- Colored Headers --- */
 
-/*--- Colored Text ---*/
+/* --- Colored Text --- */
 
-/*--- Light Colored Text ---*/
+/* --- Light Colored Text --- */
 
-/*--- Hovered Colored Text ---*/
+/* --- Hovered Colored Text --- */
 
-/*--- Colored Border ---*/
+/* --- Colored Border --- */
 
-/*--- Shadows ---*/
+/* --- Shadows --- */
 
 /* Inverted */
 
 /* Box Shadows */
 
-/*-------------------
+/* -------------------
      Alpha Colors
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
        Accents
---------------------*/
+-------------------- */
 
 /* Differentiating Neutrals */
 
@@ -263,9 +267,9 @@
            Power-User
 *******************************/
 
-/*-------------------
+/* -------------------
     Emotive Colors
---------------------*/
+-------------------- */
 
 /* Positive */
 
@@ -275,15 +279,15 @@
 
 /* Warning */
 
-/*-------------------
+/* -------------------
         Paths
---------------------*/
+-------------------- */
 
 /* For source only. Modified in gulp for dist */
 
-/*-------------------
+/* -------------------
        Em Sizes
---------------------*/
+-------------------- */
 
 /*
   This rounds @size values to the closest pixel then expresses that value in (r)em.
@@ -294,27 +298,27 @@
 
 /* rem */
 
-/*-------------------
+/* -------------------
        Icons
---------------------*/
+-------------------- */
 
 /* Maximum Glyph Width of Icon */
 
-/*-------------------
+/* -------------------
      Neutral Text
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
      Brand Colors
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
       Borders
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
     Derived Values
---------------------*/
+-------------------- */
 
 /* Loaders Position Offset */
 
@@ -332,9 +336,9 @@
 
 /* Responsive */
 
-/*-------------------
+/* -------------------
   Exact Pixel Values
---------------------*/
+-------------------- */
 
 /*
   These are used to specify exact pixel values in em
@@ -352,77 +356,77 @@
              States
 *******************************/
 
-/*-------------------
+/* -------------------
       Disabled
---------------------*/
+-------------------- */
 
-/*-------------------
+/* -------------------
         Hover
---------------------*/
+-------------------- */
 
-/*---  Shadows  ---*/
+/* ---  Shadows  --- */
 
-/*---  Colors  ---*/
+/* ---  Colors  --- */
 
-/*---  Emotive  ---*/
+/* ---  Emotive  --- */
 
-/*---  Brand   ---*/
+/* ---  Brand   --- */
 
-/*---  Dark Tones  ---*/
+/* ---  Dark Tones  --- */
 
-/*---  Light Tones  ---*/
+/* ---  Light Tones  --- */
 
-/*-------------------
+/* -------------------
         Focus
---------------------*/
+-------------------- */
 
-/*---  Colors  ---*/
+/* ---  Colors  --- */
 
-/*---  Emotive  ---*/
+/* ---  Emotive  --- */
 
-/*---  Brand   ---*/
+/* ---  Brand   --- */
 
-/*---  Dark Tones  ---*/
+/* ---  Dark Tones  --- */
 
-/*---  Light Tones  ---*/
+/* ---  Light Tones  --- */
 
-/*-------------------
+/* -------------------
     Down (:active)
---------------------*/
+-------------------- */
 
-/*---  Colors  ---*/
+/* ---  Colors  --- */
 
-/*---  Emotive  ---*/
+/* ---  Emotive  --- */
 
-/*---  Brand   ---*/
+/* ---  Brand   --- */
 
-/*---  Dark Tones  ---*/
+/* ---  Dark Tones  --- */
 
-/*---  Light Tones  ---*/
+/* ---  Light Tones  --- */
 
-/*-------------------
+/* -------------------
         Active
---------------------*/
+-------------------- */
 
-/*---  Colors  ---*/
+/* ---  Colors  --- */
 
-/*---  Emotive  ---*/
+/* ---  Emotive  --- */
 
-/*---  Brand   ---*/
+/* ---  Brand   --- */
 
-/*---  Dark Tones  ---*/
+/* ---  Dark Tones  --- */
 
-/*---  Light Tones  ---*/
+/* ---  Light Tones  --- */
 
-/*---  Tertiary  ---*/
+/* ---  Tertiary  --- */
 
-/*---  Bright  ---*/
+/* ---  Bright  --- */
 
 /*******************************
  States shared in Form-related components
  *******************************/
 
-/* Form state*/
+/* Form state */
 
 /* Input state */
 
@@ -441,6 +445,8 @@
 /***********************************************************
   Central element variation compilation enablers
 ***********************************************************/
+
+/* General */
 
 /* Button */
 
@@ -664,15 +670,15 @@
 *******************************/
 
 /**
- * Swiper 8.4.4
+ * Swiper 8.4.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
- * Copyright 2014-2022 Vladimir Kharlampidi
+ * Copyright 2014-2023 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: October 12, 2022
+ * Released on: January 30, 2023
  */
 
 @font-face {
@@ -860,6 +866,7 @@
 
 .swiper-centered > .swiper-wrapper > .swiper-slide {
   scroll-snap-align: center center;
+  scroll-snap-stop: always;
 }
 
 .swiper-virtual .swiper-slide {
@@ -1467,11 +1474,8 @@ button.swiper-pagination-bullet {
 
 .swiper-wrapper.ui.cards,
 .swiper-wrapper.ui.grid {
-  -ms-flex-wrap: initial;
   flex-wrap: initial;
   margin: 0;
-  -webkit-box-pack: normal;
-  -ms-flex-pack: normal;
   justify-content: normal;
 }
 
@@ -1481,8 +1485,6 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-wrapper.ui.cards .swiper-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: auto;
 }
@@ -1501,7 +1503,6 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-slide {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -1570,11 +1571,7 @@ body.dimmed.scrolling > .dimmer {
 }
 
 .swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1596,14 +1593,8 @@ body.dimmed.scrolling > .dimmer {
   min-width: 3rem;
   margin: 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -1640,14 +1631,8 @@ body.dimmed.scrolling > .dimmer {
 }
 
 .modal.overlay .swiper-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
