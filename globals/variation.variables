@@ -2,6 +2,12 @@
   Central element variation compilation enablers
 ***********************************************************/
 
+/* General */
+@variationAllSizes: mini, tiny, small, large, big, huge, massive;
+@variationAllColors: primary, secondary;
+@variationAllStates: error, info, success, warning;
+@variationAllConsequences: positive, negative, error, info, success, warning;
+
 /* Button */
 @variationButtonAnimated: false;
 @variationButtonLoading: false;
