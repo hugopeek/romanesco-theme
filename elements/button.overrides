@@ -25,6 +25,21 @@
         margin-top: @verticalRhythm1;
     }
 
+
+
+    // Tertiary buttons have no inverted styling
+    // todo: report to FUI
+    &.tertiary.inverted {
+        color: @tertiaryInvertedColor;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: @tertiaryInvertedHoverColor;
+            box-shadow: @tertiaryInvertedBoxShadow;
+        }
+    }
+
     // Some buttons don't need any margins
     .menu &,
     .ui.buttons & {
@@ -37,6 +52,7 @@
     // Some buttons don't need a border
     &.very.basic {
         box-shadow: none;
+
         &:hover,
         &:active,
         &:focus {

@@ -12,3 +12,7 @@
 @tertiaryVerticalPadding: 0.5em;
 @tertiaryHorizontalPadding: 0;
 @tertiaryLineHeight: 0.15em;
+
+@tertiaryInvertedColor: @invertedMutedTextColor;
+@tertiaryInvertedHoverColor: @invertedHoveredTextColor;
+@tertiaryInvertedBoxShadow: inset 0 -@tertiaryLineHeight 0 @tertiaryInvertedColor;
