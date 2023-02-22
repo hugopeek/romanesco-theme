@@ -400,12 +400,6 @@
         }
         .item.active {
             font-weight: bold;
-            .item {
-                color: @invertedTextColor;
-                &:hover {
-                    color: @invertedHoveredTextColor;
-                }
-            }
         }
         .header > .item.active {
             background: none;
