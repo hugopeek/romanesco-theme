@@ -3,12 +3,12 @@
 *******************************/
 
 .ui.button {
-    // Buttons in center aligned containers don't align properly with the default margins
-    .ui[class*="center aligned"] &:not(.attached):not(.center.aligned):not(:last-child) {
+    // Buttons in center aligned elements don't align properly with the default margins
+    [class*="center aligned"] &:not(.attached):not(.center.aligned):not(:last-child) {
         margin-left: @horizontalMargin;
     }
     // Reset this behaviour for nested left aligned containers
-    .ui[class*="center aligned"] .left.aligned & {
+    [class*="center aligned"] .left.aligned & {
         margin-left: 0;
     }
 
@@ -21,7 +21,7 @@
     }
 
     // Content buttons are too close to top content
-    #main * + & {
+    .ui.container * + & {
         margin-top: @verticalRhythm1;
     }
 
