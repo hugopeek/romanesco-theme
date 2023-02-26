@@ -87,13 +87,13 @@
             margin: 0 0 0 2rem;
             padding: 0;
 
-            @media (max-width: @tabletBreakpoint) {
+            @media (max-width: @largestTabletScreen) {
                 display: none;
             }
         }
         &.toc {
             display: none;
-            margin: 0 0 0 1.5rem;
+            margin: 0 0 0 .5rem;
             padding: 0;
 
             @media (max-width: @largestTabletScreen) {
