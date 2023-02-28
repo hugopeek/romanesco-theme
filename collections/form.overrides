@@ -118,20 +118,24 @@
     }
 
     // Improve styling of inverted forms
-    &.inverted .field {
-        label {
-            color: #fff !important;
-            &:after {
-                color: fade(#fff, 60) !important;
+    &.inverted {
+        .field,
+        .fields > .field {
+            label {
+                color: #fff !important;
+                &:after {
+                    color: fade(#fff, 60) !important;
+                }
             }
-        }
-        input[type='field'],
-        textarea {
-            border: 1px solid #fff !important;
-        }
-        &.error input,
-        &.error textarea {
-            border-color: transparent !important;
+            input[type='field'],
+            textarea,
+            .checkbox label:before {
+                border: 1px solid #fff !important;
+            }
+            &.error input,
+            &.error textarea {
+                border-color: transparent !important;
+            }
         }
     }
 
