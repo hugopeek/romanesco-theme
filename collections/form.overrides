@@ -18,7 +18,8 @@
 
     // Styling tweaks for specific field types
     .grouped.fields {
-        &.error > label {
+        &.error > label,
+        > label:has(~ .error) {
             color: @errorTextColor;
         }
         > .field {
