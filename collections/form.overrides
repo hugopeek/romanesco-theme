@@ -3,20 +3,8 @@
 *******************************/
 
 .ui.form {
-    .hidden:not(.divider),
-    .sweetened.field {
-        display: none !important;
-    }
 
-    // Help fields
-    .help {
-        font-size: 1.1rem;
-    }
-    &:not(.inverted) .help.error {
-        color: @errorColor;
-    }
-
-    // Styling tweaks for specific field types
+    // Field variations
     .grouped.fields {
         &.error > label,
         > label:has(~ .error) {
@@ -44,6 +32,126 @@
     .compact.field {
         flex: 0 !important;
     }
+
+    // Hidden fields
+    .hidden:not(.divider),
+    .sweetened.field {
+        display: none !important;
+    }
+
+    // Help fields
+    .help {
+        font-size: 1.1rem;
+    }
+    &:not(.inverted) .help.error {
+        color: @errorColor;
+    }
+
+    // Error messages
+    .ui.error.message {
+        a {
+            color: @formErrorColor;
+        }
+        &.black {
+            box-shadow: none;
+        }
+    }
+
+    // Dropdowns
+    .ui.dropdown {
+        &.with.other + .other {
+            margin-top: .5em;
+        }
+
+        // Dropdowns lose some styling when form.css is loaded separately
+        &:not(.labeled) > .dropdown.icon {
+            font-size: @relative12px;
+        }
+    }
+
+    // Submit buttons
+    .ui.icon.input.submit {
+        > .button {
+            padding-right: 3.6em !important;
+
+            &:focus {
+                border-color: transparent;
+            }
+            &.primary,
+            &.secondary {
+                + .icon {
+                    background: @strongTransparentBlack;
+                    color: @white;
+                }
+            }
+        }
+        > .icon {
+            background: @transparentBlack;
+            opacity: 1;
+            font-size: 80%;
+        }
+    }
+
+    // Other buttons
+    .right.aligned > .button {
+        margin-right: 0;
+    }
+    .back.button > span {
+        @media screen and (max-width: 400px) {
+            display: none;
+        }
+    }
+
+    // Inverted forms
+    &.inverted {
+        .field,
+        .fields > .field {
+            label {
+                color: #fff !important;
+                &:after {
+                    color: fade(#fff, 60) !important;
+                }
+            }
+            input[type='field'],
+            textarea,
+            .checkbox label:before {
+                border: 1px solid #fff !important;
+            }
+            &.error input,
+            &.error textarea {
+                border-color: transparent !important;
+            }
+        }
+    }
+
+    // Segmented forms
+    .segment {
+        legend {
+            margin-bottom: @verticalRhythm1;
+            padding-bottom: .6em;
+            border-bottom: @inputBorder;
+
+            + * {
+                clear: both;
+            }
+        }
+
+        // Clear floated submit buttons
+        &.submit {
+            overflow: auto;
+        }
+    }
+
+    // Non-segmented forms
+    .fieldset {
+        margin-bottom: @verticalRhythm1;
+
+        + .segment {
+            margin-top: @verticalRhythm3;
+        }
+    }
+
+    // Specific fields
     [id*="accept-terms"].field {
         > .checkbox > label {
             border-top: .5em solid transparent;
@@ -54,6 +162,8 @@
             top: .5em;
         }
     }
+
+    // AjaxUpload fields
     .file-upload.field {
         > label {
             margin-bottom: @verticalRhythm1;
@@ -79,64 +189,10 @@
         }
     }
 
-    // Dropdowns lose some styling when form.css is loaded separately
-    .ui.dropdown:not(.labeled) > .dropdown.icon {
-        font-size: @relative12px;
-    }
-
     // Recaptcha v2 checkbox & v3 legal notice
     .g-recaptcha,
     .recaptcha.help {
         margin-bottom: @verticalRhythm1;
-    }
-
-    // Styles for non-segmented forms
-    .fieldset {
-        margin-bottom: @verticalRhythm1;
-
-        + .segment {
-            margin-top: @verticalRhythm3;
-        }
-    }
-
-    // Styles for segmented forms
-    .segment {
-        legend {
-            margin-bottom: @verticalRhythm1;
-            padding-bottom: .6em;
-            border-bottom: @inputBorder;
-
-            + * {
-                clear: both;
-            }
-        }
-
-        // Clear floated submit buttons
-        &.submit {
-            overflow: auto;
-        }
-    }
-
-    // Improve styling of inverted forms
-    &.inverted {
-        .field,
-        .fields > .field {
-            label {
-                color: #fff !important;
-                &:after {
-                    color: fade(#fff, 60) !important;
-                }
-            }
-            input[type='field'],
-            textarea,
-            .checkbox label:before {
-                border: 1px solid #fff !important;
-            }
-            &.error input,
-            &.error textarea {
-                border-color: transparent !important;
-            }
-        }
     }
 
     // Reduce padding on mobile
@@ -169,49 +225,6 @@
             .field:not(:last-child) {
                 margin: @fieldMargin;
             }
-        }
-    }
-
-    // Tweaks for submit buttons
-    .ui.icon.input.submit {
-        > .button {
-            padding-right: 3.6em !important;
-
-            &:focus {
-                border-color: transparent;
-            }
-            &.primary,
-            &.secondary {
-                + .icon {
-                    background: @strongTransparentBlack;
-                    color: @white;
-                }
-            }
-        }
-        > .icon {
-            background: @transparentBlack;
-            opacity: 1;
-            font-size: 80%;
-        }
-    }
-
-    .right.aligned > .button {
-        margin-right: 0;
-    }
-
-    .back.button > span {
-        @media screen and (max-width: 400px) {
-            display: none;
-        }
-    }
-
-    // Error messages
-    .ui.error.message {
-        a {
-            color: @formErrorColor;
-        }
-        &.black {
-            box-shadow: none;
         }
     }
 
