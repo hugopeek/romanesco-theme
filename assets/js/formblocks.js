@@ -69,6 +69,33 @@ $('.ui.checkbox.collapsible')
     })
 ;
 
+// Apply 'other' option to dropdowns. If it's a dropdown where you can select
+// multiple options, the other options can be appended in the select field
+// itself. Otherwise, the 'something else' option is available in the dropdown,
+// and a text input will appear under the selector.
+$('.ui.dropdown:not(.multiple).with.other')
+    .dropdown({
+        fullTextSearch: true,
+
+        onChange: function(value, text, $option) {
+            let id = $(this).attr('id');
+            let target = '#' + id + '-other';
+
+            if ($option.is(':last-child')) {
+                $(target).removeClass('hidden');
+            } else {
+                $(target).addClass('hidden')
+            }
+        }
+    })
+;
+$('.ui.multiple.dropdown.with.other')
+    .dropdown({
+        fullTextSearch: true,
+        allowAdditions: true
+    })
+;
+
 
 // Set checkboxes or radios with links
 // -----------------------------------

@@ -9,12 +9,9 @@ $(function() {
     $('.ui.accordion').accordion({
         animateChildren: false
     });
-    $('.ui.dropdown:not(.simple):not(.search)').dropdown();
-    $('.ui.search.dropdown')
-        .dropdown({
-            fullTextSearch: true
-        })
-    ;
+    $('.ui.dropdown:not(.simple):not(.multiple):not(.with.other)').dropdown({
+        fullTextSearch: true
+    });
     $('.with.tooltip').popup();
     $('.with.tooltip.onclick')
         .popup({
