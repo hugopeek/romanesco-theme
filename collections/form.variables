@@ -3,3 +3,5 @@
 *******************************/
 
 @labelFontSize: @fontSize;
+
+@labelWidthHorizontal: 30%;

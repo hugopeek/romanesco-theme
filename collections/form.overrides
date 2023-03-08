@@ -5,14 +5,14 @@
 .ui.form {
 
     // Field variations
-    .grouped.fields {
-        &.error > label,
-        > label:has(~ .error) {
-            color: @errorTextColor;
+    .vertical.field,
+    .field > .vertical {
+        > .button {
+            margin-top: 0 !important;
         }
-        > .field {
-            margin: @groupedFieldMargin !important;
-        }
+    }
+    .compact.field {
+        flex: 0 !important;
     }
     //.checkbox.field,
     //.field > .checkbox {
@@ -23,14 +23,30 @@
     //        display: block;
     //    }
     //}
-    .vertical.field,
-    .field > .vertical {
-        > .button {
-            margin-top: 0 !important;
+    .grouped.fields,
+    .inline.fields {
+        &.error > label,
+        > label:has(~ .error) {
+            color: @errorTextColor;
         }
     }
-    .compact.field {
-        flex: 0 !important;
+    .grouped.fields {
+        > .field {
+            margin: @groupedFieldMargin !important;
+        }
+    }
+    .inline.fields {
+        > .field:last-child {
+            padding-right: 0;
+        }
+
+        &.required > label:after {
+            margin: @requiredMargin;
+            content: @requiredContent;
+            color: @requiredColor;
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 
     // Hidden fields
@@ -211,7 +227,7 @@
 
             > label {
                 display: table-cell;
-                width: 30%;
+                width: @labelWidthHorizontal;
             }
             > input,
             > select,
@@ -219,11 +235,27 @@
                 vertical-align: middle;
             }
         }
+        .inline.fields {
+            > label {
+                min-width: @labelWidthHorizontal;
+                margin-right: 0;
+            }
+        }
         .stacked.fields {
             flex-direction: column;
 
             .field:not(:last-child) {
                 margin: @fieldMargin;
+            }
+        }
+    }
+    @media screen and (max-width: @largestMobileScreen) {
+        .inline.fields {
+            &.unstackable {
+                > label {
+                    width: 100%;
+                    margin: @labelMargin;
+                }
             }
         }
     }
