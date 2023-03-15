@@ -15,7 +15,10 @@ $(function() {
     $('.with.tooltip').popup();
     $('.with.tooltip.onclick')
         .popup({
-            on: 'click'
+            on: 'click',
+            onShow: function () {
+                lazyLoadInstance.update();
+            }
         })
     ;
     $('.ui.tabular.menu:not(#submenu) .item').tab();
