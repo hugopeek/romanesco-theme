@@ -303,6 +303,10 @@
 
 // Segment for demonstrating pattern design and behaviour in backyard area
 .ui.backyard.segment {
+    &.black {
+        background-color: #000;
+    }
+
     // Operate accordion with a small button on top right of segment
     .container {
         position: relative;
