@@ -23,6 +23,7 @@
         }
         > .content {
             flex: 2;
+            align-self: center;
         }
 
         // Try to keep icons perfectly rounded
