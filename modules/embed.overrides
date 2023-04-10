@@ -1,3 +1,7 @@
 /*******************************
         Video Overrides
 *******************************/
+
+.ui.video.embed {
+    border-radius: @roundedBorderRadius;
+}
