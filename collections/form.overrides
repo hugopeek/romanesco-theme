@@ -34,6 +34,9 @@
         > .field {
             margin: @groupedFieldMargin !important;
         }
+        &.vertical > .help {
+            display: block;
+        }
     }
     .inline.fields {
         > .field:last-child {
