@@ -183,7 +183,7 @@
     .file-upload.field {
         > label {
             margin-bottom: @verticalRhythm1;
-            vertical-align: top;
+            vertical-align: baseline;
         }
 
         // Dropzone (hides after first drop, but reappears on hover)
@@ -231,8 +231,9 @@
             }
             > input,
             > select,
-            > .multiple.dropdown {
-                vertical-align: middle;
+            > .multiple.dropdown,
+            > textarea {
+                vertical-align: baseline;
             }
         }
         .inline.fields {
