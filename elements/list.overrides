@@ -8,6 +8,12 @@
     &:not(ol ol) {
         margin-bottom: @verticalRhythm2;
     }
+
+    > li:before {
+        margin-top: -1px;
+        color: inherit !important;
+        font-size: 1.5em;
+    }
 }
 
 .ui.list > .item > .avatar {
