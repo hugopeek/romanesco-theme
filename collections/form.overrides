@@ -230,9 +230,10 @@
                 width: @labelWidthHorizontal;
             }
             > input,
+            > textarea,
             > select,
-            > .multiple.dropdown,
-            > textarea {
+            > .multiple.dropdown {
+                display: table-cell;
                 vertical-align: baseline;
             }
         }
