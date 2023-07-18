@@ -9,10 +9,21 @@
         margin-bottom: @verticalRhythm2;
     }
 
+    // Improve bullet styling
     ul& > li:before {
         margin-top: -1px;
         color: inherit !important;
         font-size: 1.5em;
+    }
+
+    // Only show edit buttons on hover in pattern library
+    #hub & .item {
+        .edit.label {
+            display: none;
+        }
+        &:hover .edit.label {
+            display: block;
+        }
     }
 }
 
