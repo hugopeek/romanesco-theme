@@ -49,6 +49,11 @@
         }
     }
 
+    // Inline fields
+    &.equal.width .fields {
+        align-items: end;
+    }
+
     // Hidden fields
     .hidden:not(.divider),
     .sweetened.field {
@@ -61,6 +66,11 @@
     }
     &:not(.inverted) .help.error {
         color: @errorColor;
+    }
+
+    // Submit field
+    .submit.field > .button {
+        margin-top: @verticalRhythm1;
     }
 
     // Error messages
@@ -160,10 +170,19 @@
 
     // Non-segmented forms
     .fieldset {
-        margin-bottom: @verticalRhythm1;
+        + .fieldset:not(.submit) {
+            margin-top: @verticalRhythm1;;
+        }
 
         + .segment {
             margin-top: @verticalRhythm3;
+        }
+    }
+
+    // Submit area (last fieldset child)
+    fieldset.submit {
+        .button {
+            margin-top: 0;
         }
     }
 
