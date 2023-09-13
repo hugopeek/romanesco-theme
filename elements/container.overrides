@@ -39,6 +39,9 @@ body.readability #content .ui.container,
         }
     }
 }
+.ui.conventional.text.container {
+    font-size: inherit;
+}
 
 // Responsive tweaks
 .ui.text.container {
