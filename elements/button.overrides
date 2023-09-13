@@ -14,7 +14,8 @@
 
     // Buttons themselves can be center aligned too
     &.center.aligned {
-        margin: 0 auto;
+        margin-left: auto !important; // Important needed for tertiary buttons
+        margin-right: auto !important; // Important needed for tertiary buttons
         display: block;
         width: max-content;
         max-width: 100%; // Prevent overflowing the container
