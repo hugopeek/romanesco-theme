@@ -342,3 +342,8 @@
         }
     }
 }
+
+// Segments created by RTE
+.ui.text.segment + * {
+    margin-top: @verticalRhythm2;
+}
