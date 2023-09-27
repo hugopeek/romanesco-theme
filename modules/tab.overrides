@@ -22,6 +22,11 @@
         color: @textColor;
     }
 
+    // Make active item more pronounced in pointing secondary variant
+    &.pointing.secondary > .item:not(.active) {
+        opacity: .6;
+    }
+
     // Small adjustments for pointing segments used as menu buttons
     > .pointing.segment {
         &:not(.active) {
