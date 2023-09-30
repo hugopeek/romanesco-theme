@@ -69,7 +69,7 @@
     }
 
     // Submit field
-    .submit.field > .button {
+    .submission.field > .button {
         margin-top: @verticalRhythm1;
     }
 
@@ -170,7 +170,7 @@
 
     // Non-segmented forms
     .fieldset {
-        + .fieldset:not(.submit) {
+        + .fieldset:not(.submission) {
             margin-top: @verticalRhythm1;;
         }
 
@@ -180,7 +180,7 @@
     }
 
     // Submit area (last fieldset child)
-    fieldset.submit {
+    fieldset.submission {
         .button {
             margin-top: 0;
         }
