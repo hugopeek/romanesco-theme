@@ -170,8 +170,11 @@
 
     // Non-segmented forms
     .fieldset {
-        + .fieldset:not(.submission) {
-            margin-top: @verticalRhythm1;;
+        + .fieldset {
+            margin-top: @verticalRhythm1;
+            &.submission {
+                margin-top: @verticalRhythm3;
+            }
         }
 
         + .segment {
