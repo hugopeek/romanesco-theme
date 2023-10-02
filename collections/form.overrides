@@ -98,7 +98,7 @@
     }
 
     // Submit buttons
-    .ui.icon.input.submit {
+    .ui.icon.input.submission {
         > .button {
             padding-right: 3.6em !important;
 
@@ -130,8 +130,9 @@
         }
     }
 
-    // Inverted forms
-    &.inverted {
+    // Inverted forms and fieldsets
+    &.inverted,
+    & fieldset.inverted {
         .field,
         .fields > .field {
             label {
@@ -165,7 +166,7 @@
         }
 
         // Clear floated submit buttons
-        &.submit {
+        &.submission {
             overflow: auto;
         }
     }
@@ -256,7 +257,7 @@
             > input,
             > textarea,
             > select,
-            > .multiple.dropdown {
+            > .multiple.dropdown > input.search {
                 display: table-cell;
                 vertical-align: baseline;
             }
