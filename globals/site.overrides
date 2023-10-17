@@ -220,7 +220,7 @@ li >,
 .content,
 .header.inverted,
 .header.sub {
-    a:not(.button):not(.image):not(.item) {
+    a:not(.button):not(.image):not(.item):not(.label) {
         border-bottom: @linkBorderWidth @linkBorderStyle;
         &:hover {
             border-bottom: @linkBorderHoverWidth @linkBorderHoverStyle;
