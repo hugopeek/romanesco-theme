@@ -73,6 +73,10 @@
         }
         @media only screen and (min-width: @tabletBreakpoint) {
             padding: @verticalRhythm5 5%;
+
+            &:first-child {
+                padding-top: calc(var(--baseline) * 4rem);
+            }
         }
 
         &#dropdown-toc {

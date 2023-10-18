@@ -205,7 +205,7 @@ body.vertical.toc {
     @media only screen and (min-width: @tabletBreakpoint) {
         #content,
         #sidebar {
-            margin-top: @verticalRhythm2;
+            margin-top: @verticalRhythm3;
         }
     }
 }
