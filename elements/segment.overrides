@@ -59,6 +59,9 @@
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
         padding-bottom: @verticalRhythm3;
+        .subtitle {
+            margin-bottom: 0 !important;
+        }
     }
 
     // Segments inside a BasicVertical template require a few overrides
