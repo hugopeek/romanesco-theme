@@ -10,7 +10,7 @@
     }
 
     // Improve bullet styling (also depends on font being used)
-    ul& > li:before {
+    ul& li:before {
         margin-top: 1px;
         font-family: Arial, sans-serif;
         font-size: 1.2em;
