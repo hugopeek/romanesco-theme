@@ -21,21 +21,68 @@
 // Inflate text for optimal readability in text containers and templates
 body.readability #content .ui.container,
 .ui.text.container:not(.conventional) {
-    p {
-        &:not(.meta):not(:first-child) {
-            margin-top: @verticalRhythm3;
-        }
-
-        @media only screen and (min-width: @tabletBreakpoint) {
-            font-size: @textSize;
-            line-height: @textLineHeight;
-        }
-
+    > * {
+        + h1,
         + h2,
         + h3,
         + h4 {
             margin-top: @verticalRhythm5;
             margin-bottom: @verticalRhythm3;
+        }
+    }
+    > p:not(.meta):not(:first-child) {
+        margin-top: @verticalRhythm3;
+    }
+    > blockquote {
+        margin: @verticalRhythm5 0;
+    }
+    > .ui.divider {
+        margin: @verticalRhythm3 0;
+    }
+
+    @media only screen and (max-width: @largestMobileScreen) {
+        p.image > img {
+            box-shadow: none;
+            border-radius: 0;
+            margin: 0 -1em 0 -1em;
+            max-width: calc(100% + 2em);
+        }
+    }
+
+    @media only screen and (min-width: @tabletBreakpoint) {
+        @edgeSpacing: 2rem;
+
+        h1 {
+            margin-left: -@edgeSpacing;
+        }
+        p {
+            font-size: @textSize;
+            line-height: @textLineHeight;
+        }
+        p.image {
+            text-align: center;
+
+            > img {
+                max-width: calc(100% + @edgeSpacing * 4);
+                margin-left: calc(@edgeSpacing * -2);
+                margin-right: calc(@edgeSpacing * -2);
+            }
+        }
+        > blockquote {
+            margin: @verticalRhythm5 0 @verticalRhythm5 -@edgeSpacing;
+            padding-left: calc(@edgeSpacing - 5px);
+        }
+        > div > pre {
+            margin-left: -@edgeSpacing;
+            margin-right: -@edgeSpacing;
+            padding: @edgeSpacing;
+        }
+        > p > code {
+            padding: .5rem .8rem;
+        }
+        pre, code {
+            font-size: 1.3rem;
+            line-height: @textLineHeight;
         }
     }
 }
