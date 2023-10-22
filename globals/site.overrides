@@ -382,13 +382,6 @@ figcaption {
             bottom: -0.5rem;
             right: -1%;
         }
-
-        footer {
-            color: @mutedTextColor;
-            .inverted& {
-                color: @invertedMutedTextColor;
-            }
-        }
     }
 
     // Fit in with surrounding elements
@@ -434,6 +427,15 @@ figcaption {
     @media only screen and (max-width: @largestMobileScreen) {
         &.quote p, .quote& { font-size: @scaleRatio * @fontSize !important; }
         &.quote footer { font-size: @fontSize; }
+    }
+}
+blockquote,
+.quote {
+    footer {
+        color: @lightTextColor;
+        .inverted& {
+            color: @invertedLightTextColor;
+        }
     }
 }
 
