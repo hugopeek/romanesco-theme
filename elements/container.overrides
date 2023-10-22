@@ -29,8 +29,11 @@ body.readability #content .ui.container,
             margin-top: @verticalRhythm5;
             margin-bottom: @verticalRhythm3;
         }
+        &:first-child {
+            margin-top: 0 !important;
+        }
     }
-    > p:not(.meta):not(:first-child) {
+    > p:not(.meta) {
         margin-top: @verticalRhythm3;
     }
     > blockquote {
@@ -51,6 +54,7 @@ body.readability #content .ui.container,
 
     @media only screen and (min-width: @tabletBreakpoint) {
         @edgeSpacing: 2rem;
+        @edgeSpacingDouble: (@edgeSpacing * 2);
 
         h1 {
             margin-left: -@edgeSpacing;
@@ -64,13 +68,19 @@ body.readability #content .ui.container,
 
             > img {
                 max-width: calc(100% + @edgeSpacing * 4);
-                margin-left: calc(@edgeSpacing * -2);
-                margin-right: calc(@edgeSpacing * -2);
+                margin-left: -@edgeSpacingDouble;
+                margin-right: -@edgeSpacingDouble;
             }
         }
         > blockquote {
-            margin: @verticalRhythm5 0 @verticalRhythm5 -@edgeSpacing;
+            margin: @verticalRhythm5 -@edgeSpacing;
             padding-left: calc(@edgeSpacing - 5px);
+            padding-right: @edgeSpacing;
+
+            &.message {
+                margin: @verticalRhythm5 -@edgeSpacingDouble;
+                padding: @verticalRhythm3 @edgeSpacingDouble @verticalRhythm3 calc(@edgeSpacingDouble - 5px);
+            }
         }
         > div > pre {
             margin-left: -@edgeSpacing;
