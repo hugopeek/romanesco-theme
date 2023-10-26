@@ -121,6 +121,10 @@
         padding-top: @consecutiveGridDistance;
         padding-bottom: @consecutiveGridDistance;
     }
+    .ui.stackable[class*="on tablet"].grid > .row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
     .ui.stackable[class*="on tablet"].mobile.reversed.grid {
         flex-direction: column-reverse;
     }
