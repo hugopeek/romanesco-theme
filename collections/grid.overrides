@@ -39,6 +39,11 @@
             margin-top: -1em;
             margin-bottom: .5em;
         }
+
+        // Button margin is a little off
+        p + a.ui.button {
+            margin-top: .5em;
+        }
     }
 }
 
