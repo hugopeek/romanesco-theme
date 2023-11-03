@@ -67,15 +67,15 @@ body.readability #content .ui.container,
             text-align: center;
 
             > img {
-                max-width: calc(100% + @edgeSpacing * 4);
+                max-width: calc(100% + (@edgeSpacing * 4));
                 margin-left: -@edgeSpacingDouble;
                 margin-right: -@edgeSpacingDouble;
             }
         }
         > blockquote {
-            margin: @verticalRhythm5 -@edgeSpacing;
-            padding-left: calc(@edgeSpacing - 5px);
-            padding-right: @edgeSpacing;
+            //margin: @verticalRhythm5 -@edgeSpacing;
+            //padding-left: calc(@edgeSpacing - 5px);
+            //padding-right: @edgeSpacing;
 
             &.message {
                 margin: @verticalRhythm5 -@edgeSpacingDouble;
