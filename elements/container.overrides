@@ -82,6 +82,16 @@ body.readability #content .ui.container,
                 padding: @verticalRhythm3 @edgeSpacingDouble @verticalRhythm3 calc(@edgeSpacingDouble - 5px);
             }
         }
+        > table {
+            width: calc(100% + (@edgeSpacing * 2));
+            margin-left: -@edgeSpacing;
+            margin-right: -@edgeSpacing;
+
+            th, td {
+                padding-left: @edgeSpacing;
+                padding-right: @edgeSpacing;
+            }
+        }
         > div > pre {
             margin-left: -@edgeSpacing;
             margin-right: -@edgeSpacing;
