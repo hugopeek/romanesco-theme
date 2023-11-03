@@ -37,7 +37,8 @@ body.readability #content .ui.container,
         margin-top: @verticalRhythm3;
     }
     > blockquote {
-        margin: @verticalRhythm5 0;
+        margin-top: @verticalRhythm5 !important;
+        margin-bottom: @verticalRhythm5 !important;
     }
     > .ui.divider {
         margin: @verticalRhythm3 0;
