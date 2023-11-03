@@ -36,8 +36,8 @@
 
         // Meta content is missing out on subtitle margins
         .ui.header + .meta {
-            margin-top: -1em;
-            margin-bottom: .5em;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
         }
 
         // Button margin is a little off
