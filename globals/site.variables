@@ -8,22 +8,89 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Source Sans Pro';
-@fontFallback      : 'Helvetica Neue', Arial, Helvetica, sans-serif;
+/* The default font, Lato, can be imported directly from the assets folder. If
+    you set a different name, you're responsible for loading it some other way.
+   You can also choose not to load anything, and hope the font is installed
+    locally on the visitors computer. If not, then the fallback fonts kick in.
+   And please note: these settings are ignored if you define a font in the
+    Configuration > Presentation settings in MODX.
+ */
+@fontName: "Lato";
 
-@headerFont        : @fontName, @fontFallback;
-@pageFont          : @fontName, @fontFallback;
+@fallbackFonts:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "Liberation Sans",
+    sans-serif
+;
+
+/* Use system fonts by default */
+@headerFont: @fallbackFonts;
+@pageFont: @fallbackFonts;
+
+/* The default, false, means you're loading the font via direct link in HEAD, or
+    that you're relying on a system font.
+   Comment out this setting if you want to load the default Lato font.
+   Set to true if you want to load the fonts below.
+*/
+@importFonts       : false;
+
+// FOR TESTING PURPOSES ONLY!!!
+// Apple system font
+//@fontName: "San Francisco";
+//@fonts: {
+//    @regularLatin: {
+//        font-family: @fontName;
+//        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+//        font-weight: @normal;
+//    };
+//    @boldLatin: {
+//        font-family: @fontName;
+//        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff") format("woff");
+//        font-weight: @bold;
+//    };
+//}
+// Windows system font
+//@fontName: "Segoe UI";
+//@fonts: {
+//    @regularLatin: {
+//        font-family: @fontName;
+//        src: url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2") format("woff2");
+//        font-weight: @normal;
+//    };
+//    @boldLatin: {
+//        font-family: @fontName;
+//        src: url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2") format("woff2");
+//        font-weight: @bold;
+//    };
+//}
+// Ubuntu system font
+//@fontName: "Ubuntu";
+//@fonts: {
+//    @regularLatin: {
+//        font-family: @fontName;
+//        src: url("https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzjsGyN.woff2") format("woff2");
+//        font-weight: @normal;
+//    };
+//    @boldLatin: {
+//        font-family: @fontName;
+//        src: url("https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoCxCvjsGyN.woff2") format("woff2");
+//        font-weight: @bold;
+//    };
+//}
+//@headerFont: @fontName, @fallbackFonts;
+//@pageFont: @fontName, @fallbackFonts;
 
 /* Google fonts are loaded via direct link in HEAD */
 @importGoogleFonts : false;
-
-//@googleFontName    : @fontName;
-//@googleFontSizes   : 'ital,wght@0,400%3B0,700%3B1,400%3B1,700';
-//@googleFontDisplay : 'swap';
-//
-//@googleProtocol    : 'https://';
-//@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&display=@{googleFontDisplay}';
-
 
 @bold              : bold;
 @normal            : normal;
