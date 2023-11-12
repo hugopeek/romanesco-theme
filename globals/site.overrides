@@ -496,17 +496,27 @@ blockquote,
     a.image {
         width: 2rem;
         cursor: pointer;
-    }
-    .ui.popup {
-        width: 200px;
+        filter: invert(90%);
+        transition: filter, 200ms;
 
-        p {
-            margin-bottom: 1em;
-        }
-        a.button + a.button {
-            margin-top: .5em;
+        &:hover {
+            filter: invert(100%);
+
+            ~ .ui.popup {
+                display: block;
+            }
         }
     }
+    //.ui.popup {
+    //    width: 200px;
+    //
+    //    p {
+    //        margin-bottom: 1em;
+    //    }
+    //    a.button + a.button {
+    //        margin-top: .5em;
+    //    }
+    //}
 }
 
 
