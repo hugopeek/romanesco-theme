@@ -30,7 +30,11 @@
     Arial,
     "Noto Sans",
     "Liberation Sans",
-    sans-serif
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji"
 ;
 
 /* Use system fonts by default */
