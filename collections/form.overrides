@@ -14,12 +14,13 @@
     .compact.field {
         flex: 0 !important;
 
-        // Ensure button is same height as inputs in inline forms
-        &.vertical {
+        // Ensure submit button is same height as inputs in inline forms
+        &.submission {
             display: flex;
             flex-direction: column;
 
             input.button {
+                margin-top: 0;
                 flex: 1;
             }
         }
@@ -57,11 +58,6 @@
             display: inline-block;
             vertical-align: top;
         }
-    }
-
-    // Inline fields
-    &.equal.width .fields {
-        align-items: end;
     }
 
     // Hidden fields
