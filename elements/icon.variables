@@ -1,3 +1,35 @@
 /*******************************
              Icon
 *******************************/
+
+/* --------------
+   Font Files
+--------------- */
+
+/* Solid Icons */
+@importIcons: true;
+@fontName: "icons";
+@outlineFontName: "outline-icons";
+
+@fonts: {
+  @solid: {
+    font-family: @fontName;
+    src: url("@{fontPath}/@{fontName}.woff2") format("woff2") if(@supportIE, e(",") url("@{fontPath}/@{fontName}.woff") format("woff"));
+    font-style: normal;
+    font-weight: @normal;
+    font-display: block;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+  };
+  @outline: {
+    font-family: @outlineFontName;
+    src: url("@{fontPath}/@{outlineFontName}.woff2") format("woff2") if(@supportIE, e(",") url("@{fontPath}/@{outlineFontName}.woff") format("woff"));
+    font-style: normal;
+    font-weight: @normal;
+    font-display: block;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+  };
+};

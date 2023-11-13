@@ -31,5 +31,6 @@
 .ui.kanban.steps {
     .step > .icon {
         width: 3em;
+        margin-right: .8em;
     }
 }

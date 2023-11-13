@@ -1,3 +1,9 @@
 /*******************************
          Site Overrides
 *******************************/
+
+i.icon > svg {
+  height: 1.1em;
+  width: 1.1em;
+  margin-bottom: -.22em; // verrrry scientific
+}
