@@ -3,6 +3,7 @@
 *******************************/
 
 @import "variation.variables";
+@supportIE: false;
 
 /*-------------------
        Fonts
