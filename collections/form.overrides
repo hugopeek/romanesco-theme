@@ -13,6 +13,16 @@
     }
     .compact.field {
         flex: 0 !important;
+
+        // Ensure button is same height as inputs in inline forms
+        &.vertical {
+            display: flex;
+            flex-direction: column;
+
+            input.button {
+                flex: 1;
+            }
+        }
     }
     //.checkbox.field,
     //.field > .checkbox {
