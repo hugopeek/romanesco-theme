@@ -1,3 +1,16 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.message {
+  border-color: currentColor;
+
+  a {
+    color: currentColor;
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: @transparentBlack;
+  }
+}

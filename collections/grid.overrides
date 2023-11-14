@@ -2,7 +2,6 @@
          Theme Overrides
 *******************************/
 
-// Give nested grids some vertical space
 .ui.nested.grid {
     // Only in the Content sections
     #main &:not(:last-child) {
@@ -18,13 +17,33 @@
         border-radius: @roundedBorderRadius;
         overflow: hidden;
     }
+}
 
-    // Separate rows more clearly in relaxed overviews
-    &.relaxed.overview .column {
-        margin-bottom: @verticalRhythm1;
+.ui.overview.grid {
+    // Separate relaxed columns more clearly
+    &.relaxed > .column {
+        margin-bottom: @verticalRhythm2;
     }
-    &[class*="very relaxed"].overview .column {
+    &[class*="very relaxed"] > .column {
         margin-bottom: @verticalRhythm3;
+    }
+
+    .column.publication {
+        // Place header closer to top image
+        figure + .ui.header {
+            margin-top: @verticalRhythm1;
+        }
+
+        // Meta content is missing out on subtitle margins
+        .ui.header + .meta {
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+
+        // Button margin is a little off
+        p + a.ui.button {
+            margin-top: .5em;
+        }
     }
 }
 
@@ -106,6 +125,10 @@
         width: 100% !important;
         padding-top: @consecutiveGridDistance;
         padding-bottom: @consecutiveGridDistance;
+    }
+    .ui.stackable[class*="on tablet"].grid > .row {
+        padding-top: 0;
+        padding-bottom: 0;
     }
     .ui.stackable[class*="on tablet"].mobile.reversed.grid {
         flex-direction: column-reverse;

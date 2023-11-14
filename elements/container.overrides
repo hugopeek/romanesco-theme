@@ -21,23 +21,94 @@
 // Inflate text for optimal readability in text containers and templates
 body.readability #content .ui.container,
 .ui.text.container:not(.conventional) {
-    p {
-        &:not(.meta):not(:first-child) {
-            margin-top: @verticalRhythm3;
-        }
-
-        @media only screen and (min-width: @tabletBreakpoint) {
-            font-size: @textSize;
-            line-height: @textLineHeight;
-        }
-
+    > * {
+        + h1,
         + h2,
         + h3,
         + h4 {
             margin-top: @verticalRhythm5;
             margin-bottom: @verticalRhythm3;
         }
+        &:first-child {
+            margin-top: 0 !important;
+        }
     }
+    > p:not(.meta) {
+        margin-top: @verticalRhythm3;
+    }
+    > blockquote {
+        margin-top: @verticalRhythm5 !important;
+        margin-bottom: @verticalRhythm5 !important;
+    }
+    > .ui.divider {
+        margin: @verticalRhythm3 0;
+    }
+
+    @media only screen and (max-width: @largestMobileScreen) {
+        p.image > img {
+            box-shadow: none;
+            border-radius: 0;
+            margin: 0 -1em 0 -1em;
+            max-width: calc(100% + 2em);
+        }
+    }
+
+    @media only screen and (min-width: @tabletBreakpoint) {
+        @edgeSpacing: 2rem;
+        @edgeSpacingDouble: (@edgeSpacing * 2);
+
+        h1 {
+            margin-left: -@edgeSpacing;
+        }
+        p {
+            font-size: @textSize;
+            line-height: @textLineHeight;
+        }
+        p.image {
+            text-align: center;
+
+            > img {
+                max-width: calc(100% + (@edgeSpacing * 4));
+                margin-left: -@edgeSpacingDouble;
+                margin-right: -@edgeSpacingDouble;
+            }
+        }
+        > blockquote {
+            //margin: @verticalRhythm5 -@edgeSpacing;
+            //padding-left: calc(@edgeSpacing - 5px);
+            //padding-right: @edgeSpacing;
+
+            &.message {
+                margin: @verticalRhythm5 -@edgeSpacingDouble;
+                padding: @verticalRhythm3 @edgeSpacingDouble @verticalRhythm3 calc(@edgeSpacingDouble - 5px);
+            }
+        }
+        > table {
+            width: calc(100% + (@edgeSpacing * 2));
+            margin-left: -@edgeSpacing;
+            margin-right: -@edgeSpacing;
+
+            th, td {
+                padding-left: @edgeSpacing;
+                padding-right: @edgeSpacing;
+            }
+        }
+        > div > pre {
+            margin-left: -@edgeSpacing;
+            margin-right: -@edgeSpacing;
+            padding: @edgeSpacing;
+        }
+        > p > code {
+            padding: .5rem .8rem;
+        }
+        pre, code {
+            font-size: 1.3rem;
+            line-height: @textLineHeight;
+        }
+    }
+}
+.ui.conventional.text.container {
+    font-size: inherit;
 }
 
 // Responsive tweaks

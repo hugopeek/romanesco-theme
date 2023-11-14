@@ -13,12 +13,31 @@
 @variationButtonLoading: false;
 @variationButtonOr: false;
 
+/* Icon */
+@variationIconFlipped: false;
+@variationIconRotated: false;
+@variationIconGroups: false;
+@variationIconCorner: false;
+@variationIconColors: false;
+@variationIconBrand: false;
+@variationIconDuotone: false;
+@variationIconThin: false;
+@variationIconDeprecated: false;
+
+/* Input */
+@variationInputLoading: false;
+@variationInputStates: error, success;
+@variationInputCorner: false;
+@variationInputAction: false;
+//@variationInputFile: false;
+
 /* Label */
 @variationLabelImage: false;
 @variationLabelTag: false;
 @variationLabelCorner: false;
 @variationLabelRibbon: false;
 @variationLabelPointing: false;
+@variationLabelColors: primary, secondary, green, yellow, orange, red, purple, pink, blue, grey, black;
 
 /* Segment */
 @variationSegmentPiled: false;
@@ -27,6 +46,11 @@
 
 /* Dimmer */
 @variationDimmerBlurring: false;
+
+/* Sidebar */
+@variationSidebarSlideAlong: false;
+@variationSidebarSlideOut: false;
+@variationSidebarScale: false;
 
 /* Tab */
 @variationTabLoading: false;

@@ -13,6 +13,17 @@
     }
     .compact.field {
         flex: 0 !important;
+
+        // Ensure submit button is same height as inputs in inline forms
+        &.submission {
+            display: flex;
+            flex-direction: column;
+
+            input.button {
+                margin-top: 0;
+                flex: 1;
+            }
+        }
     }
     //.checkbox.field,
     //.field > .checkbox {
@@ -66,8 +77,15 @@
         color: @errorColor;
     }
 
+    // Submit field
+    .submission.field > .button {
+        margin-top: @verticalRhythm1;
+    }
+
     // Error messages
     .ui.error.message {
+        margin: 0 0 @verticalRhythm1p5;
+
         a {
             color: @formErrorColor;
         }
@@ -89,7 +107,7 @@
     }
 
     // Submit buttons
-    .ui.icon.input.submit {
+    .ui.icon.input.submission {
         > .button {
             padding-right: 3.6em !important;
 
@@ -121,8 +139,9 @@
         }
     }
 
-    // Inverted forms
-    &.inverted {
+    // Inverted forms and fieldsets
+    &.inverted,
+    & fieldset.inverted {
         .field,
         .fields > .field {
             label {
@@ -156,18 +175,30 @@
         }
 
         // Clear floated submit buttons
-        &.submit {
+        &.submission {
             overflow: auto;
         }
     }
 
     // Non-segmented forms
     .fieldset {
-        margin-bottom: @verticalRhythm1;
+        + .fieldset {
+            margin-top: @verticalRhythm1;
+            &.submission {
+                margin-top: @verticalRhythm3;
+            }
+        }
 
         + .fieldset,
         + .segment {
             margin-top: @verticalRhythm3;
+        }
+    }
+
+    // Submit area (last fieldset child)
+    fieldset.submission {
+        .button {
+            margin-top: 0;
         }
     }
 
@@ -187,7 +218,7 @@
     .file-upload.field {
         > label {
             margin-bottom: @verticalRhythm1;
-            vertical-align: top;
+            vertical-align: baseline;
         }
 
         // Dropzone (hides after first drop, but reappears on hover)
@@ -234,9 +265,11 @@
                 width: @labelWidthHorizontal;
             }
             > input,
+            > textarea,
             > select,
-            > .multiple.dropdown {
-                vertical-align: middle;
+            > .multiple.dropdown > input.search {
+                display: table-cell;
+                vertical-align: baseline;
             }
         }
         .inline.fields {

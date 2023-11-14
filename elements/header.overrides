@@ -118,6 +118,10 @@
     + p > .button {
         margin-right: 0 !important;
     }
+
+    &.inverted > .icon {
+        box-shadow: 0 0 0 0.1em rgba(255, 255, 255, 0.1) inset;
+    }
 }
 
 // Inflate font size and margins of section headers
@@ -127,6 +131,7 @@
     .cta:not(.conventional) {
         > h1.header:first-child {
             margin-bottom: @verticalRhythm2;
+            font-size: @h1; // reset reduced mobile font size
 
             + .subtitle {
                 margin-top: calc(var(--baseline) * -1rem) !important;
@@ -143,6 +148,7 @@
         }
         > h2.header:first-child {
             margin-bottom: @verticalRhythm2;
+            font-size: @h2;
 
             + .subtitle {
                 margin-top: calc(var(--baseline) * -1.5rem) !important;

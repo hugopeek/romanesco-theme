@@ -9,6 +9,9 @@
     &.lightbox {
         cursor: pointer;
     }
+    &.video {
+        height: auto;
+    }
 
     .caption,
     figcaption,

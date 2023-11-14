@@ -8,6 +8,24 @@
     &:not(ol ol) {
         margin-bottom: @verticalRhythm2;
     }
+
+    // Improve bullet styling (also depends on font being used)
+    ul& li:before {
+        margin-top: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 1.2em;
+        color: inherit !important;
+    }
+
+    // Only show edit buttons on hover in pattern library
+    #hub & .item {
+        .edit.label {
+            display: none;
+        }
+        &:hover .edit.label {
+            display: block;
+        }
+    }
 }
 
 .ui.list > .item > .avatar {
@@ -15,5 +33,16 @@
 
     + .content {
         width: auto; // 100% width causes title to squash the image
+    }
+}
+
+// Custom variation
+.ui.vertical.list {
+    margin-left: 0;
+
+    > li:before {
+        display: block;
+        position: relative;
+        text-align: center;
     }
 }

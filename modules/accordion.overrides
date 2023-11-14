@@ -28,4 +28,9 @@
             padding: 0;
         }
     }
+
+    // Gentle offset for anything below
+    #content & + * {
+        margin-top: @verticalRhythm2;
+    }
 }

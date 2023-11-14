@@ -59,6 +59,9 @@
     // Introduction segment is used in articles and contains a separate header
     &.introduction {
         padding-bottom: @verticalRhythm3;
+        .subtitle {
+            margin-bottom: 0 !important;
+        }
     }
 
     // Segments inside a BasicVertical template require a few overrides
@@ -73,6 +76,10 @@
         }
         @media only screen and (min-width: @tabletBreakpoint) {
             padding: @verticalRhythm5 5%;
+
+            &:first-child {
+                padding-top: calc(var(--baseline) * 4rem);
+            }
         }
 
         &#dropdown-toc {
@@ -249,17 +256,19 @@
 // Segment containing an image that needs to be snapped to one of the edges
 .ui.snapped.segment {
     @media only screen and (min-width: @computerBreakpoint) {
+        padding-top: 0 !important;
         padding-bottom: 0 !important;
         overflow: hidden;
 
         // Give the first grid inside some negative margin, to cut off the bottom of the image
         > .container > .grid {
+            margin-top: -2rem;
             margin-bottom: -2rem;
 
             // Counter the negative margin of the grid to stay middle aligned
-            .middle.aligned.column {
-                margin-top: -2rem;
-            }
+            //&.middle.aligned > .main.column {
+            //    margin-top: -2rem;
+            //}
         }
     }
 }
@@ -339,4 +348,9 @@
             padding: 1em 5%;
         }
     }
+}
+
+// Segments created by RTE
+.ui.text.segment + * {
+    margin-top: @verticalRhythm2;
 }

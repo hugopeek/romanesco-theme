@@ -1,3 +1,7 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+#filter-active .ui.labels {
+  margin-bottom: -0.5em;
+}
