@@ -478,7 +478,10 @@ $(document).on('pdopage_load', function(e, config, response) {
     //console.log(config.wrapper);
 
     // Ratings
-    $('.ui.rating').rating('disable');
+    let $rating = $('.ui.rating');
+    if ($rating.length) {
+        $rating.rating('disable');
+    }
 
     // Lazy loading images
     lazyLoadInstance.update();
