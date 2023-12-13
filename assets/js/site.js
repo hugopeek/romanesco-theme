@@ -57,7 +57,7 @@ $(function() {
         });
     }
 
-    let $embed = $('.ui.video.embed');
+    let $embed = $('.ui.video.embed:not(.consent)');
     if ($embed.length) {
         $embed.embed();
     }
