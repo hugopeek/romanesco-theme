@@ -4,4 +4,21 @@
 
 .ui.video.embed {
     border-radius: @roundedBorderRadius;
+
+    // This content is only shown if ConsentFriend is active, but consent has not been given
+    &.consent .pending {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        a {
+            cursor: pointer;
+        }
+    }
 }
