@@ -76,6 +76,22 @@
         }
     }
 
+    // Add delay to dropdowns
+    // https://stackoverflow.com/questions/42977848/pure-css-drop-down-menu-with-delay-issue
+    &:not(:hover) .simple.dropdown.item,
+    &:not(:hover) .simple.dropdown.item > ul.menu {
+        transition: all 0.1s, top 0s;
+        transition-delay: 0.8s;
+    }
+    &:not(:hover) .simple.dropdown.item > ul.menu {
+        width: auto;
+        height: auto;
+    }
+    .simple.dropdown.item:hover > ul.menu {
+        transition: all 0s !important;
+        transition-delay: 0s !important;
+    }
+
     // Special items
     .item {
         &.branding {
