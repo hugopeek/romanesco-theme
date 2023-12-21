@@ -87,7 +87,9 @@
         width: auto;
         height: auto;
     }
-    .simple.dropdown.item:hover > ul.menu {
+    .simple.dropdown.item:hover > ul.menu,
+    .simple.dropdown.item.active,
+    .simple.dropdown.item.active > ul.menu {
         transition: all 0s !important;
         transition-delay: 0s !important;
     }
