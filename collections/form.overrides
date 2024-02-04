@@ -3,6 +3,7 @@
 *******************************/
 
 .ui.form {
+    margin-top: 0;
 
     // Field variations
     .vertical.field,
@@ -167,7 +168,7 @@
         legend {
             margin-bottom: @verticalRhythm1;
             padding-bottom: .6em;
-            border-bottom: @inputBorder;
+            border-bottom: @borderWidth solid @borderColor;
 
             + * {
                 clear: both;
@@ -295,6 +296,11 @@
                 }
             }
         }
+    }
+
+    // Set it apart from anything above
+    * + & {
+        margin-top: @verticalRhythm3 !important;
     }
 
     // Gentle offset for anything below

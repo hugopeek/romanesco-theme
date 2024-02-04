@@ -439,6 +439,19 @@ blockquote,
     }
 }
 
+#content {
+    .cta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Fit in with surrounding elements
+    * + .cta,
+    .cta + * {
+        margin-top: @verticalRhythm3 !important;
+    }
+}
+
 // Unstyled lists
 #content {
     ul:not(:last-child):not(.ui.list),

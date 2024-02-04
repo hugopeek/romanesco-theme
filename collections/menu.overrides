@@ -78,12 +78,13 @@
 
     // Add delay to dropdowns
     // https://stackoverflow.com/questions/42977848/pure-css-drop-down-menu-with-delay-issue
-    &:not(:hover) .simple.dropdown.item,
-    &:not(:hover) .simple.dropdown.item > ul.menu {
-        transition: all 0.1s, top 0s;
+    &:not(:hover) .simple.dropdown.item {
+        transition: background 0.1s;
         transition-delay: 0.8s;
     }
     &:not(:hover) .simple.dropdown.item > ul.menu {
+        transition: all 0.1s, top 0s;
+        transition-delay: 0.8s;
         width: auto;
         height: auto;
     }
@@ -220,6 +221,8 @@
 
     // Styling for level 1 only
     > li.item {
+        border-radius: @borderRadius !important; // Make sure border radius persists
+
         &:hover,
         &.current {
             background: @hoverItemBackground;
@@ -239,6 +242,7 @@
     // Styling for level 2 only
     .menu {
         margin-top: 0;
+        overflow: hidden;
     }
     .dropdown .item {
         border-radius: 0;

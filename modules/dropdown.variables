@@ -1,3 +1,6 @@
 /*******************************
             Dropdown
 *******************************/
+
+@selectionBorderColor: rgba(34, 36, 38, 0.3);
+@selectionBorder: 1px solid @selectionBorderColor;
