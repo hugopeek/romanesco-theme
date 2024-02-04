@@ -3,5 +3,7 @@
 *******************************/
 
 @labelFontSize: @fontSize;
-
 @labelWidthHorizontal: 30%;
+
+@inputBorderColor: rgba(34, 36, 38, 0.3);
+@inputBorder: 1px solid @inputBorderColor;

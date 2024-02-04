@@ -2,6 +2,8 @@
             Input
 *******************************/
 
-@inputColor: @textColor;
-@inputPlaceholderColor: lighten(@inputColor, 60);
-@inputPlaceholderFocusColor: lighten(@inputColor, 40);
+//@inputColor: @textColor;
+//@inputPlaceholderColor: lighten(@inputColor, 60);
+//@inputPlaceholderFocusColor: lighten(@inputColor, 40);
+
+@borderColor: rgba(34, 36, 38, 0.3);
