@@ -3,6 +3,7 @@
 *******************************/
 
 .ui.form {
+    margin-top: 0;
 
     // Field variations
     .vertical.field,
@@ -295,6 +296,11 @@
                 }
             }
         }
+    }
+
+    // Set it apart from anything above
+    * + & {
+        margin-top: @verticalRhythm3 !important;
     }
 
     // Gentle offset for anything below
