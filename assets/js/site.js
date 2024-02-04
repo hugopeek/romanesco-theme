@@ -406,6 +406,20 @@ $("#form-login .submit").click(function() {
     $("#form-login").submit();
 });
 
+// Make simple dropdowns work on touch
+//https://stackoverflow.com/questions/152975/how-do-i-detect-a-click-outside-an-element/3028037#3028037
+if(window.matchMedia("(pointer: coarse)").matches) {
+    $('.ui.simple.dropdown').on('click', function() {
+        $(this).addClass('active');
+    });
+    $(document).click(function(event) {
+        var $target = $(event.target);
+        if(!$target.closest('.ui.simple.dropdown.active').length &&
+            $('.ui.simple.dropdown > .menu').is(":visible")) {
+            $('.ui.simple.dropdown').removeClass('active');
+        }
+    });
+}
 
 // Lazy load images
 // https://github.com/verlok/lazyload
