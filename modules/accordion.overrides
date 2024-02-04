@@ -13,6 +13,29 @@
         }
     }
 
+    // Custom padded variant
+    // @todo: create PR for Fomantic UI
+    &.styled.padded {
+        @media screen and (min-width: @tabletBreakpoint) {
+            > .title {
+                padding: 1.2em 1.5em;
+            }
+            > .content {
+                padding: 0.5em 1.5em 1.5em;
+            }
+        }
+    }
+    &.styled[class*="very padded"] {
+        @media screen and (min-width: @tabletBreakpoint) {
+            > .title {
+                padding: 2.5em 3em;
+            }
+            > .content {
+                padding: 0.5em 3em 2.5em;
+            }
+        }
+    }
+
     // Make sure text is always dark when background is light
     &.styled .content {
         color: @textColor;
