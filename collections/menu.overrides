@@ -219,6 +219,8 @@
 
     // Styling for level 1 only
     > li.item {
+        border-radius: @borderRadius !important; // Make sure border radius persists
+
         &:hover,
         &.current {
             background: @hoverItemBackground;
@@ -238,6 +240,7 @@
     // Styling for level 2 only
     .menu {
         margin-top: 0;
+        overflow: hidden;
     }
     .dropdown .item {
         border-radius: 0;
