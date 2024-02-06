@@ -221,24 +221,28 @@ li >,
 .header.inverted,
 .header.sub {
     a:not(.button):not(.image):not(.item):not(.label) {
-        border-bottom: @linkBorderWidth @linkBorderStyle;
+        text-decoration: underline;
+        text-decoration-thickness: @linkBorderWidth;
+        text-decoration-style: @linkBorderStyle;
+
         &:hover {
-            border-bottom: @linkBorderHoverWidth @linkBorderHoverStyle;
+            text-decoration-thickness: @linkBorderHoverWidth;
+            text-decoration-style: @linkBorderHoverStyle;
         }
     }
 }
-.header a:not(.inverted),
+.header:not(.icon):not(.sub) a:not(.inverted),
 a.header:not(.inverted),
 .menu:not(.tabular) a {
-    border-bottom: none !important;
+    text-decoration: none !important;
 }
 
 // Link styling inside inverted segments
 a.inverted:not(.button):not(.boxed) {
     color: @invertedTextColor;
-    border-bottom-color: fade(@white, 60);
+    text-decoration-color: fade(@white, 60);
     &:hover {
-        border-bottom-color: @white;
+        text-decoration-color: @white;
     }
 }
 
@@ -440,15 +444,15 @@ blockquote,
 }
 
 #content {
-    .cta {
-        display: flex;
-        flex-direction: column;
-    }
+    //.cta {
+    //    display: flex;
+    //    flex-direction: column;
+    //}
 
     // Fit in with surrounding elements
     * + .cta,
     .cta + * {
-        margin-top: @verticalRhythm3 !important;
+        margin-top: @verticalRhythm3;
     }
 }
 
