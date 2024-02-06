@@ -7,15 +7,26 @@
     #main &:not(:last-child) {
         margin-bottom: @verticalRhythm2;
     }
-    // Add top margin for all nested grids that follow another element
-    #main * + & {
-        margin-top: @verticalRhythm2;
-    }
+
     // Remove top margin for celled grids
     &.celled {
         margin-top: 0;
         border-radius: @roundedBorderRadius;
         overflow: hidden;
+    }
+
+    // Use flexible top margin to set nested grids apart
+    * + &,
+    & + * {
+        margin-top: @verticalRhythm2;
+    }
+    * + &.expanded,
+    &.expanded + * {
+        margin-top: @verticalRhythm3;
+    }
+    * + &[class*="very expanded"],
+    &[class*="very expanded"] + * {
+        margin-top: @verticalRhythm5;
     }
 }
 

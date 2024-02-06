@@ -5,6 +5,10 @@
 .ui.form {
     margin-top: 0;
 
+    .ui.segments {
+        margin-top: 0;
+    }
+
     // Field variations
     .vertical.field,
     .field > .vertical {
@@ -298,14 +302,10 @@
         }
     }
 
-    // Set it apart from anything above
-    * + & {
-        margin-top: @verticalRhythm3 !important;
-    }
-
-    // Gentle offset for anything below
+    // Fit in with surrounding elements
+    * + &,
     + * {
-        margin-top: @verticalRhythm1;
+        margin-top: @verticalRhythm3;
     }
 }
 

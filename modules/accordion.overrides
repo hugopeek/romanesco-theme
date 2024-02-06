@@ -53,7 +53,8 @@
     }
 
     // Gentle offset for anything below
+    #content * + &,
     #content & + * {
-        margin-top: @verticalRhythm2;
+        margin-top: @verticalRhythm3;
     }
 }

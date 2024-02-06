@@ -4,7 +4,7 @@
 
 .ui.message {
   border-color: currentColor;
-  border-left: @borderRadius solid;
+  border-left: (@borderRadius + 0.1) solid;
 
   a {
     color: currentColor;
@@ -13,5 +13,10 @@
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
     background: @transparentBlack;
+  }
+
+  * + &,
+  + * {
+    margin-top: @verticalRhythm2;
   }
 }

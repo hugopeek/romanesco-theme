@@ -6,7 +6,7 @@
     // Only apply to first level
     &:not(ul ul),
     &:not(ol ol) {
-        margin-bottom: @verticalRhythm2;
+        margin-top: @verticalRhythm2;
     }
 
     // Improve bullet styling (also depends on font being used)
@@ -25,6 +25,10 @@
         &:hover .edit.label {
             display: block;
         }
+    }
+
+    #content & + * {
+        margin-top: @verticalRhythm3;
     }
 }
 
