@@ -16,6 +16,10 @@
     }
 }
 
+hr.ui.divider {
+    border: 0;
+}
+
 // Styles below are imported from default, otherwise borders won't display
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
