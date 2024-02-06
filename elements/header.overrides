@@ -32,6 +32,7 @@
             height: 2.2em !important;
             max-width: 2.2em !important;
             max-height: 2.2em !important;
+            padding: 0 !important;
         }
     }
 
@@ -120,7 +121,7 @@
     }
 
     &.inverted > .icon {
-        box-shadow: 0 0 0 0.1em rgba(255, 255, 255, 0.1) inset;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
     }
 }
 
