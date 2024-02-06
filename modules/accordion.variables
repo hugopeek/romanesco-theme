@@ -1,3 +1,7 @@
 /*******************************
            Accordion
 *******************************/
+
+@titleLineHeight: @lineHeight;
+
+@styledTitleColor: @mutedTextColor;
