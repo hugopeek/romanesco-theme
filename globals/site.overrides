@@ -231,10 +231,13 @@ li >,
         }
     }
 }
-.header:not(.icon):not(.sub) a:not(.inverted),
+.header:not(.sub) a:not(.inverted),
 a.header:not(.inverted),
 .menu:not(.tabular) a {
     text-decoration: none !important;
+}
+.ui.header .sub.header a {
+    text-decoration: underline !important;
 }
 
 // Link styling inside inverted segments
