@@ -173,6 +173,7 @@
             margin-bottom: @verticalRhythm1;
             padding-bottom: .6em;
             border-bottom: @borderWidth solid @borderColor;
+            display: block;
 
             + * {
                 clear: both;
