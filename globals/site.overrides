@@ -222,8 +222,8 @@ li >,
 .header.sub {
     a:not(.button):not(.image):not(.item):not(.label) {
         text-decoration: underline;
-        text-decoration-thickness: @linkBorderWidth;
-        text-decoration-style: @linkBorderStyle;
+        text-decoration-thickness: @linkBorderWidth !important;
+        text-decoration-style: @linkBorderStyle !important;
 
         &:hover {
             text-decoration-thickness: @linkBorderHoverWidth;
