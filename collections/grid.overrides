@@ -106,7 +106,6 @@
     }
 
     // Celled grids are also having issues
-    .ui.container .ui.stackable.celled.grid,
     .ui.container .ui.stackable.celled.grid {
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -118,9 +117,10 @@
         }
     }
 
-    // And pagination wrappers, and nested stackable grids...
+    // And pagination wrappers, and nested stackable grids, and CTAs...
     .ui.container > .pagination-wrapper .ui.stackable.grid,
-    .ui.container > .ui.stackable.grid .ui.stackable.grid {
+    .ui.container > .ui.stackable.grid .ui.stackable.grid,
+    .ui.container > .cta > .ui.stackable.grid:not(.celled) {
         > .column,
         > .row > .column {
             padding-left: 0 !important;
