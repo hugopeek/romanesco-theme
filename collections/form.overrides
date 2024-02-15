@@ -195,7 +195,6 @@
             }
         }
 
-        + .fieldset,
         + .segment {
             margin-top: @verticalRhythm3;
         }
@@ -205,6 +204,10 @@
     fieldset.submission {
         .button {
             margin-top: 0;
+        }
+        &.fieldset .recaptcha.badge {
+            right: 0;
+            bottom: 0;
         }
     }
 
@@ -250,6 +253,24 @@
     .g-recaptcha,
     .recaptcha.help {
         margin-bottom: @verticalRhythm1;
+    }
+
+    // Recaptcha v3 icon
+    .recaptcha.badge {
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+
+        > img {
+            width: 12vw;
+            max-width: 3.6em;
+            opacity: .6;
+
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
     }
 
     // Reduce padding on mobile
@@ -310,7 +331,7 @@
     }
 }
 
-// Hide Recaptcha badge
+// Hide official Recaptcha badge
 .grecaptcha-badge {
     visibility: hidden;
 }
