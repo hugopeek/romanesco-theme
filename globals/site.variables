@@ -270,6 +270,15 @@
 @paragraphLineHeight : @lineHeight;
 
 /*-------------------
+     Lead text
+      (CUSTOM)
+--------------------*/
+
+@leadMargin          : 0 0 @verticalRhythm2;
+@leadFontSize        : (@scaleRatio * 1em);
+@leadLineHeight      : (@lineHeight + 0.1);
+
+/*-------------------
        Links
 --------------------*/
 
