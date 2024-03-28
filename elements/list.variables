@@ -5,4 +5,5 @@
 // Fix hover color not being inverted
 @invertedItemLinkHoverColor: @invertedLinkListItemHoverColor;
 
+@itemLineHeight: @lineHeight;
 @bulletDistance: 1.2rem;

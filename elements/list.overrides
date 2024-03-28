@@ -4,8 +4,8 @@
 
 .ui.list {
     // Only apply to first level
-    &:not(ul ul),
-    &:not(ol ol) {
+    &:not(.overview):not(ul ul),
+    &:not(.overview):not(ol ol) {
         margin-top: @verticalRhythm2;
     }
 
