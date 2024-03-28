@@ -226,8 +226,8 @@ li >,
         text-decoration-style: @linkBorderStyle !important;
 
         &:hover {
-            text-decoration-thickness: @linkBorderHoverWidth;
-            text-decoration-style: @linkBorderHoverStyle;
+            text-decoration-thickness: @linkBorderHoverWidth !important;
+            text-decoration-style: @linkBorderHoverStyle !important;
         }
     }
 }
@@ -294,18 +294,17 @@ svg.hidden {
 // ---------------------------------------------------------------------
 
 p {
-    margin: 0 0 @verticalRhythm1p5;
     font-weight: @normal;
 }
 
 .lead {
     margin-bottom: @verticalRhythm2;
-    font-size: @scaleRatio * 1em !important;
-    line-height: (@lineHeight + 0.1) !important;
+    font-size: @leadFontSize !important;
+    line-height: @leadLineHeight !important;
 
     // Reduce font size on mobile
     @media only screen and (max-width: @largestMobileScreen) {
-        font-size: @scaleRatio * .8em !important;
+        font-size: (@leadFontSize * .8em) !important;
     }
 }
 .lead,
