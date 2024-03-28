@@ -266,7 +266,7 @@
       Paragraph
 --------------------*/
 
-@paragraphMargin     : 0em 0em @scaleRatio * 1em;
+@paragraphMargin     : 0 0 @verticalRhythm1p5;
 @paragraphLineHeight : @lineHeight;
 
 /*-------------------
