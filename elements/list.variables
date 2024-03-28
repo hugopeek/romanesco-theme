@@ -5,5 +5,10 @@
 // Fix hover color not being inverted
 @invertedItemLinkHoverColor: @invertedLinkListItemHoverColor;
 
+// Follow default line height
 @itemLineHeight: @lineHeight;
 @bulletDistance: 1.2rem;
+
+// Top aligned icons appear to be too high
+@iconVerticalAlign: middle;
+@iconContentVerticalAlign: middle;
