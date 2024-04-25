@@ -20,12 +20,12 @@
     & + * {
         margin-top: @verticalRhythm2;
     }
-    * + &.expanded,
-    &.expanded + * {
+    * + &.spaced,
+    &.spaced + * {
         margin-top: @verticalRhythm3;
     }
-    * + &[class*="very expanded"],
-    &[class*="very expanded"] + * {
+    * + &[class*="very spaced"],
+    &[class*="very spaced"] + * {
         margin-top: @verticalRhythm5;
     }
 }
