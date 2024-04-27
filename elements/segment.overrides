@@ -97,9 +97,19 @@
     border: none;
 }
 
-// Ensure correct layering with stacked backgrounds
+// Global backgrounds
 .ui.background.segment {
-    z-index: 0;
+    z-index: 0; // Ensure correct layering with stacked backgrounds
+
+    > .credits {
+        z-index: -1;
+
+        position: absolute;
+        right: .8em;
+        bottom: .3em;
+        opacity: .3;
+        font-size: .8em;
+    }
 }
 
 // Specific content types
