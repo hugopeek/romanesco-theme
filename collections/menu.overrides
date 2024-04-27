@@ -56,6 +56,12 @@
         }
     }
 
+    // Avoid fluid container sticking to edges
+    > .fluid.container {
+        margin-left: @gridGutterWidth;
+        margin-right: @gridGutterWidth;
+    }
+
     // Make sure width is set to 100% on mobile
     // @todo: is this a bug?
     > .container {
