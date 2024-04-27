@@ -120,7 +120,7 @@
         margin-right: 0 !important;
     }
 
-    &.inverted > .icon {
+    &.inverted > .circular.icon {
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
     }
 }
