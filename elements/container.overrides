@@ -18,6 +18,12 @@
     }
 }
 
+// Make sure fluid menu containers do have some margins
+#menu > .ui.fluid.container {
+    margin-left: @gridGutterWidth;
+    margin-right: @gridGutterWidth;
+}
+
 // Inflate text for optimal readability in text containers and templates
 body.readability #content .ui.container,
 .ui.text.container:not(.conventional) {
