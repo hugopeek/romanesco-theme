@@ -7,7 +7,31 @@
         box-shadow: @raisedBoxShadow;
     }
     &.lightbox {
-        cursor: pointer;
+        // In order for lightbox images to be correctly clipped when enlarged on
+        // hover, the caption needs to be positioned relative to the grandparent.
+        position: initial;
+        overflow: hidden;
+
+        // Caption is placed under the image
+        &:not(.card) > figcaption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        // Zoom effect on hover, to suggest the image can be enlarged
+        img {
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover,
+            &:focus {
+                transform: scale(1.2);
+            }
+        }
+
+
     }
     &.video {
         height: auto;
@@ -16,11 +40,10 @@
     .caption,
     figcaption,
     + figcaption {
-        margin-top: @verticalRhythm1;
+        margin-top: 0;
     }
 
     .credits {
-        float: right;
         font-style: normal;
     }
 }
