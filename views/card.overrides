@@ -81,6 +81,18 @@
     }
 }
 
+.ui.lightbox.card {
+    position: relative;
+    cursor: pointer;
+
+    > .content {
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+        background: @white;
+    }
+}
+
 .ui.horizontal.cards .card,
 .ui.card.horizontal {
     > .content {
