@@ -12,7 +12,7 @@
         position: initial;
         overflow: hidden;
 
-        // Caption is placed under the image
+        // Caption is absolutely positioned below regular images
         &:not(.card) > figcaption {
             position: absolute;
             left: 0;
@@ -24,14 +24,13 @@
         img {
             cursor: pointer;
             transition: all .2s;
-
-            &:hover,
-            &:focus {
+        }
+        &:hover,
+        &:focus {
+            img {
                 transform: scale(1.2);
             }
         }
-
-
     }
     &.video {
         height: auto;
