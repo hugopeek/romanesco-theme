@@ -1,3 +1,15 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.modal.overlay {
+    &.fullscreen > .ui.grid {
+        height: 100vh;
+    }
+
+    figcaption {
+        font-size: 1.5rem;
+    }
+}
+
+// More modal adjustments in swiper.less
