@@ -2,11 +2,7 @@
              Icon
 *******************************/
 
-/* --------------
-   Font Files
---------------- */
-
-/* Solid Icons */
+// Fonts
 @importIcons: true;
 @fontName: "icons";
 @outlineFontName: "outline-icons";
@@ -34,7 +30,20 @@
   };
 };
 
-/* Icon Variables */
+// Circular icons
 @circularSize: 3em;
 @circularPadding: 1em 0;
 @circularShadow: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
+
+// Fix in/out naming conflicts
+@icon-deprecated-map: {
+  linkedin-in: "\f0e1";
+  zoom-in: "\f00e";
+  zoom-out: "\f010";
+  sign-in: "\f2f6";
+  in-cart: "\f218";
+  log-out: "\f2f5";
+  sign-out: "\f2f5";
+  sign-in_alternate: "\f2f6";
+  sign-out_alternate: "\f2f5";
+};

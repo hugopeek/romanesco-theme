@@ -22,7 +22,7 @@
 @variationIconBrand: false;
 @variationIconDuotone: false;
 @variationIconThin: false;
-@variationIconDeprecated: false;
+@variationIconDeprecated: true;
 
 /* Input */
 @variationInputLoading: false;
