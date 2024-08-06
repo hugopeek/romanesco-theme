@@ -7,3 +7,10 @@ i.icon > svg {
   width: 1.1em;
   margin: -0.2em 0; // verrrry scientific
 }
+
+// MODX icons in pattern library
+.ui.list .small.modx.icon {
+  height: calc(2em - 3px) !important;
+  width: calc(2em - 3px) !important;
+  padding: calc(.5em - 2px) !important;
+}
