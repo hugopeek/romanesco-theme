@@ -8,11 +8,14 @@
         margin-bottom: @verticalRhythm2;
     }
 
-    // Remove top margin for celled grids
+    // Remove top margin and border for celled grids
     &.celled {
         margin-top: 0;
         border-radius: @roundedBorderRadius;
-        overflow: hidden;
+
+        > .row:first-child {
+            box-shadow: none;
+        }
     }
 
     // Use flexible top margin to set nested grids apart
