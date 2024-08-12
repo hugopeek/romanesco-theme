@@ -6,6 +6,9 @@
     &.fullscreen > .ui.grid {
         height: 100vh;
     }
+    &.fullscreen .ui.image img {
+        max-height: 100vh;
+    }
 
     figcaption {
         font-size: 1.5rem;
