@@ -92,7 +92,11 @@ $('.ui.dropdown:not(.multiple).with.other')
 $('.ui.multiple.dropdown.with.other')
     .dropdown({
         fullTextSearch: true,
-        allowAdditions: true
+        allowAdditions: true,
+        hideAdditions: false,
+        className: {
+            addition: 'stuck addition'
+        }
     })
 ;
 
