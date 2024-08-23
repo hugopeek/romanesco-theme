@@ -42,9 +42,9 @@ body.readability #content .ui.container,
     > p:not(.meta) {
         margin-top: @verticalRhythm3;
     }
-    > blockquote {
+    > blockquote,
+    > blockquote + * {
         margin-top: @verticalRhythm5 !important;
-        margin-bottom: @verticalRhythm5 !important;
     }
     > .ui.divider {
         margin: @verticalRhythm3 0;
