@@ -45,8 +45,14 @@
     .credits {
         font-style: normal;
     }
+
+    // Offset content below
+    .content & + * {
+        margin-top: @verticalRhythm3;
+    }
 }
 
+// Circular image links
 a.circular.image > img {
     border: 6px solid @darkWhite;
     &:hover {
@@ -54,6 +60,37 @@ a.circular.image > img {
     }
 }
 
+// Fade in lazy loading images
+img.lazy {
+    opacity: 0;
+
+    &:not(.initial) {
+        transition: opacity 1s;
+    }
+    &.initial,
+    &.loaded,
+    &.error {
+        opacity: 1;
+    }
+}
+
+// SVGs
+svg {
+    fill: currentColor; // Takes the fill color of its container
+
+    // Hide in sprite
+    &.hidden {
+        display: none;
+    }
+
+    // Respect dimensions of image container
+    .ui.svg.image & {
+        width: 100%;
+        height: auto;
+    }
+}
+
+// Specific scenarios
 .testimonial {
     &.column:not(.logo) .image {
         @media only screen and (max-width: @largestMobileScreen) {

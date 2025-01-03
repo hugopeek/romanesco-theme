@@ -258,38 +258,6 @@ a.inverted:not(.button):not(.boxed) {
 }
 
 
-// Images & SVGs
-// ---------------------------------------------------------------------
-
-.image {
-    // Isolate content images and offset from element below
-    &.content + * {
-        margin-top: @verticalRhythm3;
-    }
-}
-
-// Fade in lazy loading images
-img.lazy {
-    opacity: 0;
-
-    &:not(.initial) {
-        transition: opacity 1s;
-    }
-    &.initial,
-    &.loaded,
-    &.error {
-        opacity: 1;
-    }
-}
-
-svg {
-    fill: currentColor; // Takes the fill color of its container
-}
-svg.hidden {
-    display: none; // This SVG is probably used as sprite
-}
-
-
 // Content elements
 // ---------------------------------------------------------------------
 
@@ -421,11 +389,11 @@ figcaption {
         footer { font-size: @scaleRatio * @big; }
     }
     &.huge {
-        p, & { font-size: @h1 *  @scaleRatio !important; }
+        p, & { font-size: @h1 * @scaleRatio !important; }
         footer { font-size: @scaleRatio * @huge; }
     }
     &.massive {
-        p, & { font-size: @h1 *  @scaleRatio * @scaleRatio !important; }
+        p, & { font-size: @h1 * @scaleRatio * @scaleRatio !important; }
         footer { font-size: @scaleRatio * @massive; }
     }
 
