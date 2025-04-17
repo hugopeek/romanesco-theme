@@ -120,6 +120,21 @@
         margin-right: 0 !important;
     }
 
+    // Bit of a hack, to wrap the icon in a link tag
+    > a.icons {
+        display: inline-block;
+        font-size: @circularHeaderIconSize;
+
+        > .icon {
+            margin: 0;
+            color: @textColor;
+            transition: box-shadow, .2s;
+        }
+        &:hover > .icon {
+            box-shadow: 0 0 0 2px @linkColor inset;
+        }
+    }
+
     &.inverted > .circular.icon {
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
     }
