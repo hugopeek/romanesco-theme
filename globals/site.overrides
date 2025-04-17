@@ -413,6 +413,19 @@ blockquote,
     }
 }
 
+// Add vertical space on request
+#content {
+    * + .spaced,
+    .spaced + * {
+        margin-top: @verticalRhythm3;
+    }
+    * + [class*="very spaced"],
+    [class*="very spaced"] + * {
+        margin-top: @verticalRhythm5;
+    }
+}
+
+// CTAs
 #content {
     //.cta {
     //    display: flex;

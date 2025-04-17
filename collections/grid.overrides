@@ -35,14 +35,6 @@
     & + * {
         margin-top: @verticalRhythm2;
     }
-    * + &.spaced,
-    &.spaced + * {
-        margin-top: @verticalRhythm3;
-    }
-    * + &[class*="very spaced"],
-    &[class*="very spaced"] + * {
-        margin-top: @verticalRhythm5;
-    }
 }
 
 .ui.overview.grid {
