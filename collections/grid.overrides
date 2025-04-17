@@ -18,6 +18,18 @@
         }
     }
 
+    // Fix border collapse in vertically aligned celled grids
+    &.celled {
+        &.middle.aligned > .row > .column {
+            align-self: stretch !important;
+            align-content: center;
+        }
+        &.bottom.aligned > .row > .column {
+            align-self: stretch !important;
+            align-content: flex-end;
+        }
+    }
+
     // Use flexible top margin to set nested grids apart
     * + &,
     & + * {
