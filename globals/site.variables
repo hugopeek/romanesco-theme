@@ -403,6 +403,10 @@
 @greyBackground          : #F4F4F4;
 @blackBackground         : #F4F4F4;
 
+/* CUSTOM */
+@primaryBackgroundInverted      : @primaryColor;
+@secondaryBackgroundInverted    : @secondaryColor;
+
 /*--- Colored Headers ---*/
 @primaryHeaderColor      : darken(@primaryTextColor, 5);
 @secondaryHeaderColor    : darken(@secondaryTextColor, 5);
