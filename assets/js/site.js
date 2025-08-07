@@ -73,10 +73,11 @@ $(function() {
     var $menu = $("#menu.sticky");
     var $header = $("#header.sticky");
     var mastheadHeight = $("#masthead").height() || 0;
+    var offset = mastheadHeight + 50;
+
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
-
-        if (scroll >= mastheadHeight + 50) {
+        if (scroll > offset) {
             $menu.addClass("tightened");
             $header.addClass("beam-me-up");
         } else {
@@ -84,6 +85,12 @@ $(function() {
             $header.removeClass("beam-me-up");
         }
     });
+
+    // Check scroll position on page load
+    if ($(window).scrollTop() > offset) {
+        $menu.addClass("tightened");
+        $header.addClass("beam-me-up");
+    }
 });
 
 // Dropdown navigation
