@@ -104,18 +104,18 @@ body:after {
 // General classes to apply a background color directly to an element
 // @todo: This should actually be primary-background for background colors, so primary-color can be used for text color.
 .primary-color {
-    background-color: @lightPrimaryColor !important;
+    background: @primaryBackground !important;
 
     &.inverted {
-        background-color: @primaryColor !important;
+        background: @primaryBackgroundInverted !important;
         color: @white !important;
     }
 }
 .secondary-color {
-    background-color: @lightSecondaryColor !important;
+    background: @secondaryBackground !important;
 
     &.inverted {
-        background-color: @secondaryColor !important;
+        background: @secondaryBackgroundInverted !important;
         color: @white !important;
     }
 }
