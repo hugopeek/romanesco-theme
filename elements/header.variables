@@ -14,6 +14,10 @@
 @h5SubHeaderFontSize: (@h6SubHeaderFontSize * @subHeaderScaleRatio);
 @h6SubHeaderFontSize: @shadowFontSize;
 
+// CUSTOM
+// Improve multi-line text flow
+@headerTextWrap: balance;
+
 // Icon Header
 @iconHeaderSize: 2em;
 @iconHeaderOpacity: 0.8;

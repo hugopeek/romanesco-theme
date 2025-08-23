@@ -3,6 +3,8 @@
 *******************************/
 
 .ui.header {
+    text-wrap: @headerTextWrap;
+
     // Editors can choose to display headings without hierarchy
     span& {
         display: inline-block;
@@ -123,6 +125,7 @@
     // Swim up into the bottom margin of the above heading a little
     #content & + .subtitle {
         margin-top: -1em;
+        text-wrap: @headerTextWrap;
     }
     #content & + .description {
         margin-top: -.5em;
