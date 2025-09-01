@@ -101,9 +101,9 @@
 // Social share/connect buttons
 .social.buttons {
     display: inline-flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     > .ui.button {
-        margin-top: @verticalRhythm1;
+        margin-top: 0;
     }
 }

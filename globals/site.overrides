@@ -294,9 +294,14 @@ p {
     }
 }
 .meta {
-    .publication & > span {
-        display: inline-block;
-        margin-right: 1em;
+    .publication & {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+
+        > span {
+            margin-right: 1em;
+        }
     }
 }
 
