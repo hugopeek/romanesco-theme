@@ -15,18 +15,18 @@
     }
 
     // Layout fixes for cards with left floated image
-    > .content:not(.extra) > .column {
-        padding: 0 !important;
-        &:last-child {
-            padding-left: 1em !important;
-        }
-    }
-    > .extra {
-        .icon {
-            margin-top: 0.3em;
-        }
-        // @todo: Not clean. This margin is used to match the right floated button, but size of button may vary
-    }
+    //> .content:not(.extra) > .column {
+    //    padding: 0 !important;
+    //    &:last-child {
+    //        padding-left: 1em !important;
+    //    }
+    //}
+    //> .extra {
+    //    .icon {
+    //        margin-top: 0.3em;
+    //    }
+    //    // @todo: Not clean. This margin is used to match the right floated button, but size of button may vary
+    //}
 
     // Layout fixes for buttons
     > .bottom.attached.button:not(.primary):not(.secondary) {
