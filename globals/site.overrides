@@ -210,6 +210,16 @@ body.vertical.toc {
     }
 }
 
+// Articles
+body.publication.modern {
+    #author-bio {
+        margin-top: @verticalRhythm5;
+        .stretched.grid > .column > p:last-child {
+            flex: 0
+        }
+    }
+}
+
 
 // Links
 // ---------------------------------------------------------------------

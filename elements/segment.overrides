@@ -131,11 +131,6 @@
             border-top: 1px solid @borderColorFooter;
         }
     }
-    #author-bio& {
-        .stretched.grid > .column > p:last-child {
-            flex: 0
-        }
-    }
 }
 
 // Segment with a pointing arrow on one side, for indicating quoted content
