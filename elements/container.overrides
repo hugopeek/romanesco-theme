@@ -26,7 +26,7 @@
 
 // Inflate text for optimal readability in text containers and templates
 // @todo: move text properties to an inflated text class?
-body.readability #content .ui.container,
+body.modern #content .ui.container,
 .ui.text.container:not(.conventional) {
     > * {
         + h1,

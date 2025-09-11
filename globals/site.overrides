@@ -210,6 +210,16 @@ body.vertical.toc {
     }
 }
 
+// Articles
+body.publication.modern {
+    #author-bio {
+        margin-top: @verticalRhythm5;
+        .stretched.grid > .column > p:last-child {
+            flex: 0
+        }
+    }
+}
+
 
 // Links
 // ---------------------------------------------------------------------
@@ -294,9 +304,14 @@ p {
     }
 }
 .meta {
-    .publication & > span {
-        display: inline-block;
-        margin-right: 1em;
+    .publication & {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+
+        > span {
+            margin-right: 1em;
+        }
     }
 }
 
@@ -311,18 +326,19 @@ figcaption {
 .quote {
     width: max-content;
     max-width: 100%;
+    text-wrap: @quoteTextWrap;
 
     // Basic variant and regular blockquotes
     &.basic,
     blockquote:not(&) {
-        border-left: 5px solid;
-        border-color: @borderColor;
-        padding-left: 1em;
-        color: @mutedTextColor;
+        border-left: @quoteBorderWidth solid;
+        border-color: @quoteBorderColor;
+        padding-left: @quoteGutterWidth;
+        color: @quoteTextColor;
 
         .inverted & {
-            color: @invertedMutedTextColor;
-            border-color: @whiteBorderColor;
+            color: @quoteInvertedTextColor;
+            border-color: @quoteInvertedBorderColor;
         }
     }
 
@@ -333,17 +349,17 @@ figcaption {
     // With quotation marks before and after
     &:not(.basic) {
         position: relative;
-        padding: 0 3% 0 5%;
-        font-style: italic;
+        padding: @quotePadding;
+        font-style: @quoteFontStyle;
 
         &:before,
         &:after {
             position: absolute;
             z-index: 0;
-            font-size: 4rem;
-            font-weight: 600;
+            font-size: @quoteMarkFontSize;
+            font-weight: @quoteMarkFontWeight;
             line-height: 0;
-            opacity: 0.2;
+            opacity: @quoteMarkOpacity;
         }
         &:before {
             content: "\201C";

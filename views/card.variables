@@ -2,6 +2,8 @@
              Card
 *******************************/
 
+@metaSpacing: 0.5em;
+
 // Width of image column in horizontal cards
 @horizontalImageWidth: 13rem;
 

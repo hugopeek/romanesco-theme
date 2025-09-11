@@ -185,11 +185,15 @@
 @headerLineHeight  : 1.2;
 
 /* CUSTOM
+   Improve multi-line text flow
+*/
+@headerTextWrap    : balance;
+
+/* CUSTOM
    Calculate heading sizes based on font size and scale ratio.
    Shadow font size is used for calculating odd headings, to prevent the
    difference between font sizes from becoming too large.
 */
-
 @h1 : (@h3 * @scaleRatio);
 @h2 : (@h4 * @scaleRatio);
 @h3 : (@h5 * @scaleRatio);
@@ -292,6 +296,26 @@
 @linkBorderStyle          : dotted;
 @linkBorderHoverWidth     : @linkBorderWidth;
 @linkBorderHoverStyle     : solid;
+
+/*-------------------
+       Quotes
+      (CUSTOM)
+--------------------*/
+
+@quotePadding        : 0 3% 0 5%;
+@quoteFontStyle      : italic;
+@quoteTextColor      : @mutedTextColor;
+@quoteTextWrap       : balance;
+@quoteBorderColor    : @borderColor;
+@quoteBorderWidth    : 5px;
+@quoteGutterWidth    : 1em;
+
+@quoteInvertedTextColor   : @invertedMutedTextColor;
+@quoteInvertedBorderColor : @whiteBorderColor;
+
+@quoteMarkFontSize   : 4rem;
+@quoteMarkFontWeight : 600;
+@quoteMarkOpacity    : 0.2;
 
 /*-------------------
   Highlighted Text
