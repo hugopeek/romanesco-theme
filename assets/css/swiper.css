@@ -340,6 +340,9 @@
   Page Heading
 ---------------*/
 /* CUSTOM
+   Improve multi-line text flow
+*/
+/* CUSTOM
    Calculate heading sizes based on font size and scale ratio.
    Shadow font size is used for calculating odd headings, to prevent the
    difference between font sizes from becoming too large.
@@ -377,6 +380,10 @@
 --------------------*/
 /* CUSTOM */
 /*-------------------
+       Quotes
+      (CUSTOM)
+--------------------*/
+/*-------------------
   Highlighted Text
 --------------------*/
 /*-------------------
@@ -402,6 +409,7 @@
 /*---  Light Colors  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
+/* CUSTOM */
 /*--- Colored Headers ---*/
 /*--- Colored Text ---*/
 /*--- Light Colored Text ---*/
@@ -548,6 +556,15 @@ body.dimmed.scrolling > .dimmer {
 .swiper.fullscreen > .swiper-wrapper > .ui.vertical.stripe.segment {
   display: flex;
   align-items: center;
+}
+.swiper.parallax > .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 .swiper-mobile:not(.swiper-initialized) .swiper-button-prev,
 .swiper-mobile:not(.swiper-initialized) .swiper-button-next,
