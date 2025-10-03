@@ -54,9 +54,9 @@
 
 // Circular image links
 a.circular.image > img {
-    border: 6px solid @darkWhite;
+    border: @circularBorder;
     &:hover {
-        border-color: @primaryColor;
+        border: @circularBorderHover;
     }
 }
 
