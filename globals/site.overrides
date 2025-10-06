@@ -380,6 +380,13 @@ figcaption {
         margin-top: @verticalRhythm3 !important;
     }
 
+    // Alignment options
+    &.centered {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     // Sizing options
     p, & { font-size: @h3 !important; }
     footer { font-size: @scaleRatio * @fontSize; }
