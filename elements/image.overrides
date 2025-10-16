@@ -52,6 +52,31 @@
     }
 }
 
+// Snapped and inflated images
+.ui.snapped.image {
+    @media only screen and (min-width: @computerBreakpoint) {
+        &[class*="top snapped"] {
+            margin-top: calc(@verticalRhythm-5 - 1rem);
+        }
+        &[class*="bottom snapped"] {
+            margin-bottom: calc(@verticalRhythm-5 - 1rem);
+        }
+    }
+}
+.ui.inflated.image {
+    @media only screen and (min-width: @tabletBreakpoint) {
+        max-width: none;
+        width: 150%;
+        float: right;
+
+        // Reverse float for right aligned images
+        .reversed > .column > &,
+        :not(.reversed) > .column:last-child > & {
+            float: left;
+        }
+    }
+}
+
 // Circular image links
 a.circular.image > img {
     border: @circularBorder;

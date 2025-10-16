@@ -176,7 +176,7 @@
             font-size: @h1; // reset reduced mobile font size
 
             + .subtitle {
-                margin-top: calc(var(--baseline) * -1rem) !important;
+                margin-top: @verticalRhythm-1 !important;
                 margin-bottom: @verticalRhythm3;
             }
 
@@ -193,7 +193,7 @@
             font-size: @h2;
 
             + .subtitle {
-                margin-top: calc(var(--baseline) * -1.5rem) !important;
+                margin-top: @verticalRhythm-1a !important;
                 margin-bottom: @verticalRhythm3;
             }
 

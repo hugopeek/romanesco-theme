@@ -89,7 +89,7 @@
 
     // Error messages
     .ui.error.message {
-        margin: 0 0 @verticalRhythm1p5;
+        margin: @paragraphMargin;
 
         a {
             color: @formErrorColor;

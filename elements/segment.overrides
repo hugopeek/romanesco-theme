@@ -264,41 +264,9 @@
 }
 
 // Segment containing an image that needs to be snapped to one of the edges
-.ui.snapped.segment {
+.ui.snapping.segment {
     @media only screen and (min-width: @computerBreakpoint) {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
         overflow: hidden;
-
-        // Give the first grid inside some negative margin, to cut off the bottom of the image
-        > .container > .grid {
-            margin-top: -2rem;
-            margin-bottom: -2rem;
-
-            // Counter the negative margin of the grid to stay middle aligned
-            //&.middle.aligned > .main.column {
-            //    margin-top: -2rem;
-            //}
-        }
-    }
-}
-
-// Segment containing an image that needs to be inflated beyond its containers' dimensions
-.ui.inflated.segment {
-    @media only screen and (min-width: @tabletBreakpoint) {
-        > .container > .grid,
-        > .container > .grid > .row {
-            > .column > .image {
-                max-width: none;
-                width: 150%;
-                float: right;
-            }
-
-            // Reverse float to align image with correct edge
-            &.reversed > .column > .image {
-                float: left;
-            }
-        }
     }
 }
 

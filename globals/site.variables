@@ -270,7 +270,7 @@
       Paragraph
 --------------------*/
 
-@paragraphMargin     : 0 0 @verticalRhythm1p5;
+@paragraphMargin     : 0 0 @verticalRhythmParagraph;
 @paragraphLineHeight : @lineHeight;
 
 /*-------------------
@@ -350,14 +350,23 @@
 */
 
 @verticalRhythmBaseline: 1 * @scaleRatio * @scaleRatio;
+@verticalRhythmParagraph: @verticalRhythm1a;
 
 @verticalRhythm1    : calc(var(--baseline) * 1rem);
-@verticalRhythm1p5  : calc(var(--baseline) * 1.5rem);
+@verticalRhythm1a   : calc(var(--baseline) * 1.5rem);
 @verticalRhythm2    : calc(var(--baseline) * 2rem);
 @verticalRhythm3    : calc(var(--baseline) * 3rem);
 @verticalRhythm5    : calc(var(--baseline) * 5rem);
 @verticalRhythm8    : calc(var(--baseline) * 8rem);
 @verticalRhythm13   : calc(var(--baseline) * 13rem);
+
+@verticalRhythm-1   : calc(var(--baseline) * -1rem);
+@verticalRhythm-1a  : calc(var(--baseline) * -1.5rem);
+@verticalRhythm-2   : calc(var(--baseline) * -2rem);
+@verticalRhythm-3   : calc(var(--baseline) * -3rem);
+@verticalRhythm-5   : calc(var(--baseline) * -5rem);
+@verticalRhythm-8   : calc(var(--baseline) * -8rem);
+@verticalRhythm-13  : calc(var(--baseline) * -13rem);
 
 /*-------------------
      Breakpoints
