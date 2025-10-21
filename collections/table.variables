@@ -5,3 +5,5 @@
 @shadowDistance: 1px;
 @shadowBoxShadow: 0 @shadowDistance 3px 0 @solidBorderColor;
 @borderShadow: 0 0 0 @borderWidth @solidBorderColor;
+
+@variationTableColors: primary, secondary, red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, black;
