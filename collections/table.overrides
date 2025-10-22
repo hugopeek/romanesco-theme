@@ -88,8 +88,17 @@
     }
 
     // Allow links to be clickable in disabled rows
-    tr.disabled td {
+    tr.disabled td,
+    td.disabled {
         pointer-events: visible !important;
+    }
+
+    // Resource published status / menu visibility
+    .hidemenu {
+        font-style: italic;
+    }
+    .unpublished {
+        opacity: .5;
     }
 
     // Add hidden values inside fields to enable sorting
@@ -119,6 +128,13 @@
             + a.label {
                 right: 2.1em;
             }
+        }
+    }
+
+    // Tasks are presented as list
+    td.tasks {
+        a {
+            color: inherit;
         }
     }
 
