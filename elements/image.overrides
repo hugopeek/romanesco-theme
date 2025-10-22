@@ -69,6 +69,11 @@
         width: 150%;
         float: right;
 
+        // Amplify effect
+        &[class*="very inflated"] {
+            width: 210%;
+        }
+
         // Reverse float for right aligned images
         .reversed > .column > &,
         :not(.reversed) > .column:last-child > & {
