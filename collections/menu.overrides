@@ -374,9 +374,11 @@
     border-left: 0;
     border-right: 0;
     margin: 0 0 -1px 0;
+    position: relative;
 
     .item {
         padding: @verticalRhythm5 1em !important;
+        text-wrap: balance;
 
         &:not(:hover) {
             color: @lightTextColor;
@@ -404,6 +406,27 @@
             > .icon {
                 margin: 0.1em 0 0 .8em;
             }
+        }
+    }
+
+    .up.button {
+        position: absolute;
+        top: calc(50% - 1.8rem);
+        z-index: 999;
+        background: #fff;
+
+        ~ .item.left {
+            padding-right: 5rem !important;
+        }
+        ~ .item.right {
+            padding-left: 5rem !important;
+        }
+
+        @media only screen and (max-width: @largestMobileScreen) {
+            left: 0;
+            right: 0;
+            margin: 0 auto !important;
+            width: fit-content;
         }
     }
 }
