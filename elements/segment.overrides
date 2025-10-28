@@ -126,6 +126,20 @@
     }
     #footer& {
         padding: 0;
+        font-size: @footerFontSize;
+
+        .ui.tiny.header,
+        .ui.regular.header {
+            font-size: @footerFontSize;
+        }
+
+        .ui.list {
+            &:not(.horizontal) .item {
+                width: max-content;
+                max-width: 100%;
+            }
+        }
+
         > .container:last-child {
             padding: @verticalRhythm2 0;
             border-top: 1px solid @borderColorFooter;

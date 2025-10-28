@@ -502,19 +502,6 @@ blockquote,
 // Footer
 // ---------------------------------------------------------------------
 
-#footer {
-    p {
-        font-size: 1rem;
-    }
-
-    .ui.list {
-        &:not(.horizontal) .item {
-            width: max-content;
-            max-width: 100%;
-        }
-    }
-}
-
 #qredits {
     a.image {
         width: 2rem;
@@ -530,16 +517,6 @@ blockquote,
             }
         }
     }
-    //.ui.popup {
-    //    width: 200px;
-    //
-    //    p {
-    //        margin-bottom: 1em;
-    //    }
-    //    a.button + a.button {
-    //        margin-top: .5em;
-    //    }
-    //}
 }
 
 

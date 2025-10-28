@@ -5,3 +5,4 @@
 @basicBorderRadius: @defaultBorderRadius;
 
 @borderColorFooter: @whiteBorderColor;
+@footerFontSize: 1rem;
