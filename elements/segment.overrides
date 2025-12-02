@@ -300,6 +300,12 @@
             display: block;
         }
     }
+    .toolbar.grid {
+        .ui.icon.button {
+            margin-top: 0;
+            margin-left: .5em;
+        }
+    }
 }
 
 // Segment for demonstrating pattern design and behaviour in backyard area
