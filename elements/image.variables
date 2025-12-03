@@ -10,3 +10,6 @@
 /* Custom circular border */
 @circularBorder: 6px solid @darkWhite;
 @circularBorderHover: 6px solid @primaryColor;
+
+/* Custom image zoom */
+@imageZoomScaleFactor: 1.1;
