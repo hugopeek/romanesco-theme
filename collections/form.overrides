@@ -249,9 +249,10 @@
         }
     }
 
-    // Recaptcha v2 checkbox & v3 legal notice
+    // Recaptcha / Turnstile
     .g-recaptcha,
-    .recaptcha.help {
+    .recaptcha.help,
+    .cf-turnstile {
         margin-bottom: @verticalRhythm1;
     }
 
