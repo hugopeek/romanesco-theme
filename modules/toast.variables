@@ -1,0 +1,8 @@
+/*******************************
+            Toast
+*******************************/
+
+@toastWidth: 380px;
+
+@mobileToastBreakpoint: 420px;
+@mobileWidth: auto;
