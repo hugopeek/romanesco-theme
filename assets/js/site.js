@@ -74,23 +74,39 @@ $(function() {
     var $header = $("#header.sticky");
     var mastheadHeight = $("#masthead").height() || 0;
     var offset = mastheadHeight + 50;
+    var scrolling = false;
+    var lastScrollY = 0;
 
-    $(window).scroll(function() {
+    function handleScroll() {
         var scroll = $(window).scrollTop();
+        lastScrollY = scroll;
+
         if (scroll > offset) {
-            $menu.addClass("tightened");
-            $header.addClass("beam-me-up");
+            if (!$menu.hasClass("tightened")) {
+                $menu.addClass("tightened");
+                $header.addClass("beam-me-up");
+            }
         } else {
-            $menu.removeClass("tightened");
-            $header.removeClass("beam-me-up");
+            if ($menu.hasClass("tightened")) {
+                $menu.removeClass("tightened");
+                $header.removeClass("beam-me-up");
+            }
         }
-    });
+
+        scrolling = false;
+    }
+
+    // Request animation frame for smooth performance
+    function onScroll() {
+        if (!scrolling) {
+            window.requestAnimationFrame(handleScroll);
+            scrolling = true;
+        }
+    }
+    $(window).on('scroll', onScroll);
 
     // Check scroll position on page load
-    if ($(window).scrollTop() > offset) {
-        $menu.addClass("tightened");
-        $header.addClass("beam-me-up");
-    }
+    handleScroll();
 });
 
 // Dropdown navigation
