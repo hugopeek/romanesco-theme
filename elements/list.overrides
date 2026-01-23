@@ -45,9 +45,21 @@
 .ui.vertical.list {
     margin-left: 0;
 
-    > li:before {
+    > li:before,
+    > .item:before {
         display: block;
         position: relative;
         text-align: center;
+        margin-left: 0;
+    }
+    > .item > .icon {
+        display: block;
+        width: auto;
+        padding: 0 !important;
+
+        + .content {
+            display: block;
+            padding: .5em 0 0;
+        }
     }
 }
