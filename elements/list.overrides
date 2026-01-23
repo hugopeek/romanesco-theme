@@ -4,10 +4,11 @@
 
 .ui.list {
     // Only apply to first level
-    #content &:not(.overview):not(ul ul),
-    #content &:not(.overview):not(ol ol) {
-        margin-top: @verticalRhythm2;
-    }
+    // @todo: Conditions still way too generic, quickly causing unwanted top margin
+    //#content &:not(.overview):not(ul ul),
+    //#content &:not(.overview):not(ol ol) {
+    //    margin-top: @verticalRhythm2;
+    //}
 
     // Improve bullet styling (also depends on font being used)
     ul& li:before {
