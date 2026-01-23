@@ -547,6 +547,11 @@ var queries = [
 
             // Move ToC items to dropdown
             $('[id*="menu"].toc .item').appendTo('#dropdown-toc.mobile .menu');
+
+            // Apply vertical class to lists in stacked + centered grids
+            $('.ui.stackable.grid[class*="center when stacked"] .ui.list:not(.vertical)')
+                .addClass('vertical when stacked')
+            ;
         },
         unmatch: function() {
             // Revert tabs back to normal
@@ -617,6 +622,11 @@ var queries = [
 
             // Restore buttons
             $('.publication .back.button .fitted.icon').removeClass('fitted');
+
+            // Restore vertical lists
+            $('.ui.list[class*="vertical when stacked"]')
+                .removeClass('vertical when stacked')
+            ;
         }
     },
     {
@@ -632,7 +642,7 @@ var queries = [
                 .removeClass('grid')
             ;
 
-            // Move ToC items to dropdown (
+            // Move ToC items to dropdown
             $('[id*="menu"].toc .item').appendTo('#dropdown-toc.tablet .menu');
         },
         unmatch: function () {
@@ -646,6 +656,21 @@ var queries = [
 
             // Return ToC items to original container
             $('#dropdown-toc .menu .item').appendTo('[id*="menu"].toc');
+        }
+    },
+    {
+        context: ['tablet'],
+        match: function () {
+            // Apply vertical class to lists in stacked + centered on tablet grids
+            $('.ui.stackable.on.tablet.grid[class*="center when stacked"] .ui.list:not(.vertical)')
+                .addClass('vertical when stacked on tablet')
+            ;
+        },
+        unmatch: function () {
+            // Restore vertical lists
+            $('.ui.list[class*="vertical when stacked"]')
+                .removeClass('vertical when stacked on tablet')
+            ;
         }
     },
     {
