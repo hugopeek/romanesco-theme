@@ -52,6 +52,16 @@
     }
 }
 
+// Provide spaced classes for cards container
+* + .ui.spaced.cards,
+.ui.spaced.cards + * {
+    margin-top: @verticalRhythm3;
+}
+* + .ui[class*="very spaced"].cards,
+.ui[class*="very spaced"].cards + * {
+    margin-top: @verticalRhythm5;
+}
+
 // Fix margins for single cards and stackable cards in single column mode
 .ui.one.cards > .card {
     margin-left: 0;
