@@ -225,27 +225,8 @@
 
     // AjaxUpload fields
     .file-upload.field {
-        > label {
-            margin-bottom: @verticalRhythm1;
-            vertical-align: baseline;
-        }
-
-        // Dropzone (hides after first drop, but reappears on hover)
-        .qq-upload-drop-area {
-            border: 5px dashed @borderColor;
-
-            &-active {
-                border-color: @focusedFormMutedBorderColor;
-            }
-        }
-
-        // List of uploaded items (only appears in DOM after adding items)
-        .file-uploader-items {
-            margin: 0;
-
-            .item:last-child {
-                margin-bottom: @verticalRhythm2 !important;
-            }
+        .filepond--root {
+            margin-bottom: 0;
         }
     }
 
@@ -311,6 +292,12 @@
 
             .field:not(:last-child) {
                 margin: @fieldMargin;
+            }
+        }
+        .file-upload.field {
+            > label {
+                vertical-align: top;
+                padding-top: 0.5em;
             }
         }
     }
