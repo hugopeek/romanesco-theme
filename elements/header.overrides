@@ -19,7 +19,7 @@
                 margin-right: 0;
             }
             + .content {
-                margin-top: @verticalRhythm1;
+                margin-top: 0;
             }
         }
         > .svg {
