@@ -509,8 +509,8 @@
 .swiper-pagination.outside {
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
-  margin-top: calc(var(--baseline) * 2rem);
 }
 .swiper-pagination.outside .swiper-pagination-bullet {
   margin: 0 2px;
@@ -519,11 +519,14 @@ button[class*="swiper-button"] {
   border: none;
   background: none;
   height: 100%;
-  top: 0;
   bottom: 0;
   margin: 0;
-  width: 5vw;
+  align-self: stretch;
   min-width: 3rem;
+}
+button[class*="swiper-button"] > .swiper-navigation-icon {
+  min-width: 1.2rem;
+  max-width: 1.5vw;
 }
 @media screen and (min-width: 1300px) {
   button[class*="swiper-button"].outside {
@@ -532,6 +535,10 @@ button[class*="swiper-button"] {
 }
 .fullscreen.swiper button[class*="swiper-button"] {
   width: 8vw;
+}
+.fullscreen.swiper button[class*="swiper-button"] > .swiper-navigation-icon {
+  min-width: 1.5rem;
+  max-width: 2vw;
 }
 button[class*="swiper-button"]:hover {
   background: rgba(0, 0, 0, 0.03);

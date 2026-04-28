@@ -86,9 +86,8 @@
     &.outside {
         left: 0;
         right: 0;
-        //bottom: 1em;
+        bottom: 0;
         width: 100%;
-        margin-top: @verticalRhythm2;
 
         .swiper-pagination-bullet {
             margin: 0 2px;
@@ -101,12 +100,16 @@ button[class*="swiper-button"] {
     border: none;
     background: none;
     height: 100%;
-    top: 0;
     bottom: 0;
     margin: 0;
 
-    width: 5vw;
+    align-self: stretch;
     min-width: 3rem;
+
+    > .swiper-navigation-icon {
+        min-width: 1.2rem;
+        max-width: 1.5vw;
+    }
 
     &.outside {
         @media screen and (min-width: @largeMonitorBreakpoint) {
@@ -115,6 +118,10 @@ button[class*="swiper-button"] {
     }
     .fullscreen.swiper & {
         width: 8vw;
+        > .swiper-navigation-icon {
+            min-width: 1.5rem;
+            max-width: 2vw;
+        }
     }
 
     &:hover {
