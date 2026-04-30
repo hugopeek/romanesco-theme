@@ -481,6 +481,7 @@
   flex-wrap: initial;
   margin: 0;
   justify-content: normal;
+  height: auto;
 }
 .swiper-wrapper.ui.cards.nested,
 .swiper-wrapper.ui.grid.nested {
