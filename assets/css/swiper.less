@@ -99,43 +99,82 @@
 button[class*="swiper-button"] {
     border: none;
     background: none;
-    height: 100%;
     bottom: 0;
     margin: 0;
+    transition:
+        color 200ms,
+        background 200ms
+    ;
 
-    align-self: stretch;
-    min-width: 3rem;
-
-    > .swiper-navigation-icon {
-        min-width: 1.2rem;
-        max-width: 1.5vw;
+    &:hover {
+        color: inherit;
     }
 
+    // Stretch buttons to full height
+    &.stretched {
+        height: 100%;
+        align-self: stretch;
+
+        &.swiper-button-prev {
+            left: 0;
+        }
+        &.swiper-button-next {
+            right: 0;
+        }
+
+        &:hover {
+            background: @subtleTransparentBlack;
+        }
+    }
+
+    &.inside {
+        &.stretched {
+            min-width: 3rem;
+            width: 10%;
+        }
+    }
+
+    // Outside buttons are positioned along the left and right edge of the
+    //  closest relative parent container by default.
     &.outside {
         @media screen and (min-width: @largeMonitorBreakpoint) {
             width: 8vw;
         }
+
+        &.stretched {
+            min-width: 3rem;
+            width: 8vw;
+        }
+
+        // The outside compact variant keeps the buttons closer to the slider
+        //  container. This is useful if the relative parent container contains
+        //  other content too, which would pull the nav buttons out of alignment
+        //  with the slider.
+        &.compact {
+            @media screen and (min-width: @largeMonitorBreakpoint) {
+                width: 4vw;
+            }
+        }
     }
+
+    // Fullscreen sliders stretch across 100vw and 100vh
     .fullscreen.swiper & {
         width: 8vw;
+
         > .swiper-navigation-icon {
             min-width: 1.5rem;
             max-width: 2vw;
         }
     }
 
-    &:hover {
-        background: @subtleTransparentBlack;
-    }
     .inverted.swiper &:hover,
     .inverted.swiper + &:hover {
         background: @transparentWhite;
     }
-    &.swiper-button-prev {
-        left: 0;
-    }
-    &.swiper-button-next {
-        right: 0;
+
+    > .swiper-navigation-icon {
+        min-width: 1.2rem;
+        max-width: 1.5vw;
     }
 }
 
