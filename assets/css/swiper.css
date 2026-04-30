@@ -516,6 +516,15 @@
 .swiper-pagination.outside .swiper-pagination-bullet {
   margin: 0 2px;
 }
+.nested.slider.relative.pagination .swiper-pagination.outside {
+  bottom: -3rem;
+}
+.nested.slider.relative {
+  position: relative;
+}
+.nested.slider.relative.pagination {
+  margin-bottom: 5rem;
+}
 button[class*="swiper-button"] {
   border: none;
   background: none;
@@ -545,18 +554,21 @@ button[class*="swiper-button"].inside.stretched {
   min-width: 3rem;
   width: 10%;
 }
-@media screen and (min-width: 1300px) {
-  button[class*="swiper-button"].outside {
-    width: 8vw;
-  }
-}
 button[class*="swiper-button"].outside.stretched {
   min-width: 3rem;
   width: 8vw;
 }
 @media screen and (min-width: 1300px) {
-  button[class*="swiper-button"].outside.compact {
-    width: 4vw;
+  button[class*="swiper-button"].outside:not(.compact) {
+    width: 8vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .nested.slider.relative button[class*="swiper-button"].outside.compact.swiper-button-prev {
+    left: -5vw;
+  }
+  .nested.slider.relative button[class*="swiper-button"].outside.compact.swiper-button-next {
+    right: -5vw;
   }
 }
 .fullscreen.swiper button[class*="swiper-button"] {

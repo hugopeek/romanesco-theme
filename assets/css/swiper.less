@@ -93,6 +93,21 @@
         .swiper-pagination-bullet {
             margin: 0 2px;
         }
+
+        .nested.slider.relative.pagination & {
+            bottom: -3rem;
+        }
+    }
+}
+
+// Wrapper for slider in nested layouts
+.nested.slider {
+    &.relative {
+        position: relative;
+
+        &.pagination {
+            margin-bottom: 5rem;
+        }
     }
 }
 
@@ -138,22 +153,29 @@ button[class*="swiper-button"] {
     // Outside buttons are positioned along the left and right edge of the
     //  closest relative parent container by default.
     &.outside {
-        @media screen and (min-width: @largeMonitorBreakpoint) {
-            width: 8vw;
-        }
-
         &.stretched {
             min-width: 3rem;
             width: 8vw;
         }
 
-        // The outside compact variant keeps the buttons closer to the slider
+        &:not(.compact) {
+            @media screen and (min-width: @largeMonitorBreakpoint) {
+                width: 8vw;
+            }
+        }
+
+        // The compact variant positions the buttons relative to the slider
         //  container. This is useful if the relative parent container contains
         //  other content too, which would pull the nav buttons out of alignment
         //  with the slider.
-        &.compact {
-            @media screen and (min-width: @largeMonitorBreakpoint) {
-                width: 4vw;
+        .nested.slider.relative &.compact {
+            @media screen and (min-width: @tabletBreakpoint) {
+                &.swiper-button-prev {
+                    left: -5vw;
+                }
+                &.swiper-button-next {
+                    right: -5vw;
+                }
             }
         }
     }
