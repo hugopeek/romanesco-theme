@@ -5,7 +5,7 @@
 i.icon > svg {
   height: 1.1em;
   width: 1.1em;
-  margin: -0.2em 0; // verrrry scientific
+  //margin: -0.2em 0; // verrrry scientific
 }
 
 // MODX icons in pattern library
