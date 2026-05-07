@@ -98,6 +98,17 @@
     }
 }
 
+// Circular icon buttons
+.ui.circular.icon.button {
+    min-height: @circularMinWidth;
+}
+.ui.circular.buttons .button > .icon,
+.ui.circular.button > .icon {
+    width: @circularIconWidth;
+    height: @circularIconWidth;
+    vertical-align: middle;
+}
+
 // Social share/connect buttons
 .social.buttons {
     display: inline-flex;

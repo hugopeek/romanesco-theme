@@ -6,6 +6,7 @@ i.icon > svg {
   height: 1.1em;
   width: 1.1em;
   //margin: -0.2em 0; // verrrry scientific
+  max-width: 100%; // that's more like it
 }
 
 // MODX icons in pattern library

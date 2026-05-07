@@ -16,3 +16,7 @@
 @tertiaryInvertedColor: @invertedMutedTextColor;
 @tertiaryInvertedHoverColor: @invertedHoveredTextColor;
 @tertiaryInvertedBoxShadow: inset 0 -@tertiaryLineHeight 0 @tertiaryInvertedColor;
+
+// Circular buttons
+@circularIconWidth: 1.1em;
+@circularMinWidth: 2.9em;
