@@ -145,3 +145,18 @@ body.modern #content .ui.container,
         }
     }
 }
+
+// Set spacing for breakout containers
+.ui.breakout.container {
+    margin-top: @verticalRhythmParagraph;
+    + .ui.container {
+        margin-top: @verticalRhythmParagraph;
+    }
+
+    &.text,
+    &.text + .ui.container,
+    .ui.text.container:not(.conventional) + &,
+    + .ui.text.container:not(.conventional) {
+        margin-top: @verticalRhythm3;
+    }
+}
