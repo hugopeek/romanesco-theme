@@ -62,6 +62,12 @@
     margin-top: @verticalRhythm5;
 }
 
+// Make emphasized cards stand out a little more
+.ui.raised.card {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 // Fix margins for single cards and stackable cards in single column mode
 .ui.one.cards > .card {
     margin-left: 0;
