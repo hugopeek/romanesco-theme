@@ -155,8 +155,13 @@ body.modern #content .ui.container,
 
     &.text,
     &.text + .ui.container,
+    &:has(.ui.image:last-child) + .ui.container,
     .ui.text.container:not(.conventional) + &,
     + .ui.text.container:not(.conventional) {
         margin-top: @verticalRhythm3;
+    }
+
+    > .nested.grid:first-child {
+        margin-top: @verticalRhythm2;
     }
 }

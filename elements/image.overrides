@@ -47,7 +47,8 @@
     }
 
     // Offset content below
-    .content & + * {
+    .content & + *,
+    #content & + p {
         margin-top: @verticalRhythm3;
     }
 }
