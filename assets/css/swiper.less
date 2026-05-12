@@ -269,20 +269,9 @@ body.dimmed.scrolling > .dimmer {
             background: @transparentWhite;
         }
 
-        &:before,
-        &:after {
-            font-family: swiper-icons;
-            font-size: calc(var(--swiper-navigation-size) / 1.5);
-            font-weight: 900;
-            color: @invertedTextColor;
-        }
-
         &:before {
-            content: 'next';
-        }
-        &:after {
-            content: 'prev';
-            margin-left: -2.1px;
+            content: '\2715';
+            font-size: 2em;
         }
     }
 

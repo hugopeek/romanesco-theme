@@ -638,19 +638,9 @@ body.dimmed.scrolling > .dimmer {
 .modal.overlay .inside.close.icon:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-.modal.overlay .inside.close.icon:before,
-.modal.overlay .inside.close.icon:after {
-  font-family: swiper-icons;
-  font-size: calc(var(--swiper-navigation-size) / 1.5);
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.9);
-}
 .modal.overlay .inside.close.icon:before {
-  content: 'next';
-}
-.modal.overlay .inside.close.icon:after {
-  content: 'prev';
-  margin-left: -2.1px;
+  content: '\2715';
+  font-size: 2em;
 }
 .modal.overlay .swiper {
   border-radius: 0 !important;
