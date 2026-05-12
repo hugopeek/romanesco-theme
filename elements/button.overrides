@@ -4,9 +4,15 @@
 
 .ui.button {
     // Buttons in center aligned elements don't align properly with the default margins
-    [class*="center aligned"] &:not(.attached):not(.center.aligned):not(:last-child) {
-        margin-left: @horizontalMargin;
+    [class*="center aligned"] & {
+        &:not(.attached):not(.center.aligned) {
+            margin-left: @horizontalMargin;
+        }
+        &:last-child {
+            margin-right: @horizontalMargin;
+        }
     }
+
     // Reset this behaviour for nested left aligned containers
     [class*="center aligned"] .left.aligned & {
         margin-left: 0;
@@ -100,13 +106,16 @@
 
 // Circular icon buttons
 .ui.circular.icon.button {
-    min-height: @circularMinWidth;
+    width: @circularMinWidth;
+    height: @circularMinWidth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .ui.circular.buttons .button > .icon,
 .ui.circular.button > .icon {
     width: @circularIconWidth;
     height: @circularIconWidth;
-    vertical-align: middle;
 }
 
 // Social share/connect buttons
