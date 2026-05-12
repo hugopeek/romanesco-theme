@@ -476,12 +476,14 @@
   --swiper-theme-color: rgba(255, 255, 255, 0.9);
   --swiper-pagination-color: #fff;
 }
+.swiper-wrapper {
+  height: auto;
+}
 .swiper-wrapper.ui.cards,
 .swiper-wrapper.ui.grid {
   flex-wrap: initial;
   margin: 0;
   justify-content: normal;
-  height: auto;
 }
 .swiper-wrapper.ui.cards.nested,
 .swiper-wrapper.ui.grid.nested {
@@ -510,8 +512,9 @@
 .swiper-pagination.outside {
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: inherit;
   width: 100%;
+  margin-top: 1em;
 }
 .swiper-pagination.outside .swiper-pagination-bullet {
   margin: 0 2px;
