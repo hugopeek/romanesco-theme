@@ -42,12 +42,13 @@
 
 // The wrapper contains the slides
 .swiper-wrapper {
+    height: auto; // Fix for stretching to 100% height in some cases
+
     &.ui.cards,
     &.ui.grid {
         flex-wrap: initial;
         margin: 0;
         justify-content: normal;
-        height: auto; // Fix for stretching to 100% height in some cases
 
         &.nested {
             margin-bottom: 0 !important;
@@ -87,8 +88,9 @@
     &.outside {
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: inherit;
         width: 100%;
+        margin-top: 1em;
 
         .swiper-pagination-bullet {
             margin: 0 2px;
