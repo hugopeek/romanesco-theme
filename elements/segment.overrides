@@ -304,6 +304,11 @@
         .ui.icon.button {
             margin-top: 0;
             margin-left: .5em;
+
+            > .icon {
+                height: @circularIconWidth;
+                vertical-align: bottom;
+            }
         }
     }
 }
